@@ -1,0 +1,52 @@
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+public class PlayerMovement : MonoBehaviour
+{
+    [Header("Player Movement Settings")]
+    [SerializeField] float moveSpeed = 5f;
+    [SerializeField] float jumpForce = 10f;
+
+    [Header("Ground Check Settings")]
+    [SerializeField] Transform groundCheck;
+    [SerializeField] LayerMask groundLayer;
+
+    private Rigidbody2D rb;
+    private float horizontalInput;
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
+    private void FixedUpdate()
+    {
+        rb.linearVelocity = new Vector2(horizontalInput * moveSpeed, rb.linearVelocity.y);
+    }
+
+    public void Move(InputAction.CallbackContext context)
+    {
+        horizontalInput = context.ReadValue<Vector2>().x;
+    }
+
+    public void Jump(InputAction.CallbackContext context)
+    {
+        if (context.started && IsGrounded())
+        {
+            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        }
+    }
+
+    private bool IsGrounded()
+    {
+        if (groundCheck == null) return false;
+
+        return Physics2D.OverlapCapsule(
+            groundCheck.position,
+            new Vector2(1f, 0.1f),
+            CapsuleDirection2D.Horizontal,
+            0f,
+            groundLayer
+        );
+    }
+}
