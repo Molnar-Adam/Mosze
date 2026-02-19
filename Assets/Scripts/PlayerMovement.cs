@@ -14,6 +14,11 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private float horizontalInput;
 
+    public float KBForce;
+    public float KBCounter;
+    public float KBTTime;
+    public bool KFromRight; 
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -21,7 +26,23 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.linearVelocity = new Vector2(horizontalInput * moveSpeed, rb.linearVelocity.y);
+        if(KBCounter <= 0)
+        {
+            rb.linearVelocity = new Vector2(horizontalInput * moveSpeed, rb.linearVelocity.y);
+        }
+        else
+        {
+            if(KFromRight == true)
+            {
+                rb.linearVelocity = new Vector2(-KBForce, KBForce);
+            }
+            if (KFromRight == false)
+            {
+                rb.linearVelocity = new Vector2(KBForce, KBForce);
+            }
+
+            KBCounter -= Time.deltaTime;
+        }
     }
 
     public void Move(InputAction.CallbackContext context)
