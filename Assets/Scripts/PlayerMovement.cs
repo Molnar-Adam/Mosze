@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(KBCounter <= 0)
         {
-            rb.linearVelocity = new Vector2(horizontalInput * moveSpeed, rb.linearVelocity.y);
+            rb.linearVelocity = new Vector2(HorizontalInput * moveSpeed, rb.linearVelocity.y);
         }
         else
         {
@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move(InputAction.CallbackContext context)
     {
-        horizontalInput = context.ReadValue<Vector2>().x;
+        HorizontalInput = context.ReadValue<Vector2>().x;
     }
 
     public void Jump(InputAction.CallbackContext context)
@@ -56,6 +56,12 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
+    }
+
+    public float HorizontalInput
+    {
+        get => horizontalInput;
+        set => horizontalInput = value;
     }
 
     private bool IsGrounded()
