@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Ground Check Settings")]
     [SerializeField] Transform groundCheck;
-    [SerializeField] LayerMask groundLayer;
+    [SerializeField] LayerMask[] groundLayers;
 
     private Rigidbody2D rb;
     private float horizontalInput;
@@ -66,14 +66,20 @@ public class PlayerMovement : MonoBehaviour
 
     private bool IsGrounded()
     {
-        if (groundCheck == null) return false;
+        if (groundCheck == null || groundLayers == null || groundLayers.Length == 0) return false;
+
+        int combinedGroundMask = 0;
+        foreach (LayerMask groundLayer in groundLayers)
+        {
+            combinedGroundMask |= groundLayer.value;
+        }
 
         return Physics2D.OverlapCapsule(
             groundCheck.position,
             new Vector2(1f, 0.1f),
             CapsuleDirection2D.Horizontal,
             0f,
-            groundLayer
+            combinedGroundMask
         );
     }
 }
