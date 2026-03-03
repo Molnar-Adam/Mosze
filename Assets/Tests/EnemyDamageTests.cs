@@ -5,58 +5,72 @@ using UnityEngine.TestTools;
 
 public class EnemyDamageTests
 {
+    private const int StartingHealth = 10;
+    private const int DamageAmount = 2;
+
     [UnityTest]
-    public IEnumerator Enemy_Damages_Player_On_Collision()
+    public IEnumerator Collision_With_Enemy_Reduces_Player_Health_And_Triggers_Knockback()
     {
-        // 1. SETUP
-        GameObject playerObj = new GameObject("Player");
-        playerObj.tag = "Player";
+        // Arrange
+        var player = CreatePlayer(out var health, out var movement);
+        var enemy = CreateEnemy(health, movement);
 
-        var rb = playerObj.AddComponent<Rigidbody2D>();
-        rb.gravityScale = 0;
-        rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
-        rb.sleepMode = RigidbodySleepMode2D.NeverSleep; // NE aludjon el
+        enemy.transform.position = Vector3.zero;
+        player.transform.position = new Vector3(0.5f, 0f, 0f);
 
-        var col = playerObj.AddComponent<BoxCollider2D>();
-        col.size = new Vector2(1, 1); // Legyen mérete!
-        col.isTrigger = false;
-
-        var pHealth = playerObj.AddComponent<PlayerHealth>();
-        var pMove = playerObj.AddComponent<PlayerMovement>();
-        pHealth.Health = 10;
-        pMove.KBTTime = 0.5f;
-
-        // Ellenség létrehozása
-        GameObject enemyObj = new GameObject("Enemy");
-        var eCol = enemyObj.AddComponent<BoxCollider2D>();
-        eCol.size = new Vector2(1, 1);
-        eCol.isTrigger = false;
-
-        var eDamage = enemyObj.AddComponent<EnemyDamage>();
-
-        // Damage beállítása
-        var field = typeof(EnemyDamage).GetField("damage", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-        field.SetValue(eDamage, 2);
-
-        eDamage.playerHealth = pHealth;
-        eDamage.playerMovement = pMove;
-
-        // 2. ACT
-        enemyObj.transform.position = Vector3.zero;
-        playerObj.transform.position = new Vector3(0.5f, 0, 0); // Legyenek átfedésben!
-
-        // Kényszerítjük a fizikai motort, hogy észlelje az ütközést
         Physics2D.SyncTransforms();
 
-        // Várunk egy kicsit többet
+        // Act
         yield return new WaitForSeconds(0.2f);
         yield return new WaitForFixedUpdate();
 
-        // 3. ASSERT
-        Assert.AreEqual(8, pHealth.Health, "A HP nem csökkent! Az ütközés nem történt meg.");
-        Assert.Greater(pMove.KBCounter, 0, "A Knockback nem aktiválódott!");
+        // Assert
+        Assert.That(health.Health, Is.EqualTo(StartingHealth - DamageAmount));
+        Assert.That(movement.KBCounter, Is.GreaterThan(0));
 
-        Object.Destroy(playerObj);
-        Object.Destroy(enemyObj);
+        Object.Destroy(player);
+        Object.Destroy(enemy);
+    }
+
+    private GameObject CreatePlayer(out PlayerHealth health, out PlayerMovement movement)
+    {
+        var player = new GameObject("Player");
+        player.tag = "Player";
+
+        var rb = player.AddComponent<Rigidbody2D>();
+        rb.gravityScale = 0f;
+        rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+        rb.sleepMode = RigidbodySleepMode2D.NeverSleep;
+
+        var collider = player.AddComponent<BoxCollider2D>();
+        collider.size = Vector2.one;
+
+        health = player.AddComponent<PlayerHealth>();
+        movement = player.AddComponent<PlayerMovement>();
+
+        health.Health = StartingHealth;
+        movement.KBTTime = 0.5f;
+
+        return player;
+    }
+
+    private GameObject CreateEnemy(PlayerHealth health, PlayerMovement movement)
+    {
+        var enemy = new GameObject("Enemy");
+
+        var collider = enemy.AddComponent<BoxCollider2D>();
+        collider.size = Vector2.one;
+
+        var damage = enemy.AddComponent<EnemyDamage>();
+
+        var field = typeof(EnemyDamage)
+            .GetField("damage", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+
+        field.SetValue(damage, DamageAmount);
+
+        damage.playerHealth = health;
+        damage.playerMovement = movement;
+
+        return enemy;
     }
 }

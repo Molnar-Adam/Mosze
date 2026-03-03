@@ -5,43 +5,46 @@ using UnityEngine.TestTools;
 
 public class PlayerHealthTests
 {
+    private const int DefaultHealth = 10;
+
     [UnityTest]
-    public IEnumerator Health_Decreases_When_Taking_Damage()
+    public IEnumerator TakeDamage_Reduces_Health_By_DamageAmount()
     {
-        // ARRANGE - Előkészítés
-        GameObject playerObj = new GameObject();
-        PlayerHealth health = playerObj.AddComponent<PlayerHealth>();
+        // Arrange
+        var player = CreatePlayer(DefaultHealth);
+        var health = player.GetComponent<PlayerHealth>();
 
-        // Mivel a Start() nem fut le azonnal az AddComponent után, 
-        // manuálisan beállítjuk a kezdő értéket a teszthez.
-        health.Health = 10;
-
-        // ACT - Művelet
+        // Act
         health.TakeDamage(3);
 
-        // ASSERT - Ellenőrzés
-        Assert.AreEqual(7, health.Health, "A HP-nak 7-nek kellene lennie 3 sebzés után!");
+        // Assert
+        Assert.That(health.Health, Is.EqualTo(DefaultHealth - 3));
 
-        Object.Destroy(playerObj);
+        Object.Destroy(player);
         yield return null;
     }
 
     [UnityTest]
     public IEnumerator Player_Is_Destroyed_When_Health_Reaches_Zero()
     {
-        // ARRANGE
-        GameObject playerObj = new GameObject("TestPlayer");
-        PlayerHealth health = playerObj.AddComponent<PlayerHealth>();
-        health.Health = 5;
+        // Arrange
+        var player = CreatePlayer(5);
+        var health = player.GetComponent<PlayerHealth>();
 
-        // ACT
+        // Act
         health.TakeDamage(5);
+        yield return null; // Destroy a frame végén fut le
 
-        // Várnunk kell egy frame-et, mert a Destroy() csak a frame végén hajtódik végre
-        yield return null;
+        // Assert
+        Assert.That(player == null, Is.True);
+    }
 
-        // ASSERT
-        // Megpróbáljuk megkeresni az objektumot. Ha null, akkor sikeresen törlődött.
-        Assert.IsTrue(playerObj == null, "A játékos objektumnak meg kellett volna semmisülnie!");
+    private GameObject CreatePlayer(int startingHealth)
+    {
+        var player = new GameObject("Player");
+        var health = player.AddComponent<PlayerHealth>();
+        health.Health = startingHealth;
+
+        return player;
     }
 }

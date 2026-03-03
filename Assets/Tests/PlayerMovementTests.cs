@@ -5,52 +5,55 @@ using UnityEngine.TestTools;
 
 public class PlayerMovementTests
 {
+    private const float KnockbackForce = 10f;
+
     [UnityTest]
-    public IEnumerator Player_Moves_Right_When_Input_Is_Positive()
+    public IEnumerator Positive_Input_Moves_Player_To_The_Right()
     {
-        // ARRANGE (Előkészítés)
-        GameObject playerObj = new GameObject();
-        Rigidbody2D rb = playerObj.AddComponent<Rigidbody2D>();
-        // Beállítjuk, hogy ne essen le a végtelenbe a teszt alatt
-        rb.gravityScale = 0;
+        // Arrange
+        var player = CreatePlayer(out var rb, out var movement);
+        rb.gravityScale = 0f;
 
-        PlayerMovement movement = playerObj.AddComponent<PlayerMovement>();
+        var startX = player.transform.position.x;
 
-        float startX = playerObj.transform.position.x;
-
-        // ACT (Művelet)
-        // Szimuláljuk, mintha a joystick jobbra lenne tolva
+        // Act
         movement.HorizontalInput = 1f;
 
-        // Várunk 2-3 fizikai frissítést (FixedUpdate)
         yield return new WaitForFixedUpdate();
         yield return new WaitForFixedUpdate();
 
-        // ASSERT (Ellenőrzés)
-        Assert.Greater(playerObj.transform.position.x, startX, "A játékosnak jobbra kellett volna mozdulnia!");
+        // Assert
+        Assert.That(player.transform.position.x, Is.GreaterThan(startX));
 
-        Object.Destroy(playerObj);
+        Object.Destroy(player);
     }
 
     [UnityTest]
-    public IEnumerator Knockback_Moves_Player_In_Correct_Direction()
+    public IEnumerator Knockback_From_Right_Pushes_Player_Left()
     {
-        // ARRANGE
-        GameObject playerObj = new GameObject();
-        Rigidbody2D rb = playerObj.AddComponent<Rigidbody2D>();
-        PlayerMovement movement = playerObj.AddComponent<PlayerMovement>();
+        // Arrange
+        var player = CreatePlayer(out var rb, out var movement);
 
-        movement.KBForce = 10f;
-        movement.KBCounter = 0.5f; // Aktiváljuk a knockback-et
-        movement.KFromRight = true; // Jobbról érkezik az ütés -> balra kell repülni
+        movement.KBForce = KnockbackForce;
+        movement.KBCounter = 0.5f;
+        movement.KFromRight = true;
 
-        // ACT
+        // Act
         yield return new WaitForFixedUpdate();
 
-        // ASSERT
-        // Ha jobbról lökik, a sebességének (velocity) negatívnak kell lennie X tengelyen
-        Assert.Less(rb.linearVelocity.x, 0, "Knockback esetén balra kellene repülni!");
+        // Assert
+        Assert.That(rb.linearVelocity.x, Is.LessThan(0));
 
-        Object.Destroy(playerObj);
+        Object.Destroy(player);
+    }
+
+    private GameObject CreatePlayer(out Rigidbody2D rb, out PlayerMovement movement)
+    {
+        var player = new GameObject("Player");
+
+        rb = player.AddComponent<Rigidbody2D>();
+        movement = player.AddComponent<PlayerMovement>();
+
+        return player;
     }
 }
