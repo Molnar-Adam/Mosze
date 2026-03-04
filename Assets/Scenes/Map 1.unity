@@ -570,7 +570,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -687.3299, y: 475}
+  m_AnchoredPosition: {x: -403, y: 252}
   m_SizeDelta: {x: 500, y: 64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &522951076
@@ -750,6 +750,7 @@ GameObject:
   - component: {fileID: 817100650}
   - component: {fileID: 817100652}
   - component: {fileID: 817100651}
+  - component: {fileID: 817100653}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -772,9 +773,7 @@ MonoBehaviour:
   moveSpeed: 5
   jumpForce: 10
   groundCheck: {fileID: 1324959176}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
+  groundLayers: []
   KBForce: 5
   KBCounter: 0
   KBTTime: 0.2
@@ -1103,6 +1102,21 @@ DistanceJoint2D:
   m_AutoConfigureDistance: 0
   m_Distance: 4.993378
   m_MaxDistanceOnly: 0
+--- !u!114 &817100653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 817100642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bad0f7ae89fd234e8d8c6a2bcbd1a76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: NewAssembly::HPHeart
+  fullHeart: {fileID: 21300000, guid: 2dffe2f998250ae4aae7ebc044ea46dc, type: 3}
+  HalfHeart: {fileID: 21300000, guid: f2bb83c6a6757a0488fa4ad57daa0930, type: 3}
+  emptyHeart: {fileID: 21300000, guid: a55ff43126deddb48852dceca1e180d4, type: 3}
 --- !u!1 &930210052
 GameObject:
   m_ObjectHideFlags: 0
