@@ -7,35 +7,33 @@ Ez az ábra a játékunk logikai felépítését és a C# scriptek kapcsolatát mutatja b
 ```mermaid
 graph TD
     subgraph Unity_Project [Unity 2D Project Structure]
-        direction TB
         
-        subgraph Scenes_Layer [Scenes / Maps]
+        subgraph Scenes_Layer [Scenes and Maps]
             Menu[Menu Scene]
             Maps[Map 1, 2, 3]
         end
 
-        subgraph Script_Logic [C# Scripts / Logic]
-            direction TR
-            Player_Ctrl[Player: Movement, GrapplingHook]
-            Health_Sys[Health: PlayerHealth, HPController, HPHeart]
-            Enemy_Logic[Enemies: BatAI, RatMovement, EnemyDamage]
-            Env_Interactions[Environment: MovingPlatform, FallingPlatform, ItemPickup]
-            System_Scripts[Systems: SceneSpawnSystem, SwapScene, CollectedItemsState]
+        subgraph Script_Logic [C# Scripts and Logic]
+            Player_Ctrl[Player - Movement and GrapplingHook]
+            Health_Sys[Health - PlayerHealth and HPController]
+            Enemy_Logic[Enemies - BatAI and RatMovement]
+            Env_Interactions[Environment - Platforms and Items]
+            System_Scripts[Systems - Spawning and Scenes]
         end
 
-        subgraph Asset_Folders [Assets & Sprites]
-            Sprites[Sprites: Characters, Tiles, Platforms]
+        subgraph Asset_Folders [Assets and Sprites]
+            Sprites[Sprites - Characters and Tiles]
             Anims[Animations]
             Prefabs[Prefabs]
         end
     end
 
-    %% Kapcsolatok ábrázolása
-    System_Scripts -->|Kezeli| Scenes_Layer
-    Player_Ctrl -->|Interakció| Env_Interactions
+    %% Kapcsolatok
+    System_Scripts --> Scenes_Layer
+    Player_Ctrl --> Env_Interactions
     Health_Sys --- Player_Ctrl
-    Enemy_Logic -->|Sebzi| Health_Sys
-    Asset_Folders -.->|Megjelenítés| Scenes_Layer
+    Enemy_Logic --> Health_Sys
+    Asset_Folders -.-> Scenes_Layer
 
     style Script_Logic fill:#f5f5f5,stroke:#333,stroke-width:2px
     style System_Scripts fill:#d1e7ff,stroke:#004a99 
