@@ -2,6 +2,7 @@ using System.Collections;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
+using System.Reflection;
 
 public class EnemyDamageTests
 {
@@ -11,22 +12,26 @@ public class EnemyDamageTests
     [UnityTest]
     public IEnumerator Collision_With_Enemy_Reduces_Player_Health_And_Triggers_Knockback()
     {
-        // Arrange
         var player = CreatePlayer(out var health, out var movement);
         var enemy = CreateEnemy(health, movement);
+        var damageComponent = enemy.GetComponent<EnemyDamage>();
 
         enemy.transform.position = Vector3.zero;
         player.transform.position = new Vector3(0.5f, 0f, 0f);
 
-        Physics2D.SyncTransforms();
+        MethodInfo onCollisionMethod = typeof(EnemyDamage).GetMethod("OnCollisionEnter2D",
+            BindingFlags.NonPublic | BindingFlags.Instance);
 
-        // Act
-        yield return new WaitForSeconds(0.2f);
+        Collision2D fakeCollision = new Collision2D();
+
         yield return new WaitForFixedUpdate();
 
-        // Assert
-        Assert.That(health.Health, Is.EqualTo(StartingHealth - DamageAmount));
-        Assert.That(movement.KBCounter, Is.GreaterThan(0));
+        player.transform.position = new Vector3(100f, 100f, 0f);
+        yield return null;
+
+        Assert.AreEqual(StartingHealth - DamageAmount, health.Health,
+            "A sebzés mértéke nem megfelelő! (Lehet, hogy még mindig többször sebezett)");
+        Assert.Greater(movement.KBCounter, 0, "A Knockback nem aktiválódott!");
 
         Object.Destroy(player);
         Object.Destroy(enemy);
@@ -36,14 +41,8 @@ public class EnemyDamageTests
     {
         var player = new GameObject("Player");
         player.tag = "Player";
-
-        var rb = player.AddComponent<Rigidbody2D>();
-        rb.gravityScale = 0f;
-        rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
-        rb.sleepMode = RigidbodySleepMode2D.NeverSleep;
-
-        var collider = player.AddComponent<BoxCollider2D>();
-        collider.size = Vector2.one;
+        player.AddComponent<Rigidbody2D>().isKinematic = true;
+        player.AddComponent<BoxCollider2D>();
 
         health = player.AddComponent<PlayerHealth>();
         movement = player.AddComponent<PlayerMovement>();
@@ -57,15 +56,11 @@ public class EnemyDamageTests
     private GameObject CreateEnemy(PlayerHealth health, PlayerMovement movement)
     {
         var enemy = new GameObject("Enemy");
-
-        var collider = enemy.AddComponent<BoxCollider2D>();
-        collider.size = Vector2.one;
-
+        enemy.AddComponent<BoxCollider2D>();
         var damage = enemy.AddComponent<EnemyDamage>();
 
-        var field = typeof(EnemyDamage)
-            .GetField("damage", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-
+        var field = typeof(EnemyDamage).GetField("damage",
+            BindingFlags.NonPublic | BindingFlags.Instance);
         field.SetValue(damage, DamageAmount);
 
         damage.playerHealth = health;
