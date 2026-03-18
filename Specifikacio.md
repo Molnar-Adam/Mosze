@@ -1,4 +1,4 @@
-# TBD Entertainment – Játék Specifikáció
+# TBD Entertainment – Cellar Break Specifikáció
 
 **Tantárgy:** Modern szoftverfejlesztési eszközök  
 **Félév:** 2025-26/2  
