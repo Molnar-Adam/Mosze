@@ -5,8 +5,16 @@ public class ItemPickup : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI PickupText;
     [SerializeField] private string itemId;
+    [SerializeField] private Transform respawnLocation;
 
     private bool pickupAllowed;
+    private Timer timer;
+    private Transform playerTransform;
+
+    private void Awake()
+    {
+        ResolveTimerReference();
+    }
 
     private void Start()
     {
@@ -38,6 +46,8 @@ public class ItemPickup : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            playerTransform = collision.transform;
+
             if (PickupText != null)
             {
                 PickupText.gameObject.SetActive(true);
@@ -51,6 +61,8 @@ public class ItemPickup : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            playerTransform = null;
+
             if (PickupText != null)
             {
                 PickupText.gameObject.SetActive(false);
@@ -62,6 +74,24 @@ public class ItemPickup : MonoBehaviour
 
     private void Pickup()
     {
+        ResolveTimerReference();
+
+        if (timer != null && timer.IsTimerRunning && playerTransform != null)
+        {
+            if (respawnLocation != null)
+            {
+                playerTransform.position = respawnLocation.position;
+                Rigidbody2D rb = playerTransform.GetComponent<Rigidbody2D>();
+                if (rb != null)
+                {
+                    rb.linearVelocity = Vector2.zero;
+                    rb.angularVelocity = 0f;
+                }
+            }
+
+            timer.TriggerTimerEnd(playerTransform);
+        }
+
         if (!CollectedItemsState.TryCollect(itemId))
         {
             return;
@@ -73,5 +103,15 @@ public class ItemPickup : MonoBehaviour
         }
 
         Destroy(gameObject);
+    }
+
+    private void ResolveTimerReference()
+    {
+        if (timer != null)
+        {
+            return;
+        }
+
+        timer = FindFirstObjectByType<Timer>();
     }
 }
