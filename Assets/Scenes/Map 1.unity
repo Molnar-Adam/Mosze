@@ -670,7 +670,7 @@ TilemapRenderer:
   m_SortingOrder: -10
   m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0.13999999, y: 0.13999999, z: 0}
+  m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -686,15 +686,39 @@ Tilemap:
   m_Enabled: 1
   m_Tiles: {}
   m_AnimatedTiles: {}
-  m_TileAssetArray: []
-  m_TileSpriteArray: []
-  m_TileMatrixArray: []
-  m_TileColorArray: []
+  m_TileAssetArray:
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  m_TileSpriteArray:
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  m_TileMatrixArray:
+  - m_RefCount: 0
+    m_Data:
+      e00: 4.000023
+      e01: 0
+      e02: -1.0486663e-37
+      e03: 4.0000076
+      e10: 7.1e-43
+      e11: 0
+      e12: 2.27e-43
+      e13: 7.1e-43
+      e20: -8.2166963e-25
+      e21: 0
+      e22: -1.6261835e+29
+      e23: -3.2967267e-18
+      e30: 4.5908e-41
+      e31: 0
+      e32: 7.13e-43
+      e33: 7.1e-43
+  m_TileColorArray:
+  - m_RefCount: 0
+    m_Data: {r: -1.0488385e-37, g: -1.0488385e-37, b: -1.0488385e-37, a: -1.0488385e-37}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Origin: {x: 0, y: 0, z: 0}
-  m_Size: {x: 0, y: 0, z: 1}
+  m_Origin: {x: -16, y: -10, z: 0}
+  m_Size: {x: 16, y: 10, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
