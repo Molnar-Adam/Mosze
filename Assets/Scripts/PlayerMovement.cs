@@ -8,10 +8,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float jumpForce = 10f;
 
     [Header("Ground Check Settings")]
-    [SerializeField] Transform groundCheck;
     [SerializeField] LayerMask[] groundLayers;
+    [SerializeField] float groundProbeDistance = 0.08f;
+    [SerializeField] float minGroundNormalY = 0.6f;
 
     private Rigidbody2D rb;
+    private Collider2D playerCollider;
+    private readonly RaycastHit2D[] groundHits = new RaycastHit2D[8];
     private float horizontalInput;
 
     public float KBForce;
@@ -22,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        playerCollider = GetComponent<Collider2D>();
     }
 
     private void FixedUpdate()
@@ -66,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool IsGrounded()
     {
-        if (groundCheck == null || groundLayers == null || groundLayers.Length == 0) return false;
+        if (playerCollider == null || groundLayers == null || groundLayers.Length == 0) return false;
 
         int combinedGroundMask = 0;
         foreach (LayerMask groundLayer in groundLayers)
@@ -74,12 +78,20 @@ public class PlayerMovement : MonoBehaviour
             combinedGroundMask |= groundLayer.value;
         }
 
-        return Physics2D.OverlapCapsule(
-            groundCheck.position,
-            new Vector2(1f, 0.1f),
-            CapsuleDirection2D.Horizontal,
-            0f,
-            combinedGroundMask
-        );
+        ContactFilter2D contactFilter = new ContactFilter2D();
+        contactFilter.SetLayerMask(combinedGroundMask);
+        contactFilter.useLayerMask = true;
+        contactFilter.useTriggers = false;
+
+        int hitCount = playerCollider.Cast(Vector2.down, contactFilter, groundHits, groundProbeDistance);
+        for (int i = 0; i < hitCount; i++)
+        {
+            if (groundHits[i].normal.y >= minGroundNormalY)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

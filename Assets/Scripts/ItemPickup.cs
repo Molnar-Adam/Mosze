@@ -97,6 +97,15 @@ public class ItemPickup : MonoBehaviour
             return;
         }
 
+        if (itemId == "Heal" && playerTransform != null)
+        {
+            PlayerHealth playerHealth = playerTransform.GetComponent<PlayerHealth>();
+            if (playerHealth != null)
+            {
+                playerHealth.TakeDamage(-2);
+            }
+        }
+
         if (PickupText != null)
         {
             PickupText.gameObject.SetActive(false);

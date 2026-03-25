@@ -8,6 +8,7 @@ public class RatMovement : MonoBehaviour
 
     private Vector3 patrolPointAWorld;
     private Vector3 patrolPointBWorld;
+    private float previousX;
 
     public Transform playerTransform;
     public bool isChasing;
@@ -24,6 +25,7 @@ public class RatMovement : MonoBehaviour
 
         patrolPointAWorld = patrolPoints[0].position;
         patrolPointBWorld = patrolPoints[1].position;
+        previousX = transform.position.x;
     }
 
     void Update()
@@ -32,13 +34,13 @@ public class RatMovement : MonoBehaviour
         {
             if (transform.position.x > playerTransform.position.x)
             {
-                transform.localScale = new Vector3(1, 1, 1);
                 transform.position += Vector3.left * moveSpeed * Time.deltaTime;
+                UpdateRotationBasedOnDirection();
             }
             if (transform.position.x < playerTransform.position.x)
             {
-                transform.localScale = new Vector3(-1, 1, 1);
                 transform.position += Vector3.right * moveSpeed * Time.deltaTime;
+                UpdateRotationBasedOnDirection();
             }
              if(Vector2.Distance(transform.position, playerTransform.position) > PartolDistance)
             {
@@ -55,9 +57,9 @@ public class RatMovement : MonoBehaviour
             if (patrolDestination == 0)
             {
                 transform.position = Vector2.MoveTowards(transform.position, patrolPointAWorld, moveSpeed * Time.deltaTime);
+                UpdateRotationBasedOnDirection();
                 if (Vector2.Distance(transform.position, patrolPointAWorld) < .2f)
                 {
-                    transform.localScale = new Vector3(-1, 1, 1);
                     patrolDestination = 1;
                 }
             }
@@ -65,12 +67,25 @@ public class RatMovement : MonoBehaviour
             if (patrolDestination == 1)
             {
                 transform.position = Vector2.MoveTowards(transform.position, patrolPointBWorld, moveSpeed * Time.deltaTime);
+                UpdateRotationBasedOnDirection();
                 if (Vector2.Distance(transform.position, patrolPointBWorld) < .2f)
                 {
-                    transform.localScale = new Vector3(1, 1, 1);
                     patrolDestination = 0;
                 }
             }
         }
+    }
+
+    private void UpdateRotationBasedOnDirection()
+    {
+        if (transform.position.x > previousX)
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+        else if (transform.position.x < previousX)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        previousX = transform.position.x;
     }
 }
