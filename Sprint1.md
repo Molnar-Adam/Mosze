@@ -9,3 +9,6 @@ Molnár Ádám:
     Továbblépéshez szükséges lépések:
     Még van pár funkció ami még hátravan, és  utána el kell kezdeni megtervezni a pályákat, hogy a meglévő játékelemeket,
     hogyan tudjuk elhelyezni, mert erről egyelőre csak egy felületes elképzelés van.
+
+Szabó Ármin:
+    Az első sprint során elkészítettem a játék alap grafikai elemeit (spriteokat), amelyek a környezet és a karakterek megjelenítéséhez szükségesek. Emellett részt vettem a projekt dokumentációjának kidolgozásában, beleértve a specifikáció egyes részeinek elkészítését. Ezek a feladatok megalapozták a játék vizuális és tervezési struktúráját.
