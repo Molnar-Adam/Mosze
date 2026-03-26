@@ -7,6 +7,12 @@ public static class CollectedItemsState
     public const int RequiredItemCount = 3;
 
     private static readonly HashSet<string> CollectedItemIds = new HashSet<string>();
+    private static readonly HashSet<string> RequiredItemIds = new HashSet<string>()
+    {
+        "Map1_Key",
+        "Map2_Key",
+        "Map3_Key"
+    };
 
     public static int CollectedCount
     {
@@ -20,7 +26,7 @@ public static class CollectedItemsState
     {
         get
         {
-            return CollectedCount >= RequiredItemCount;
+            return RequiredItemIds.IsSubsetOf(CollectedItemIds);
         }
     }
 

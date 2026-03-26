@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 8119b800579a3f1419433552ca3e34e2
+guid: 8613da422a57cd747904da8256cf068d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2528463336462082095
-    second: zold_fal_ketto_0
-  - first:
-      213: 5311076682483981980
-    second: zold_fal_ketto_1
+      213: -7895058522316621897
+    second: piano_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: zold_fal_ketto_0
+      name: piano_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 67
-        width: 52
-        height: 52
+        x: 3
+        y: 7
+        width: 58
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,30 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1df149aedf719ecd0800000000000000
-      internalID: -2528463336462082095
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: zold_fal_ketto_1
-      rect:
-        serializedVersion: 2
-        x: 7
-        y: 3
-        width: 52
-        height: 52
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c9e515a7a1cb4b940800000000000000
-      internalID: 5311076682483981980
+      spriteID: 7b7b5609a1e1f6290800000000000000
+      internalID: -7895058522316621897
       vertices: []
       indices: 
       edges: []
@@ -160,8 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      zold_fal_ketto_0: -2528463336462082095
-      zold_fal_ketto_1: 5311076682483981980
+      piano_0: -7895058522316621897
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
