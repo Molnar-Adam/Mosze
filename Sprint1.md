@@ -26,3 +26,10 @@ Gősi Krisztián:
     További pályákhoz sprite-okat készíteni. Karakter sprite-ot rajzolni.
     Véglegesíteni az intro és monológ szövegeket.
     További pálya layout-okat elkészíteni és akadályok lehelyezése.
+
+Papp Csongor:
+	Teszteket írtam a már létező scriptekre, dokumentáltam a játék struktúráját és viselkedését, elkezdtem az első pálya felépítésén dolgozni.
+	Akadályok:
+	Sosem használtam még Unity-t, vagy bármilyen játék fejlesztő programot, így elsőre nem tűnt egyszerűnek a kezelése, valamint nehéz olyan feladatot elvállalni amiben én magam sem vagyok biztos, hogy hogyan kell megoldani.
+	Továbblépéshez szükséges lépések:
+	Több scriptre kell tesztet írnom, valamint be kell fejeznem az első pálya felépítését.
