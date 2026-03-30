@@ -1,3 +1,44 @@
+2026-03-30
+
+Changed:
+-Denevér működés
+-grid egységesítése scenek között
+-Spike működés
+
+2026-03-27
+
+Added:
+-További szoba design
+-Spike sprite
+-main menu és pause menu
+
+2026-03-26
+
+Added:
+-Szövegdoboz
+
+2026-03-25
+
+Added:
+-Heal
+-Spotlight az 1. mapra
+-Zongora sprite
+
+
+Changed:
+-Patkány mozgás script
+-Sprite finomítások
+
+2026-03-24
+
+Added:
+-Szoba minta
+
+2026-03-23
+
+Added:
+-Timed parkour script
+
 2026-03-22
 
 Added:
