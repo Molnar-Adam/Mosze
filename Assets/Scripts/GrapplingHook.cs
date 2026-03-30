@@ -26,32 +26,38 @@ public class GrapplingHook : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
+            Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 directionToMouse = (mouseWorldPos - transform.position).normalized;
+            float distanceToMouse = Vector2.Distance(transform.position, mouseWorldPos);
+
             RaycastHit2D hit = Physics2D.Raycast(
-                origin: Camera.main.ScreenToWorldPoint(Input.mousePosition),
-                direction: Vector2.zero,
-                distance: Mathf.Infinity,
+                origin: (Vector2)transform.position,
+                direction: directionToMouse,
+                distance: distanceToMouse,
                 layerMask: grappleLayer
             );
 
-            if(hit.collider != null)
+            if(hit.collider == null)
             {
-                grapplePoint = hit.point;
-                grapplePoint.z =0;
-
-                float currentDistanceToPoint = Vector2.Distance(transform.position, grapplePoint);
-                if (currentDistanceToPoint > maxGrappleDistance)
-                {
-                    return;
-                }
-
-                joint.connectedAnchor = grapplePoint;
-                joint.enabled = true;
-                targetGrappleDistance = grappleLength;
-                joint.distance = currentDistanceToPoint;
-                rope.SetPosition(0,grapplePoint);
-                rope.SetPosition(1,transform.position);
-                rope.enabled = true;
+                return;
             }
+
+            grapplePoint = hit.point;
+            grapplePoint.z = 0;
+
+            float currentDistanceToPoint = Vector2.Distance(transform.position, grapplePoint);
+            if (currentDistanceToPoint > maxGrappleDistance)
+            {
+                return;
+            }
+
+            joint.connectedAnchor = grapplePoint;
+            joint.enabled = true;
+            targetGrappleDistance = grappleLength;
+            joint.distance = currentDistanceToPoint;
+            rope.SetPosition(0, grapplePoint);
+            rope.SetPosition(1, transform.position);
+            rope.enabled = true;
         }
 
         if(Input.GetMouseButtonUp(0))

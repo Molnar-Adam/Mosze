@@ -1,96 +1,48 @@
 using UnityEngine;
-using Unity.Cinemachine;
 
 public class BatAI : MonoBehaviour
 {
-    [Header("Combat")]
-    public GameObject projectilePrefab;
-    public float fireRate = 2f;
-    public float alertDelay = 0.5f;
+	[SerializeField] private GameObject projectilePrefab;
+	[SerializeField] private Transform shootPoint;
+	[SerializeField] private float shootInterval = 2f;
+	[SerializeField] private float projectileSpeed = 6f;
+	[SerializeField] private float projectileLifetime = 5f;
 
-    [Header("Camera")]
-    public CinemachineCamera roomCamera;
+	private float shootTimer;
 
-    private Animator anim;
-    private bool isAlerted = false;
-    private bool isAttacking = false;
-    private float cameraCheckTimer = 0f;
-    private float alertTimer = 0f;
+	private void Update()
+	{
+		if (projectilePrefab == null)
+		{
+			return;
+		}
 
-    private enum BatState { Calm, Alert, Attacking }
-    private BatState currentState = BatState.Calm;
+		shootTimer += Time.deltaTime;
+		if (shootTimer < shootInterval)
+		{
+			return;
+		}
 
-    void Start()
-    {
-        anim = GetComponent<Animator>();
-        SetState(BatState.Calm);
-    }
+		shootTimer = 0f;
+		Shoot();
+	}
 
-    void Update()
-    {
-        // Check if room camera became active
-        if (!isAlerted && roomCamera != null)
-        {
-            cameraCheckTimer += Time.deltaTime;
-            if (cameraCheckTimer >= 0.1f)
-            {
-                if (roomCamera.Priority >= 100)
-                {
-                    SetState(BatState.Alert);
-                    alertTimer = alertDelay;
-                }
-                cameraCheckTimer = 0f;
-            }
-        }
+	private void Shoot()
+	{
+		Vector3 spawnPosition = shootPoint != null ? shootPoint.position : transform.position;
+		GameObject projectile = Instantiate(projectilePrefab, spawnPosition, Quaternion.identity);
+		Destroy(projectile, projectileLifetime);
 
-        // Transition from Alert to Attacking after delay
-        if (currentState == BatState.Alert)
-        {
-            alertTimer -= Time.deltaTime;
-            if (alertTimer <= 0f)
-            {
-                SetState(BatState.Attacking);
-            }
-        }
-    }
+		if (projectile.GetComponent<BatProjectile>() == null)
+		{
+			projectile.AddComponent<BatProjectile>();
+		}
 
-    void SetState(BatState newState)
-    {
-        if (currentState == newState) return;
-
-        currentState = newState;
-
-        switch (newState)
-        {
-            case BatState.Calm:
-                anim.SetTrigger("Calm");
-                CancelInvoke("FireProjectile");
-                isAlerted = false;
-                isAttacking = false;
-                break;
-
-            case BatState.Alert:
-                anim.SetTrigger("Alert");
-                CancelInvoke("FireProjectile");
-                isAlerted = true;
-                isAttacking = false;
-                break;
-
-            case BatState.Attacking:
-                anim.SetTrigger("Attack");
-                isAlerted = true;
-                isAttacking = true;
-                InvokeRepeating("FireProjectile", 0.2f, fireRate);
-                break;
-        }
-    }
-
-    void FireProjectile()
-    {
-        if (anim != null)
-        {
-            anim.SetTrigger("Shoot");
-        }
-        Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-    }
+		Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+		if (rb != null)
+		{
+			rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+			rb.linearVelocity = Vector2.down * projectileSpeed;
+		}
+	}
 }
