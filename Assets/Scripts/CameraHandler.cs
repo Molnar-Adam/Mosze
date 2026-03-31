@@ -4,7 +4,7 @@ using Unity.Cinemachine;
 public class CameraHandler : MonoBehaviour
 {
     public CinemachineCamera roomCamera;  
-    public CinemachineCamera disablecamera;  // Cameras to deactivate
+    public CinemachineCamera disablecamera;
     public int activePriority = 100;
     public int inactivePriority = 10;
 
@@ -12,8 +12,13 @@ public class CameraHandler : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            if (roomCamera == null)
+            {
+                Debug.LogError("roomCamera nincs beállítva ezen: " + gameObject.name);
+                return;
+            }
+
             roomCamera.Priority = activePriority;
-                disablecamera.Priority = inactivePriority;
         }
     }
 }
