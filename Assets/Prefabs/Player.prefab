@@ -172,8 +172,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 172280411ea94694195d0bb8c613b52f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  moveSpeed: 5
-  jumpForce: 10
+  moveSpeed: 4
+  jumpForce: 8
   groundLayers:
   - serializedVersion: 2
     m_Bits: 64
@@ -183,7 +183,7 @@ MonoBehaviour:
     m_Bits: 256
   groundProbeDistance: 0.08
   minGroundNormalY: 0.6
-  KBForce: 5
+  KBForce: 3
   KBCounter: 0
   KBTTime: 0.2
   KFromRight: 0
@@ -400,7 +400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12cd3b6fb3cd3ac4f865781a16b6c2e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: NewAssembly::GrapplingHook
-  grappleLength: 2
+  grappleLength: 1
   grappleLayer:
     serializedVersion: 2
     m_Bits: 64
