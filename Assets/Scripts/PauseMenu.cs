@@ -1,78 +1,83 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class PauseMenu : MonoBehaviour
 {
-    [SerializeField] private GameObject pauseMenuUI;
-    [SerializeField] private string mainMenuSceneName = "Menu";
+    public GameObject PausePanel;
 
-    public static bool IsPaused { get; private set; }
-
-    private void Start()
+    private void Awake()
     {
-        Resume();
+        EnsureEventSystem();
     }
 
-    private void Update()
+    void Update()
     {
-        if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame)
+        if (DeathPanelController.IsDeathScreenActive)
         {
-            TogglePause();
-        }
-    }
+            if (PausePanel != null && PausePanel.activeSelf)
+            {
+                PausePanel.SetActive(false);
+            }
 
-    public void TogglePause()
-    {
-        if (IsPaused)
-        {
-            Resume();
+            return;
         }
-        else
-        {
-            Pause();
-        }
-    }
 
-    public void Pause()
-    {
-        Time.timeScale = 0f;
-        IsPaused = true;
-
-        if (pauseMenuUI != null)
+        if(Input.GetKeyDown(KeyCode.Escape))
         {
-            pauseMenuUI.SetActive(true);
+            if (PausePanel == null)
+            {
+                return;
+            }
+
+            if (Time.timeScale == 0)
+            {
+                Resume();
+            }
+            else
+            {
+                PausePanel.SetActive(true);
+                Time.timeScale = 0;
+            }
         }
     }
 
     public void Resume()
     {
-        Time.timeScale = 1f;
-        IsPaused = false;
+            if (DeathPanelController.IsDeathScreenActive)
+            {
+                return;
+            }
 
-        if (pauseMenuUI != null)
+            if (PausePanel == null)
+            {
+                return;
+            }
+
+            PausePanel.SetActive(false);
+            Time.timeScale = 1;
+    }
+
+    public void Menu()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+
+    public void Quit()
+    {
+
+    }
+
+    private void EnsureEventSystem()
+    {
+        if (EventSystem.current != null)
         {
-            pauseMenuUI.SetActive(false);
+            return;
         }
-    }
 
-    public void GoToMainMenu()
-    {
-        Resume();
-        SceneManager.LoadScene(mainMenuSceneName);
-    }
-
-    public void QuitGame()
-    {
-        Resume();
-        Application.Quit();
-    }
-
-    private void OnDisable()
-    {
-        if (IsPaused)
-        {
-            Resume();
-        }
+        GameObject eventSystemObject = new GameObject("EventSystem");
+        eventSystemObject.AddComponent<EventSystem>();
+        eventSystemObject.AddComponent<StandaloneInputModule>();
     }
 }

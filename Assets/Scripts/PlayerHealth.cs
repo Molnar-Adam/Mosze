@@ -6,6 +6,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] public int MaxHealth = 10;
     public int Health;
     public event Action OnHealthChanged;
+    public event Action OnDied;
 
     private static int savedHealth;
     private static bool hasSavedHealth;
@@ -54,8 +55,8 @@ public class PlayerHealth : MonoBehaviour
 
         if (Health <= 0)
         {
+            OnDied?.Invoke();
             ResetSavedHealth();
-            Destroy(gameObject);
         }
     }
 
