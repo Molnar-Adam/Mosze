@@ -97,7 +97,7 @@ public class ItemPickup : MonoBehaviour
             return;
         }
 
-        if (itemId == "Heal" && playerTransform != null)
+        if (itemId.StartsWith("Heal") && playerTransform != null)
         {
             PlayerHealth playerHealth = playerTransform.GetComponent<PlayerHealth>();
             if (playerHealth != null)
