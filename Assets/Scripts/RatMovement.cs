@@ -36,11 +36,27 @@ public class RatMovement : MonoBehaviour
             {
                 transform.position += Vector3.left * moveSpeed * Time.deltaTime;
                 UpdateRotationBasedOnDirection();
+                if (Vector2.Distance(transform.position, patrolPointAWorld) < .2f)
+                {
+                    isChasing = false;
+                }
+                if (Vector2.Distance(transform.position, patrolPointBWorld) < .2f)
+                {
+                    isChasing = false;
+                }
             }
             if (transform.position.x < playerTransform.position.x)
             {
                 transform.position += Vector3.right * moveSpeed * Time.deltaTime;
                 UpdateRotationBasedOnDirection();
+                if (Vector2.Distance(transform.position, patrolPointAWorld) < .2f)
+                {
+                    isChasing = false;
+                }
+                if (Vector2.Distance(transform.position, patrolPointBWorld) < .2f)
+                {
+                    isChasing = false;
+                }
             }
              if(Vector2.Distance(transform.position, playerTransform.position) > PartolDistance)
             {

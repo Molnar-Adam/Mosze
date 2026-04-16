@@ -11,6 +11,9 @@ public class PlayerHealth : MonoBehaviour
     private static int savedHealth;
     private static bool hasSavedHealth;
 
+    private const float DAMAGE_COOLDOWN = 1f;
+    private float lastDamageTime = 0f;
+
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
     private static void ResetRuntimeState()
     {
@@ -49,9 +52,24 @@ public class PlayerHealth : MonoBehaviour
      
     public void TakeDamage(int damage)
     {
+        if (Time.time - lastDamageTime < DAMAGE_COOLDOWN)
+        {
+            return;
+        }
+
+        lastDamageTime = Time.time;
+       
+       if(Health - damage > MaxHealth)
+       {
+        Health = 10;
+        SaveRuntimeHealth();
+        OnHealthChanged?.Invoke();
+       }
+       else{
         Health = Mathf.Max(Health - damage, 0);
         SaveRuntimeHealth();
         OnHealthChanged?.Invoke();
+       }
 
         if (Health <= 0)
         {
