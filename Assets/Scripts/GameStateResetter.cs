@@ -10,6 +10,7 @@ public static class GameStateResetter
         PlayerHealth.ResetSavedHealth();
         CollectedItemsState.ResetProgress();
         LeverPuzzleSwitch.ResetPuzzleState();
+        PianoPuzzle.ResetPuzzleState();
 
         Time.timeScale = 1f;
     }

@@ -7,6 +7,7 @@ public class Dialogue : MonoBehaviour
     public TextMeshProUGUI textComponent;
     [SerializeField] private GameObject dialogueBox;
     [SerializeField] private Collider2D triggerCollider;
+    [SerializeField] private bool autoTriggerOnPlayerEnter = true;
     public string[] lines;
     public float textSpeed;
 
@@ -63,7 +64,17 @@ public class Dialogue : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (hasTriggered || !collision.CompareTag("Player"))
+        if (!autoTriggerOnPlayerEnter || hasTriggered || !collision.CompareTag("Player"))
+        {
+            return;
+        }
+
+        TriggerDialogue(true);
+    }
+
+    public void TriggerDialogue(bool destroyTriggerCollider = false)
+    {
+        if (hasTriggered)
         {
             return;
         }
@@ -77,10 +88,15 @@ public class Dialogue : MonoBehaviour
 
         StartDialogue();
 
-        if (triggerCollider != null)
+        if (destroyTriggerCollider && triggerCollider != null)
         {
             Destroy(triggerCollider);
         }
+    }
+
+    public void SetAutoTrigger(bool enabled)
+    {
+        autoTriggerOnPlayerEnter = enabled;
     }
 
     void StartDialogue()
@@ -111,6 +127,7 @@ public class Dialogue : MonoBehaviour
         else
         {
             dialogueStarted = false;
+            hasTriggered = false;
 
             if (dialogueBox != null)
             {

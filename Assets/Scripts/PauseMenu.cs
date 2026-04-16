@@ -24,6 +24,16 @@ public class PauseMenu : MonoBehaviour
             return;
         }
 
+        if (PianoInteract.IsAnyPianoUIOpen)
+        {
+            return;
+        }
+
+        if (PianoInteract.LastPianoClosedWithEscapeFrame == Time.frameCount)
+        {
+            return;
+        }
+
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             if (PausePanel == null)
@@ -31,7 +41,7 @@ public class PauseMenu : MonoBehaviour
                 return;
             }
 
-            if (Time.timeScale == 0)
+            if (PausePanel.activeSelf)
             {
                 Resume();
             }
