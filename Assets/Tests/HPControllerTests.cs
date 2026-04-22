@@ -2,41 +2,102 @@ using System.Collections;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
-using UnityEngine.UI;
 
 public class HPControllerTests
 {
-    [UnityTest]
-    public IEnumerator HPController_DrawsCorrectNumberOfHearts_BasedOnMaxHealth()
+    private GameObject player;
+    private PlayerHealth playerHealth;
+
+    private GameObject controllerObj;
+    private HPController controller;
+
+    private GameObject heartPrefab;
+
+    [SetUp]
+    public void Setup()
     {
-        GameObject controllerGo = new GameObject("HPController");
-        HPController controller = controllerGo.AddComponent<HPController>();
+        player = new GameObject("Player");
+        playerHealth = player.AddComponent<PlayerHealth>();
 
-        GameObject playerGo = new GameObject("Player");
-        PlayerHealth health = playerGo.AddComponent<PlayerHealth>();
-        controller.playerHealth = health;
+        heartPrefab = new GameObject("HeartPrefab");
 
-        GameObject heartPrefab = new GameObject("HeartPrefab");
-        heartPrefab.AddComponent<Image>();
-        HPHeart heartComp = heartPrefab.AddComponent<HPHeart>();
+        var image = heartPrefab.AddComponent<UnityEngine.UI.Image>();
 
-        heartComp.fullHeart = Sprite.Create(Texture2D.whiteTexture, new Rect(0, 0, 1, 1), Vector2.zero);
-        heartComp.HalfHeart = Sprite.Create(Texture2D.whiteTexture, new Rect(0, 0, 1, 1), Vector2.zero);
-        heartComp.emptyHeart = Sprite.Create(Texture2D.whiteTexture, new Rect(0, 0, 1, 1), Vector2.zero);
+        heartPrefab.AddComponent<HPHeart>();
 
+        controllerObj = new GameObject("HPController");
+        controller = controllerObj.AddComponent<HPController>();
+
+        controller.playerHealth = playerHealth;
         controller.heartPrefab = heartPrefab;
+    }
 
-        health.MaxHealth = 6;
-        health.Health = 6;
+    [TearDown]
+    public void TearDown()
+    {
+        Object.DestroyImmediate(player);
+        Object.DestroyImmediate(controllerObj);
+        Object.DestroyImmediate(heartPrefab);
+    }
 
-        controller.DrawHearts();
+    [UnityTest]
+    public IEnumerator DrawHearts_CreatesCorrectAmount()
+    {
+        yield return null;
+
+        int expected = (int)((playerHealth.MaxHealth / 2f) + (playerHealth.MaxHealth % 2));
+
+        Assert.AreEqual(expected, controllerObj.transform.childCount,
+            "Nem megfelelő számú heart jött létre!");
+    }
+
+    [UnityTest]
+    public IEnumerator DrawHearts_UpdatesOnHealthChange()
+    {
+        yield return null;
+
+        int initialCount = controllerObj.transform.childCount;
+
+        var field = typeof(PlayerHealth)
+            .GetField("lastDamageTime", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+
+        field.SetValue(playerHealth, -100f);
+
+        playerHealth.TakeDamage(2);
 
         yield return null;
 
-        Assert.AreEqual(3, controllerGo.transform.childCount, "Nem jött létre a megfelelő számú szív objektum.");
+        int newCount = controllerObj.transform.childCount;
 
-        Object.Destroy(controllerGo);
-        Object.Destroy(playerGo);
-        Object.Destroy(heartPrefab);
+        Assert.AreEqual(initialCount, newCount,
+            "Heart count nem kéne változzon max health változás nélkül!");
+    }
+
+    [UnityTest]
+    public IEnumerator ClearHearts_RemovesAll()
+    {
+        yield return null;
+
+        controller.ClearHearts();
+
+        yield return null;
+
+        Assert.AreEqual(0, controllerObj.transform.childCount,
+            "ClearHearts nem törölte az elemeket!");
+    }
+
+    [UnityTest]
+    public IEnumerator CreateEmptyHeart_AddsOne()
+    {
+        yield return null;
+
+        int before = controllerObj.transform.childCount;
+
+        controller.CreateEmptyHeart();
+
+        int after = controllerObj.transform.childCount;
+
+        Assert.AreEqual(before + 1, after,
+            "CreateEmptyHeart nem adott hozzá új heart-ot!");
     }
 }

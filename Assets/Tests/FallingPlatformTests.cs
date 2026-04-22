@@ -2,43 +2,82 @@ using System.Collections;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
+using System.Reflection;
 
 public class FallingPlatformTests
 {
-    [UnityTest]
-    public IEnumerator PlayerCollision_MakesPlatformFall_AndRespawn()
+    private GameObject platformObj;
+    private FallingPlatform platform;
+    private Rigidbody2D rb;
+
+    [SetUp]
+    public void Setup()
     {
-        // Platform létrehozása
-        GameObject platform = new GameObject("Platform");
-        platform.transform.position = Vector3.zero;
+        platformObj = new GameObject("Platform");
 
-        BoxCollider2D collider = platform.AddComponent<BoxCollider2D>();
-
-        Rigidbody2D rb = platform.AddComponent<Rigidbody2D>();
+        rb = platformObj.AddComponent<Rigidbody2D>();
         rb.bodyType = RigidbodyType2D.Kinematic;
 
-        FallingPlatform fallingPlatform = platform.AddComponent<FallingPlatform>();
+        platformObj.AddComponent<BoxCollider2D>();
+        platform = platformObj.AddComponent<FallingPlatform>();
 
-        GameObject player = new GameObject("Player");
-        player.tag = "Player";
+        var flags = BindingFlags.NonPublic | BindingFlags.Instance;
 
-        BoxCollider2D playerCollider = player.AddComponent<BoxCollider2D>();
+        typeof(FallingPlatform)
+            .GetField("fallDelay", flags)
+            .SetValue(platform, 0.1f);
 
-        Rigidbody2D playerRb = player.AddComponent<Rigidbody2D>();
-        playerRb.gravityScale = 0;
+        typeof(FallingPlatform)
+            .GetField("respawnDelay", flags)
+            .SetValue(platform, 0.1f);
+    }
 
-        player.transform.position = new Vector2(0, 1);
+    [TearDown]
+    public void TearDown()
+    {
+        Object.DestroyImmediate(platformObj);
+    }
 
-        yield return null;
+    [UnityTest]
+    public IEnumerator Platform_Falls_And_Respawns()
+    {
+        Vector3 startPos = platformObj.transform.position;
 
-        player.transform.position = new Vector2(0, 0);
+        StartCoroutineDirect();
 
-        yield return new WaitForSeconds(1.2f);
+        yield return new WaitForSeconds(0.2f);
 
-        Assert.AreEqual(RigidbodyType2D.Dynamic, rb.bodyType);
+        Assert.AreEqual(RigidbodyType2D.Dynamic, rb.bodyType,
+            "Platform nem esett le!");
 
-        yield return new WaitForSeconds(5.2f);
+        yield return new WaitForSeconds(0.2f);
 
-        Assert.AreEqual(Vector3.zero, platform.transform.position);
+        Assert.AreEqual(RigidbodyType2D.Kinematic, rb.bodyType,
+            "Platform nem állt vissza!");
+
+        Assert.AreEqual(startPos, platformObj.transform.position,
+            "Pozíció nem lett visszaállítva!");
+    }
+
+    [UnityTest]
+    public IEnumerator Platform_Triggers_OnlyOnce()
+    {
+        StartCoroutineDirect();
+        StartCoroutineDirect();
+
+        yield return new WaitForSeconds(0.2f);
+
+        Assert.AreEqual(RigidbodyType2D.Dynamic, rb.bodyType,
+            "Többször triggerelődött!");
+    }
+
+    private void StartCoroutineDirect()
+    {
+        var method = typeof(FallingPlatform)
+            .GetMethod("FallAndRespawnRoutine",
+                BindingFlags.NonPublic | BindingFlags.Instance);
+
+        var enumerator = (IEnumerator)method.Invoke(platform, null);
+        platform.StartCoroutine(enumerator);
     }
 }
