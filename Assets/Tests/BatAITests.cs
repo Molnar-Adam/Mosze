@@ -27,12 +27,12 @@ public class BatAITests
         typeof(BatAI).GetField("shootInterval", flags).SetValue(batAI, 0.1f);
         typeof(BatAI).GetField("projectileSpeed", flags).SetValue(batAI, 6f);
 
-        int initialCount = GameObject.FindObjectsOfType<Rigidbody2D>().Length;
+        int initialCount = GameObject.FindObjectsByType<Rigidbody2D>(FindObjectsSortMode.None).Length;
 
         // ---------------- ACT ----------------
         yield return new WaitForSeconds(0.2f);
 
-        Rigidbody2D[] bodies = GameObject.FindObjectsOfType<Rigidbody2D>();
+        Rigidbody2D[] bodies = GameObject.FindObjectsByType<Rigidbody2D>(FindObjectsSortMode.None);
 
         Rigidbody2D newProjectile = null;
 
