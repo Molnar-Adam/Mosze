@@ -8,13 +8,17 @@ public class Dialogue : MonoBehaviour
     [SerializeField] private string dialogueID;
     [SerializeField] private GameObject dialogueBox;
     [SerializeField] private Collider2D triggerCollider;
-    [SerializeField] private bool autoTriggerOnPlayerEnter = true;
+    [SerializeField] private bool requireInteractKey = true;
+    [SerializeField] private bool manualTriggerOnly = false;
+    [SerializeField] private KeyCode interactKey = KeyCode.E;
+    [SerializeField] private GameObject interactUI;
     public string[] lines;
     public float textSpeed;
 
     private int index;
     private bool dialogueStarted;
     private bool hasTriggered;
+    private bool isPlayerInRange;
 
     private void Awake()
     {
@@ -49,12 +53,28 @@ public class Dialogue : MonoBehaviour
         {
             dialogueBox.SetActive(false);
         }
+
+        if (interactUI != null)
+        {
+            interactUI.SetActive(false);
+        }
     }
 
     private void Update()
     {
         if (!dialogueStarted)
         {
+            if (!manualTriggerOnly && isPlayerInRange && requireInteractKey && !hasTriggered)
+            {
+                if (Input.GetKeyDown(interactKey))
+                {
+                    if (interactUI != null)
+                    {
+                        interactUI.SetActive(false);
+                    }
+                    TriggerDialogue(false);
+                }
+            }
             return;
         }
 
@@ -74,12 +94,44 @@ public class Dialogue : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!autoTriggerOnPlayerEnter || hasTriggered || !collision.CompareTag("Player"))
+        if (hasTriggered || !collision.CompareTag("Player"))
         {
             return;
         }
 
-        TriggerDialogue(true);
+        isPlayerInRange = true;
+        
+        if (manualTriggerOnly)
+        {
+            return;
+        }
+
+        if (requireInteractKey)
+        {
+            if (interactUI != null)
+            {
+                interactUI.SetActive(true);
+            }
+        }
+        else
+        {
+            TriggerDialogue(true);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (!collision.CompareTag("Player"))
+        {
+            return;
+        }
+
+        isPlayerInRange = false;
+
+        if (interactUI != null)
+        {
+            interactUI.SetActive(false);
+        }
     }
 
     public void TriggerDialogue(bool destroyTriggerCollider = false)
@@ -104,9 +156,14 @@ public class Dialogue : MonoBehaviour
         }
     }
 
+    public void SetManualTriggerOnly(bool manual)
+    {
+        manualTriggerOnly = manual;
+    }
+
     public void SetAutoTrigger(bool enabled)
     {
-        autoTriggerOnPlayerEnter = enabled;
+        requireInteractKey = !enabled;
     }
 
     void StartDialogue()

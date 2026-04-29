@@ -32,7 +32,7 @@ public class PianoInteract : MonoBehaviour
 
         if (requirementDialogue != null)
         {
-            requirementDialogue.SetAutoTrigger(false);
+            requirementDialogue.SetManualTriggerOnly(true);
         }
 
         if (interactText != null)
