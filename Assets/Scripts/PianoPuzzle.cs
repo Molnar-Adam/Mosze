@@ -3,8 +3,9 @@ using UnityEngine.UI;
 
 public class PianoPuzzle : MonoBehaviour
 {
+    [SerializeField] private string puzzleID;
     [SerializeField] private Button[] pianoButtons;
-    [SerializeField] private Button[] requiredPattern;
+    private Button[] requiredPattern;
     [SerializeField] private GameObject objectToDestroy;
     [SerializeField] private PianoInteract pianoInteract;
 
@@ -17,6 +18,23 @@ public class PianoPuzzle : MonoBehaviour
         get
         {
             return solved;
+        }
+    }
+
+    private void Start()
+    {
+        if (EventManager.Instance != null && !string.IsNullOrEmpty(puzzleID))
+        {
+            int[] loadedPattern = EventManager.Instance.GetPuzzlePattern(puzzleID);
+            if (loadedPattern != null && loadedPattern.Length > 0 && pianoButtons != null)
+            {
+                requiredPattern = new Button[loadedPattern.Length];
+                for (int i = 0; i < loadedPattern.Length; i++)
+                {
+                    if(loadedPattern[i] >= 0 && loadedPattern[i] < pianoButtons.Length)
+                        requiredPattern[i] = pianoButtons[loadedPattern[i]];
+                }
+            }
         }
     }
 

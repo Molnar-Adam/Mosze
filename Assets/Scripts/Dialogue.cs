@@ -5,6 +5,7 @@ using System.Collections;
 public class Dialogue : MonoBehaviour
 {
     public TextMeshProUGUI textComponent;
+    [SerializeField] private string dialogueID;
     [SerializeField] private GameObject dialogueBox;
     [SerializeField] private Collider2D triggerCollider;
     [SerializeField] private bool autoTriggerOnPlayerEnter = true;
@@ -30,6 +31,15 @@ public class Dialogue : MonoBehaviour
 
     private void Start()
     {
+        if (EventManager.Instance != null && !string.IsNullOrEmpty(dialogueID))
+        {
+            string[] loadedLines = EventManager.Instance.GetDialogueLines(dialogueID);
+            if (loadedLines != null && loadedLines.Length > 0)
+            {
+                lines = loadedLines;
+            }
+        }
+
         if (textComponent != null)
         {
             textComponent.text = string.Empty;

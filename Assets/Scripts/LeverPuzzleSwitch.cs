@@ -4,14 +4,29 @@ using UnityEngine;
 
 public class LeverPuzzleSwitch : MonoBehaviour
 {
-    [SerializeField] [Range(1, 5)] private int leverIndex;
+    [SerializeField] private string puzzleID; // Pl.: "LeverPuzzle_Scene1"
+    [SerializeField] [Range(1, 5)] private int leverIndex; // A kar saját száma: 1..5
     private int requiredLeverCount = 5;
 
-    [SerializeField] private List<int> affectedLevers = new List<int>();
+    private List<int> affectedLevers = new List<int>();
 
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Sprite upSprite;
     [SerializeField] private Sprite downSprite;
+
+    private void Start()
+    {
+        if (EventManager.Instance != null && !string.IsNullOrEmpty(puzzleID))
+        {
+            requiredLeverCount = EventManager.Instance.GetRequiredLeverCount(puzzleID);
+            
+            var affectedData = EventManager.Instance.GetAffectedLevers(puzzleID, leverIndex);
+            if (affectedData != null)
+            {
+                affectedLevers = new List<int>(affectedData);
+            }
+        }
+    }
 
      private KeyCode interactKey = KeyCode.E;
      private string playerTag = "Player";
@@ -257,12 +272,16 @@ public class LeverPuzzleSwitch : MonoBehaviour
             return;
         }
 
-        data.solved = true;
-
+        bool belongsToPuzzle = !string.IsNullOrEmpty(puzzleID);
         foreach (var lever in data.levers)
         {
-            lever.OpenDoorAndInvokeSolvedEvent();
+            if (!belongsToPuzzle || lever.puzzleID == this.puzzleID)
+            {
+                lever.OpenDoorAndInvokeSolvedEvent();
+            }
         }
+        
+        data.solved = true;
     }
 
     private void OpenDoorAndInvokeSolvedEvent()
