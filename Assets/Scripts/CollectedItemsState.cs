@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class CollectedItemsState
 {
-    public const int RequiredItemCount = 3;
+    private static int requiredItemCount = 3;
 
     private static readonly HashSet<string> CollectedItemIds = new HashSet<string>();
     private static readonly HashSet<string> RequiredItemIds = new HashSet<string>()
@@ -13,6 +13,27 @@ public static class CollectedItemsState
         "Map2_Key",
         "Map3_Key"
     };
+
+    public static void InitializeFromConfig(string[] items)
+    {
+        if (items != null && items.Length > 0)
+        {
+            RequiredItemIds.Clear();
+            foreach (var item in items)
+            {
+                RequiredItemIds.Add(item);
+            }
+            requiredItemCount = items.Length;
+        }
+    }
+
+    public static int RequiredItemCount
+    {
+        get
+        {
+            return requiredItemCount;
+        }
+    }
 
     public static int CollectedCount
     {
