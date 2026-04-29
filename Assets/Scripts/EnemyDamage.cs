@@ -8,18 +8,18 @@ public class EnemyDamage : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.CompareTag("Player")) // Csak ha a Player-hez ér hozzá
         {
-            playerMovement.KBCounter = playerMovement.KBTTime;
-            if (collision.transform.position.x <= transform.transform.position.x)
+            PlayerHealth health = collision.gameObject.GetComponent<PlayerHealth>();
+
+            if (health != null) // Csak akkor fut le, ha megtalálta a szkriptet
             {
-                playerMovement.KFromRight = true;
+                health.TakeDamage(1); // Itt adja le a sebzést
             }
             else
             {
-                playerMovement.KFromRight = false;
+                Debug.LogWarning("A Player-en nincs PlayerHealth szkript!");
             }
-            playerHealth.TakeDamage(damage);
         }
     }
 
