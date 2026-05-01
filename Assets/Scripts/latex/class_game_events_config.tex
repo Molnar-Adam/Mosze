@@ -1,0 +1,71 @@
+\doxysection{Game\+Events\+Config Class Reference}
+\hypertarget{class_game_events_config}{}\label{class_game_events_config}\index{GameEventsConfig@{GameEventsConfig}}
+
+
+A játék eseményeit (dialógusok, puzzle állások) tároló adatstruktúra, ami szerializálható a JSON mentéshez.  
+
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+List$<$ \doxymbox{\hyperlink{class_dialogue_data}{Dialogue\+Data}} $>$ \doxymbox{\hyperlink{class_game_events_config_aa3e04377f011454c233a1acf92315f2d}{dialogues}} = new List$<$\doxymbox{\hyperlink{class_dialogue_data}{Dialogue\+Data}}$>$()
+\begin{DoxyCompactList}\small\item\em A párbeszédeket tároló lista. \end{DoxyCompactList}\item 
+List$<$ \doxymbox{\hyperlink{class_puzzle_data}{Puzzle\+Data}} $>$ \doxymbox{\hyperlink{class_game_events_config_a7d92bdb9bc1fc68a641d0ec742fa761e}{puzzles}} = new List$<$\doxymbox{\hyperlink{class_puzzle_data}{Puzzle\+Data}}$>$()
+\begin{DoxyCompactList}\small\item\em A sima rejtvények logikáját tároló lista. \end{DoxyCompactList}\item 
+List$<$ \doxymbox{\hyperlink{class_lever_puzzle_group_data}{Lever\+Puzzle\+Group\+Data}} $>$ \doxymbox{\hyperlink{class_game_events_config_a146910fc2d9651e511d963c13a2bc6b1}{lever\+Puzzles}} = new List$<$\doxymbox{\hyperlink{class_lever_puzzle_group_data}{Lever\+Puzzle\+Group\+Data}}$>$()
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$>$}{>}A kar-\/alapú rejtvények adatait tároló lista. \end{DoxyCompactList}\item 
+string\+[$\,$]\+ \doxymbox{\hyperlink{class_game_events_config_a23628a65e2cc52037b58819beb2f41bd}{required\+Item\+Ids}} = new string\+[$\,$]\+ \{ "{}Map1\+\_\+\+Key"{}, "{}Map2\+\_\+\+Key"{}, "{}Map3\+\_\+\+Key"{} \}
+\begin{DoxyCompactList}\small\item\em A szintekhez szükséges kulcs(ok) azonosítóinak tömbje. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A játék eseményeit (dialógusok, puzzle állások) tároló adatstruktúra, ami szerializálható a JSON mentéshez. 
+
+\label{class_game_events_config_doc-variable-members}
+\Hypertarget{class_game_events_config_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_game_events_config_aa3e04377f011454c233a1acf92315f2d}\index{GameEventsConfig@{GameEventsConfig}!dialogues@{dialogues}}
+\index{dialogues@{dialogues}!GameEventsConfig@{GameEventsConfig}}
+\doxysubsubsection{\texorpdfstring{dialogues}{dialogues}}
+{\footnotesize\ttfamily \label{class_game_events_config_aa3e04377f011454c233a1acf92315f2d} 
+List$<$\doxymbox{\hyperlink{class_dialogue_data}{Dialogue\+Data}}$>$ Game\+Events\+Config.\+dialogues = new List$<$\doxymbox{\hyperlink{class_dialogue_data}{Dialogue\+Data}}$>$()}
+
+
+
+A párbeszédeket tároló lista. 
+
+\Hypertarget{class_game_events_config_a146910fc2d9651e511d963c13a2bc6b1}\index{GameEventsConfig@{GameEventsConfig}!leverPuzzles@{leverPuzzles}}
+\index{leverPuzzles@{leverPuzzles}!GameEventsConfig@{GameEventsConfig}}
+\doxysubsubsection{\texorpdfstring{leverPuzzles}{leverPuzzles}}
+{\footnotesize\ttfamily \label{class_game_events_config_a146910fc2d9651e511d963c13a2bc6b1} 
+List$<$\doxymbox{\hyperlink{class_lever_puzzle_group_data}{Lever\+Puzzle\+Group\+Data}}$>$ Game\+Events\+Config.\+lever\+Puzzles = new List$<$\doxymbox{\hyperlink{class_lever_puzzle_group_data}{Lever\+Puzzle\+Group\+Data}}$>$()}
+
+
+
+\texorpdfstring{$>$}{>}A kar-\/alapú rejtvények adatait tároló lista. 
+
+\Hypertarget{class_game_events_config_a7d92bdb9bc1fc68a641d0ec742fa761e}\index{GameEventsConfig@{GameEventsConfig}!puzzles@{puzzles}}
+\index{puzzles@{puzzles}!GameEventsConfig@{GameEventsConfig}}
+\doxysubsubsection{\texorpdfstring{puzzles}{puzzles}}
+{\footnotesize\ttfamily \label{class_game_events_config_a7d92bdb9bc1fc68a641d0ec742fa761e} 
+List$<$\doxymbox{\hyperlink{class_puzzle_data}{Puzzle\+Data}}$>$ Game\+Events\+Config.\+puzzles = new List$<$\doxymbox{\hyperlink{class_puzzle_data}{Puzzle\+Data}}$>$()}
+
+
+
+A sima rejtvények logikáját tároló lista. 
+
+\Hypertarget{class_game_events_config_a23628a65e2cc52037b58819beb2f41bd}\index{GameEventsConfig@{GameEventsConfig}!requiredItemIds@{requiredItemIds}}
+\index{requiredItemIds@{requiredItemIds}!GameEventsConfig@{GameEventsConfig}}
+\doxysubsubsection{\texorpdfstring{requiredItemIds}{requiredItemIds}}
+{\footnotesize\ttfamily \label{class_game_events_config_a23628a65e2cc52037b58819beb2f41bd} 
+string \+[$\,$]\+ Game\+Events\+Config.\+required\+Item\+Ids = new string\+[$\,$]\+ \{ "{}Map1\+\_\+\+Key"{}, "{}Map2\+\_\+\+Key"{}, "{}Map3\+\_\+\+Key"{} \}}
+
+
+
+A szintekhez szükséges kulcs(ok) azonosítóinak tömbje. 
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_event_manager_8cs}{Event\+Manager.\+cs}}\end{DoxyCompactItemize}

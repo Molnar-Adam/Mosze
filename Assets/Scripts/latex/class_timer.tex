@@ -1,0 +1,210 @@
+\doxysection{Timer Class Reference}
+\hypertarget{class_timer}{}\label{class_timer}\index{Timer@{Timer}}
+
+
+Egy visszaszámláló rendszert vezérlő osztály, amely időtúllépéskor a kezdőpontra juttatja a játékost.  
+
+
+
+
+Inherits Mono\+Behaviour.
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_timer_a9acee7f9168795afada0f559c5115937}{Trigger\+Timer\+End}} (Transform player\+Transform=null)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+bool \doxymbox{\hyperlink{class_timer_ac2a5180671896891fc2f50cbcae7dbcc}{Is\+Timer\+Running}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Visszaadja, hogy az időzítő fut-\/e. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_timer_ade9c690f80327bd47ebb927c59a06a0e}{Start}} ()
+\begin{DoxyCompactList}\small\item\em Induláskor feltölti az időt és alapértelmezetten elrejti a UI-\/t. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_timer_ac2c16f9aa88f2d3e7df7785545578f27}{Update}} ()
+\begin{DoxyCompactList}\small\item\em Képkockánként frissíti a hátralévő időt, és ha lejár, triggereli az újraéledést. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_timer_a6bf8fb77904c1b3a4c3c9f8eafde048d}{On\+Trigger\+Enter2D}} (Collider2D collision)
+\item 
+void \doxymbox{\hyperlink{class_timer_afe337efbbf29d22dee5368a47206c50d}{Teleport\+Player\+To\+Respawn}} ()
+\item 
+void \doxymbox{\hyperlink{class_timer_aab2f2773902cf4ff4717e24ba2697438}{Update\+Timer\+Text}} ()
+\begin{DoxyCompactList}\small\item\em Megjeleníti vagy elrejti a visszaszámláló szöveget a képernyőn. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_timer_aeb39bc62c86efd9763d5d63dd10a6c40}{Set\+Timer\+Visible}} (bool is\+Visible)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Text\+Mesh\+Pro\+UGUI \doxymbox{\hyperlink{class_timer_af16dbb1dbed41cb15d0ea6eedab63bdd}{Timer\+Text}}
+\begin{DoxyCompactList}\small\item\em Az időt mutató szöveges UI elem. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{class_timer_abc4e20d2456f97615785afb129c1c2e0}{countdown\+Seconds}}
+\begin{DoxyCompactList}\small\item\em A visszaszámlálás időtartama másodpercben. \end{DoxyCompactList}\item 
+Transform \doxymbox{\hyperlink{class_timer_a74c87d9d7f77a2faf589b89a2989706b}{respawn\+Location}}
+\begin{DoxyCompactList}\small\item\em Az a transzform, ahová az idő lejárta után a játékos kerül. \end{DoxyCompactList}\item 
+string \doxymbox{\hyperlink{class_timer_aad62052c521adcf4f0b1ab554f41f744}{player\+Tag}} = "{}Player"{}
+\begin{DoxyCompactList}\small\item\em A játékos címkéje. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{class_timer_a334f63df25a1ef1195dba7818c765eb2}{remaining\+Time}}
+\begin{DoxyCompactList}\small\item\em A hátralévő idő mennyisége. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_timer_a73221445f08ff02e55bc3c4a1618d1c7}{timer\+Running}}
+\begin{DoxyCompactList}\small\item\em Jelzi, hogy a visszaszámlálás jelenleg aktív-\/e. \end{DoxyCompactList}\item 
+Transform \doxymbox{\hyperlink{class_timer_a25120daac44d9125cf31d27b7a4a79fa}{tracked\+Player}}
+\begin{DoxyCompactList}\small\item\em A követett játékos transzformja, akit visszateleportál. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Egy visszaszámláló rendszert vezérlő osztály, amely időtúllépéskor a kezdőpontra juttatja a játékost. 
+
+\label{class_timer_doc-func-members}
+\Hypertarget{class_timer_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_timer_a6bf8fb77904c1b3a4c3c9f8eafde048d}\index{Timer@{Timer}!OnTriggerEnter2D@{OnTriggerEnter2D}}
+\index{OnTriggerEnter2D@{OnTriggerEnter2D}!Timer@{Timer}}
+\doxysubsubsection{\texorpdfstring{OnTriggerEnter2D()}{OnTriggerEnter2D()}}
+{\footnotesize\ttfamily \label{class_timer_a6bf8fb77904c1b3a4c3c9f8eafde048d} 
+void Timer.\+On\+Trigger\+Enter2D (\begin{DoxyParamCaption}\item[{Collider2D}]{collision}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Leállítja az időzítőt, teleportálja a játékost, és elrejti a kijelzőt. Kézzel is meghívható külső eventeknél.\Hypertarget{class_timer_aeb39bc62c86efd9763d5d63dd10a6c40}\index{Timer@{Timer}!SetTimerVisible@{SetTimerVisible}}
+\index{SetTimerVisible@{SetTimerVisible}!Timer@{Timer}}
+\doxysubsubsection{\texorpdfstring{SetTimerVisible()}{SetTimerVisible()}}
+{\footnotesize\ttfamily \label{class_timer_aeb39bc62c86efd9763d5d63dd10a6c40} 
+void Timer.\+Set\+Timer\+Visible (\begin{DoxyParamCaption}\item[{bool}]{is\+Visible}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_timer_ade9c690f80327bd47ebb927c59a06a0e}\index{Timer@{Timer}!Start@{Start}}
+\index{Start@{Start}!Timer@{Timer}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_timer_ade9c690f80327bd47ebb927c59a06a0e} 
+void Timer.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Induláskor feltölti az időt és alapértelmezetten elrejti a UI-\/t. 
+
+\Hypertarget{class_timer_afe337efbbf29d22dee5368a47206c50d}\index{Timer@{Timer}!TeleportPlayerToRespawn@{TeleportPlayerToRespawn}}
+\index{TeleportPlayerToRespawn@{TeleportPlayerToRespawn}!Timer@{Timer}}
+\doxysubsubsection{\texorpdfstring{TeleportPlayerToRespawn()}{TeleportPlayerToRespawn()}}
+{\footnotesize\ttfamily \label{class_timer_afe337efbbf29d22dee5368a47206c50d} 
+void Timer.\+Teleport\+Player\+To\+Respawn (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Frissíti a UI komponens szövegét a hátralévő, felkerekített másodpercekkel.\Hypertarget{class_timer_a9acee7f9168795afada0f559c5115937}\index{Timer@{Timer}!TriggerTimerEnd@{TriggerTimerEnd}}
+\index{TriggerTimerEnd@{TriggerTimerEnd}!Timer@{Timer}}
+\doxysubsubsection{\texorpdfstring{TriggerTimerEnd()}{TriggerTimerEnd()}}
+{\footnotesize\ttfamily \label{class_timer_a9acee7f9168795afada0f559c5115937} 
+void Timer.\+Trigger\+Timer\+End (\begin{DoxyParamCaption}\item[{Transform}]{player\+Transform}{ = {\ttfamily null}}\end{DoxyParamCaption})}
+
+Ténylegesen áthelyezi a játékost az újraéledési pontra és kinullázza a sebességét.\Hypertarget{class_timer_ac2c16f9aa88f2d3e7df7785545578f27}\index{Timer@{Timer}!Update@{Update}}
+\index{Update@{Update}!Timer@{Timer}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_timer_ac2c16f9aa88f2d3e7df7785545578f27} 
+void Timer.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Képkockánként frissíti a hátralévő időt, és ha lejár, triggereli az újraéledést. 
+
+Amikor a játékos belép a zónába, elindítja és láthatóvá teszi a visszaszámlálót.\Hypertarget{class_timer_aab2f2773902cf4ff4717e24ba2697438}\index{Timer@{Timer}!UpdateTimerText@{UpdateTimerText}}
+\index{UpdateTimerText@{UpdateTimerText}!Timer@{Timer}}
+\doxysubsubsection{\texorpdfstring{UpdateTimerText()}{UpdateTimerText()}}
+{\footnotesize\ttfamily \label{class_timer_aab2f2773902cf4ff4717e24ba2697438} 
+void Timer.\+Update\+Timer\+Text (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Megjeleníti vagy elrejti a visszaszámláló szöveget a képernyőn. 
+
+
+
+\label{class_timer_doc-variable-members}
+\Hypertarget{class_timer_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_timer_abc4e20d2456f97615785afb129c1c2e0}\index{Timer@{Timer}!countdownSeconds@{countdownSeconds}}
+\index{countdownSeconds@{countdownSeconds}!Timer@{Timer}}
+\doxysubsubsection{\texorpdfstring{countdownSeconds}{countdownSeconds}}
+{\footnotesize\ttfamily \label{class_timer_abc4e20d2456f97615785afb129c1c2e0} 
+float Timer.\+countdown\+Seconds\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A visszaszámlálás időtartama másodpercben. 
+
+\Hypertarget{class_timer_aad62052c521adcf4f0b1ab554f41f744}\index{Timer@{Timer}!playerTag@{playerTag}}
+\index{playerTag@{playerTag}!Timer@{Timer}}
+\doxysubsubsection{\texorpdfstring{playerTag}{playerTag}}
+{\footnotesize\ttfamily \label{class_timer_aad62052c521adcf4f0b1ab554f41f744} 
+string Timer.\+player\+Tag = "{}Player"{}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A játékos címkéje. 
+
+\Hypertarget{class_timer_a334f63df25a1ef1195dba7818c765eb2}\index{Timer@{Timer}!remainingTime@{remainingTime}}
+\index{remainingTime@{remainingTime}!Timer@{Timer}}
+\doxysubsubsection{\texorpdfstring{remainingTime}{remainingTime}}
+{\footnotesize\ttfamily \label{class_timer_a334f63df25a1ef1195dba7818c765eb2} 
+float Timer.\+remaining\+Time\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A hátralévő idő mennyisége. 
+
+\Hypertarget{class_timer_a74c87d9d7f77a2faf589b89a2989706b}\index{Timer@{Timer}!respawnLocation@{respawnLocation}}
+\index{respawnLocation@{respawnLocation}!Timer@{Timer}}
+\doxysubsubsection{\texorpdfstring{respawnLocation}{respawnLocation}}
+{\footnotesize\ttfamily \label{class_timer_a74c87d9d7f77a2faf589b89a2989706b} 
+Transform Timer.\+respawn\+Location\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Az a transzform, ahová az idő lejárta után a játékos kerül. 
+
+\Hypertarget{class_timer_a73221445f08ff02e55bc3c4a1618d1c7}\index{Timer@{Timer}!timerRunning@{timerRunning}}
+\index{timerRunning@{timerRunning}!Timer@{Timer}}
+\doxysubsubsection{\texorpdfstring{timerRunning}{timerRunning}}
+{\footnotesize\ttfamily \label{class_timer_a73221445f08ff02e55bc3c4a1618d1c7} 
+bool Timer.\+timer\+Running\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Jelzi, hogy a visszaszámlálás jelenleg aktív-\/e. 
+
+\Hypertarget{class_timer_af16dbb1dbed41cb15d0ea6eedab63bdd}\index{Timer@{Timer}!TimerText@{TimerText}}
+\index{TimerText@{TimerText}!Timer@{Timer}}
+\doxysubsubsection{\texorpdfstring{TimerText}{TimerText}}
+{\footnotesize\ttfamily \label{class_timer_af16dbb1dbed41cb15d0ea6eedab63bdd} 
+Text\+Mesh\+Pro\+UGUI Timer.\+Timer\+Text\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Az időt mutató szöveges UI elem. 
+
+\Hypertarget{class_timer_a25120daac44d9125cf31d27b7a4a79fa}\index{Timer@{Timer}!trackedPlayer@{trackedPlayer}}
+\index{trackedPlayer@{trackedPlayer}!Timer@{Timer}}
+\doxysubsubsection{\texorpdfstring{trackedPlayer}{trackedPlayer}}
+{\footnotesize\ttfamily \label{class_timer_a25120daac44d9125cf31d27b7a4a79fa} 
+Transform Timer.\+tracked\+Player\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A követett játékos transzformja, akit visszateleportál. 
+
+
+
+\label{class_timer_doc-property-members}
+\Hypertarget{class_timer_doc-property-members}
+\doxysubsection{Property Documentation}
+\Hypertarget{class_timer_ac2a5180671896891fc2f50cbcae7dbcc}\index{Timer@{Timer}!IsTimerRunning@{IsTimerRunning}}
+\index{IsTimerRunning@{IsTimerRunning}!Timer@{Timer}}
+\doxysubsubsection{\texorpdfstring{IsTimerRunning}{IsTimerRunning}}
+{\footnotesize\ttfamily \label{class_timer_ac2a5180671896891fc2f50cbcae7dbcc} 
+bool Timer.\+Is\+Timer\+Running\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Visszaadja, hogy az időzítő fut-\/e. 
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_timer_8cs}{Timer.\+cs}}\end{DoxyCompactItemize}

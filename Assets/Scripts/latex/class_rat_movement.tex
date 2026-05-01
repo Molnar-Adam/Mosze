@@ -1,0 +1,178 @@
+\doxysection{Rat\+Movement Class Reference}
+\hypertarget{class_rat_movement}{}\label{class_rat_movement}\index{RatMovement@{RatMovement}}
+
+
+A patkány ellenség mozgását, járőrözését és a játékos követését kezelő osztály.  
+
+
+
+
+Inherits Mono\+Behaviour.
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Transform\+[$\,$]\+ \doxymbox{\hyperlink{class_rat_movement_a89a352a0e2eed1145a1d87544c63d624}{patrol\+Points}}
+\begin{DoxyCompactList}\small\item\em A járőrözési végpontokat tartalmazó tömb. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{class_rat_movement_ad1ec03f73eaaec8273786e76427ed8dc}{move\+Speed}}
+\begin{DoxyCompactList}\small\item\em A patkány mozgási sebessége. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_rat_movement_a9953308f03899b1ed492a2f69bff975b}{patrol\+Destination}}
+\begin{DoxyCompactList}\small\item\em A jelenlegi járőrözési célpont indexe. \end{DoxyCompactList}\item 
+Transform \doxymbox{\hyperlink{class_rat_movement_ac3dfad4879a05d69d97b2aff23d6aec1}{player\+Transform}}
+\begin{DoxyCompactList}\small\item\em A játékos pozíciója a követéshez. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_rat_movement_a06ba73d18013e0017b8445b978ae7a23}{is\+Chasing}}
+\begin{DoxyCompactList}\small\item\em Jelzi, hogy a patkány éppen követi-\/e a játékost. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{class_rat_movement_afc8f25dd17e810b307a721c87ca31432}{chase\+Distance}}
+\begin{DoxyCompactList}\small\item\em Az a távolság, amin belül a patkány elkezdi követni a játékost. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{class_rat_movement_abba36d70c5ddd7dfdac73534cd3069de}{Partol\+Distance}}
+\begin{DoxyCompactList}\small\item\em Az a távolság, ameddig a patkány hajlandó eltávolodni a járőrözés során. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_rat_movement_a620837c7908907e6fb81c2190cb292b6}{Start}} ()
+\begin{DoxyCompactList}\small\item\em Kezdéskor beállítja a járőrözési pontok világkoordinátáit. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_rat_movement_a32bba32ccab5e202124273cf6c4804ce}{Update}} ()
+\begin{DoxyCompactList}\small\item\em Képkockánként kezeli a játékos követését vagy a megadott pontok közötti járőrözést. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_rat_movement_ad87a296d2badce28a6529535898c0f00}{Update\+Rotation\+Based\+On\+Direction}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Vector3 \doxymbox{\hyperlink{class_rat_movement_a7e269193c8aad33bc83e73395bf51cc8}{patrol\+Point\+AWorld}}
+\item 
+Vector3 \doxymbox{\hyperlink{class_rat_movement_a2e914e3008e70aadedaac4aaf1874802}{patrol\+Point\+BWorld}}
+\item 
+float \doxymbox{\hyperlink{class_rat_movement_a4030ed49ba42207fe324510249ca4615}{previousX}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A patkány ellenség mozgását, járőrözését és a játékos követését kezelő osztály. 
+
+\label{class_rat_movement_doc-func-members}
+\Hypertarget{class_rat_movement_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_rat_movement_a620837c7908907e6fb81c2190cb292b6}\index{RatMovement@{RatMovement}!Start@{Start}}
+\index{Start@{Start}!RatMovement@{RatMovement}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_rat_movement_a620837c7908907e6fb81c2190cb292b6} 
+void Rat\+Movement.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Kezdéskor beállítja a járőrözési pontok világkoordinátáit. 
+
+\Hypertarget{class_rat_movement_a32bba32ccab5e202124273cf6c4804ce}\index{RatMovement@{RatMovement}!Update@{Update}}
+\index{Update@{Update}!RatMovement@{RatMovement}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_rat_movement_a32bba32ccab5e202124273cf6c4804ce} 
+void Rat\+Movement.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Képkockánként kezeli a játékos követését vagy a megadott pontok közötti járőrözést. 
+
+Frissíti a patkány nézési irányát (forgatását) a mozgás iránya alapján.\Hypertarget{class_rat_movement_ad87a296d2badce28a6529535898c0f00}\index{RatMovement@{RatMovement}!UpdateRotationBasedOnDirection@{UpdateRotationBasedOnDirection}}
+\index{UpdateRotationBasedOnDirection@{UpdateRotationBasedOnDirection}!RatMovement@{RatMovement}}
+\doxysubsubsection{\texorpdfstring{UpdateRotationBasedOnDirection()}{UpdateRotationBasedOnDirection()}}
+{\footnotesize\ttfamily \label{class_rat_movement_ad87a296d2badce28a6529535898c0f00} 
+void Rat\+Movement.\+Update\+Rotation\+Based\+On\+Direction (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\label{class_rat_movement_doc-variable-members}
+\Hypertarget{class_rat_movement_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_rat_movement_afc8f25dd17e810b307a721c87ca31432}\index{RatMovement@{RatMovement}!chaseDistance@{chaseDistance}}
+\index{chaseDistance@{chaseDistance}!RatMovement@{RatMovement}}
+\doxysubsubsection{\texorpdfstring{chaseDistance}{chaseDistance}}
+{\footnotesize\ttfamily \label{class_rat_movement_afc8f25dd17e810b307a721c87ca31432} 
+float Rat\+Movement.\+chase\+Distance}
+
+
+
+Az a távolság, amin belül a patkány elkezdi követni a játékost. 
+
+\Hypertarget{class_rat_movement_a06ba73d18013e0017b8445b978ae7a23}\index{RatMovement@{RatMovement}!isChasing@{isChasing}}
+\index{isChasing@{isChasing}!RatMovement@{RatMovement}}
+\doxysubsubsection{\texorpdfstring{isChasing}{isChasing}}
+{\footnotesize\ttfamily \label{class_rat_movement_a06ba73d18013e0017b8445b978ae7a23} 
+bool Rat\+Movement.\+is\+Chasing}
+
+
+
+Jelzi, hogy a patkány éppen követi-\/e a játékost. 
+
+\Hypertarget{class_rat_movement_ad1ec03f73eaaec8273786e76427ed8dc}\index{RatMovement@{RatMovement}!moveSpeed@{moveSpeed}}
+\index{moveSpeed@{moveSpeed}!RatMovement@{RatMovement}}
+\doxysubsubsection{\texorpdfstring{moveSpeed}{moveSpeed}}
+{\footnotesize\ttfamily \label{class_rat_movement_ad1ec03f73eaaec8273786e76427ed8dc} 
+float Rat\+Movement.\+move\+Speed}
+
+
+
+A patkány mozgási sebessége. 
+
+\Hypertarget{class_rat_movement_abba36d70c5ddd7dfdac73534cd3069de}\index{RatMovement@{RatMovement}!PartolDistance@{PartolDistance}}
+\index{PartolDistance@{PartolDistance}!RatMovement@{RatMovement}}
+\doxysubsubsection{\texorpdfstring{PartolDistance}{PartolDistance}}
+{\footnotesize\ttfamily \label{class_rat_movement_abba36d70c5ddd7dfdac73534cd3069de} 
+float Rat\+Movement.\+Partol\+Distance}
+
+
+
+Az a távolság, ameddig a patkány hajlandó eltávolodni a járőrözés során. 
+
+\Hypertarget{class_rat_movement_a9953308f03899b1ed492a2f69bff975b}\index{RatMovement@{RatMovement}!patrolDestination@{patrolDestination}}
+\index{patrolDestination@{patrolDestination}!RatMovement@{RatMovement}}
+\doxysubsubsection{\texorpdfstring{patrolDestination}{patrolDestination}}
+{\footnotesize\ttfamily \label{class_rat_movement_a9953308f03899b1ed492a2f69bff975b} 
+int Rat\+Movement.\+patrol\+Destination}
+
+
+
+A jelenlegi járőrözési célpont indexe. 
+
+\Hypertarget{class_rat_movement_a7e269193c8aad33bc83e73395bf51cc8}\index{RatMovement@{RatMovement}!patrolPointAWorld@{patrolPointAWorld}}
+\index{patrolPointAWorld@{patrolPointAWorld}!RatMovement@{RatMovement}}
+\doxysubsubsection{\texorpdfstring{patrolPointAWorld}{patrolPointAWorld}}
+{\footnotesize\ttfamily \label{class_rat_movement_a7e269193c8aad33bc83e73395bf51cc8} 
+Vector3 Rat\+Movement.\+patrol\+Point\+AWorld\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_rat_movement_a2e914e3008e70aadedaac4aaf1874802}\index{RatMovement@{RatMovement}!patrolPointBWorld@{patrolPointBWorld}}
+\index{patrolPointBWorld@{patrolPointBWorld}!RatMovement@{RatMovement}}
+\doxysubsubsection{\texorpdfstring{patrolPointBWorld}{patrolPointBWorld}}
+{\footnotesize\ttfamily \label{class_rat_movement_a2e914e3008e70aadedaac4aaf1874802} 
+Vector3 Rat\+Movement.\+patrol\+Point\+BWorld\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_rat_movement_a89a352a0e2eed1145a1d87544c63d624}\index{RatMovement@{RatMovement}!patrolPoints@{patrolPoints}}
+\index{patrolPoints@{patrolPoints}!RatMovement@{RatMovement}}
+\doxysubsubsection{\texorpdfstring{patrolPoints}{patrolPoints}}
+{\footnotesize\ttfamily \label{class_rat_movement_a89a352a0e2eed1145a1d87544c63d624} 
+Transform \+[$\,$]\+ Rat\+Movement.\+patrol\+Points}
+
+
+
+A járőrözési végpontokat tartalmazó tömb. 
+
+\Hypertarget{class_rat_movement_ac3dfad4879a05d69d97b2aff23d6aec1}\index{RatMovement@{RatMovement}!playerTransform@{playerTransform}}
+\index{playerTransform@{playerTransform}!RatMovement@{RatMovement}}
+\doxysubsubsection{\texorpdfstring{playerTransform}{playerTransform}}
+{\footnotesize\ttfamily \label{class_rat_movement_ac3dfad4879a05d69d97b2aff23d6aec1} 
+Transform Rat\+Movement.\+player\+Transform}
+
+
+
+A játékos pozíciója a követéshez. 
+
+\Hypertarget{class_rat_movement_a4030ed49ba42207fe324510249ca4615}\index{RatMovement@{RatMovement}!previousX@{previousX}}
+\index{previousX@{previousX}!RatMovement@{RatMovement}}
+\doxysubsubsection{\texorpdfstring{previousX}{previousX}}
+{\footnotesize\ttfamily \label{class_rat_movement_a4030ed49ba42207fe324510249ca4615} 
+float Rat\+Movement.\+previousX\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_rat_movement_8cs}{Rat\+Movement.\+cs}}\end{DoxyCompactItemize}

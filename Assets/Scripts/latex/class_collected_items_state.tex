@@ -1,0 +1,180 @@
+\doxysection{Collected\+Items\+State Class Reference}
+\hypertarget{class_collected_items_state}{}\label{class_collected_items_state}\index{CollectedItemsState@{CollectedItemsState}}
+
+
+A játékos által összegyűjtött tárgyakat és kulcsokat globálisan nyilvántartó statikus osztály.  
+
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \doxymbox{\hyperlink{class_collected_items_state_a06a2045c72b2bd6e90c20c970954bd1e}{Initialize\+From\+Config}} (string\+[$\,$]\+ items)
+\begin{DoxyCompactList}\small\item\em Inicializálja a szükséges tárgyak listáját a megadott konfiguráció (Event\+Config) alapján. \end{DoxyCompactList}\item 
+static bool \doxymbox{\hyperlink{class_collected_items_state_a4357fc57973946cf18100fa775c6db8b}{Try\+Collect}} (string item\+Id)
+\begin{DoxyCompactList}\small\item\em Megpróbál felvenni egy tárgyat a megadott azonosítóval. \end{DoxyCompactList}\item 
+static bool \doxymbox{\hyperlink{class_collected_items_state_aba15f4a99f7eb53bafdf589084e6ef4f}{Is\+Collected}} (string item\+Id)
+\begin{DoxyCompactList}\small\item\em Ellenőrzi, hogy egy adott tárgyat felvett-\/e már a játékos. \end{DoxyCompactList}\item 
+static void \doxymbox{\hyperlink{class_collected_items_state_adb29a2453dbc7386df44dff6b467b3ec}{Reset\+Progress}} ()
+\begin{DoxyCompactList}\small\item\em Kitörli az összes megszerzett tárgyat. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+static int \doxymbox{\hyperlink{class_collected_items_state_ae193ddad60b9cd5a1cd591b62a6754a7}{Required\+Item\+Count}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Visszaadja, hogy összesen hány tárgyat kell összegyűjteni a továbbjutáshoz. \end{DoxyCompactList}\item 
+static int \doxymbox{\hyperlink{class_collected_items_state_a2f6ef97eab2392447d81392044e95464}{Collected\+Count}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Visszaadja, hogy a játékos eddig hány megismételhetetlen (egyedi) tárgyat vett fel. \end{DoxyCompactList}\item 
+static bool \doxymbox{\hyperlink{class_collected_items_state_a0feba22a149ecffbf4bb29e06468f9fc}{Has\+All\+Required\+Items}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Megvizsgálja, hogy a játékos megszerezte-\/e az összes kötelező tárgyat. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \doxymbox{\hyperlink{class_collected_items_state_a21d3feb242fb01d2ca570ace197f78f4}{Reset\+Runtime\+State}} ()
+\begin{DoxyCompactList}\small\item\em A Unity betöltésekor automatikusan lefutó metódus, ami üríti a memóriát az újrakezdéshez. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static int \doxymbox{\hyperlink{class_collected_items_state_ab516c3e0a1b4ea57c2ad24a1545db923}{required\+Item\+Count}} = 3
+\item 
+static readonly Hash\+Set$<$ string $>$ \doxymbox{\hyperlink{class_collected_items_state_af241e2edb2667b5d25a31f71e9e8f025}{Collected\+Item\+Ids}} = new Hash\+Set$<$string$>$()
+\begin{DoxyCompactList}\small\item\em Az eddig sikeresen felvett tárgyak ID-\/jának listája. \end{DoxyCompactList}\item 
+static readonly Hash\+Set$<$ string $>$ \doxymbox{\hyperlink{class_collected_items_state_ad05920f2d3c46505806c6d6d6a9d451a}{Required\+Item\+Ids}}
+\begin{DoxyCompactList}\small\item\em A továbbjutáshoz szükséges tárgyak azonosítói. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A játékos által összegyűjtött tárgyakat és kulcsokat globálisan nyilvántartó statikus osztály. 
+
+\label{class_collected_items_state_doc-func-members}
+\Hypertarget{class_collected_items_state_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_collected_items_state_a06a2045c72b2bd6e90c20c970954bd1e}\index{CollectedItemsState@{CollectedItemsState}!InitializeFromConfig@{InitializeFromConfig}}
+\index{InitializeFromConfig@{InitializeFromConfig}!CollectedItemsState@{CollectedItemsState}}
+\doxysubsubsection{\texorpdfstring{InitializeFromConfig()}{InitializeFromConfig()}}
+{\footnotesize\ttfamily \label{class_collected_items_state_a06a2045c72b2bd6e90c20c970954bd1e} 
+void Collected\+Items\+State.\+Initialize\+From\+Config (\begin{DoxyParamCaption}\item[{string\+[$\,$]\+}]{items}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Inicializálja a szükséges tárgyak listáját a megadott konfiguráció (Event\+Config) alapján. 
+
+\Hypertarget{class_collected_items_state_aba15f4a99f7eb53bafdf589084e6ef4f}\index{CollectedItemsState@{CollectedItemsState}!IsCollected@{IsCollected}}
+\index{IsCollected@{IsCollected}!CollectedItemsState@{CollectedItemsState}}
+\doxysubsubsection{\texorpdfstring{IsCollected()}{IsCollected()}}
+{\footnotesize\ttfamily \label{class_collected_items_state_aba15f4a99f7eb53bafdf589084e6ef4f} 
+bool Collected\+Items\+State.\+Is\+Collected (\begin{DoxyParamCaption}\item[{string}]{item\+Id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Ellenőrzi, hogy egy adott tárgyat felvett-\/e már a játékos. 
+
+\Hypertarget{class_collected_items_state_adb29a2453dbc7386df44dff6b467b3ec}\index{CollectedItemsState@{CollectedItemsState}!ResetProgress@{ResetProgress}}
+\index{ResetProgress@{ResetProgress}!CollectedItemsState@{CollectedItemsState}}
+\doxysubsubsection{\texorpdfstring{ResetProgress()}{ResetProgress()}}
+{\footnotesize\ttfamily \label{class_collected_items_state_adb29a2453dbc7386df44dff6b467b3ec} 
+void Collected\+Items\+State.\+Reset\+Progress (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Kitörli az összes megszerzett tárgyat. 
+
+\Hypertarget{class_collected_items_state_a21d3feb242fb01d2ca570ace197f78f4}\index{CollectedItemsState@{CollectedItemsState}!ResetRuntimeState@{ResetRuntimeState}}
+\index{ResetRuntimeState@{ResetRuntimeState}!CollectedItemsState@{CollectedItemsState}}
+\doxysubsubsection{\texorpdfstring{ResetRuntimeState()}{ResetRuntimeState()}}
+{\footnotesize\ttfamily \label{class_collected_items_state_a21d3feb242fb01d2ca570ace197f78f4} 
+void Collected\+Items\+State.\+Reset\+Runtime\+State (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+A Unity betöltésekor automatikusan lefutó metódus, ami üríti a memóriát az újrakezdéshez. 
+
+\Hypertarget{class_collected_items_state_a4357fc57973946cf18100fa775c6db8b}\index{CollectedItemsState@{CollectedItemsState}!TryCollect@{TryCollect}}
+\index{TryCollect@{TryCollect}!CollectedItemsState@{CollectedItemsState}}
+\doxysubsubsection{\texorpdfstring{TryCollect()}{TryCollect()}}
+{\footnotesize\ttfamily \label{class_collected_items_state_a4357fc57973946cf18100fa775c6db8b} 
+bool Collected\+Items\+State.\+Try\+Collect (\begin{DoxyParamCaption}\item[{string}]{item\+Id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Megpróbál felvenni egy tárgyat a megadott azonosítóval. 
+
+
+
+\label{class_collected_items_state_doc-variable-members}
+\Hypertarget{class_collected_items_state_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_collected_items_state_af241e2edb2667b5d25a31f71e9e8f025}\index{CollectedItemsState@{CollectedItemsState}!CollectedItemIds@{CollectedItemIds}}
+\index{CollectedItemIds@{CollectedItemIds}!CollectedItemsState@{CollectedItemsState}}
+\doxysubsubsection{\texorpdfstring{CollectedItemIds}{CollectedItemIds}}
+{\footnotesize\ttfamily \label{class_collected_items_state_af241e2edb2667b5d25a31f71e9e8f025} 
+readonly Hash\+Set$<$string$>$ Collected\+Items\+State.\+Collected\+Item\+Ids = new Hash\+Set$<$string$>$()\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Az eddig sikeresen felvett tárgyak ID-\/jának listája. 
+
+\Hypertarget{class_collected_items_state_ab516c3e0a1b4ea57c2ad24a1545db923}\index{CollectedItemsState@{CollectedItemsState}!requiredItemCount@{requiredItemCount}}
+\index{requiredItemCount@{requiredItemCount}!CollectedItemsState@{CollectedItemsState}}
+\doxysubsubsection{\texorpdfstring{requiredItemCount}{requiredItemCount}}
+{\footnotesize\ttfamily \label{class_collected_items_state_ab516c3e0a1b4ea57c2ad24a1545db923} 
+int Collected\+Items\+State.\+required\+Item\+Count = 3\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\Hypertarget{class_collected_items_state_ad05920f2d3c46505806c6d6d6a9d451a}\index{CollectedItemsState@{CollectedItemsState}!RequiredItemIds@{RequiredItemIds}}
+\index{RequiredItemIds@{RequiredItemIds}!CollectedItemsState@{CollectedItemsState}}
+\doxysubsubsection{\texorpdfstring{RequiredItemIds}{RequiredItemIds}}
+{\footnotesize\ttfamily \label{class_collected_items_state_ad05920f2d3c46505806c6d6d6a9d451a} 
+readonly Hash\+Set$<$string$>$ Collected\+Items\+State.\+Required\+Item\+Ids\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+{\bfseries Initial value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \textcolor{keyword}{new}\ HashSet<string>()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}Map1\_Key"{}},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}Map2\_Key"{}},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}Map3\_Key"{}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+A továbbjutáshoz szükséges tárgyak azonosítói. 
+
+
+
+\label{class_collected_items_state_doc-property-members}
+\Hypertarget{class_collected_items_state_doc-property-members}
+\doxysubsection{Property Documentation}
+\Hypertarget{class_collected_items_state_a2f6ef97eab2392447d81392044e95464}\index{CollectedItemsState@{CollectedItemsState}!CollectedCount@{CollectedCount}}
+\index{CollectedCount@{CollectedCount}!CollectedItemsState@{CollectedItemsState}}
+\doxysubsubsection{\texorpdfstring{CollectedCount}{CollectedCount}}
+{\footnotesize\ttfamily \label{class_collected_items_state_a2f6ef97eab2392447d81392044e95464} 
+int Collected\+Items\+State.\+Collected\+Count\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [get]}}
+
+
+
+Visszaadja, hogy a játékos eddig hány megismételhetetlen (egyedi) tárgyat vett fel. 
+
+\Hypertarget{class_collected_items_state_a0feba22a149ecffbf4bb29e06468f9fc}\index{CollectedItemsState@{CollectedItemsState}!HasAllRequiredItems@{HasAllRequiredItems}}
+\index{HasAllRequiredItems@{HasAllRequiredItems}!CollectedItemsState@{CollectedItemsState}}
+\doxysubsubsection{\texorpdfstring{HasAllRequiredItems}{HasAllRequiredItems}}
+{\footnotesize\ttfamily \label{class_collected_items_state_a0feba22a149ecffbf4bb29e06468f9fc} 
+bool Collected\+Items\+State.\+Has\+All\+Required\+Items\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [get]}}
+
+
+
+Megvizsgálja, hogy a játékos megszerezte-\/e az összes kötelező tárgyat. 
+
+\Hypertarget{class_collected_items_state_ae193ddad60b9cd5a1cd591b62a6754a7}\index{CollectedItemsState@{CollectedItemsState}!RequiredItemCount@{RequiredItemCount}}
+\index{RequiredItemCount@{RequiredItemCount}!CollectedItemsState@{CollectedItemsState}}
+\doxysubsubsection{\texorpdfstring{RequiredItemCount}{RequiredItemCount}}
+{\footnotesize\ttfamily \label{class_collected_items_state_ae193ddad60b9cd5a1cd591b62a6754a7} 
+int Collected\+Items\+State.\+Required\+Item\+Count\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [get]}}
+
+
+
+Visszaadja, hogy összesen hány tárgyat kell összegyűjteni a továbbjutáshoz. 
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_collected_items_state_8cs}{Collected\+Items\+State.\+cs}}\end{DoxyCompactItemize}

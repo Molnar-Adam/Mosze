@@ -1,0 +1,396 @@
+\doxysection{Lever\+Puzzle\+Switch Class Reference}
+\hypertarget{class_lever_puzzle_switch}{}\label{class_lever_puzzle_switch}\index{LeverPuzzleSwitch@{LeverPuzzleSwitch}}
+
+
+Egy olyan kart kezelő script, amely része egy több karból álló rejtvénynek.  
+
+
+
+
+Inherits Mono\+Behaviour.
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \doxymbox{\hyperlink{class_lever_puzzle_switch_1_1_puzzle_runtime_data}{Puzzle\+Runtime\+Data}}
+\begin{DoxyCompactList}\small\item\em A karos rejtvények futásidejű, memóriában tárolt állapota. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_lever_puzzle_switch_ac8bf3ba5b086e0262680550bb8207adf}{Pull\+Lever}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \doxymbox{\hyperlink{class_lever_puzzle_switch_a4b1a354390975f8a3b09d371dc80b501}{Reset\+Puzzle\+State}} ()
+\begin{DoxyCompactList}\small\item\em Alapállapotba állítja a karos puzzle memóriabeli adatait, és minden kart alaphelyzetbe kapcsol. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_lever_puzzle_switch_af2fa4b52b1e31f8494aff6f931db0e12}{Start}} ()
+\item 
+void \doxymbox{\hyperlink{class_lever_puzzle_switch_a38421da847a093d6bce496421d128bd5}{Reset}} ()
+\begin{DoxyCompactList}\small\item\em Editorban segít lekérni az alapvető Sprite\+Renderer komponenst. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_lever_puzzle_switch_ab14081681c47439168cbe804e991dd46}{Awake}} ()
+\begin{DoxyCompactList}\small\item\em Lekéri a grafikus megjelenítőt, illetve kikapcsolja a felvétel szöveget az indulás pillanatában. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_lever_puzzle_switch_afd262a64a3110816363808d0c8e99aaf}{On\+Enable}} ()
+\begin{DoxyCompactList}\small\item\em Objektum bekapcsolásakor regisztrálja magát a globális rejtvény adatba és frissíti a saját grafikáját. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_lever_puzzle_switch_a47ad85642245fb3fa5ea6862eef9f06e}{On\+Disable}} ()
+\begin{DoxyCompactList}\small\item\em Kikapcsoláskor kiregisztrálja magát, letiltja az E-\/betűs feliratot, és kiveszi az interakciót. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_lever_puzzle_switch_aadc4627f98cd708c67250564d759a312}{Update}} ()
+\item 
+void \doxymbox{\hyperlink{class_lever_puzzle_switch_a237d6dcfc928eacda7eb807ae8ecf5aa}{On\+Trigger\+Enter2D}} (Collider2D collision)
+\item 
+void \doxymbox{\hyperlink{class_lever_puzzle_switch_a7d8c2bbdc580acdb29281f59f149327f}{On\+Trigger\+Exit2D}} (Collider2D collision)
+\item 
+void \doxymbox{\hyperlink{class_lever_puzzle_switch_a852618e6ccd74731f91b629bcdfe0f62}{Register\+Lever}} ()
+\begin{DoxyCompactList}\small\item\em Felveszi a jelenlegi kart az Event rendszerébe az aktuális Dictionary adattal együtt. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_lever_puzzle_switch_a027a48328cd00ac9c194bbce8feaece7}{Unregister\+Lever}} ()
+\begin{DoxyCompactList}\small\item\em Törli magát a konfigurációból, és nullázza az egész Runtime\+Data-\/t, ha ez volt az utolsó kar. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_lever_puzzle_switch_1_1_puzzle_runtime_data}{Puzzle\+Runtime\+Data}} \doxymbox{\hyperlink{class_lever_puzzle_switch_a0692eb8501fe0a26d51b1aa9d968f75c}{Get\+Data}} ()
+\item 
+List$<$ int $>$ \doxymbox{\hyperlink{class_lever_puzzle_switch_af9089dfdc35babe78fa21c4a4caf55e6}{Get\+Effective\+Targets}} ()
+\item 
+void \doxymbox{\hyperlink{class_lever_puzzle_switch_ad4d28dc6fe4ce8e1c8c3eb681097cc4d}{Refresh\+Visual\+From\+State}} ()
+\begin{DoxyCompactList}\small\item\em Lecseréli a karhoz tartozó képet. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_lever_puzzle_switch_abce4c4130608e76383e1da126d110a51}{Refresh\+All\+Lever\+Visuals}} (\doxymbox{\hyperlink{class_lever_puzzle_switch_1_1_puzzle_runtime_data}{Puzzle\+Runtime\+Data}} data)
+\item 
+void \doxymbox{\hyperlink{class_lever_puzzle_switch_a0889fdac0cec45ba7bc7044046eb0853}{Apply\+Lever\+Sprite}} (bool is\+Down)
+\item 
+void \doxymbox{\hyperlink{class_lever_puzzle_switch_a5cb48e8a92349563c987b3942a61444c}{Evaluate\+Solved}} (\doxymbox{\hyperlink{class_lever_puzzle_switch_1_1_puzzle_runtime_data}{Puzzle\+Runtime\+Data}} data)
+\item 
+void \doxymbox{\hyperlink{class_lever_puzzle_switch_adba5e5405807ffda73537c7ad76566f7}{Open\+Door\+And\+Invoke\+Solved\+Event}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \doxymbox{\hyperlink{class_lever_puzzle_switch_aa6770194f6b9221d230be6bbda9d8d1d}{Ensure\+State\+Exists}} (\doxymbox{\hyperlink{class_lever_puzzle_switch_1_1_puzzle_runtime_data}{Puzzle\+Runtime\+Data}} data, int index)
+\begin{DoxyCompactList}\small\item\em Statikus metódus. Biztosítja, hogy egy kar adatszerkezete legalább false értékkel benne legyen a Dictionaryben, ha eddig hiányzott. \end{DoxyCompactList}\item 
+static bool \doxymbox{\hyperlink{class_lever_puzzle_switch_a0d029db5abdd5281604a68bab11a6234}{Get\+Lever\+State}} (\doxymbox{\hyperlink{class_lever_puzzle_switch_1_1_puzzle_runtime_data}{Puzzle\+Runtime\+Data}} data, int index)
+\begin{DoxyCompactList}\small\item\em Visszaadja a megadott sorszámú kar jelenlegi fizikai pozíciójának logikai étékét. \end{DoxyCompactList}\item 
+static void \doxymbox{\hyperlink{class_lever_puzzle_switch_ab0eedcd01122361b84208772d26e6de6}{Set\+Lever\+State}} (\doxymbox{\hyperlink{class_lever_puzzle_switch_1_1_puzzle_runtime_data}{Puzzle\+Runtime\+Data}} data, int index, bool value)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \doxymbox{\hyperlink{class_lever_puzzle_switch_a0b264d47d84ecd238dd328be7ae27cc2}{puzzle\+ID}}
+\item 
+int \doxymbox{\hyperlink{class_lever_puzzle_switch_ac2908d72a2b058f3be6ea03af262b3f2}{lever\+Index}}
+\item 
+int \doxymbox{\hyperlink{class_lever_puzzle_switch_a4efabfd8f5f53d6d17d923c3a8e49d22}{required\+Lever\+Count}} = 5
+\item 
+List$<$ int $>$ \doxymbox{\hyperlink{class_lever_puzzle_switch_a85a0ccff50472cb06a1175c76b3d9216}{affected\+Levers}} = new List$<$int$>$()
+\begin{DoxyCompactList}\small\item\em Azoknak a karoknak az indexei, amelyeket ez a kapcsoló maga is átvált mehhúzáskor. \end{DoxyCompactList}\item 
+Sprite\+Renderer \doxymbox{\hyperlink{class_lever_puzzle_switch_a30e39f17b87b75a9b539a7c4af5ded43}{sprite\+Renderer}}
+\begin{DoxyCompactList}\small\item\em A kar Sprite\+Renderer-\/e. \end{DoxyCompactList}\item 
+Sprite \doxymbox{\hyperlink{class_lever_puzzle_switch_af27eea86ecb0a1bd863bc6f198dbbaec}{up\+Sprite}}
+\begin{DoxyCompactList}\small\item\em Felfelé állapot sprite-\/ja. \end{DoxyCompactList}\item 
+Sprite \doxymbox{\hyperlink{class_lever_puzzle_switch_a852480c8f6c2d36d6c84eb0837566b6a}{down\+Sprite}}
+\begin{DoxyCompactList}\small\item\em Lefelé állapot sprite-\/ja. \end{DoxyCompactList}\item 
+Key\+Code \doxymbox{\hyperlink{class_lever_puzzle_switch_a7ea13ce14ee734e7deeb9cf3e28a5e62}{interact\+Key}} = Key\+Code.\+E
+\item 
+string \doxymbox{\hyperlink{class_lever_puzzle_switch_a9329169b1a922b9a4289c32427ce06dc}{player\+Tag}} = "{}Player"{}
+\item 
+Text\+Mesh\+Pro\+UGUI \doxymbox{\hyperlink{class_lever_puzzle_switch_a1cb79db1d63caf1103288ea7f13c30a1}{interact\+Text}}
+\begin{DoxyCompactList}\small\item\em Az interakciót jelző felirat. \end{DoxyCompactList}\item 
+Game\+Object \doxymbox{\hyperlink{class_lever_puzzle_switch_ab936659dddcad3110c40963f881d1ff3}{door\+To\+Open}}
+\begin{DoxyCompactList}\small\item\em Az ajtó, amit ez a rejtvény kinyit/\+eltüntet megfejtéskor. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_lever_puzzle_switch_a30e6088a99d73ff9521cbb8c85fb8620}{can\+Interact}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \doxymbox{\hyperlink{class_lever_puzzle_switch_1_1_puzzle_runtime_data}{Puzzle\+Runtime\+Data}} \doxymbox{\hyperlink{class_lever_puzzle_switch_a8cfa3015975e40bbafaa09ace46cfd03}{runtime\+Data}} = new \doxymbox{\hyperlink{class_lever_puzzle_switch_1_1_puzzle_runtime_data}{Puzzle\+Runtime\+Data}}()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Egy olyan kart kezelő script, amely része egy több karból álló rejtvénynek. 
+
+\label{class_lever_puzzle_switch_doc-func-members}
+\Hypertarget{class_lever_puzzle_switch_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_lever_puzzle_switch_a0889fdac0cec45ba7bc7044046eb0853}\index{LeverPuzzleSwitch@{LeverPuzzleSwitch}!ApplyLeverSprite@{ApplyLeverSprite}}
+\index{ApplyLeverSprite@{ApplyLeverSprite}!LeverPuzzleSwitch@{LeverPuzzleSwitch}}
+\doxysubsubsection{\texorpdfstring{ApplyLeverSprite()}{ApplyLeverSprite()}}
+{\footnotesize\ttfamily \label{class_lever_puzzle_switch_a0889fdac0cec45ba7bc7044046eb0853} 
+void Lever\+Puzzle\+Switch.\+Apply\+Lever\+Sprite (\begin{DoxyParamCaption}\item[{bool}]{is\+Down}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_lever_puzzle_switch_ab14081681c47439168cbe804e991dd46}\index{LeverPuzzleSwitch@{LeverPuzzleSwitch}!Awake@{Awake}}
+\index{Awake@{Awake}!LeverPuzzleSwitch@{LeverPuzzleSwitch}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily \label{class_lever_puzzle_switch_ab14081681c47439168cbe804e991dd46} 
+void Lever\+Puzzle\+Switch.\+Awake (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Lekéri a grafikus megjelenítőt, illetve kikapcsolja a felvétel szöveget az indulás pillanatában. 
+
+\Hypertarget{class_lever_puzzle_switch_aa6770194f6b9221d230be6bbda9d8d1d}\index{LeverPuzzleSwitch@{LeverPuzzleSwitch}!EnsureStateExists@{EnsureStateExists}}
+\index{EnsureStateExists@{EnsureStateExists}!LeverPuzzleSwitch@{LeverPuzzleSwitch}}
+\doxysubsubsection{\texorpdfstring{EnsureStateExists()}{EnsureStateExists()}}
+{\footnotesize\ttfamily \label{class_lever_puzzle_switch_aa6770194f6b9221d230be6bbda9d8d1d} 
+void Lever\+Puzzle\+Switch.\+Ensure\+State\+Exists (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_lever_puzzle_switch_1_1_puzzle_runtime_data}{Puzzle\+Runtime\+Data}}}]{data}{, }\item[{int}]{index}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Statikus metódus. Biztosítja, hogy egy kar adatszerkezete legalább false értékkel benne legyen a Dictionaryben, ha eddig hiányzott. 
+
+\Hypertarget{class_lever_puzzle_switch_a5cb48e8a92349563c987b3942a61444c}\index{LeverPuzzleSwitch@{LeverPuzzleSwitch}!EvaluateSolved@{EvaluateSolved}}
+\index{EvaluateSolved@{EvaluateSolved}!LeverPuzzleSwitch@{LeverPuzzleSwitch}}
+\doxysubsubsection{\texorpdfstring{EvaluateSolved()}{EvaluateSolved()}}
+{\footnotesize\ttfamily \label{class_lever_puzzle_switch_a5cb48e8a92349563c987b3942a61444c} 
+void Lever\+Puzzle\+Switch.\+Evaluate\+Solved (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_lever_puzzle_switch_1_1_puzzle_runtime_data}{Puzzle\+Runtime\+Data}}}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Megsemmisíti az ajtó Game\+Objectet, ami be lett neki állítva az Editorban.\Hypertarget{class_lever_puzzle_switch_a0692eb8501fe0a26d51b1aa9d968f75c}\index{LeverPuzzleSwitch@{LeverPuzzleSwitch}!GetData@{GetData}}
+\index{GetData@{GetData}!LeverPuzzleSwitch@{LeverPuzzleSwitch}}
+\doxysubsubsection{\texorpdfstring{GetData()}{GetData()}}
+{\footnotesize\ttfamily \label{class_lever_puzzle_switch_a0692eb8501fe0a26d51b1aa9d968f75c} 
+\doxymbox{\hyperlink{class_lever_puzzle_switch_1_1_puzzle_runtime_data}{Puzzle\+Runtime\+Data}} Lever\+Puzzle\+Switch.\+Get\+Data (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_lever_puzzle_switch_af9089dfdc35babe78fa21c4a4caf55e6}\index{LeverPuzzleSwitch@{LeverPuzzleSwitch}!GetEffectiveTargets@{GetEffectiveTargets}}
+\index{GetEffectiveTargets@{GetEffectiveTargets}!LeverPuzzleSwitch@{LeverPuzzleSwitch}}
+\doxysubsubsection{\texorpdfstring{GetEffectiveTargets()}{GetEffectiveTargets()}}
+{\footnotesize\ttfamily \label{class_lever_puzzle_switch_af9089dfdc35babe78fa21c4a4caf55e6} 
+List$<$ int $>$ Lever\+Puzzle\+Switch.\+Get\+Effective\+Targets (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_lever_puzzle_switch_a0d029db5abdd5281604a68bab11a6234}\index{LeverPuzzleSwitch@{LeverPuzzleSwitch}!GetLeverState@{GetLeverState}}
+\index{GetLeverState@{GetLeverState}!LeverPuzzleSwitch@{LeverPuzzleSwitch}}
+\doxysubsubsection{\texorpdfstring{GetLeverState()}{GetLeverState()}}
+{\footnotesize\ttfamily \label{class_lever_puzzle_switch_a0d029db5abdd5281604a68bab11a6234} 
+bool Lever\+Puzzle\+Switch.\+Get\+Lever\+State (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_lever_puzzle_switch_1_1_puzzle_runtime_data}{Puzzle\+Runtime\+Data}}}]{data}{, }\item[{int}]{index}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Visszaadja a megadott sorszámú kar jelenlegi fizikai pozíciójának logikai étékét. 
+
+Megváltoztatja a megadott kar állapotát a Runtime\+Data dictionary-\/ban.\Hypertarget{class_lever_puzzle_switch_a47ad85642245fb3fa5ea6862eef9f06e}\index{LeverPuzzleSwitch@{LeverPuzzleSwitch}!OnDisable@{OnDisable}}
+\index{OnDisable@{OnDisable}!LeverPuzzleSwitch@{LeverPuzzleSwitch}}
+\doxysubsubsection{\texorpdfstring{OnDisable()}{OnDisable()}}
+{\footnotesize\ttfamily \label{class_lever_puzzle_switch_a47ad85642245fb3fa5ea6862eef9f06e} 
+void Lever\+Puzzle\+Switch.\+On\+Disable (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Kikapcsoláskor kiregisztrálja magát, letiltja az E-\/betűs feliratot, és kiveszi az interakciót. 
+
+\Hypertarget{class_lever_puzzle_switch_afd262a64a3110816363808d0c8e99aaf}\index{LeverPuzzleSwitch@{LeverPuzzleSwitch}!OnEnable@{OnEnable}}
+\index{OnEnable@{OnEnable}!LeverPuzzleSwitch@{LeverPuzzleSwitch}}
+\doxysubsubsection{\texorpdfstring{OnEnable()}{OnEnable()}}
+{\footnotesize\ttfamily \label{class_lever_puzzle_switch_afd262a64a3110816363808d0c8e99aaf} 
+void Lever\+Puzzle\+Switch.\+On\+Enable (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Objektum bekapcsolásakor regisztrálja magát a globális rejtvény adatba és frissíti a saját grafikáját. 
+
+\Hypertarget{class_lever_puzzle_switch_a237d6dcfc928eacda7eb807ae8ecf5aa}\index{LeverPuzzleSwitch@{LeverPuzzleSwitch}!OnTriggerEnter2D@{OnTriggerEnter2D}}
+\index{OnTriggerEnter2D@{OnTriggerEnter2D}!LeverPuzzleSwitch@{LeverPuzzleSwitch}}
+\doxysubsubsection{\texorpdfstring{OnTriggerEnter2D()}{OnTriggerEnter2D()}}
+{\footnotesize\ttfamily \label{class_lever_puzzle_switch_a237d6dcfc928eacda7eb807ae8ecf5aa} 
+void Lever\+Puzzle\+Switch.\+On\+Trigger\+Enter2D (\begin{DoxyParamCaption}\item[{Collider2D}]{collision}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Ha a játékos elhagyja a zónát, letiltja az állítást és eltünteti a feliratot.\Hypertarget{class_lever_puzzle_switch_a7d8c2bbdc580acdb29281f59f149327f}\index{LeverPuzzleSwitch@{LeverPuzzleSwitch}!OnTriggerExit2D@{OnTriggerExit2D}}
+\index{OnTriggerExit2D@{OnTriggerExit2D}!LeverPuzzleSwitch@{LeverPuzzleSwitch}}
+\doxysubsubsection{\texorpdfstring{OnTriggerExit2D()}{OnTriggerExit2D()}}
+{\footnotesize\ttfamily \label{class_lever_puzzle_switch_a7d8c2bbdc580acdb29281f59f149327f} 
+void Lever\+Puzzle\+Switch.\+On\+Trigger\+Exit2D (\begin{DoxyParamCaption}\item[{Collider2D}]{collision}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Amikor a játékos meghúzza a kart:\+ Átváltja ezen kar és az összes hozzá csatlakozó kar "{}states"{} állapotát. Utána frissíti a grafikát, és ellenőrzi a rejtvény megoldását.\Hypertarget{class_lever_puzzle_switch_adba5e5405807ffda73537c7ad76566f7}\index{LeverPuzzleSwitch@{LeverPuzzleSwitch}!OpenDoorAndInvokeSolvedEvent@{OpenDoorAndInvokeSolvedEvent}}
+\index{OpenDoorAndInvokeSolvedEvent@{OpenDoorAndInvokeSolvedEvent}!LeverPuzzleSwitch@{LeverPuzzleSwitch}}
+\doxysubsubsection{\texorpdfstring{OpenDoorAndInvokeSolvedEvent()}{OpenDoorAndInvokeSolvedEvent()}}
+{\footnotesize\ttfamily \label{class_lever_puzzle_switch_adba5e5405807ffda73537c7ad76566f7} 
+void Lever\+Puzzle\+Switch.\+Open\+Door\+And\+Invoke\+Solved\+Event (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_lever_puzzle_switch_ac8bf3ba5b086e0262680550bb8207adf}\index{LeverPuzzleSwitch@{LeverPuzzleSwitch}!PullLever@{PullLever}}
+\index{PullLever@{PullLever}!LeverPuzzleSwitch@{LeverPuzzleSwitch}}
+\doxysubsubsection{\texorpdfstring{PullLever()}{PullLever()}}
+{\footnotesize\ttfamily \label{class_lever_puzzle_switch_ac8bf3ba5b086e0262680550bb8207adf} 
+void Lever\+Puzzle\+Switch.\+Pull\+Lever (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_lever_puzzle_switch_abce4c4130608e76383e1da126d110a51}\index{LeverPuzzleSwitch@{LeverPuzzleSwitch}!RefreshAllLeverVisuals@{RefreshAllLeverVisuals}}
+\index{RefreshAllLeverVisuals@{RefreshAllLeverVisuals}!LeverPuzzleSwitch@{LeverPuzzleSwitch}}
+\doxysubsubsection{\texorpdfstring{RefreshAllLeverVisuals()}{RefreshAllLeverVisuals()}}
+{\footnotesize\ttfamily \label{class_lever_puzzle_switch_abce4c4130608e76383e1da126d110a51} 
+void Lever\+Puzzle\+Switch.\+Refresh\+All\+Lever\+Visuals (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_lever_puzzle_switch_1_1_puzzle_runtime_data}{Puzzle\+Runtime\+Data}}}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_lever_puzzle_switch_ad4d28dc6fe4ce8e1c8c3eb681097cc4d}\index{LeverPuzzleSwitch@{LeverPuzzleSwitch}!RefreshVisualFromState@{RefreshVisualFromState}}
+\index{RefreshVisualFromState@{RefreshVisualFromState}!LeverPuzzleSwitch@{LeverPuzzleSwitch}}
+\doxysubsubsection{\texorpdfstring{RefreshVisualFromState()}{RefreshVisualFromState()}}
+{\footnotesize\ttfamily \label{class_lever_puzzle_switch_ad4d28dc6fe4ce8e1c8c3eb681097cc4d} 
+void Lever\+Puzzle\+Switch.\+Refresh\+Visual\+From\+State (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Lecseréli a karhoz tartozó képet. 
+
+\Hypertarget{class_lever_puzzle_switch_a852618e6ccd74731f91b629bcdfe0f62}\index{LeverPuzzleSwitch@{LeverPuzzleSwitch}!RegisterLever@{RegisterLever}}
+\index{RegisterLever@{RegisterLever}!LeverPuzzleSwitch@{LeverPuzzleSwitch}}
+\doxysubsubsection{\texorpdfstring{RegisterLever()}{RegisterLever()}}
+{\footnotesize\ttfamily \label{class_lever_puzzle_switch_a852618e6ccd74731f91b629bcdfe0f62} 
+void Lever\+Puzzle\+Switch.\+Register\+Lever (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Felveszi a jelenlegi kart az Event rendszerébe az aktuális Dictionary adattal együtt. 
+
+\Hypertarget{class_lever_puzzle_switch_a38421da847a093d6bce496421d128bd5}\index{LeverPuzzleSwitch@{LeverPuzzleSwitch}!Reset@{Reset}}
+\index{Reset@{Reset}!LeverPuzzleSwitch@{LeverPuzzleSwitch}}
+\doxysubsubsection{\texorpdfstring{Reset()}{Reset()}}
+{\footnotesize\ttfamily \label{class_lever_puzzle_switch_a38421da847a093d6bce496421d128bd5} 
+void Lever\+Puzzle\+Switch.\+Reset (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Editorban segít lekérni az alapvető Sprite\+Renderer komponenst. 
+
+\Hypertarget{class_lever_puzzle_switch_a4b1a354390975f8a3b09d371dc80b501}\index{LeverPuzzleSwitch@{LeverPuzzleSwitch}!ResetPuzzleState@{ResetPuzzleState}}
+\index{ResetPuzzleState@{ResetPuzzleState}!LeverPuzzleSwitch@{LeverPuzzleSwitch}}
+\doxysubsubsection{\texorpdfstring{ResetPuzzleState()}{ResetPuzzleState()}}
+{\footnotesize\ttfamily \label{class_lever_puzzle_switch_a4b1a354390975f8a3b09d371dc80b501} 
+void Lever\+Puzzle\+Switch.\+Reset\+Puzzle\+State (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Alapállapotba állítja a karos puzzle memóriabeli adatait, és minden kart alaphelyzetbe kapcsol. 
+
+\Hypertarget{class_lever_puzzle_switch_ab0eedcd01122361b84208772d26e6de6}\index{LeverPuzzleSwitch@{LeverPuzzleSwitch}!SetLeverState@{SetLeverState}}
+\index{SetLeverState@{SetLeverState}!LeverPuzzleSwitch@{LeverPuzzleSwitch}}
+\doxysubsubsection{\texorpdfstring{SetLeverState()}{SetLeverState()}}
+{\footnotesize\ttfamily \label{class_lever_puzzle_switch_ab0eedcd01122361b84208772d26e6de6} 
+void Lever\+Puzzle\+Switch.\+Set\+Lever\+State (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_lever_puzzle_switch_1_1_puzzle_runtime_data}{Puzzle\+Runtime\+Data}}}]{data}{, }\item[{int}]{index}{, }\item[{bool}]{value}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+Megvizsgálja, hogy minden kar lenn van-\/e. Ha igen, mindannyiukon keresztül kinyitja az ajtót.\Hypertarget{class_lever_puzzle_switch_af2fa4b52b1e31f8494aff6f931db0e12}\index{LeverPuzzleSwitch@{LeverPuzzleSwitch}!Start@{Start}}
+\index{Start@{Start}!LeverPuzzleSwitch@{LeverPuzzleSwitch}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_lever_puzzle_switch_af2fa4b52b1e31f8494aff6f931db0e12} 
+void Lever\+Puzzle\+Switch.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Felolvassa az Event\+Managerből, hogy hány kar alkotja a feladványt, és melyik másik karokra van hatással ennek a karnak a meghúzása. \Hypertarget{class_lever_puzzle_switch_a027a48328cd00ac9c194bbce8feaece7}\index{LeverPuzzleSwitch@{LeverPuzzleSwitch}!UnregisterLever@{UnregisterLever}}
+\index{UnregisterLever@{UnregisterLever}!LeverPuzzleSwitch@{LeverPuzzleSwitch}}
+\doxysubsubsection{\texorpdfstring{UnregisterLever()}{UnregisterLever()}}
+{\footnotesize\ttfamily \label{class_lever_puzzle_switch_a027a48328cd00ac9c194bbce8feaece7} 
+void Lever\+Puzzle\+Switch.\+Unregister\+Lever (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Törli magát a konfigurációból, és nullázza az egész Runtime\+Data-\/t, ha ez volt az utolsó kar. 
+
+\Hypertarget{class_lever_puzzle_switch_aadc4627f98cd708c67250564d759a312}\index{LeverPuzzleSwitch@{LeverPuzzleSwitch}!Update@{Update}}
+\index{Update@{Update}!LeverPuzzleSwitch@{LeverPuzzleSwitch}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_lever_puzzle_switch_aadc4627f98cd708c67250564d759a312} 
+void Lever\+Puzzle\+Switch.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\label{class_lever_puzzle_switch_doc-variable-members}
+\Hypertarget{class_lever_puzzle_switch_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_lever_puzzle_switch_a85a0ccff50472cb06a1175c76b3d9216}\index{LeverPuzzleSwitch@{LeverPuzzleSwitch}!affectedLevers@{affectedLevers}}
+\index{affectedLevers@{affectedLevers}!LeverPuzzleSwitch@{LeverPuzzleSwitch}}
+\doxysubsubsection{\texorpdfstring{affectedLevers}{affectedLevers}}
+{\footnotesize\ttfamily \label{class_lever_puzzle_switch_a85a0ccff50472cb06a1175c76b3d9216} 
+List$<$int$>$ Lever\+Puzzle\+Switch.\+affected\+Levers = new List$<$int$>$()\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Azoknak a karoknak az indexei, amelyeket ez a kapcsoló maga is átvált mehhúzáskor. 
+
+\Hypertarget{class_lever_puzzle_switch_a30e6088a99d73ff9521cbb8c85fb8620}\index{LeverPuzzleSwitch@{LeverPuzzleSwitch}!canInteract@{canInteract}}
+\index{canInteract@{canInteract}!LeverPuzzleSwitch@{LeverPuzzleSwitch}}
+\doxysubsubsection{\texorpdfstring{canInteract}{canInteract}}
+{\footnotesize\ttfamily \label{class_lever_puzzle_switch_a30e6088a99d73ff9521cbb8c85fb8620} 
+bool Lever\+Puzzle\+Switch.\+can\+Interact\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_lever_puzzle_switch_ab936659dddcad3110c40963f881d1ff3}\index{LeverPuzzleSwitch@{LeverPuzzleSwitch}!doorToOpen@{doorToOpen}}
+\index{doorToOpen@{doorToOpen}!LeverPuzzleSwitch@{LeverPuzzleSwitch}}
+\doxysubsubsection{\texorpdfstring{doorToOpen}{doorToOpen}}
+{\footnotesize\ttfamily \label{class_lever_puzzle_switch_ab936659dddcad3110c40963f881d1ff3} 
+Game\+Object Lever\+Puzzle\+Switch.\+door\+To\+Open\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Az ajtó, amit ez a rejtvény kinyit/\+eltüntet megfejtéskor. 
+
+\Hypertarget{class_lever_puzzle_switch_a852480c8f6c2d36d6c84eb0837566b6a}\index{LeverPuzzleSwitch@{LeverPuzzleSwitch}!downSprite@{downSprite}}
+\index{downSprite@{downSprite}!LeverPuzzleSwitch@{LeverPuzzleSwitch}}
+\doxysubsubsection{\texorpdfstring{downSprite}{downSprite}}
+{\footnotesize\ttfamily \label{class_lever_puzzle_switch_a852480c8f6c2d36d6c84eb0837566b6a} 
+Sprite Lever\+Puzzle\+Switch.\+down\+Sprite\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Lefelé állapot sprite-\/ja. 
+
+\Hypertarget{class_lever_puzzle_switch_a7ea13ce14ee734e7deeb9cf3e28a5e62}\index{LeverPuzzleSwitch@{LeverPuzzleSwitch}!interactKey@{interactKey}}
+\index{interactKey@{interactKey}!LeverPuzzleSwitch@{LeverPuzzleSwitch}}
+\doxysubsubsection{\texorpdfstring{interactKey}{interactKey}}
+{\footnotesize\ttfamily \label{class_lever_puzzle_switch_a7ea13ce14ee734e7deeb9cf3e28a5e62} 
+Key\+Code Lever\+Puzzle\+Switch.\+interact\+Key = Key\+Code.\+E\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_lever_puzzle_switch_a1cb79db1d63caf1103288ea7f13c30a1}\index{LeverPuzzleSwitch@{LeverPuzzleSwitch}!interactText@{interactText}}
+\index{interactText@{interactText}!LeverPuzzleSwitch@{LeverPuzzleSwitch}}
+\doxysubsubsection{\texorpdfstring{interactText}{interactText}}
+{\footnotesize\ttfamily \label{class_lever_puzzle_switch_a1cb79db1d63caf1103288ea7f13c30a1} 
+Text\+Mesh\+Pro\+UGUI Lever\+Puzzle\+Switch.\+interact\+Text\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Az interakciót jelző felirat. 
+
+\Hypertarget{class_lever_puzzle_switch_ac2908d72a2b058f3be6ea03af262b3f2}\index{LeverPuzzleSwitch@{LeverPuzzleSwitch}!leverIndex@{leverIndex}}
+\index{leverIndex@{leverIndex}!LeverPuzzleSwitch@{LeverPuzzleSwitch}}
+\doxysubsubsection{\texorpdfstring{leverIndex}{leverIndex}}
+{\footnotesize\ttfamily \label{class_lever_puzzle_switch_ac2908d72a2b058f3be6ea03af262b3f2} 
+int Lever\+Puzzle\+Switch.\+lever\+Index\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_lever_puzzle_switch_a9329169b1a922b9a4289c32427ce06dc}\index{LeverPuzzleSwitch@{LeverPuzzleSwitch}!playerTag@{playerTag}}
+\index{playerTag@{playerTag}!LeverPuzzleSwitch@{LeverPuzzleSwitch}}
+\doxysubsubsection{\texorpdfstring{playerTag}{playerTag}}
+{\footnotesize\ttfamily \label{class_lever_puzzle_switch_a9329169b1a922b9a4289c32427ce06dc} 
+string Lever\+Puzzle\+Switch.\+player\+Tag = "{}Player"{}\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_lever_puzzle_switch_a0b264d47d84ecd238dd328be7ae27cc2}\index{LeverPuzzleSwitch@{LeverPuzzleSwitch}!puzzleID@{puzzleID}}
+\index{puzzleID@{puzzleID}!LeverPuzzleSwitch@{LeverPuzzleSwitch}}
+\doxysubsubsection{\texorpdfstring{puzzleID}{puzzleID}}
+{\footnotesize\ttfamily \label{class_lever_puzzle_switch_a0b264d47d84ecd238dd328be7ae27cc2} 
+string Lever\+Puzzle\+Switch.\+puzzle\+ID\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_lever_puzzle_switch_a4efabfd8f5f53d6d17d923c3a8e49d22}\index{LeverPuzzleSwitch@{LeverPuzzleSwitch}!requiredLeverCount@{requiredLeverCount}}
+\index{requiredLeverCount@{requiredLeverCount}!LeverPuzzleSwitch@{LeverPuzzleSwitch}}
+\doxysubsubsection{\texorpdfstring{requiredLeverCount}{requiredLeverCount}}
+{\footnotesize\ttfamily \label{class_lever_puzzle_switch_a4efabfd8f5f53d6d17d923c3a8e49d22} 
+int Lever\+Puzzle\+Switch.\+required\+Lever\+Count = 5\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_lever_puzzle_switch_a8cfa3015975e40bbafaa09ace46cfd03}\index{LeverPuzzleSwitch@{LeverPuzzleSwitch}!runtimeData@{runtimeData}}
+\index{runtimeData@{runtimeData}!LeverPuzzleSwitch@{LeverPuzzleSwitch}}
+\doxysubsubsection{\texorpdfstring{runtimeData}{runtimeData}}
+{\footnotesize\ttfamily \label{class_lever_puzzle_switch_a8cfa3015975e40bbafaa09ace46cfd03} 
+\doxymbox{\hyperlink{class_lever_puzzle_switch_1_1_puzzle_runtime_data}{Puzzle\+Runtime\+Data}} Lever\+Puzzle\+Switch.\+runtime\+Data = new \doxymbox{\hyperlink{class_lever_puzzle_switch_1_1_puzzle_runtime_data}{Puzzle\+Runtime\+Data}}()\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\Hypertarget{class_lever_puzzle_switch_a30e39f17b87b75a9b539a7c4af5ded43}\index{LeverPuzzleSwitch@{LeverPuzzleSwitch}!spriteRenderer@{spriteRenderer}}
+\index{spriteRenderer@{spriteRenderer}!LeverPuzzleSwitch@{LeverPuzzleSwitch}}
+\doxysubsubsection{\texorpdfstring{spriteRenderer}{spriteRenderer}}
+{\footnotesize\ttfamily \label{class_lever_puzzle_switch_a30e39f17b87b75a9b539a7c4af5ded43} 
+Sprite\+Renderer Lever\+Puzzle\+Switch.\+sprite\+Renderer\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A kar Sprite\+Renderer-\/e. 
+
+\Hypertarget{class_lever_puzzle_switch_af27eea86ecb0a1bd863bc6f198dbbaec}\index{LeverPuzzleSwitch@{LeverPuzzleSwitch}!upSprite@{upSprite}}
+\index{upSprite@{upSprite}!LeverPuzzleSwitch@{LeverPuzzleSwitch}}
+\doxysubsubsection{\texorpdfstring{upSprite}{upSprite}}
+{\footnotesize\ttfamily \label{class_lever_puzzle_switch_af27eea86ecb0a1bd863bc6f198dbbaec} 
+Sprite Lever\+Puzzle\+Switch.\+up\+Sprite\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Felfelé állapot sprite-\/ja. 
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_lever_puzzle_switch_8cs}{Lever\+Puzzle\+Switch.\+cs}}\end{DoxyCompactItemize}

@@ -3,51 +3,73 @@ using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 
+/// A játék eseményeit (dialógusok, puzzle állások) tároló adatstruktúra, ami szerializálható a JSON mentéshez.
 [System.Serializable]
 public class GameEventsConfig
 {
+    /// A párbeszédeket tároló lista.
     public List<DialogueData> dialogues = new List<DialogueData>();
+    /// A sima rejtvények logikáját tároló lista.
     public List<PuzzleData> puzzles = new List<PuzzleData>();
+    /// >A kar-alapú rejtvények adatait tároló lista.
     public List<LeverPuzzleGroupData> leverPuzzles = new List<LeverPuzzleGroupData>();
+    /// A szintekhez szükséges kulcs(ok) azonosítóinak tömbje.
     public string[] requiredItemIds = new string[] { "Map1_Key", "Map2_Key", "Map3_Key" };
 }
 
+///Egy konkrét dialógust definiáló adatstruktúra.
 [System.Serializable]
 public class DialogueData
 {
+    /// A dialógus egyedi azonosítója a játékban.
     public string dialogueID;
+    /// A dialógushoz tartozó szöveges sorok tömbje.
     public string[] lines;
 }
 
+/// Zongora rejtvényt  leíró adatstruktúra.
 [System.Serializable]
 public class PuzzleData
 {
+    /// A puzzle egyedi azonosítója.
     public string puzzleID;
+    /// A megoldáshoz szükséges minta elemeinek indexei sorrendben.
     public int[] requiredPatternIndices;
 }
 
+/// Karos puzzle teljes eseménystruktúrája.
 [System.Serializable]
 public class LeverPuzzleGroupData
 {
-    public string puzzleID; // Pl. "LeverPuzzle_Scene1"
+    /// >A feladvány egyedi azonosítója.
+    public string puzzleID; 
+    /// A megfejtéshez kötelezőleg aktív  karok száma.
     public int requiredLeverCount = 5;
     public List<LeverData> levers = new List<LeverData>();
 }
 
+/// Egy darab puzzle-kar működését leíró adat.
 [System.Serializable]
 public class LeverData
 {
-    public int leverIndex; // 1-től 5-ig (vagy ameddig tart)
+    /// A kar sorszáma a konkrét feladványon belül (1-től 5-ig).
+    public int leverIndex; 
+    /// A többi kar indexe, amelyet ez a kar magával mozgat.
     public int[] affectedLevers;
 }
 
+/// memóriába töltéséért és JSON fájlba történő mentéséért.
 public class EventManager : MonoBehaviour
 {
+    /// A globális EventManager példány.
     public static EventManager Instance { get; private set; }
     
+    /// A JSON-ból felolvasott (vagy a betöltendő) adatok példánya a memóriában.
     public GameEventsConfig EventConfig;
     private string saveFilePath;
 
+    /// A játék indulásakor inicializálja magát és betölti az adatokat a háttértárból.
+    /// Gondoskodik róla, hogy csak egyetlen példány éljen belőle (Singleton hitelesítés).
     private void Awake()
     {
         if (Instance == null)
@@ -63,6 +85,7 @@ public class EventManager : MonoBehaviour
         }
     }
 
+    /// Jelenlegi EventConfig állapot fájlba mentése JSON formátumban.
     public void SaveEvents()
     {
         string json = JsonUtility.ToJson(EventConfig, true);
@@ -70,6 +93,7 @@ public class EventManager : MonoBehaviour
         Debug.Log("Events saved to: " + saveFilePath);
     }
 
+    /// A JSON fájlból történő betöltés, és hiányos feladványok alapértelmezett feltöltése.
     public void LoadEvents()
     {
         if (File.Exists(saveFilePath))
@@ -80,35 +104,76 @@ public class EventManager : MonoBehaviour
         else
         {
             EventConfig = new GameEventsConfig();
-            
-            // Templates
-            EventConfig.dialogues.Add(new DialogueData { dialogueID = "NPC_1", lines = new string[] { "Szia!", "Kezdd el a kalandot." } });
-            EventConfig.puzzles.Add(new PuzzleData { puzzleID = "Piano_1", requiredPatternIndices = new int[] { 0, 1, 2 } });
-            
-            var sampleLeverGroup = new LeverPuzzleGroupData { puzzleID = "LeverPuzzle_Scene1", requiredLeverCount = 5 };
-            sampleLeverGroup.levers.Add(new LeverData { leverIndex = 1, affectedLevers = new int[] { 2, 3 } });
-            sampleLeverGroup.levers.Add(new LeverData { leverIndex = 2, affectedLevers = new int[] { 1, 4 } });
-            EventConfig.leverPuzzles.Add(sampleLeverGroup);
-
-            SaveEvents();
         }
 
-        // Initialize static states that depend on these configs
+        if (EventConfig.dialogues.Count == 0)
+        {
+            EventConfig.dialogues.Add(new DialogueData { dialogueID = "PianoDialogue", lines = new string[] { "Szia!" } });
+            EventConfig.dialogues.Add(new DialogueData { dialogueID = "Papir1", lines = new string[] { "Szia!", "dasdas" } });
+        }
+        
+        if (EventConfig.puzzles.Count == 0)
+        {
+            EventConfig.puzzles.Add(new PuzzleData { puzzleID = "Piano", requiredPatternIndices = new int[] { 0, 1, 2 } });
+        }
+
+        EnsureLeverPuzzleExists("LeverPuzzle_Scene1", 5, new List<LeverData> {
+            new LeverData { leverIndex = 1, affectedLevers = new int[] { 1, 2 } },
+            new LeverData { leverIndex = 2, affectedLevers = new int[] { 1, 2, 3 } },
+            new LeverData { leverIndex = 3, affectedLevers = new int[] { 2, 3, 4 } },
+            new LeverData { leverIndex = 4, affectedLevers = new int[] { 3, 4, 5 } },
+            new LeverData { leverIndex = 5, affectedLevers = new int[] { 4, 5 } }
+        });
+
+        EnsureLeverPuzzleExists("LeverPuzzle_Scene2", 5, new List<LeverData> {
+            new LeverData { leverIndex = 1, affectedLevers = new int[] { 1, 3 } },
+            new LeverData { leverIndex = 2, affectedLevers = new int[] { 2, 4, 5 } },
+            new LeverData { leverIndex = 3, affectedLevers = new int[] { 1, 3, 5 } },
+            new LeverData { leverIndex = 4, affectedLevers = new int[] { 1, 2, 4 } },
+            new LeverData { leverIndex = 5, affectedLevers = new int[] { 3, 5 } }
+        });
+
+        EnsureLeverPuzzleExists("LeverPuzzle_Scene3", 5, new List<LeverData> {
+            new LeverData { leverIndex = 1, affectedLevers = new int[] { 1, 2, 4 } },
+            new LeverData { leverIndex = 2, affectedLevers = new int[] { 2, 3 } },
+            new LeverData { leverIndex = 3, affectedLevers = new int[] { 1, 3, 5 } },
+            new LeverData { leverIndex = 4, affectedLevers = new int[] { 3, 4 } },
+            new LeverData { leverIndex = 5, affectedLevers = new int[] { 2, 4, 5 } }
+        });
+
+        SaveEvents();
+
         CollectedItemsState.InitializeFromConfig(EventConfig.requiredItemIds);
     }
 
+    /// Ellenőrzi, hogy létezik-e egy karos puzzle az adott ID-vel. Ha nem, beleteszi a default adatokat.
+    private void EnsureLeverPuzzleExists(string id, int count, List<LeverData> defaultLevers)
+    {
+        if (EventConfig.leverPuzzles.FirstOrDefault(p => p.puzzleID == id) == null)
+        {
+            EventConfig.leverPuzzles.Add(new LeverPuzzleGroupData {
+                puzzleID = id,
+                requiredLeverCount = count,
+                levers = defaultLevers
+            });
+        }
+    }
+
+    /// Visszaadja egy konkrét dialógushoz (ID) tartozó szövegsorokat.
     public string[] GetDialogueLines(string dialogueID)
     {
         var dialogue = EventConfig.dialogues.FirstOrDefault(d => d.dialogueID == dialogueID);
         return dialogue?.lines;
     }
 
+    /// Lekéri az azonosítóhoz tartozó feladvány (Piano) helyes kód-sorrendjét.
     public int[] GetPuzzlePattern(string puzzleID)
     {
         var puzzle = EventConfig.puzzles.FirstOrDefault(p => p.puzzleID == puzzleID);
         return puzzle?.requiredPatternIndices;
     }
 
+    /// Megadja, hogy egy adott rejtvény egy konkrét karja melyik másik karokra van hatással.
     public int[] GetAffectedLevers(string puzzleID, int leverIndex)
     {
         var puzzleGroup = EventConfig.leverPuzzles.FirstOrDefault(l => l.puzzleID == puzzleID);
@@ -123,6 +188,7 @@ public class EventManager : MonoBehaviour
         return null;
     }
 
+    /// Visszaadja a megadott Puzzle azonosítójához szükséges összes kar számát.
     public int GetRequiredLeverCount(string puzzleID)
     {
         var puzzleGroup = EventConfig.leverPuzzles.FirstOrDefault(l => l.puzzleID == puzzleID);

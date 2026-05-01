@@ -1,0 +1,118 @@
+\doxysection{Pause\+Menu Class Reference}
+\hypertarget{class_pause_menu}{}\label{class_pause_menu}\index{PauseMenu@{PauseMenu}}
+
+
+A Pause működését (megjelenítés, eltüntetés, újraindulás) kezelő szkript.  
+
+
+
+
+Inherits Mono\+Behaviour.
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_pause_menu_a4416b25e65dfadf57cd8657eaf94f7df}{Resume}} ()
+\begin{DoxyCompactList}\small\item\em Eltünteti a panelt, és újraindítja a játékidőt (Time.\+time\+Scale = 1). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_pause_menu_ad9f370d76d1af2ebdda21eaae4ea5477}{Menu}} ()
+\begin{DoxyCompactList}\small\item\em "{}\+Menu"{} scene-\/re váltás \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_pause_menu_a7770b476b14f21017ab0da8bfdd13f4d}{Quit}} ()
+\begin{DoxyCompactList}\small\item\em Kilépés a játékból. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Game\+Object \doxymbox{\hyperlink{class_pause_menu_a282175e75a2e525b36c1977a41e43654}{Pause\+Panel}}
+\begin{DoxyCompactList}\small\item\em A menüt tartalmazó UI Panel game\+Object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_pause_menu_ab0630cce16d2dedf799a43e11853c012}{Awake}} ()
+\begin{DoxyCompactList}\small\item\em Induláskor biztosítja az Event\+System meglétét, hogy a UI gombok működjenek. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_pause_menu_ad66a0552c131257182ce524f1c71ce4c}{Update}} ()
+\begin{DoxyCompactList}\small\item\em Billentyűzetes interakciókat (Escape) figyel, valamint más menük/\+képernyők zavarását blokkolja. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_pause_menu_ac1776fc120273bd022ef8f139fa2cbc1}{Ensure\+Event\+System}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A Pause működését (megjelenítés, eltüntetés, újraindulás) kezelő szkript. 
+
+\label{class_pause_menu_doc-func-members}
+\Hypertarget{class_pause_menu_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_pause_menu_ab0630cce16d2dedf799a43e11853c012}\index{PauseMenu@{PauseMenu}!Awake@{Awake}}
+\index{Awake@{Awake}!PauseMenu@{PauseMenu}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily \label{class_pause_menu_ab0630cce16d2dedf799a43e11853c012} 
+void Pause\+Menu.\+Awake (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Induláskor biztosítja az Event\+System meglétét, hogy a UI gombok működjenek. 
+
+\Hypertarget{class_pause_menu_ac1776fc120273bd022ef8f139fa2cbc1}\index{PauseMenu@{PauseMenu}!EnsureEventSystem@{EnsureEventSystem}}
+\index{EnsureEventSystem@{EnsureEventSystem}!PauseMenu@{PauseMenu}}
+\doxysubsubsection{\texorpdfstring{EnsureEventSystem()}{EnsureEventSystem()}}
+{\footnotesize\ttfamily \label{class_pause_menu_ac1776fc120273bd022ef8f139fa2cbc1} 
+void Pause\+Menu.\+Ensure\+Event\+System (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_pause_menu_ad9f370d76d1af2ebdda21eaae4ea5477}\index{PauseMenu@{PauseMenu}!Menu@{Menu}}
+\index{Menu@{Menu}!PauseMenu@{PauseMenu}}
+\doxysubsubsection{\texorpdfstring{Menu()}{Menu()}}
+{\footnotesize\ttfamily \label{class_pause_menu_ad9f370d76d1af2ebdda21eaae4ea5477} 
+void Pause\+Menu.\+Menu (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+"{}\+Menu"{} scene-\/re váltás 
+
+\Hypertarget{class_pause_menu_a7770b476b14f21017ab0da8bfdd13f4d}\index{PauseMenu@{PauseMenu}!Quit@{Quit}}
+\index{Quit@{Quit}!PauseMenu@{PauseMenu}}
+\doxysubsubsection{\texorpdfstring{Quit()}{Quit()}}
+{\footnotesize\ttfamily \label{class_pause_menu_a7770b476b14f21017ab0da8bfdd13f4d} 
+void Pause\+Menu.\+Quit (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Kilépés a játékból. 
+
+\Hypertarget{class_pause_menu_a4416b25e65dfadf57cd8657eaf94f7df}\index{PauseMenu@{PauseMenu}!Resume@{Resume}}
+\index{Resume@{Resume}!PauseMenu@{PauseMenu}}
+\doxysubsubsection{\texorpdfstring{Resume()}{Resume()}}
+{\footnotesize\ttfamily \label{class_pause_menu_a4416b25e65dfadf57cd8657eaf94f7df} 
+void Pause\+Menu.\+Resume (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Eltünteti a panelt, és újraindítja a játékidőt (Time.\+time\+Scale = 1). 
+
+\Hypertarget{class_pause_menu_ad66a0552c131257182ce524f1c71ce4c}\index{PauseMenu@{PauseMenu}!Update@{Update}}
+\index{Update@{Update}!PauseMenu@{PauseMenu}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_pause_menu_ad66a0552c131257182ce524f1c71ce4c} 
+void Pause\+Menu.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Billentyűzetes interakciókat (Escape) figyel, valamint más menük/\+képernyők zavarását blokkolja. 
+
+
+
+\label{class_pause_menu_doc-variable-members}
+\Hypertarget{class_pause_menu_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_pause_menu_a282175e75a2e525b36c1977a41e43654}\index{PauseMenu@{PauseMenu}!PausePanel@{PausePanel}}
+\index{PausePanel@{PausePanel}!PauseMenu@{PauseMenu}}
+\doxysubsubsection{\texorpdfstring{PausePanel}{PausePanel}}
+{\footnotesize\ttfamily \label{class_pause_menu_a282175e75a2e525b36c1977a41e43654} 
+Game\+Object Pause\+Menu.\+Pause\+Panel}
+
+
+
+A menüt tartalmazó UI Panel game\+Object. 
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_pause_menu_8cs}{Pause\+Menu.\+cs}}\end{DoxyCompactItemize}

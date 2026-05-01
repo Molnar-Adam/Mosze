@@ -1,0 +1,171 @@
+\doxysection{Item\+Pickup Class Reference}
+\hypertarget{class_item_pickup}{}\label{class_item_pickup}\index{ItemPickup@{ItemPickup}}
+
+
+Felvehető tárgyakat kezelő osztály.  
+
+
+
+
+Inherits Mono\+Behaviour.
+
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_item_pickup_a55b7e894a7a7ca32a3e7790ba94e9548}{Awake}} ()
+\begin{DoxyCompactList}\small\item\em Végrehajtódik közvetlenül az inicializáció kezdetén. Lekéri a \doxylink{class_timer}{Timer} referenciát. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_item_pickup_af7b07536b16f4e004cb2e63ec584ef3b}{Start}} ()
+\begin{DoxyCompactList}\small\item\em Elrejti a prompt szöveget, és eltávolítja a tárgyat, ha már korábban felvették. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_item_pickup_a3704fe907d6e53150b9d95e3a50fd10e}{Update}} ()
+\begin{DoxyCompactList}\small\item\em Képkockánként ellenőrzi a felvétel gomb (E) lenyomását, ha a játékos a zónában van. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_item_pickup_add9d7c47d2b467c2a5fa301243a9bb30}{On\+Trigger\+Enter2D}} (Collider2D collision)
+\begin{DoxyCompactList}\small\item\em Aktiválja a felvétel lehetőségét és a feliratot, amikor a játékos belép a triggerbe. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_item_pickup_a95427ddbf05cd2aafd9455d4f4e7259a}{On\+Trigger\+Exit2D}} (Collider2D collision)
+\item 
+void \doxymbox{\hyperlink{class_item_pickup_a56a7a9998d05256feb10de9d637b8112}{Pickup}} ()
+\item 
+void \doxymbox{\hyperlink{class_item_pickup_a77f7dfe1f3fd8db75acd1bec5ac68df9}{Resolve\+Timer\+Reference}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Text\+Mesh\+Pro\+UGUI \doxymbox{\hyperlink{class_item_pickup_a16407c2db452dfa93fbbd535a8ff8cd0}{Pickup\+Text}}
+\begin{DoxyCompactList}\small\item\em A "{}\+Nyomd meg az E-\/t a felvételhez"{} UI szöveg. \end{DoxyCompactList}\item 
+string \doxymbox{\hyperlink{class_item_pickup_acdc480d0e59a5581870bdee3277040ed}{item\+Id}}
+\begin{DoxyCompactList}\small\item\em A felvehető tárgy egyedi azonosítója a mentési rendszer felé. \end{DoxyCompactList}\item 
+Transform \doxymbox{\hyperlink{class_item_pickup_a2635cc5f29aed23d75cad8d3289b72ab}{respawn\+Location}}
+\begin{DoxyCompactList}\small\item\em Az életerőt vagy a felvételt követő opcionális respawn/\+időzítő pozíciót tárolja. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_item_pickup_a3e73b64437c6538ce17429ff39c7c9e0}{pickup\+Allowed}}
+\item 
+\doxymbox{\hyperlink{class_timer}{Timer}} \doxymbox{\hyperlink{class_item_pickup_a07878c126fc7913b0e41b7520fb1b0d6}{timer}}
+\item 
+Transform \doxymbox{\hyperlink{class_item_pickup_ac1915f6f97aa923e9164e9ca2b1e709e}{player\+Transform}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Felvehető tárgyakat kezelő osztály. 
+
+\label{class_item_pickup_doc-func-members}
+\Hypertarget{class_item_pickup_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_item_pickup_a55b7e894a7a7ca32a3e7790ba94e9548}\index{ItemPickup@{ItemPickup}!Awake@{Awake}}
+\index{Awake@{Awake}!ItemPickup@{ItemPickup}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily \label{class_item_pickup_a55b7e894a7a7ca32a3e7790ba94e9548} 
+void Item\+Pickup.\+Awake (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Végrehajtódik közvetlenül az inicializáció kezdetén. Lekéri a \doxylink{class_timer}{Timer} referenciát. 
+
+\Hypertarget{class_item_pickup_add9d7c47d2b467c2a5fa301243a9bb30}\index{ItemPickup@{ItemPickup}!OnTriggerEnter2D@{OnTriggerEnter2D}}
+\index{OnTriggerEnter2D@{OnTriggerEnter2D}!ItemPickup@{ItemPickup}}
+\doxysubsubsection{\texorpdfstring{OnTriggerEnter2D()}{OnTriggerEnter2D()}}
+{\footnotesize\ttfamily \label{class_item_pickup_add9d7c47d2b467c2a5fa301243a9bb30} 
+void Item\+Pickup.\+On\+Trigger\+Enter2D (\begin{DoxyParamCaption}\item[{Collider2D}]{collision}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Aktiválja a felvétel lehetőségét és a feliratot, amikor a játékos belép a triggerbe. 
+
+Kikapcsolja a felvétel lehetőségét és eltünteti a feliratot, ha a játékos kilép.\Hypertarget{class_item_pickup_a95427ddbf05cd2aafd9455d4f4e7259a}\index{ItemPickup@{ItemPickup}!OnTriggerExit2D@{OnTriggerExit2D}}
+\index{OnTriggerExit2D@{OnTriggerExit2D}!ItemPickup@{ItemPickup}}
+\doxysubsubsection{\texorpdfstring{OnTriggerExit2D()}{OnTriggerExit2D()}}
+{\footnotesize\ttfamily \label{class_item_pickup_a95427ddbf05cd2aafd9455d4f4e7259a} 
+void Item\+Pickup.\+On\+Trigger\+Exit2D (\begin{DoxyParamCaption}\item[{Collider2D}]{collision}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Felveszi a tárgyat, triggereli a mentést, gyógyíthat, respawnolhat, vagy megállíthat egy időzítőt, majd megsemmisíti a Game\+Objectet.\Hypertarget{class_item_pickup_a56a7a9998d05256feb10de9d637b8112}\index{ItemPickup@{ItemPickup}!Pickup@{Pickup}}
+\index{Pickup@{Pickup}!ItemPickup@{ItemPickup}}
+\doxysubsubsection{\texorpdfstring{Pickup()}{Pickup()}}
+{\footnotesize\ttfamily \label{class_item_pickup_a56a7a9998d05256feb10de9d637b8112} 
+void Item\+Pickup.\+Pickup (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Időzített szoba esete
+
+"{}\+Heal"{} kezdetű id esetén gyógyítja a játékost
+
+Megkeresi és beállítja a \doxylink{class_timer}{Timer} objektum referenciáját, ha még nincs megadva.\Hypertarget{class_item_pickup_a77f7dfe1f3fd8db75acd1bec5ac68df9}\index{ItemPickup@{ItemPickup}!ResolveTimerReference@{ResolveTimerReference}}
+\index{ResolveTimerReference@{ResolveTimerReference}!ItemPickup@{ItemPickup}}
+\doxysubsubsection{\texorpdfstring{ResolveTimerReference()}{ResolveTimerReference()}}
+{\footnotesize\ttfamily \label{class_item_pickup_a77f7dfe1f3fd8db75acd1bec5ac68df9} 
+void Item\+Pickup.\+Resolve\+Timer\+Reference (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_item_pickup_af7b07536b16f4e004cb2e63ec584ef3b}\index{ItemPickup@{ItemPickup}!Start@{Start}}
+\index{Start@{Start}!ItemPickup@{ItemPickup}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_item_pickup_af7b07536b16f4e004cb2e63ec584ef3b} 
+void Item\+Pickup.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Elrejti a prompt szöveget, és eltávolítja a tárgyat, ha már korábban felvették. 
+
+\Hypertarget{class_item_pickup_a3704fe907d6e53150b9d95e3a50fd10e}\index{ItemPickup@{ItemPickup}!Update@{Update}}
+\index{Update@{Update}!ItemPickup@{ItemPickup}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_item_pickup_a3704fe907d6e53150b9d95e3a50fd10e} 
+void Item\+Pickup.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Képkockánként ellenőrzi a felvétel gomb (E) lenyomását, ha a játékos a zónában van. 
+
+
+
+\label{class_item_pickup_doc-variable-members}
+\Hypertarget{class_item_pickup_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_item_pickup_acdc480d0e59a5581870bdee3277040ed}\index{ItemPickup@{ItemPickup}!itemId@{itemId}}
+\index{itemId@{itemId}!ItemPickup@{ItemPickup}}
+\doxysubsubsection{\texorpdfstring{itemId}{itemId}}
+{\footnotesize\ttfamily \label{class_item_pickup_acdc480d0e59a5581870bdee3277040ed} 
+string Item\+Pickup.\+item\+Id\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A felvehető tárgy egyedi azonosítója a mentési rendszer felé. 
+
+\Hypertarget{class_item_pickup_a3e73b64437c6538ce17429ff39c7c9e0}\index{ItemPickup@{ItemPickup}!pickupAllowed@{pickupAllowed}}
+\index{pickupAllowed@{pickupAllowed}!ItemPickup@{ItemPickup}}
+\doxysubsubsection{\texorpdfstring{pickupAllowed}{pickupAllowed}}
+{\footnotesize\ttfamily \label{class_item_pickup_a3e73b64437c6538ce17429ff39c7c9e0} 
+bool Item\+Pickup.\+pickup\+Allowed\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_item_pickup_a16407c2db452dfa93fbbd535a8ff8cd0}\index{ItemPickup@{ItemPickup}!PickupText@{PickupText}}
+\index{PickupText@{PickupText}!ItemPickup@{ItemPickup}}
+\doxysubsubsection{\texorpdfstring{PickupText}{PickupText}}
+{\footnotesize\ttfamily \label{class_item_pickup_a16407c2db452dfa93fbbd535a8ff8cd0} 
+Text\+Mesh\+Pro\+UGUI Item\+Pickup.\+Pickup\+Text\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A "{}\+Nyomd meg az E-\/t a felvételhez"{} UI szöveg. 
+
+\Hypertarget{class_item_pickup_ac1915f6f97aa923e9164e9ca2b1e709e}\index{ItemPickup@{ItemPickup}!playerTransform@{playerTransform}}
+\index{playerTransform@{playerTransform}!ItemPickup@{ItemPickup}}
+\doxysubsubsection{\texorpdfstring{playerTransform}{playerTransform}}
+{\footnotesize\ttfamily \label{class_item_pickup_ac1915f6f97aa923e9164e9ca2b1e709e} 
+Transform Item\+Pickup.\+player\+Transform\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_item_pickup_a2635cc5f29aed23d75cad8d3289b72ab}\index{ItemPickup@{ItemPickup}!respawnLocation@{respawnLocation}}
+\index{respawnLocation@{respawnLocation}!ItemPickup@{ItemPickup}}
+\doxysubsubsection{\texorpdfstring{respawnLocation}{respawnLocation}}
+{\footnotesize\ttfamily \label{class_item_pickup_a2635cc5f29aed23d75cad8d3289b72ab} 
+Transform Item\+Pickup.\+respawn\+Location\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Az életerőt vagy a felvételt követő opcionális respawn/\+időzítő pozíciót tárolja. 
+
+\Hypertarget{class_item_pickup_a07878c126fc7913b0e41b7520fb1b0d6}\index{ItemPickup@{ItemPickup}!timer@{timer}}
+\index{timer@{timer}!ItemPickup@{ItemPickup}}
+\doxysubsubsection{\texorpdfstring{timer}{timer}}
+{\footnotesize\ttfamily \label{class_item_pickup_a07878c126fc7913b0e41b7520fb1b0d6} 
+\doxymbox{\hyperlink{class_timer}{Timer}} Item\+Pickup.\+timer\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_item_pickup_8cs}{Item\+Pickup.\+cs}}\end{DoxyCompactItemize}

@@ -1,19 +1,28 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// Egy kijelölt zónába (Trigger) lépéskor betölti a megadott jelenetet és átadja a következő spawn pontot.
 public class SwapScene : MonoBehaviour
 {
-	[SerializeField] private string targetSceneName;
-	[SerializeField] private string targetSpawnId;
+    /// A betöltendő új jelenet neve.
+    [SerializeField] private string targetSceneName;
+    
+    /// A céljelenetben lévő spawn pont azonosítója.
+    [SerializeField] private string targetSpawnId;
 
-	[SerializeField] private string playerTag = "Player";
-	[SerializeField] private bool triggerOnlyOnce = true;
+    /// A játékos objektum címkéje, amely aktiválhatja az átmenetet.
+    [SerializeField] private string playerTag = "Player";
+    
+    /// Megabja, hogy a trigger csak egyetlen egyszer aktiválódhat-e.
+    [SerializeField] private bool triggerOnlyOnce = true;
 
-	private bool wasTriggered;
+    ///Nyilvántartja, hogy a jelenetváltás már elindult-e.
+    private bool wasTriggered;
 
-	private void OnTriggerEnter2D(Collider2D collision)
-	{
-		if (triggerOnlyOnce && wasTriggered)
+    /// Játékos érzékelésekor regisztrálja az új spawn pontot és elindítja a jelenet betöltését.
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (triggerOnlyOnce && wasTriggered)
 		{
 			return;
 		}

@@ -1,0 +1,249 @@
+\doxysection{Piano\+Interact Class Reference}
+\hypertarget{class_piano_interact}{}\label{class_piano_interact}\index{PianoInteract@{PianoInteract}}
+
+
+A Zongora interakciót és az ahhoz tartozó UI panelt vezérlő szkript.  
+
+
+
+
+Inherits Mono\+Behaviour.
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_piano_interact_ab24573cca0a84badc20f8bd7d4b039b5}{Open\+Piano}} ()
+\item 
+void \doxymbox{\hyperlink{class_piano_interact_a81210540e79dec5407f3c4b8b5562af5}{Close\+Piano}} ()
+\item 
+void \doxymbox{\hyperlink{class_piano_interact_a17661d09c4997a6917d89531ba60592d}{Lock\+Interaction}} ()
+\item 
+void \doxymbox{\hyperlink{class_piano_interact_a6f9925ef4e2f205e6e887377475bb0d7}{Reset\+Interaction\+State}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+static bool \doxymbox{\hyperlink{class_piano_interact_afac80b98d69742c9e80e95e058047fcf}{Is\+Any\+Piano\+UIOpen}}\hspace{0.3cm}{\ttfamily  \+[get, private set]\+}
+\begin{DoxyCompactList}\small\item\em Globális változó, ami jelzi van-\/e éppen a képernyőn megnyitott zongora menü. \end{DoxyCompactList}\item 
+static int \doxymbox{\hyperlink{class_piano_interact_a3d9697a32050458524785afca9f15277}{Last\+Piano\+Closed\+With\+Escape\+Frame}} = -\/1\hspace{0.3cm}{\ttfamily  \+[get, private set]\+}
+\begin{DoxyCompactList}\small\item\em Eltárolja annak a frame-\/nek a számát, amelyikben az utolsó zongora menü Escape-\/pel lett bezárva. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_piano_interact_aa9bad4f771f7769c094c7d64ae5c9963}{Awake}} ()
+\begin{DoxyCompactList}\small\item\em Jelenet betöltésekor felkészíti a dialógus rendszert és alapértelmezetten elrejti a UI elemeket. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_piano_interact_aefd8a1479fd604d8c9ea2309a987b32a}{Update}} ()
+\begin{DoxyCompactList}\small\item\em Képkockánként figyel az interakcióba lépésre vagy az Escape lenyomásával való kilépésre. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_piano_interact_a148e59c96dcda95cb91d2b336393f2fd}{On\+Trigger\+Enter2D}} (Collider2D collision)
+\item 
+void \doxymbox{\hyperlink{class_piano_interact_a7fa282d93de410b170d50ded362fe861}{On\+Trigger\+Exit2D}} (Collider2D collision)
+\item 
+void \doxymbox{\hyperlink{class_piano_interact_a7b001fb15047c92ca0e3bfc1c9500ddf}{On\+Disable}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \doxymbox{\hyperlink{class_piano_interact_aa2957c30abb21d3651cb20b55cd530c9}{Reset\+Runtime\+State}} ()
+\begin{DoxyCompactList}\small\item\em Újratöltéskor automatikusan nullázza a zongora statikus állapotait a memóriában. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Game\+Object \doxymbox{\hyperlink{class_piano_interact_a31e5fc40e84a5736c718de3ccc4877aa}{piano\+UI}}
+\begin{DoxyCompactList}\small\item\em A zongora billentyűit tartalmazó UI Panel. \end{DoxyCompactList}\item 
+Text\+Mesh\+Pro\+UGUI \doxymbox{\hyperlink{class_piano_interact_a6510a378d93479e068bc4220db02f583}{interact\+Text}}
+\begin{DoxyCompactList}\small\item\em A "{}\+Nyomd meg az E-\/t"{} szöveges prompt. \end{DoxyCompactList}\item 
+Key\+Code \doxymbox{\hyperlink{class_piano_interact_a57a814ffe5fbc246b789ca44e88d6b77}{interact\+Key}} = Key\+Code.\+E
+\begin{DoxyCompactList}\small\item\em A felvételi gomb az interakció elindításához. \end{DoxyCompactList}\item 
+string \doxymbox{\hyperlink{class_piano_interact_a412c81f12d66a7ac001194efb6032aeb}{player\+Tag}} = "{}Player"{}
+\begin{DoxyCompactList}\small\item\em A játékost azonosító tag string. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_dialogue}{Dialogue}} \doxymbox{\hyperlink{class_piano_interact_a325f46d8e0fb11c3748bf8773968fd9d}{requirement\+Dialogue}}
+\begin{DoxyCompactList}\small\item\em A dialógus menedzser a zongora szükségleteinek bemutatásához. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_piano_interact_aeebcf5f7c12399307cd95e7bfd0180ba}{can\+Interact}}
+\item 
+bool \doxymbox{\hyperlink{class_piano_interact_a38de0a2efa391939b9f374eae496fe3b}{is\+Open}}
+\item 
+bool \doxymbox{\hyperlink{class_piano_interact_a2808003bd3ee86c9f2232675735fe2a7}{is\+Interaction\+Locked}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A Zongora interakciót és az ahhoz tartozó UI panelt vezérlő szkript. 
+
+\label{class_piano_interact_doc-func-members}
+\Hypertarget{class_piano_interact_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_piano_interact_aa9bad4f771f7769c094c7d64ae5c9963}\index{PianoInteract@{PianoInteract}!Awake@{Awake}}
+\index{Awake@{Awake}!PianoInteract@{PianoInteract}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily \label{class_piano_interact_aa9bad4f771f7769c094c7d64ae5c9963} 
+void Piano\+Interact.\+Awake (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Jelenet betöltésekor felkészíti a dialógus rendszert és alapértelmezetten elrejti a UI elemeket. 
+
+\Hypertarget{class_piano_interact_a81210540e79dec5407f3c4b8b5562af5}\index{PianoInteract@{PianoInteract}!ClosePiano@{ClosePiano}}
+\index{ClosePiano@{ClosePiano}!PianoInteract@{PianoInteract}}
+\doxysubsubsection{\texorpdfstring{ClosePiano()}{ClosePiano()}}
+{\footnotesize\ttfamily \label{class_piano_interact_a81210540e79dec5407f3c4b8b5562af5} 
+void Piano\+Interact.\+Close\+Piano (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Teljesen lezárja a zongora gombjait és használhatóságát.\Hypertarget{class_piano_interact_a17661d09c4997a6917d89531ba60592d}\index{PianoInteract@{PianoInteract}!LockInteraction@{LockInteraction}}
+\index{LockInteraction@{LockInteraction}!PianoInteract@{PianoInteract}}
+\doxysubsubsection{\texorpdfstring{LockInteraction()}{LockInteraction()}}
+{\footnotesize\ttfamily \label{class_piano_interact_a17661d09c4997a6917d89531ba60592d} 
+void Piano\+Interact.\+Lock\+Interaction (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Alaphelyzetbe állítja a zongora állapotát.\Hypertarget{class_piano_interact_a7b001fb15047c92ca0e3bfc1c9500ddf}\index{PianoInteract@{PianoInteract}!OnDisable@{OnDisable}}
+\index{OnDisable@{OnDisable}!PianoInteract@{PianoInteract}}
+\doxysubsubsection{\texorpdfstring{OnDisable()}{OnDisable()}}
+{\footnotesize\ttfamily \label{class_piano_interact_a7b001fb15047c92ca0e3bfc1c9500ddf} 
+void Piano\+Interact.\+On\+Disable (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_piano_interact_a148e59c96dcda95cb91d2b336393f2fd}\index{PianoInteract@{PianoInteract}!OnTriggerEnter2D@{OnTriggerEnter2D}}
+\index{OnTriggerEnter2D@{OnTriggerEnter2D}!PianoInteract@{PianoInteract}}
+\doxysubsubsection{\texorpdfstring{OnTriggerEnter2D()}{OnTriggerEnter2D()}}
+{\footnotesize\ttfamily \label{class_piano_interact_a148e59c96dcda95cb91d2b336393f2fd} 
+void Piano\+Interact.\+On\+Trigger\+Enter2D (\begin{DoxyParamCaption}\item[{Collider2D}]{collision}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Ha a játékos kilép, letiltja az interakciót és eltünteti a feliratot.\Hypertarget{class_piano_interact_a7fa282d93de410b170d50ded362fe861}\index{PianoInteract@{PianoInteract}!OnTriggerExit2D@{OnTriggerExit2D}}
+\index{OnTriggerExit2D@{OnTriggerExit2D}!PianoInteract@{PianoInteract}}
+\doxysubsubsection{\texorpdfstring{OnTriggerExit2D()}{OnTriggerExit2D()}}
+{\footnotesize\ttfamily \label{class_piano_interact_a7fa282d93de410b170d50ded362fe861} 
+void Piano\+Interact.\+On\+Trigger\+Exit2D (\begin{DoxyParamCaption}\item[{Collider2D}]{collision}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Megnyitja a zongora UI-\/t és lefagyasztja az időt, amennyiben minden szükséges tárgy össze lett gyűjtve. Ha nem, elindít egy hiányt közlő dialógust (requirement\+Dialogue).\Hypertarget{class_piano_interact_ab24573cca0a84badc20f8bd7d4b039b5}\index{PianoInteract@{PianoInteract}!OpenPiano@{OpenPiano}}
+\index{OpenPiano@{OpenPiano}!PianoInteract@{PianoInteract}}
+\doxysubsubsection{\texorpdfstring{OpenPiano()}{OpenPiano()}}
+{\footnotesize\ttfamily \label{class_piano_interact_ab24573cca0a84badc20f8bd7d4b039b5} 
+void Piano\+Interact.\+Open\+Piano (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Bezárja a zongora UI képernyőjét és elindítja újra az időt.\Hypertarget{class_piano_interact_a6f9925ef4e2f205e6e887377475bb0d7}\index{PianoInteract@{PianoInteract}!ResetInteractionState@{ResetInteractionState}}
+\index{ResetInteractionState@{ResetInteractionState}!PianoInteract@{PianoInteract}}
+\doxysubsubsection{\texorpdfstring{ResetInteractionState()}{ResetInteractionState()}}
+{\footnotesize\ttfamily \label{class_piano_interact_a6f9925ef4e2f205e6e887377475bb0d7} 
+void Piano\+Interact.\+Reset\+Interaction\+State (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Ha a szkript le lesz tiltva, minden UI elemet kikapcsol.\Hypertarget{class_piano_interact_aa2957c30abb21d3651cb20b55cd530c9}\index{PianoInteract@{PianoInteract}!ResetRuntimeState@{ResetRuntimeState}}
+\index{ResetRuntimeState@{ResetRuntimeState}!PianoInteract@{PianoInteract}}
+\doxysubsubsection{\texorpdfstring{ResetRuntimeState()}{ResetRuntimeState()}}
+{\footnotesize\ttfamily \label{class_piano_interact_aa2957c30abb21d3651cb20b55cd530c9} 
+void Piano\+Interact.\+Reset\+Runtime\+State (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Újratöltéskor automatikusan nullázza a zongora statikus állapotait a memóriában. 
+
+\Hypertarget{class_piano_interact_aefd8a1479fd604d8c9ea2309a987b32a}\index{PianoInteract@{PianoInteract}!Update@{Update}}
+\index{Update@{Update}!PianoInteract@{PianoInteract}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_piano_interact_aefd8a1479fd604d8c9ea2309a987b32a} 
+void Piano\+Interact.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Képkockánként figyel az interakcióba lépésre vagy az Escape lenyomásával való kilépésre. 
+
+Ha a játékos belép a zongora zónájába, engedélyezi az interakciót nyitva az E prompttal.
+
+\label{class_piano_interact_doc-variable-members}
+\Hypertarget{class_piano_interact_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_piano_interact_aeebcf5f7c12399307cd95e7bfd0180ba}\index{PianoInteract@{PianoInteract}!canInteract@{canInteract}}
+\index{canInteract@{canInteract}!PianoInteract@{PianoInteract}}
+\doxysubsubsection{\texorpdfstring{canInteract}{canInteract}}
+{\footnotesize\ttfamily \label{class_piano_interact_aeebcf5f7c12399307cd95e7bfd0180ba} 
+bool Piano\+Interact.\+can\+Interact\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_piano_interact_a57a814ffe5fbc246b789ca44e88d6b77}\index{PianoInteract@{PianoInteract}!interactKey@{interactKey}}
+\index{interactKey@{interactKey}!PianoInteract@{PianoInteract}}
+\doxysubsubsection{\texorpdfstring{interactKey}{interactKey}}
+{\footnotesize\ttfamily \label{class_piano_interact_a57a814ffe5fbc246b789ca44e88d6b77} 
+Key\+Code Piano\+Interact.\+interact\+Key = Key\+Code.\+E\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A felvételi gomb az interakció elindításához. 
+
+\Hypertarget{class_piano_interact_a6510a378d93479e068bc4220db02f583}\index{PianoInteract@{PianoInteract}!interactText@{interactText}}
+\index{interactText@{interactText}!PianoInteract@{PianoInteract}}
+\doxysubsubsection{\texorpdfstring{interactText}{interactText}}
+{\footnotesize\ttfamily \label{class_piano_interact_a6510a378d93479e068bc4220db02f583} 
+Text\+Mesh\+Pro\+UGUI Piano\+Interact.\+interact\+Text\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A "{}\+Nyomd meg az E-\/t"{} szöveges prompt. 
+
+\Hypertarget{class_piano_interact_a2808003bd3ee86c9f2232675735fe2a7}\index{PianoInteract@{PianoInteract}!isInteractionLocked@{isInteractionLocked}}
+\index{isInteractionLocked@{isInteractionLocked}!PianoInteract@{PianoInteract}}
+\doxysubsubsection{\texorpdfstring{isInteractionLocked}{isInteractionLocked}}
+{\footnotesize\ttfamily \label{class_piano_interact_a2808003bd3ee86c9f2232675735fe2a7} 
+bool Piano\+Interact.\+is\+Interaction\+Locked\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_piano_interact_a38de0a2efa391939b9f374eae496fe3b}\index{PianoInteract@{PianoInteract}!isOpen@{isOpen}}
+\index{isOpen@{isOpen}!PianoInteract@{PianoInteract}}
+\doxysubsubsection{\texorpdfstring{isOpen}{isOpen}}
+{\footnotesize\ttfamily \label{class_piano_interact_a38de0a2efa391939b9f374eae496fe3b} 
+bool Piano\+Interact.\+is\+Open\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_piano_interact_a31e5fc40e84a5736c718de3ccc4877aa}\index{PianoInteract@{PianoInteract}!pianoUI@{pianoUI}}
+\index{pianoUI@{pianoUI}!PianoInteract@{PianoInteract}}
+\doxysubsubsection{\texorpdfstring{pianoUI}{pianoUI}}
+{\footnotesize\ttfamily \label{class_piano_interact_a31e5fc40e84a5736c718de3ccc4877aa} 
+Game\+Object Piano\+Interact.\+piano\+UI\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A zongora billentyűit tartalmazó UI Panel. 
+
+\Hypertarget{class_piano_interact_a412c81f12d66a7ac001194efb6032aeb}\index{PianoInteract@{PianoInteract}!playerTag@{playerTag}}
+\index{playerTag@{playerTag}!PianoInteract@{PianoInteract}}
+\doxysubsubsection{\texorpdfstring{playerTag}{playerTag}}
+{\footnotesize\ttfamily \label{class_piano_interact_a412c81f12d66a7ac001194efb6032aeb} 
+string Piano\+Interact.\+player\+Tag = "{}Player"{}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A játékost azonosító tag string. 
+
+\Hypertarget{class_piano_interact_a325f46d8e0fb11c3748bf8773968fd9d}\index{PianoInteract@{PianoInteract}!requirementDialogue@{requirementDialogue}}
+\index{requirementDialogue@{requirementDialogue}!PianoInteract@{PianoInteract}}
+\doxysubsubsection{\texorpdfstring{requirementDialogue}{requirementDialogue}}
+{\footnotesize\ttfamily \label{class_piano_interact_a325f46d8e0fb11c3748bf8773968fd9d} 
+\doxymbox{\hyperlink{class_dialogue}{Dialogue}} Piano\+Interact.\+requirement\+Dialogue\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A dialógus menedzser a zongora szükségleteinek bemutatásához. 
+
+
+
+\label{class_piano_interact_doc-property-members}
+\Hypertarget{class_piano_interact_doc-property-members}
+\doxysubsection{Property Documentation}
+\Hypertarget{class_piano_interact_afac80b98d69742c9e80e95e058047fcf}\index{PianoInteract@{PianoInteract}!IsAnyPianoUIOpen@{IsAnyPianoUIOpen}}
+\index{IsAnyPianoUIOpen@{IsAnyPianoUIOpen}!PianoInteract@{PianoInteract}}
+\doxysubsubsection{\texorpdfstring{IsAnyPianoUIOpen}{IsAnyPianoUIOpen}}
+{\footnotesize\ttfamily \label{class_piano_interact_afac80b98d69742c9e80e95e058047fcf} 
+bool Piano\+Interact.\+Is\+Any\+Piano\+UIOpen\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [get]}, {\ttfamily [private set]}}
+
+
+
+Globális változó, ami jelzi van-\/e éppen a képernyőn megnyitott zongora menü. 
+
+\Hypertarget{class_piano_interact_a3d9697a32050458524785afca9f15277}\index{PianoInteract@{PianoInteract}!LastPianoClosedWithEscapeFrame@{LastPianoClosedWithEscapeFrame}}
+\index{LastPianoClosedWithEscapeFrame@{LastPianoClosedWithEscapeFrame}!PianoInteract@{PianoInteract}}
+\doxysubsubsection{\texorpdfstring{LastPianoClosedWithEscapeFrame}{LastPianoClosedWithEscapeFrame}}
+{\footnotesize\ttfamily \label{class_piano_interact_a3d9697a32050458524785afca9f15277} 
+int Piano\+Interact.\+Last\+Piano\+Closed\+With\+Escape\+Frame = -\/1\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [get]}, {\ttfamily [private set]}}
+
+
+
+Eltárolja annak a frame-\/nek a számát, amelyikben az utolsó zongora menü Escape-\/pel lett bezárva. 
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_piano_interact_8cs}{Piano\+Interact.\+cs}}\end{DoxyCompactItemize}

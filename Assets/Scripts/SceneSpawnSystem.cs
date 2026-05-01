@@ -1,12 +1,19 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// A jelenetváltások utáni pontos spawnolást statikusan kezelő rendszer.
 public static class SceneSpawnSystem
 {
+    /// A következő jelenetben keresendő spawn pont azonosítója.
     private static string pendingSpawnId;
+    
+    /// A teleportálandó játékos címkéje.
     private static string pendingPlayerTag = "Player";
+    
+    /// Jelzi, hogy az eseményfigyelés be lett-e már állítva.
     private static bool isInitialized;
 
+    /// Eltárolja a következő jelenetbetöltéshez szükséges spawn adatokat.
     public static void SetNextSpawn(string spawnId, string playerTag)
     {
         pendingSpawnId = spawnId;
@@ -17,12 +24,14 @@ public static class SceneSpawnSystem
         }
     }
 
+    /// Játék újraindításakor (Editorban) alapállapotba állítja a statikus változókat.
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
     private static void ResetRuntimeState()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
         pendingSpawnId = null;
         pendingPlayerTag = "Player";
+    /// Feliratkozik a jelenet betöltése eseményre közvetlenül a játék kezdete előtt.
         isInitialized = false;
     }
 
@@ -35,6 +44,7 @@ public static class SceneSpawnSystem
         }
 
         SceneManager.sceneLoaded += OnSceneLoaded;
+    /// Új jelenet betöltésekor megkeresi a beállított spawn pontot és oda transzportálja a játékost.
         isInitialized = true;
     }
 

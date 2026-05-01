@@ -1,7 +1,9 @@
 using UnityEngine;
 
+/// A játékállapot teljes alaphelyzetbe állításáért felelős statikus osztály.
 public static class GameStateResetter
 {
+    /// Törli a mentett beállításokat, visszaállítja az életerőt, a tárgyakat és rejtvényeket.
     public static void ResetGameState()
     {
         PlayerPrefs.DeleteAll();

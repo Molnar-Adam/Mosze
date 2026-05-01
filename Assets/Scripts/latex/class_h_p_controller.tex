@@ -1,0 +1,149 @@
+\doxysection{HPController Class Reference}
+\hypertarget{class_h_p_controller}{}\label{class_h_p_controller}\index{HPController@{HPController}}
+
+
+A játékos életerejét megjelenítő UI kontroller.  
+
+
+
+
+Inherits Mono\+Behaviour.
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_h_p_controller_ae4df287e0f810199ec43cda4d6f48d51}{Draw\+Hearts}} ()
+\begin{DoxyCompactList}\small\item\em Törli a korábbi szíveket, majd az aktuális max életerő alapján újakat hoz létre és állít be. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_h_p_controller_a638cd2b0a84e02df6b8410de9de326bc}{Create\+Empty\+Heart}} ()
+\begin{DoxyCompactList}\small\item\em Létrehoz és elment egy teljesen üres új szívet a listába. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_h_p_controller_aa05c5aefd38236628892fb5215c59b37}{Clear\+Hearts}} ()
+\begin{DoxyCompactList}\small\item\em Eltávolítja az összes szívet a képernyőről és kiüríti a listát. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Game\+Object \doxymbox{\hyperlink{class_h_p_controller_a978c4d8d1f0941c189e3da0d40b22ff1}{heart\+Prefab}}
+\begin{DoxyCompactList}\small\item\em A szív UI elemet reprezentáló prefab. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_player_health}{Player\+Health}} \doxymbox{\hyperlink{class_h_p_controller_aa5091a8385b7c3c4835af7ed5a8f1344}{player\+Health}}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$>$}{>}A játékos Health komponensére mutató referencia. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_h_p_controller_ab3d6f19b35f82aef4d61f3a45baf7b33}{On\+Enable}} ()
+\begin{DoxyCompactList}\small\item\em Feliratkozik a játékos életerő-\/változás eseményére. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_h_p_controller_ac5801a63d4a750813153ec24d502c187}{On\+Disable}} ()
+\begin{DoxyCompactList}\small\item\em Leiratkozik a játékos életerő-\/változás eseményéről. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_h_p_controller_ab702f1f47974b6497adec07423c0ebd1}{Start}} ()
+\begin{DoxyCompactList}\small\item\em Induláskor kirajzolja a kezdő szíveket. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+List$<$ \doxymbox{\hyperlink{class_h_p_heart}{HPHeart}} $>$ \doxymbox{\hyperlink{class_h_p_controller_aad634465d0cacc73e40cb2ea1b59c6d2}{hearts}} = new List$<$\doxymbox{\hyperlink{class_h_p_heart}{HPHeart}}$>$()
+\begin{DoxyCompactList}\small\item\em A jelenleg létrehozott szívek listája. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A játékos életerejét megjelenítő UI kontroller. 
+
+\label{class_h_p_controller_doc-func-members}
+\Hypertarget{class_h_p_controller_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_h_p_controller_aa05c5aefd38236628892fb5215c59b37}\index{HPController@{HPController}!ClearHearts@{ClearHearts}}
+\index{ClearHearts@{ClearHearts}!HPController@{HPController}}
+\doxysubsubsection{\texorpdfstring{ClearHearts()}{ClearHearts()}}
+{\footnotesize\ttfamily \label{class_h_p_controller_aa05c5aefd38236628892fb5215c59b37} 
+void HPController.\+Clear\+Hearts (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Eltávolítja az összes szívet a képernyőről és kiüríti a listát. 
+
+\Hypertarget{class_h_p_controller_a638cd2b0a84e02df6b8410de9de326bc}\index{HPController@{HPController}!CreateEmptyHeart@{CreateEmptyHeart}}
+\index{CreateEmptyHeart@{CreateEmptyHeart}!HPController@{HPController}}
+\doxysubsubsection{\texorpdfstring{CreateEmptyHeart()}{CreateEmptyHeart()}}
+{\footnotesize\ttfamily \label{class_h_p_controller_a638cd2b0a84e02df6b8410de9de326bc} 
+void HPController.\+Create\+Empty\+Heart (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Létrehoz és elment egy teljesen üres új szívet a listába. 
+
+\Hypertarget{class_h_p_controller_ae4df287e0f810199ec43cda4d6f48d51}\index{HPController@{HPController}!DrawHearts@{DrawHearts}}
+\index{DrawHearts@{DrawHearts}!HPController@{HPController}}
+\doxysubsubsection{\texorpdfstring{DrawHearts()}{DrawHearts()}}
+{\footnotesize\ttfamily \label{class_h_p_controller_ae4df287e0f810199ec43cda4d6f48d51} 
+void HPController.\+Draw\+Hearts (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Törli a korábbi szíveket, majd az aktuális max életerő alapján újakat hoz létre és állít be. 
+
+\Hypertarget{class_h_p_controller_ac5801a63d4a750813153ec24d502c187}\index{HPController@{HPController}!OnDisable@{OnDisable}}
+\index{OnDisable@{OnDisable}!HPController@{HPController}}
+\doxysubsubsection{\texorpdfstring{OnDisable()}{OnDisable()}}
+{\footnotesize\ttfamily \label{class_h_p_controller_ac5801a63d4a750813153ec24d502c187} 
+void HPController.\+On\+Disable (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Leiratkozik a játékos életerő-\/változás eseményéről. 
+
+\Hypertarget{class_h_p_controller_ab3d6f19b35f82aef4d61f3a45baf7b33}\index{HPController@{HPController}!OnEnable@{OnEnable}}
+\index{OnEnable@{OnEnable}!HPController@{HPController}}
+\doxysubsubsection{\texorpdfstring{OnEnable()}{OnEnable()}}
+{\footnotesize\ttfamily \label{class_h_p_controller_ab3d6f19b35f82aef4d61f3a45baf7b33} 
+void HPController.\+On\+Enable (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Feliratkozik a játékos életerő-\/változás eseményére. 
+
+\Hypertarget{class_h_p_controller_ab702f1f47974b6497adec07423c0ebd1}\index{HPController@{HPController}!Start@{Start}}
+\index{Start@{Start}!HPController@{HPController}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_h_p_controller_ab702f1f47974b6497adec07423c0ebd1} 
+void HPController.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Induláskor kirajzolja a kezdő szíveket. 
+
+
+
+\label{class_h_p_controller_doc-variable-members}
+\Hypertarget{class_h_p_controller_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_h_p_controller_a978c4d8d1f0941c189e3da0d40b22ff1}\index{HPController@{HPController}!heartPrefab@{heartPrefab}}
+\index{heartPrefab@{heartPrefab}!HPController@{HPController}}
+\doxysubsubsection{\texorpdfstring{heartPrefab}{heartPrefab}}
+{\footnotesize\ttfamily \label{class_h_p_controller_a978c4d8d1f0941c189e3da0d40b22ff1} 
+Game\+Object HPController.\+heart\+Prefab}
+
+
+
+A szív UI elemet reprezentáló prefab. 
+
+\Hypertarget{class_h_p_controller_aad634465d0cacc73e40cb2ea1b59c6d2}\index{HPController@{HPController}!hearts@{hearts}}
+\index{hearts@{hearts}!HPController@{HPController}}
+\doxysubsubsection{\texorpdfstring{hearts}{hearts}}
+{\footnotesize\ttfamily \label{class_h_p_controller_aad634465d0cacc73e40cb2ea1b59c6d2} 
+List$<$\doxymbox{\hyperlink{class_h_p_heart}{HPHeart}}$>$ HPController.\+hearts = new List$<$\doxymbox{\hyperlink{class_h_p_heart}{HPHeart}}$>$()\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A jelenleg létrehozott szívek listája. 
+
+\Hypertarget{class_h_p_controller_aa5091a8385b7c3c4835af7ed5a8f1344}\index{HPController@{HPController}!playerHealth@{playerHealth}}
+\index{playerHealth@{playerHealth}!HPController@{HPController}}
+\doxysubsubsection{\texorpdfstring{playerHealth}{playerHealth}}
+{\footnotesize\ttfamily \label{class_h_p_controller_aa5091a8385b7c3c4835af7ed5a8f1344} 
+\doxymbox{\hyperlink{class_player_health}{Player\+Health}} HPController.\+player\+Health}
+
+
+
+\texorpdfstring{$>$}{>}A játékos Health komponensére mutató referencia. 
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_h_p_controller_8cs}{HPController.\+cs}}\end{DoxyCompactItemize}

@@ -1,0 +1,86 @@
+\doxysection{Camera\+Handler Class Reference}
+\hypertarget{class_camera_handler}{}\label{class_camera_handler}\index{CameraHandler@{CameraHandler}}
+
+
+Inherits Mono\+Behaviour.
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Cinemachine\+Camera \doxymbox{\hyperlink{class_camera_handler_a39176d3c6633b1a14866331e730711d9}{room\+Camera}}
+\begin{DoxyCompactList}\small\item\em A jelenlegi szobához tartozó, aktiválandó Cinemachine kamera. \end{DoxyCompactList}\item 
+Cinemachine\+Camera \doxymbox{\hyperlink{class_camera_handler_a513bd8824ca2e3ea570407f72454b135}{disablecamera}}
+\begin{DoxyCompactList}\small\item\em Az előző szobához tartozó kamera, melyet ki kell kapcsolni. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_camera_handler_a121f6a17054721f10b275303ff446000}{active\+Priority}} = 100
+\begin{DoxyCompactList}\small\item\em A kamera prioritása aktív állapotban. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_camera_handler_a9d7b58a4846d0f76fa64315543dd6242}{inactive\+Priority}} = 10
+\begin{DoxyCompactList}\small\item\em A kamera prioritása inaktív állapotban. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_camera_handler_adb80f095f0cd1220b46e0270a3a08408}{On\+Trigger\+Enter2D}} (Collider2D other)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Szobák közötti kameraváltások kezelésére szolgáló osztály (Cinemachine használatával). Trigger zónák alapján priorizálja a kamerákat. 
+
+\label{class_camera_handler_doc-func-members}
+\Hypertarget{class_camera_handler_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_camera_handler_adb80f095f0cd1220b46e0270a3a08408}\index{CameraHandler@{CameraHandler}!OnTriggerEnter2D@{OnTriggerEnter2D}}
+\index{OnTriggerEnter2D@{OnTriggerEnter2D}!CameraHandler@{CameraHandler}}
+\doxysubsubsection{\texorpdfstring{OnTriggerEnter2D()}{OnTriggerEnter2D()}}
+{\footnotesize\ttfamily \label{class_camera_handler_adb80f095f0cd1220b46e0270a3a08408} 
+void Camera\+Handler.\+On\+Trigger\+Enter2D (\begin{DoxyParamCaption}\item[{Collider2D}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Amikor a játékos belép a trigger zónába, megváltoztatja a kamerák prioritásait, ezáltal sima transition-\/t érve el a szobák között. 
+
+\label{class_camera_handler_doc-variable-members}
+\Hypertarget{class_camera_handler_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_camera_handler_a121f6a17054721f10b275303ff446000}\index{CameraHandler@{CameraHandler}!activePriority@{activePriority}}
+\index{activePriority@{activePriority}!CameraHandler@{CameraHandler}}
+\doxysubsubsection{\texorpdfstring{activePriority}{activePriority}}
+{\footnotesize\ttfamily \label{class_camera_handler_a121f6a17054721f10b275303ff446000} 
+int Camera\+Handler.\+active\+Priority = 100}
+
+
+
+A kamera prioritása aktív állapotban. 
+
+\Hypertarget{class_camera_handler_a513bd8824ca2e3ea570407f72454b135}\index{CameraHandler@{CameraHandler}!disablecamera@{disablecamera}}
+\index{disablecamera@{disablecamera}!CameraHandler@{CameraHandler}}
+\doxysubsubsection{\texorpdfstring{disablecamera}{disablecamera}}
+{\footnotesize\ttfamily \label{class_camera_handler_a513bd8824ca2e3ea570407f72454b135} 
+Cinemachine\+Camera Camera\+Handler.\+disablecamera}
+
+
+
+Az előző szobához tartozó kamera, melyet ki kell kapcsolni. 
+
+\Hypertarget{class_camera_handler_a9d7b58a4846d0f76fa64315543dd6242}\index{CameraHandler@{CameraHandler}!inactivePriority@{inactivePriority}}
+\index{inactivePriority@{inactivePriority}!CameraHandler@{CameraHandler}}
+\doxysubsubsection{\texorpdfstring{inactivePriority}{inactivePriority}}
+{\footnotesize\ttfamily \label{class_camera_handler_a9d7b58a4846d0f76fa64315543dd6242} 
+int Camera\+Handler.\+inactive\+Priority = 10}
+
+
+
+A kamera prioritása inaktív állapotban. 
+
+\Hypertarget{class_camera_handler_a39176d3c6633b1a14866331e730711d9}\index{CameraHandler@{CameraHandler}!roomCamera@{roomCamera}}
+\index{roomCamera@{roomCamera}!CameraHandler@{CameraHandler}}
+\doxysubsubsection{\texorpdfstring{roomCamera}{roomCamera}}
+{\footnotesize\ttfamily \label{class_camera_handler_a39176d3c6633b1a14866331e730711d9} 
+Cinemachine\+Camera Camera\+Handler.\+room\+Camera}
+
+
+
+A jelenlegi szobához tartozó, aktiválandó Cinemachine kamera. 
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_camera_handler_8cs}{Camera\+Handler.\+cs}}\end{DoxyCompactItemize}

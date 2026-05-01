@@ -1,18 +1,28 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+/// A zongora játékelem logikáját vezérlő osztály (kottasorozat ellenőrzése és teljesítés).
 public class PianoPuzzle : MonoBehaviour
 {
+    /// <summary>Egyedi azonosító a zongora rejtvényhez, amely alapján a mintát lekérdezi.</summary>
     [SerializeField] private string puzzleID;
+    
+    /// A zongora gombjait tároló tömb.
     [SerializeField] private Button[] pianoButtons;
+    
     private Button[] requiredPattern;
+    
+    /// A játékobjektum, ami eltűnik a rejtvény megoldásakor.
     [SerializeField] private GameObject objectToDestroy;
+    
+    /// Hivatkozás a PianoInteract szkriptre az interakciók zárolása miatt.
     [SerializeField] private PianoInteract pianoInteract;
 
     private int currentIndex;
     private bool solved;
     private bool targetHiddenByPuzzle;
 
+    /// Számon tartja, hogy a rejtvény meg lett-e oldva.
     public bool IsSolved
     {
         get
@@ -21,6 +31,7 @@ public class PianoPuzzle : MonoBehaviour
         }
     }
 
+    /// Játék indulásakor lekéri az EventManagertől a megoldási mintát és feltölti a tömböt.
     private void Start()
     {
         if (EventManager.Instance != null && !string.IsNullOrEmpty(puzzleID))
@@ -38,6 +49,7 @@ public class PianoPuzzle : MonoBehaviour
         }
     }
 
+    /// Ha nincs beállítva a pianoInteract, megpróbálja megkeresni a komponensek között, majd feliratkozik a gombokra.
     private void Awake()
     {
         if (pianoInteract == null)
@@ -48,6 +60,7 @@ public class PianoPuzzle : MonoBehaviour
         RegisterButtonListeners();
     }
 
+    /// Kezeli egy gomb lenyomását a zongorán, és ellenőrzi a minta helyességét.
     public void PressKey(Button pressedButton)
     {
         if (solved)
@@ -75,15 +88,12 @@ public class PianoPuzzle : MonoBehaviour
         currentIndex = pressedButton == requiredPattern[0] ? 1 : 0;
     }
 
-    public void ResetProgress()
-    {
-        currentIndex = 0;
-    }
-
+    /// Globálisan minden PianoPuzzle objektumon meghívja az alaphelyzetbe állítás metódusát.
     public static void ResetPuzzleState()
     {
         var puzzles = Object.FindObjectsByType<PianoPuzzle>(FindObjectsInactive.Include, FindObjectsSortMode.None);
         foreach (var puzzle in puzzles)
+    /// Alaphelyzetbe állítja az adott zongora puzzle állapotát.
         {
             puzzle.ResetPuzzleInstance();
         }
@@ -99,6 +109,7 @@ public class PianoPuzzle : MonoBehaviour
             objectToDestroy.SetActive(true);
         }
 
+    /// Sikeres megoldás esetén zárolja a zongorát és eltünteti az akadályt.
         targetHiddenByPuzzle = false;
 
         if (pianoInteract != null)
@@ -115,7 +126,8 @@ public class PianoPuzzle : MonoBehaviour
         {
             pianoInteract.LockInteraction();
         }
-
+    /// Beállítja a gombokhoz tartozó eseményfigyelőket a kattintásokhoz.
+    
         if (objectToDestroy != null)
         {
             objectToDestroy.SetActive(false);

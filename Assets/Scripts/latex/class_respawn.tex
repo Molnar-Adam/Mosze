@@ -1,0 +1,130 @@
+\doxysection{Respawn Class Reference}
+\hypertarget{class_respawn}{}\label{class_respawn}\index{Respawn@{Respawn}}
+
+
+A játékos újraéledését, visszateleportálását és sebződését kezelő osztály.  
+
+
+
+
+Inherits Mono\+Behaviour.
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_player_health}{Player\+Health}} \doxymbox{\hyperlink{class_respawn_abede7d09a36497239e3518d2616933e3}{player\+Health}}
+\begin{DoxyCompactList}\small\item\em A játékos életerejét kezelő komponens. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_respawn_ad7f36fa39e02c0ea162fb98f1edee4cd}{Awake}} ()
+\begin{DoxyCompactList}\small\item\em Példányosításkor megkeresi és rögzíti a \doxylink{class_timer}{Timer} komponenst. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_respawn_a64db0ca7b8a437fb4aced2e34917f4ae}{On\+Trigger\+Enter2D}} (Collider2D collision)
+\begin{DoxyCompactList}\small\item\em Ütközéskor sebzi a játékost és visszateleportálja az újraéledési pontra, illetve értesíti a timert. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_respawn_ac4fa701b4ebe9a3ce049a09ee3d9cc16}{Resolve\+Timer\+Reference}} ()
+\begin{DoxyCompactList}\small\item\em Megkeresi a jelenetben lévő \doxylink{class_timer}{Timer} komponenst, ha még nincs hivatkozás rá. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Transform \doxymbox{\hyperlink{class_respawn_a0ef48a715ceabfe427f6031cc6a606ad}{respawn\+Location}}
+\begin{DoxyCompactList}\small\item\em Az újraéledési pont pozíciója. \end{DoxyCompactList}\item 
+string \doxymbox{\hyperlink{class_respawn_a8ac1d47eeff747c55ebd2f0ff27440fd}{player\+Tag}} = "{}Player"{}
+\begin{DoxyCompactList}\small\item\em A játékos objektumának azonosító címkéje. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_timer}{Timer}} \doxymbox{\hyperlink{class_respawn_aa27cf2288e26424d83468cd7a1b41cc7}{timer}}
+\item 
+int \doxymbox{\hyperlink{class_respawn_abd088a4bf2b11b305b20da84aefef7a5}{damage}}
+\begin{DoxyCompactList}\small\item\em A csapdába eséskor kapott sebzés mértéke. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A játékos újraéledését, visszateleportálását és sebződését kezelő osztály. 
+
+\label{class_respawn_doc-func-members}
+\Hypertarget{class_respawn_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_respawn_ad7f36fa39e02c0ea162fb98f1edee4cd}\index{Respawn@{Respawn}!Awake@{Awake}}
+\index{Awake@{Awake}!Respawn@{Respawn}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily \label{class_respawn_ad7f36fa39e02c0ea162fb98f1edee4cd} 
+void Respawn.\+Awake (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Példányosításkor megkeresi és rögzíti a \doxylink{class_timer}{Timer} komponenst. 
+
+\Hypertarget{class_respawn_a64db0ca7b8a437fb4aced2e34917f4ae}\index{Respawn@{Respawn}!OnTriggerEnter2D@{OnTriggerEnter2D}}
+\index{OnTriggerEnter2D@{OnTriggerEnter2D}!Respawn@{Respawn}}
+\doxysubsubsection{\texorpdfstring{OnTriggerEnter2D()}{OnTriggerEnter2D()}}
+{\footnotesize\ttfamily \label{class_respawn_a64db0ca7b8a437fb4aced2e34917f4ae} 
+void Respawn.\+On\+Trigger\+Enter2D (\begin{DoxyParamCaption}\item[{Collider2D}]{collision}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Ütközéskor sebzi a játékost és visszateleportálja az újraéledési pontra, illetve értesíti a timert. 
+
+\Hypertarget{class_respawn_ac4fa701b4ebe9a3ce049a09ee3d9cc16}\index{Respawn@{Respawn}!ResolveTimerReference@{ResolveTimerReference}}
+\index{ResolveTimerReference@{ResolveTimerReference}!Respawn@{Respawn}}
+\doxysubsubsection{\texorpdfstring{ResolveTimerReference()}{ResolveTimerReference()}}
+{\footnotesize\ttfamily \label{class_respawn_ac4fa701b4ebe9a3ce049a09ee3d9cc16} 
+void Respawn.\+Resolve\+Timer\+Reference (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Megkeresi a jelenetben lévő \doxylink{class_timer}{Timer} komponenst, ha még nincs hivatkozás rá. 
+
+
+
+\label{class_respawn_doc-variable-members}
+\Hypertarget{class_respawn_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_respawn_abd088a4bf2b11b305b20da84aefef7a5}\index{Respawn@{Respawn}!damage@{damage}}
+\index{damage@{damage}!Respawn@{Respawn}}
+\doxysubsubsection{\texorpdfstring{damage}{damage}}
+{\footnotesize\ttfamily \label{class_respawn_abd088a4bf2b11b305b20da84aefef7a5} 
+int Respawn.\+damage\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A csapdába eséskor kapott sebzés mértéke. 
+
+\Hypertarget{class_respawn_abede7d09a36497239e3518d2616933e3}\index{Respawn@{Respawn}!playerHealth@{playerHealth}}
+\index{playerHealth@{playerHealth}!Respawn@{Respawn}}
+\doxysubsubsection{\texorpdfstring{playerHealth}{playerHealth}}
+{\footnotesize\ttfamily \label{class_respawn_abede7d09a36497239e3518d2616933e3} 
+\doxymbox{\hyperlink{class_player_health}{Player\+Health}} Respawn.\+player\+Health}
+
+
+
+A játékos életerejét kezelő komponens. 
+
+\Hypertarget{class_respawn_a8ac1d47eeff747c55ebd2f0ff27440fd}\index{Respawn@{Respawn}!playerTag@{playerTag}}
+\index{playerTag@{playerTag}!Respawn@{Respawn}}
+\doxysubsubsection{\texorpdfstring{playerTag}{playerTag}}
+{\footnotesize\ttfamily \label{class_respawn_a8ac1d47eeff747c55ebd2f0ff27440fd} 
+string Respawn.\+player\+Tag = "{}Player"{}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A játékos objektumának azonosító címkéje. 
+
+\Hypertarget{class_respawn_a0ef48a715ceabfe427f6031cc6a606ad}\index{Respawn@{Respawn}!respawnLocation@{respawnLocation}}
+\index{respawnLocation@{respawnLocation}!Respawn@{Respawn}}
+\doxysubsubsection{\texorpdfstring{respawnLocation}{respawnLocation}}
+{\footnotesize\ttfamily \label{class_respawn_a0ef48a715ceabfe427f6031cc6a606ad} 
+Transform Respawn.\+respawn\+Location\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Az újraéledési pont pozíciója. 
+
+\Hypertarget{class_respawn_aa27cf2288e26424d83468cd7a1b41cc7}\index{Respawn@{Respawn}!timer@{timer}}
+\index{timer@{timer}!Respawn@{Respawn}}
+\doxysubsubsection{\texorpdfstring{timer}{timer}}
+{\footnotesize\ttfamily \label{class_respawn_aa27cf2288e26424d83468cd7a1b41cc7} 
+\doxymbox{\hyperlink{class_timer}{Timer}} Respawn.\+timer\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_respawn_8cs}{Respawn.\+cs}}\end{DoxyCompactItemize}

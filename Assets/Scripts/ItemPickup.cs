@@ -1,21 +1,29 @@
 using UnityEngine;
 using TMPro;
 
+/// Felvehető tárgyakat kezelő osztály.
 public class ItemPickup : MonoBehaviour
 {
+    /// A "Nyomd meg az E-t a felvételhez" UI szöveg.
     [SerializeField] private TextMeshProUGUI PickupText;
+    
+    /// A felvehető tárgy egyedi azonosítója a mentési rendszer felé.
     [SerializeField] private string itemId;
+    
+    /// Az életerőt vagy a felvételt követő opcionális respawn/időzítő pozíciót tárolja.
     [SerializeField] private Transform respawnLocation;
 
     private bool pickupAllowed;
     private Timer timer;
     private Transform playerTransform;
 
+    /// Végrehajtódik közvetlenül az inicializáció kezdetén. Lekéri a Timer referenciát.
     private void Awake()
     {
         ResolveTimerReference();
     }
 
+    /// Elrejti a prompt szöveget, és eltávolítja a tárgyat, ha már korábban felvették.
     private void Start()
     {
         if (PickupText != null)
@@ -34,6 +42,7 @@ public class ItemPickup : MonoBehaviour
         }
     }
 
+    /// Képkockánként ellenőrzi a felvétel gomb (E) lenyomását, ha a játékos a zónában van.
     private void Update()
     {
         if(pickupAllowed && Input.GetKeyDown(KeyCode.E))
@@ -42,6 +51,7 @@ public class ItemPickup : MonoBehaviour
         }
     }
 
+    /// Aktiválja a felvétel lehetőségét és a feliratot, amikor a játékos belép a triggerbe.
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -51,6 +61,7 @@ public class ItemPickup : MonoBehaviour
             if (PickupText != null)
             {
                 PickupText.gameObject.SetActive(true);
+    /// Kikapcsolja a felvétel lehetőségét és eltünteti a feliratot, ha a játékos kilép.
             }
 
             pickupAllowed = true;
@@ -63,6 +74,7 @@ public class ItemPickup : MonoBehaviour
         {
             playerTransform = null;
 
+    /// Felveszi a tárgyat, triggereli a mentést, gyógyíthat, respawnolhat, vagy megállíthat egy időzítőt, majd megsemmisíti a GameObjectet.
             if (PickupText != null)
             {
                 PickupText.gameObject.SetActive(false);
@@ -75,7 +87,7 @@ public class ItemPickup : MonoBehaviour
     private void Pickup()
     {
         ResolveTimerReference();
-
+    /// Időzített szoba esete
         if (timer != null && timer.IsTimerRunning && playerTransform != null)
         {
             if (respawnLocation != null)
@@ -97,6 +109,7 @@ public class ItemPickup : MonoBehaviour
             return;
         }
 
+    /// "Heal" kezdetű id esetén gyógyítja a játékost
         if (itemId.StartsWith("Heal") && playerTransform != null)
         {
             PlayerHealth playerHealth = playerTransform.GetComponent<PlayerHealth>();
@@ -108,6 +121,7 @@ public class ItemPickup : MonoBehaviour
 
         if (PickupText != null)
         {
+    /// Megkeresi és beállítja a Timer objektum referenciáját, ha még nincs megadva.
             PickupText.gameObject.SetActive(false);
         }
 

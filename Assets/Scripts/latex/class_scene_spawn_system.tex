@@ -1,0 +1,110 @@
+\doxysection{Scene\+Spawn\+System Class Reference}
+\hypertarget{class_scene_spawn_system}{}\label{class_scene_spawn_system}\index{SceneSpawnSystem@{SceneSpawnSystem}}
+
+
+A jelenetváltások utáni pontos spawnolást statikusan kezelő rendszer.  
+
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \doxymbox{\hyperlink{class_scene_spawn_system_a2bd948755e13abbc615b08d5e0758886}{Set\+Next\+Spawn}} (string spawn\+Id, string player\+Tag)
+\begin{DoxyCompactList}\small\item\em Eltárolja a következő jelenetbetöltéshez szükséges spawn adatokat. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \doxymbox{\hyperlink{class_scene_spawn_system_ad4a9bc41066d050b7e394ee7868481d6}{Reset\+Runtime\+State}} ()
+\begin{DoxyCompactList}\small\item\em Játék újraindításakor (Editorban) alapállapotba állítja a statikus változókat. \end{DoxyCompactList}\item 
+static void \doxymbox{\hyperlink{class_scene_spawn_system_aea97835d31bd51d926212848bed2f5ac}{Initialize}} ()
+\item 
+static void \doxymbox{\hyperlink{class_scene_spawn_system_a5f14ec83a14abb0e485a85d8b381a97e}{On\+Scene\+Loaded}} (Scene scene, Load\+Scene\+Mode mode)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static string \doxymbox{\hyperlink{class_scene_spawn_system_a659b7b35733b7f68805c5974baa29a57}{pending\+Spawn\+Id}}
+\begin{DoxyCompactList}\small\item\em A következő jelenetben keresendő spawn pont azonosítója. \end{DoxyCompactList}\item 
+static string \doxymbox{\hyperlink{class_scene_spawn_system_a940dd0b3323c941629e899d9c01a08b7}{pending\+Player\+Tag}} = "{}Player"{}
+\begin{DoxyCompactList}\small\item\em A teleportálandó játékos címkéje. \end{DoxyCompactList}\item 
+static bool \doxymbox{\hyperlink{class_scene_spawn_system_afacda7a6808b19c935af36423f93c015}{is\+Initialized}}
+\begin{DoxyCompactList}\small\item\em Jelzi, hogy az eseményfigyelés be lett-\/e már állítva. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A jelenetváltások utáni pontos spawnolást statikusan kezelő rendszer. 
+
+\label{class_scene_spawn_system_doc-func-members}
+\Hypertarget{class_scene_spawn_system_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_scene_spawn_system_aea97835d31bd51d926212848bed2f5ac}\index{SceneSpawnSystem@{SceneSpawnSystem}!Initialize@{Initialize}}
+\index{Initialize@{Initialize}!SceneSpawnSystem@{SceneSpawnSystem}}
+\doxysubsubsection{\texorpdfstring{Initialize()}{Initialize()}}
+{\footnotesize\ttfamily \label{class_scene_spawn_system_aea97835d31bd51d926212848bed2f5ac} 
+void Scene\+Spawn\+System.\+Initialize (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+Új jelenet betöltésekor megkeresi a beállított spawn pontot és oda transzportálja a játékost.\Hypertarget{class_scene_spawn_system_a5f14ec83a14abb0e485a85d8b381a97e}\index{SceneSpawnSystem@{SceneSpawnSystem}!OnSceneLoaded@{OnSceneLoaded}}
+\index{OnSceneLoaded@{OnSceneLoaded}!SceneSpawnSystem@{SceneSpawnSystem}}
+\doxysubsubsection{\texorpdfstring{OnSceneLoaded()}{OnSceneLoaded()}}
+{\footnotesize\ttfamily \label{class_scene_spawn_system_a5f14ec83a14abb0e485a85d8b381a97e} 
+void Scene\+Spawn\+System.\+On\+Scene\+Loaded (\begin{DoxyParamCaption}\item[{Scene}]{scene}{, }\item[{Load\+Scene\+Mode}]{mode}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\Hypertarget{class_scene_spawn_system_ad4a9bc41066d050b7e394ee7868481d6}\index{SceneSpawnSystem@{SceneSpawnSystem}!ResetRuntimeState@{ResetRuntimeState}}
+\index{ResetRuntimeState@{ResetRuntimeState}!SceneSpawnSystem@{SceneSpawnSystem}}
+\doxysubsubsection{\texorpdfstring{ResetRuntimeState()}{ResetRuntimeState()}}
+{\footnotesize\ttfamily \label{class_scene_spawn_system_ad4a9bc41066d050b7e394ee7868481d6} 
+void Scene\+Spawn\+System.\+Reset\+Runtime\+State (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Játék újraindításakor (Editorban) alapállapotba állítja a statikus változókat. 
+
+Feliratkozik a jelenet betöltése eseményre közvetlenül a játék kezdete előtt.\Hypertarget{class_scene_spawn_system_a2bd948755e13abbc615b08d5e0758886}\index{SceneSpawnSystem@{SceneSpawnSystem}!SetNextSpawn@{SetNextSpawn}}
+\index{SetNextSpawn@{SetNextSpawn}!SceneSpawnSystem@{SceneSpawnSystem}}
+\doxysubsubsection{\texorpdfstring{SetNextSpawn()}{SetNextSpawn()}}
+{\footnotesize\ttfamily \label{class_scene_spawn_system_a2bd948755e13abbc615b08d5e0758886} 
+void Scene\+Spawn\+System.\+Set\+Next\+Spawn (\begin{DoxyParamCaption}\item[{string}]{spawn\+Id}{, }\item[{string}]{player\+Tag}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Eltárolja a következő jelenetbetöltéshez szükséges spawn adatokat. 
+
+
+
+\label{class_scene_spawn_system_doc-variable-members}
+\Hypertarget{class_scene_spawn_system_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_scene_spawn_system_afacda7a6808b19c935af36423f93c015}\index{SceneSpawnSystem@{SceneSpawnSystem}!isInitialized@{isInitialized}}
+\index{isInitialized@{isInitialized}!SceneSpawnSystem@{SceneSpawnSystem}}
+\doxysubsubsection{\texorpdfstring{isInitialized}{isInitialized}}
+{\footnotesize\ttfamily \label{class_scene_spawn_system_afacda7a6808b19c935af36423f93c015} 
+bool Scene\+Spawn\+System.\+is\+Initialized\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Jelzi, hogy az eseményfigyelés be lett-\/e már állítva. 
+
+\Hypertarget{class_scene_spawn_system_a940dd0b3323c941629e899d9c01a08b7}\index{SceneSpawnSystem@{SceneSpawnSystem}!pendingPlayerTag@{pendingPlayerTag}}
+\index{pendingPlayerTag@{pendingPlayerTag}!SceneSpawnSystem@{SceneSpawnSystem}}
+\doxysubsubsection{\texorpdfstring{pendingPlayerTag}{pendingPlayerTag}}
+{\footnotesize\ttfamily \label{class_scene_spawn_system_a940dd0b3323c941629e899d9c01a08b7} 
+string Scene\+Spawn\+System.\+pending\+Player\+Tag = "{}Player"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+A teleportálandó játékos címkéje. 
+
+\Hypertarget{class_scene_spawn_system_a659b7b35733b7f68805c5974baa29a57}\index{SceneSpawnSystem@{SceneSpawnSystem}!pendingSpawnId@{pendingSpawnId}}
+\index{pendingSpawnId@{pendingSpawnId}!SceneSpawnSystem@{SceneSpawnSystem}}
+\doxysubsubsection{\texorpdfstring{pendingSpawnId}{pendingSpawnId}}
+{\footnotesize\ttfamily \label{class_scene_spawn_system_a659b7b35733b7f68805c5974baa29a57} 
+string Scene\+Spawn\+System.\+pending\+Spawn\+Id\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+A következő jelenetben keresendő spawn pont azonosítója. 
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_scene_spawn_system_8cs}{Scene\+Spawn\+System.\+cs}}\end{DoxyCompactItemize}

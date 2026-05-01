@@ -1,9 +1,14 @@
 using UnityEngine;
 using System.Collections;
 
+/// Egy platformot kezelő script, ami megadott időzítéssel
+/// leesik, ha a játékos ráugrik, majd később visszaspawnol a helyére.
 public class FallingPlatform : MonoBehaviour
 {
+    /// Az idő másodpercben, amennyit vár az esés megkezdése előtt, miután ráugrottak.
     [SerializeField] float fallDelay = 1f;
+
+    /// Az idő másodpercben az esés megkezdésétől számítva, mire újra megjelenik.
     [SerializeField] float respawnDelay = 5f;
 
     private Rigidbody2D rb;
@@ -13,6 +18,7 @@ public class FallingPlatform : MonoBehaviour
     private RigidbodyType2D initialBodyType;
     private bool isTriggered;
 
+    /// Lekéri a komponenseket betöltéskor és elmenti a platform eredeti pozícióját is.
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -26,6 +32,7 @@ public class FallingPlatform : MonoBehaviour
         }
     }
 
+    /// Amikor egy szilárd test hozzáér a platformhoz.
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (isTriggered)
@@ -41,10 +48,13 @@ public class FallingPlatform : MonoBehaviour
         StartCoroutine(FallAndRespawnRoutine());
     }
 
+    /// Várakozást indító Coroutine, ami kivárja az esést, Dynamic-ra állítja a RigidBody-t, 
+    /// majd egy újabb várás után visszahelyezi Kinematic-ba és eredeti pozícióba.
     IEnumerator FallAndRespawnRoutine()
     {
         isTriggered = true;
 
+        // Várakozás leesés előtt
         yield return new WaitForSeconds(fallDelay);
 
         if (rb != null)
@@ -54,6 +64,7 @@ public class FallingPlatform : MonoBehaviour
             rb.angularVelocity = 0f;
         }
 
+        // Várakozás az újjászületés előtt
         yield return new WaitForSeconds(respawnDelay);
 
         if (rb != null)

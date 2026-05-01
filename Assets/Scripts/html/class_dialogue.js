@@ -1,0 +1,28 @@
+var class_dialogue =
+[
+    [ "Awake", "class_dialogue.html#aa1aaf480aa955886927805aa70df6cad", null ],
+    [ "NextLine", "class_dialogue.html#a1cbd37eb32ebf5aeffeb7b5bd480e88c", null ],
+    [ "OnTriggerEnter2D", "class_dialogue.html#a4a3cbf5d1801e58f41ba885a35c52806", null ],
+    [ "OnTriggerExit2D", "class_dialogue.html#a6cd313ef7869df0445923ac69a8d64cf", null ],
+    [ "SetAutoTrigger", "class_dialogue.html#a5cba1d732b6c9c725dd04e6503190254", null ],
+    [ "SetManualTriggerOnly", "class_dialogue.html#a57864a984643064c270a0785810cb8fd", null ],
+    [ "Start", "class_dialogue.html#a83bc943ea718f1994f81a4f61db8a4c2", null ],
+    [ "StartDialogue", "class_dialogue.html#ab950603084b955451f07c9725736be0f", null ],
+    [ "TriggerDialogue", "class_dialogue.html#ae06188b3657d30e009d672cdc7c85385", null ],
+    [ "TypeLine", "class_dialogue.html#a6431d323e6db7088c29cadb475aebc11", null ],
+    [ "Update", "class_dialogue.html#a6b7a5144cbfe9e77136944b7f0677a05", null ],
+    [ "dialogueBox", "class_dialogue.html#a4a9a874a5ed7d34bd6c18b32d6c62b8d", null ],
+    [ "dialogueID", "class_dialogue.html#acd19b4d04532583df40354631445e236", null ],
+    [ "dialogueStarted", "class_dialogue.html#a76406772aa5737a8ca5ea7ab6d6f0989", null ],
+    [ "hasTriggered", "class_dialogue.html#a3428e7947390d5de02eaadd1be1f608b", null ],
+    [ "index", "class_dialogue.html#ad344258facc65041babdbda45118d005", null ],
+    [ "interactKey", "class_dialogue.html#a96dbcfaf65b02ab357c65b74f3661f36", null ],
+    [ "interactUI", "class_dialogue.html#af54ad0a24547e4d75aab78b10d55652c", null ],
+    [ "isPlayerInRange", "class_dialogue.html#a271165531e70f9199777ffeaa20a2ec2", null ],
+    [ "lines", "class_dialogue.html#ac98f9343b8bb0d620e1b05c8d9d5ef74", null ],
+    [ "manualTriggerOnly", "class_dialogue.html#ad419391531c19217d5071daa4c81ac19", null ],
+    [ "requireInteractKey", "class_dialogue.html#a065dfc06920c08400be4bb056d078ebf", null ],
+    [ "textComponent", "class_dialogue.html#a06c6c5e15b42e1356fd0fb21bef71398", null ],
+    [ "textSpeed", "class_dialogue.html#ab47ce61b67186cda3f87ad0feb8687ae", null ],
+    [ "triggerCollider", "class_dialogue.html#a1be5cc41d73d5c6d3b69477dc63fa2cc", null ]
+];

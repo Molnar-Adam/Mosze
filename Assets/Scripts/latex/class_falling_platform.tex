@@ -1,0 +1,134 @@
+\doxysection{Falling\+Platform Class Reference}
+\hypertarget{class_falling_platform}{}\label{class_falling_platform}\index{FallingPlatform@{FallingPlatform}}
+
+
+Inherits Mono\+Behaviour.
+
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_falling_platform_ac43918d6bb864e2c41627b5d6c965887}{Awake}} ()
+\begin{DoxyCompactList}\small\item\em Lekéri a komponenseket betöltéskor és elmenti a platform eredeti pozícióját is. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_falling_platform_a091303947bc3fec3bae1dfa804f7ce45}{On\+Collision\+Enter2D}} (Collision2D collision)
+\begin{DoxyCompactList}\small\item\em Amikor egy szilárd test hozzáér a platformhoz. \end{DoxyCompactList}\item 
+IEnumerator \doxymbox{\hyperlink{class_falling_platform_a5e39f8419c56b43430ed0a16eec6ac7c}{Fall\+And\+Respawn\+Routine}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \doxymbox{\hyperlink{class_falling_platform_aa2e523a6580713f21832f994b2b30663}{fall\+Delay}} = 1f
+\begin{DoxyCompactList}\small\item\em Az idő másodpercben, amennyit vár az esés megkezdése előtt, miután ráugrottak. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{class_falling_platform_a2e84ba73181198fd0d065c51a2e2eebd}{respawn\+Delay}} = 5f
+\begin{DoxyCompactList}\small\item\em Az idő másodpercben az esés megkezdésétől számítva, mire újra megjelenik. \end{DoxyCompactList}\item 
+Rigidbody2D \doxymbox{\hyperlink{class_falling_platform_a95f41b62456f3765340134ecef5749f5}{rb}}
+\item 
+Collider2D \doxymbox{\hyperlink{class_falling_platform_afb12e729c3dc1605d357a7dd7e47e8ff}{platform\+Collider}}
+\item 
+Vector3 \doxymbox{\hyperlink{class_falling_platform_a02cc41bf56e7965c3cf606673f6b8a1f}{start\+Position}}
+\item 
+Quaternion \doxymbox{\hyperlink{class_falling_platform_af6d375618ea1bc4ee8cf82a8174c855e}{start\+Rotation}}
+\item 
+Rigidbody\+Type2D \doxymbox{\hyperlink{class_falling_platform_a532b80d7007091b6fc696d135e72df9b}{initial\+Body\+Type}}
+\item 
+bool \doxymbox{\hyperlink{class_falling_platform_a13b92008b222492f9e6373fc10da96d7}{is\+Triggered}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Egy platformot kezelő script, ami megadott időzítéssel leesik, ha a játékos ráugrik, majd később visszaspawnol a helyére. 
+
+\label{class_falling_platform_doc-func-members}
+\Hypertarget{class_falling_platform_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_falling_platform_ac43918d6bb864e2c41627b5d6c965887}\index{FallingPlatform@{FallingPlatform}!Awake@{Awake}}
+\index{Awake@{Awake}!FallingPlatform@{FallingPlatform}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily \label{class_falling_platform_ac43918d6bb864e2c41627b5d6c965887} 
+void Falling\+Platform.\+Awake (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Lekéri a komponenseket betöltéskor és elmenti a platform eredeti pozícióját is. 
+
+\Hypertarget{class_falling_platform_a5e39f8419c56b43430ed0a16eec6ac7c}\index{FallingPlatform@{FallingPlatform}!FallAndRespawnRoutine@{FallAndRespawnRoutine}}
+\index{FallAndRespawnRoutine@{FallAndRespawnRoutine}!FallingPlatform@{FallingPlatform}}
+\doxysubsubsection{\texorpdfstring{FallAndRespawnRoutine()}{FallAndRespawnRoutine()}}
+{\footnotesize\ttfamily \label{class_falling_platform_a5e39f8419c56b43430ed0a16eec6ac7c} 
+IEnumerator Falling\+Platform.\+Fall\+And\+Respawn\+Routine (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Várakozást indító Coroutine, ami kivárja az esést, Dynamic-\/ra állítja a Rigid\+Body-\/t, majd egy újabb várás után visszahelyezi Kinematic-\/ba és eredeti pozícióba. \Hypertarget{class_falling_platform_a091303947bc3fec3bae1dfa804f7ce45}\index{FallingPlatform@{FallingPlatform}!OnCollisionEnter2D@{OnCollisionEnter2D}}
+\index{OnCollisionEnter2D@{OnCollisionEnter2D}!FallingPlatform@{FallingPlatform}}
+\doxysubsubsection{\texorpdfstring{OnCollisionEnter2D()}{OnCollisionEnter2D()}}
+{\footnotesize\ttfamily \label{class_falling_platform_a091303947bc3fec3bae1dfa804f7ce45} 
+void Falling\+Platform.\+On\+Collision\+Enter2D (\begin{DoxyParamCaption}\item[{Collision2D}]{collision}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Amikor egy szilárd test hozzáér a platformhoz. 
+
+
+
+\label{class_falling_platform_doc-variable-members}
+\Hypertarget{class_falling_platform_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_falling_platform_aa2e523a6580713f21832f994b2b30663}\index{FallingPlatform@{FallingPlatform}!fallDelay@{fallDelay}}
+\index{fallDelay@{fallDelay}!FallingPlatform@{FallingPlatform}}
+\doxysubsubsection{\texorpdfstring{fallDelay}{fallDelay}}
+{\footnotesize\ttfamily \label{class_falling_platform_aa2e523a6580713f21832f994b2b30663} 
+float Falling\+Platform.\+fall\+Delay = 1f\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Az idő másodpercben, amennyit vár az esés megkezdése előtt, miután ráugrottak. 
+
+\Hypertarget{class_falling_platform_a532b80d7007091b6fc696d135e72df9b}\index{FallingPlatform@{FallingPlatform}!initialBodyType@{initialBodyType}}
+\index{initialBodyType@{initialBodyType}!FallingPlatform@{FallingPlatform}}
+\doxysubsubsection{\texorpdfstring{initialBodyType}{initialBodyType}}
+{\footnotesize\ttfamily \label{class_falling_platform_a532b80d7007091b6fc696d135e72df9b} 
+Rigidbody\+Type2D Falling\+Platform.\+initial\+Body\+Type\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_falling_platform_a13b92008b222492f9e6373fc10da96d7}\index{FallingPlatform@{FallingPlatform}!isTriggered@{isTriggered}}
+\index{isTriggered@{isTriggered}!FallingPlatform@{FallingPlatform}}
+\doxysubsubsection{\texorpdfstring{isTriggered}{isTriggered}}
+{\footnotesize\ttfamily \label{class_falling_platform_a13b92008b222492f9e6373fc10da96d7} 
+bool Falling\+Platform.\+is\+Triggered\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_falling_platform_afb12e729c3dc1605d357a7dd7e47e8ff}\index{FallingPlatform@{FallingPlatform}!platformCollider@{platformCollider}}
+\index{platformCollider@{platformCollider}!FallingPlatform@{FallingPlatform}}
+\doxysubsubsection{\texorpdfstring{platformCollider}{platformCollider}}
+{\footnotesize\ttfamily \label{class_falling_platform_afb12e729c3dc1605d357a7dd7e47e8ff} 
+Collider2D Falling\+Platform.\+platform\+Collider\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_falling_platform_a95f41b62456f3765340134ecef5749f5}\index{FallingPlatform@{FallingPlatform}!rb@{rb}}
+\index{rb@{rb}!FallingPlatform@{FallingPlatform}}
+\doxysubsubsection{\texorpdfstring{rb}{rb}}
+{\footnotesize\ttfamily \label{class_falling_platform_a95f41b62456f3765340134ecef5749f5} 
+Rigidbody2D Falling\+Platform.\+rb\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_falling_platform_a2e84ba73181198fd0d065c51a2e2eebd}\index{FallingPlatform@{FallingPlatform}!respawnDelay@{respawnDelay}}
+\index{respawnDelay@{respawnDelay}!FallingPlatform@{FallingPlatform}}
+\doxysubsubsection{\texorpdfstring{respawnDelay}{respawnDelay}}
+{\footnotesize\ttfamily \label{class_falling_platform_a2e84ba73181198fd0d065c51a2e2eebd} 
+float Falling\+Platform.\+respawn\+Delay = 5f\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Az idő másodpercben az esés megkezdésétől számítva, mire újra megjelenik. 
+
+\Hypertarget{class_falling_platform_a02cc41bf56e7965c3cf606673f6b8a1f}\index{FallingPlatform@{FallingPlatform}!startPosition@{startPosition}}
+\index{startPosition@{startPosition}!FallingPlatform@{FallingPlatform}}
+\doxysubsubsection{\texorpdfstring{startPosition}{startPosition}}
+{\footnotesize\ttfamily \label{class_falling_platform_a02cc41bf56e7965c3cf606673f6b8a1f} 
+Vector3 Falling\+Platform.\+start\+Position\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_falling_platform_af6d375618ea1bc4ee8cf82a8174c855e}\index{FallingPlatform@{FallingPlatform}!startRotation@{startRotation}}
+\index{startRotation@{startRotation}!FallingPlatform@{FallingPlatform}}
+\doxysubsubsection{\texorpdfstring{startRotation}{startRotation}}
+{\footnotesize\ttfamily \label{class_falling_platform_af6d375618ea1bc4ee8cf82a8174c855e} 
+Quaternion Falling\+Platform.\+start\+Rotation\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_falling_platform_8cs}{Falling\+Platform.\+cs}}\end{DoxyCompactItemize}

@@ -1,19 +1,29 @@
 using UnityEngine;
 
+/// A játékos újraéledését, visszateleportálását és sebződését kezelő osztály.
 public class Respawn : MonoBehaviour
 {
+    /// Az újraéledési pont pozíciója.
     [SerializeField] private Transform respawnLocation;
+    
+    /// A játékos objektumának azonosító címkéje.
     [SerializeField] private string playerTag = "Player";
+    
     private Timer timer;
 
+    /// A játékos életerejét kezelő komponens.
     public PlayerHealth playerHealth;
+    
+    /// A csapdába eséskor kapott sebzés mértéke.
     [SerializeField] int damage;
 
+    /// Példányosításkor megkeresi és rögzíti a Timer komponenst.
     private void Awake()
     {
         ResolveTimerReference();
     }
 
+    /// Ütközéskor sebzi a játékost és visszateleportálja az újraéledési pontra, illetve értesíti a timert.
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.CompareTag(playerTag))
@@ -41,6 +51,7 @@ public class Respawn : MonoBehaviour
         }
     }
 
+    /// Megkeresi a jelenetben lévő Timer komponenst, ha még nincs hivatkozás rá.
     private void ResolveTimerReference()
     {
         if (timer != null)

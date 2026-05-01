@@ -1,11 +1,19 @@
 using System;
 using UnityEngine;
 
+/// A játékos életerejét  és annak változásait, sebződését kezelő osztály.
 public class PlayerHealth : MonoBehaviour
 {
+    /// A játékos maximális életereje.
     [SerializeField] public int MaxHealth = 10;
+    
+    /// >A játékos aktuális életereje.
     public int Health;
+    
+    /// Esemény, amely életerő változáskor (gyógyulás, sebződés) hívódik meg.
     public event Action OnHealthChanged;
+    
+    /// Esemény, amely a játékos halálakor hívódik meg.
     public event Action OnDied;
 
     private static int savedHealth;
@@ -14,6 +22,7 @@ public class PlayerHealth : MonoBehaviour
     private const float DAMAGE_COOLDOWN = 1f;
     private float lastDamageTime = 0f;
 
+    /// Játék indításakor nullázza az eltárolt életerőt.
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
     private static void ResetRuntimeState()
     {
@@ -68,6 +77,7 @@ public class PlayerHealth : MonoBehaviour
        else{
         Health = Mathf.Max(Health - damage, 0);
         SaveRuntimeHealth();
+    /// Eltárolja az időszakos állapotot a globális (static) memóriában.
         OnHealthChanged?.Invoke();
        }
 

@@ -1,0 +1,126 @@
+\doxysection{Light\+Switch Class Reference}
+\hypertarget{class_light_switch}{}\label{class_light_switch}\index{LightSwitch@{LightSwitch}}
+
+
+A villanykapcsolót kezelő szkript, amellyel felkapcsolható az áram.  
+
+
+
+
+Inherits Mono\+Behaviour.
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_light_switch_a51d81136ca92b65ed122d0f6dcbfc5e0}{Pull\+Lever}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_light_switch_a1aa10c12887685c455a6f75536025209}{Start}} ()
+\begin{DoxyCompactList}\small\item\em Kezdetben elrejti az interakciós feliratot. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_light_switch_a0fa1abd138630aa586793f0bcc06ec29}{Update}} ()
+\begin{DoxyCompactList}\small\item\em Várja az "{}\+E"{} gomb lenyomását a felkapcsoláshoz, ha a zónán belül vagyunk. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_light_switch_a72afbbfe7b8e6e648374c9a3f1ab2513}{On\+Trigger\+Enter2D}} (Collider2D collision)
+\begin{DoxyCompactList}\small\item\em Ha a játékos belép a kapcsoló zónájába, engedélyezi a felkapcsolást és megjeleníti a feliratot. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_light_switch_a6487eefa329939a97e702703660d4273}{On\+Trigger\+Exit2D}} (Collider2D collision)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Text\+Mesh\+Pro\+UGUI \doxymbox{\hyperlink{class_light_switch_aa4e129b13dfc184533ff5edd8bd9904d}{Interact\+Text}}
+\begin{DoxyCompactList}\small\item\em A UI szöveg, ami jelzi, hogy interakcióba lehet lépni a kapcsolóval. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_light_switch_a6c9270dc0969fa7189ad6a9cc555c15e}{Interact\+Allowed}} = false
+\begin{DoxyCompactList}\small\item\em Jelzi, hogy a játékos a kapcsoló közelében van-\/e. \end{DoxyCompactList}\item 
+Transform \doxymbox{\hyperlink{class_light_switch_a7481ceddc5a283a4aca2c17ad2567b0c}{player\+Transform}}
+\begin{DoxyCompactList}\small\item\em A játékos pozíciója. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A villanykapcsolót kezelő szkript, amellyel felkapcsolható az áram. 
+
+\label{class_light_switch_doc-func-members}
+\Hypertarget{class_light_switch_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_light_switch_a72afbbfe7b8e6e648374c9a3f1ab2513}\index{LightSwitch@{LightSwitch}!OnTriggerEnter2D@{OnTriggerEnter2D}}
+\index{OnTriggerEnter2D@{OnTriggerEnter2D}!LightSwitch@{LightSwitch}}
+\doxysubsubsection{\texorpdfstring{OnTriggerEnter2D()}{OnTriggerEnter2D()}}
+{\footnotesize\ttfamily \label{class_light_switch_a72afbbfe7b8e6e648374c9a3f1ab2513} 
+void Light\+Switch.\+On\+Trigger\+Enter2D (\begin{DoxyParamCaption}\item[{Collider2D}]{collision}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Ha a játékos belép a kapcsoló zónájába, engedélyezi a felkapcsolást és megjeleníti a feliratot. 
+
+Ha a játékos elhagyja a kapcsoló zónáját, eltünteti a feliratot és tiltja a műveletet.\Hypertarget{class_light_switch_a6487eefa329939a97e702703660d4273}\index{LightSwitch@{LightSwitch}!OnTriggerExit2D@{OnTriggerExit2D}}
+\index{OnTriggerExit2D@{OnTriggerExit2D}!LightSwitch@{LightSwitch}}
+\doxysubsubsection{\texorpdfstring{OnTriggerExit2D()}{OnTriggerExit2D()}}
+{\footnotesize\ttfamily \label{class_light_switch_a6487eefa329939a97e702703660d4273} 
+void Light\+Switch.\+On\+Trigger\+Exit2D (\begin{DoxyParamCaption}\item[{Collider2D}]{collision}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Felkapcsolja az áramot (\doxylink{class_game_state_a68328abe9e7087f2a534a28adbe672a5}{Game\+State.\+power\+On} = true).\Hypertarget{class_light_switch_a51d81136ca92b65ed122d0f6dcbfc5e0}\index{LightSwitch@{LightSwitch}!PullLever@{PullLever}}
+\index{PullLever@{PullLever}!LightSwitch@{LightSwitch}}
+\doxysubsubsection{\texorpdfstring{PullLever()}{PullLever()}}
+{\footnotesize\ttfamily \label{class_light_switch_a51d81136ca92b65ed122d0f6dcbfc5e0} 
+void Light\+Switch.\+Pull\+Lever (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_light_switch_a1aa10c12887685c455a6f75536025209}\index{LightSwitch@{LightSwitch}!Start@{Start}}
+\index{Start@{Start}!LightSwitch@{LightSwitch}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_light_switch_a1aa10c12887685c455a6f75536025209} 
+void Light\+Switch.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Kezdetben elrejti az interakciós feliratot. 
+
+\Hypertarget{class_light_switch_a0fa1abd138630aa586793f0bcc06ec29}\index{LightSwitch@{LightSwitch}!Update@{Update}}
+\index{Update@{Update}!LightSwitch@{LightSwitch}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_light_switch_a0fa1abd138630aa586793f0bcc06ec29} 
+void Light\+Switch.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Várja az "{}\+E"{} gomb lenyomását a felkapcsoláshoz, ha a zónán belül vagyunk. 
+
+
+
+\label{class_light_switch_doc-variable-members}
+\Hypertarget{class_light_switch_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_light_switch_a6c9270dc0969fa7189ad6a9cc555c15e}\index{LightSwitch@{LightSwitch}!InteractAllowed@{InteractAllowed}}
+\index{InteractAllowed@{InteractAllowed}!LightSwitch@{LightSwitch}}
+\doxysubsubsection{\texorpdfstring{InteractAllowed}{InteractAllowed}}
+{\footnotesize\ttfamily \label{class_light_switch_a6c9270dc0969fa7189ad6a9cc555c15e} 
+bool Light\+Switch.\+Interact\+Allowed = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Jelzi, hogy a játékos a kapcsoló közelében van-\/e. 
+
+\Hypertarget{class_light_switch_aa4e129b13dfc184533ff5edd8bd9904d}\index{LightSwitch@{LightSwitch}!InteractText@{InteractText}}
+\index{InteractText@{InteractText}!LightSwitch@{LightSwitch}}
+\doxysubsubsection{\texorpdfstring{InteractText}{InteractText}}
+{\footnotesize\ttfamily \label{class_light_switch_aa4e129b13dfc184533ff5edd8bd9904d} 
+Text\+Mesh\+Pro\+UGUI Light\+Switch.\+Interact\+Text\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A UI szöveg, ami jelzi, hogy interakcióba lehet lépni a kapcsolóval. 
+
+\Hypertarget{class_light_switch_a7481ceddc5a283a4aca2c17ad2567b0c}\index{LightSwitch@{LightSwitch}!playerTransform@{playerTransform}}
+\index{playerTransform@{playerTransform}!LightSwitch@{LightSwitch}}
+\doxysubsubsection{\texorpdfstring{playerTransform}{playerTransform}}
+{\footnotesize\ttfamily \label{class_light_switch_a7481ceddc5a283a4aca2c17ad2567b0c} 
+Transform Light\+Switch.\+player\+Transform\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A játékos pozíciója. 
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_light_switch_8cs}{Light\+Switch.\+cs}}\end{DoxyCompactItemize}

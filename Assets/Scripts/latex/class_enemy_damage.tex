@@ -1,0 +1,77 @@
+\doxysection{Enemy\+Damage Class Reference}
+\hypertarget{class_enemy_damage}{}\label{class_enemy_damage}\index{EnemyDamage@{EnemyDamage}}
+
+
+Inherits Mono\+Behaviour.
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_player_health}{Player\+Health}} \doxymbox{\hyperlink{class_enemy_damage_a912708fff562432296cb4a536b7e262c}{player\+Health}}
+\begin{DoxyCompactList}\small\item\em A Player\+Health-\/re vonatkozó hivatkozás. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_player_movement}{Player\+Movement}} \doxymbox{\hyperlink{class_enemy_damage_a8d6a8782bb495af4b51e4024f7260053}{player\+Movement}}
+\begin{DoxyCompactList}\small\item\em A Player\+Movement-\/re vonatkozó hivatkozás a knockbackhez. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_enemy_damage_a46fdca7f4f218c1aed562b6d5f0cae0c}{On\+Collision\+Enter2D}} (Collision2D collision)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \doxymbox{\hyperlink{class_enemy_damage_a2572a71cd06c19263b01b6057ea4110e}{damage}}
+\begin{DoxyCompactList}\small\item\em A sebzés mértéke, amit az ellenség okoz a játékosnak. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Ez az osztály felelős az ellenségek által a játékosnak okozott sebzésért, és a knockback (hátralökődés) triggereléséért. 
+
+\label{class_enemy_damage_doc-func-members}
+\Hypertarget{class_enemy_damage_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_enemy_damage_a46fdca7f4f218c1aed562b6d5f0cae0c}\index{EnemyDamage@{EnemyDamage}!OnCollisionEnter2D@{OnCollisionEnter2D}}
+\index{OnCollisionEnter2D@{OnCollisionEnter2D}!EnemyDamage@{EnemyDamage}}
+\doxysubsubsection{\texorpdfstring{OnCollisionEnter2D()}{OnCollisionEnter2D()}}
+{\footnotesize\ttfamily \label{class_enemy_damage_a46fdca7f4f218c1aed562b6d5f0cae0c} 
+void Enemy\+Damage.\+On\+Collision\+Enter2D (\begin{DoxyParamCaption}\item[{Collision2D}]{collision}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Akkor hívódik meg, amikor a player érintkezik az ellenfél Collider-\/ével Meghívja a Take\+Daage() scriptet és gondoskodik a knokbackről 
+
+\label{class_enemy_damage_doc-variable-members}
+\Hypertarget{class_enemy_damage_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_enemy_damage_a2572a71cd06c19263b01b6057ea4110e}\index{EnemyDamage@{EnemyDamage}!damage@{damage}}
+\index{damage@{damage}!EnemyDamage@{EnemyDamage}}
+\doxysubsubsection{\texorpdfstring{damage}{damage}}
+{\footnotesize\ttfamily \label{class_enemy_damage_a2572a71cd06c19263b01b6057ea4110e} 
+int Enemy\+Damage.\+damage\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A sebzés mértéke, amit az ellenség okoz a játékosnak. 
+
+\Hypertarget{class_enemy_damage_a912708fff562432296cb4a536b7e262c}\index{EnemyDamage@{EnemyDamage}!playerHealth@{playerHealth}}
+\index{playerHealth@{playerHealth}!EnemyDamage@{EnemyDamage}}
+\doxysubsubsection{\texorpdfstring{playerHealth}{playerHealth}}
+{\footnotesize\ttfamily \label{class_enemy_damage_a912708fff562432296cb4a536b7e262c} 
+\doxymbox{\hyperlink{class_player_health}{Player\+Health}} Enemy\+Damage.\+player\+Health}
+
+
+
+A Player\+Health-\/re vonatkozó hivatkozás. 
+
+\Hypertarget{class_enemy_damage_a8d6a8782bb495af4b51e4024f7260053}\index{EnemyDamage@{EnemyDamage}!playerMovement@{playerMovement}}
+\index{playerMovement@{playerMovement}!EnemyDamage@{EnemyDamage}}
+\doxysubsubsection{\texorpdfstring{playerMovement}{playerMovement}}
+{\footnotesize\ttfamily \label{class_enemy_damage_a8d6a8782bb495af4b51e4024f7260053} 
+\doxymbox{\hyperlink{class_player_movement}{Player\+Movement}} Enemy\+Damage.\+player\+Movement}
+
+
+
+A Player\+Movement-\/re vonatkozó hivatkozás a knockbackhez. 
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_enemy_damage_8cs}{Enemy\+Damage.\+cs}}\end{DoxyCompactItemize}

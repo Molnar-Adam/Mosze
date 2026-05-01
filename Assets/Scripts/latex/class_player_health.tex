@@ -1,0 +1,190 @@
+\doxysection{Player\+Health Class Reference}
+\hypertarget{class_player_health}{}\label{class_player_health}\index{PlayerHealth@{PlayerHealth}}
+
+
+A játékos életerejét és annak változásait, sebződését kezelő osztály.  
+
+
+
+
+Inherits Mono\+Behaviour.
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_player_health_a56b3371b1741ec8cf1ae0980d1e1a107}{Take\+Damage}} (int damage)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \doxymbox{\hyperlink{class_player_health_ab3b25882e81cc06ff28d8615489f0a28}{Reset\+Saved\+Health}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \doxymbox{\hyperlink{class_player_health_ac4c864aab937a02f5edd9c1cdab24418}{Max\+Health}} = 10
+\begin{DoxyCompactList}\small\item\em A játékos maximális életereje. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_player_health_a1cde6271f0b5b8558aad314a6337bf59}{Health}}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$>$}{>}A játékos aktuális életereje. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Events}
+\begin{DoxyCompactItemize}
+\item 
+Action \doxymbox{\hyperlink{class_player_health_ab9bedd7b30adbc3099bd98c6ee58c654}{On\+Health\+Changed}}
+\begin{DoxyCompactList}\small\item\em Esemény, amely életerő változáskor (gyógyulás, sebződés) hívódik meg. \end{DoxyCompactList}\item 
+Action \doxymbox{\hyperlink{class_player_health_aad0b65091403d1523ad5a3536bc19950}{On\+Died}}
+\begin{DoxyCompactList}\small\item\em Esemény, amely a játékos halálakor hívódik meg. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_player_health_a5de7909cbaba3f4da83878ed56e995d0}{Awake}} ()
+\item 
+void \doxymbox{\hyperlink{class_player_health_a21134f0fe67ad8f18be4efcd5c029799}{On\+Destroy}} ()
+\item 
+void \doxymbox{\hyperlink{class_player_health_a0614533594f1070dae7d5f640601a332}{Save\+Runtime\+Health}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \doxymbox{\hyperlink{class_player_health_ab2139fb545951ab55b116e447b558a0f}{Reset\+Runtime\+State}} ()
+\begin{DoxyCompactList}\small\item\em Játék indításakor nullázza az eltárolt életerőt. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \doxymbox{\hyperlink{class_player_health_a40e0df25e198a5e77055e8d82ab9a0ee}{last\+Damage\+Time}} = 0f
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static int \doxymbox{\hyperlink{class_player_health_ac948ddb038096fa3df732c630076eb61}{saved\+Health}}
+\item 
+static bool \doxymbox{\hyperlink{class_player_health_a6974fb5f6831bda28db046f0d1e0fdc1}{has\+Saved\+Health}}
+\item 
+const float \doxymbox{\hyperlink{class_player_health_aac38f0551dfcc06d6b8351416d162004}{DAMAGE\+\_\+\+COOLDOWN}} = 1f
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A játékos életerejét és annak változásait, sebződését kezelő osztály. 
+
+\label{class_player_health_doc-func-members}
+\Hypertarget{class_player_health_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_player_health_a5de7909cbaba3f4da83878ed56e995d0}\index{PlayerHealth@{PlayerHealth}!Awake@{Awake}}
+\index{Awake@{Awake}!PlayerHealth@{PlayerHealth}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily \label{class_player_health_a5de7909cbaba3f4da83878ed56e995d0} 
+void Player\+Health.\+Awake (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_player_health_a21134f0fe67ad8f18be4efcd5c029799}\index{PlayerHealth@{PlayerHealth}!OnDestroy@{OnDestroy}}
+\index{OnDestroy@{OnDestroy}!PlayerHealth@{PlayerHealth}}
+\doxysubsubsection{\texorpdfstring{OnDestroy()}{OnDestroy()}}
+{\footnotesize\ttfamily \label{class_player_health_a21134f0fe67ad8f18be4efcd5c029799} 
+void Player\+Health.\+On\+Destroy (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_player_health_ab2139fb545951ab55b116e447b558a0f}\index{PlayerHealth@{PlayerHealth}!ResetRuntimeState@{ResetRuntimeState}}
+\index{ResetRuntimeState@{ResetRuntimeState}!PlayerHealth@{PlayerHealth}}
+\doxysubsubsection{\texorpdfstring{ResetRuntimeState()}{ResetRuntimeState()}}
+{\footnotesize\ttfamily \label{class_player_health_ab2139fb545951ab55b116e447b558a0f} 
+void Player\+Health.\+Reset\+Runtime\+State (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Játék indításakor nullázza az eltárolt életerőt. 
+
+\Hypertarget{class_player_health_ab3b25882e81cc06ff28d8615489f0a28}\index{PlayerHealth@{PlayerHealth}!ResetSavedHealth@{ResetSavedHealth}}
+\index{ResetSavedHealth@{ResetSavedHealth}!PlayerHealth@{PlayerHealth}}
+\doxysubsubsection{\texorpdfstring{ResetSavedHealth()}{ResetSavedHealth()}}
+{\footnotesize\ttfamily \label{class_player_health_ab3b25882e81cc06ff28d8615489f0a28} 
+void Player\+Health.\+Reset\+Saved\+Health (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{class_player_health_a0614533594f1070dae7d5f640601a332}\index{PlayerHealth@{PlayerHealth}!SaveRuntimeHealth@{SaveRuntimeHealth}}
+\index{SaveRuntimeHealth@{SaveRuntimeHealth}!PlayerHealth@{PlayerHealth}}
+\doxysubsubsection{\texorpdfstring{SaveRuntimeHealth()}{SaveRuntimeHealth()}}
+{\footnotesize\ttfamily \label{class_player_health_a0614533594f1070dae7d5f640601a332} 
+void Player\+Health.\+Save\+Runtime\+Health (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_player_health_a56b3371b1741ec8cf1ae0980d1e1a107}\index{PlayerHealth@{PlayerHealth}!TakeDamage@{TakeDamage}}
+\index{TakeDamage@{TakeDamage}!PlayerHealth@{PlayerHealth}}
+\doxysubsubsection{\texorpdfstring{TakeDamage()}{TakeDamage()}}
+{\footnotesize\ttfamily \label{class_player_health_a56b3371b1741ec8cf1ae0980d1e1a107} 
+void Player\+Health.\+Take\+Damage (\begin{DoxyParamCaption}\item[{int}]{damage}{}\end{DoxyParamCaption})}
+
+Eltárolja az időszakos állapotot a globális (static) memóriában.
+
+\label{class_player_health_doc-variable-members}
+\Hypertarget{class_player_health_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_player_health_aac38f0551dfcc06d6b8351416d162004}\index{PlayerHealth@{PlayerHealth}!DAMAGE\_COOLDOWN@{DAMAGE\_COOLDOWN}}
+\index{DAMAGE\_COOLDOWN@{DAMAGE\_COOLDOWN}!PlayerHealth@{PlayerHealth}}
+\doxysubsubsection{\texorpdfstring{DAMAGE\_COOLDOWN}{DAMAGE\_COOLDOWN}}
+{\footnotesize\ttfamily \label{class_player_health_aac38f0551dfcc06d6b8351416d162004} 
+const float Player\+Health.\+DAMAGE\+\_\+\+COOLDOWN = 1f\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\Hypertarget{class_player_health_a6974fb5f6831bda28db046f0d1e0fdc1}\index{PlayerHealth@{PlayerHealth}!hasSavedHealth@{hasSavedHealth}}
+\index{hasSavedHealth@{hasSavedHealth}!PlayerHealth@{PlayerHealth}}
+\doxysubsubsection{\texorpdfstring{hasSavedHealth}{hasSavedHealth}}
+{\footnotesize\ttfamily \label{class_player_health_a6974fb5f6831bda28db046f0d1e0fdc1} 
+bool Player\+Health.\+has\+Saved\+Health\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\Hypertarget{class_player_health_a1cde6271f0b5b8558aad314a6337bf59}\index{PlayerHealth@{PlayerHealth}!Health@{Health}}
+\index{Health@{Health}!PlayerHealth@{PlayerHealth}}
+\doxysubsubsection{\texorpdfstring{Health}{Health}}
+{\footnotesize\ttfamily \label{class_player_health_a1cde6271f0b5b8558aad314a6337bf59} 
+int Player\+Health.\+Health}
+
+
+
+\texorpdfstring{$>$}{>}A játékos aktuális életereje. 
+
+\Hypertarget{class_player_health_a40e0df25e198a5e77055e8d82ab9a0ee}\index{PlayerHealth@{PlayerHealth}!lastDamageTime@{lastDamageTime}}
+\index{lastDamageTime@{lastDamageTime}!PlayerHealth@{PlayerHealth}}
+\doxysubsubsection{\texorpdfstring{lastDamageTime}{lastDamageTime}}
+{\footnotesize\ttfamily \label{class_player_health_a40e0df25e198a5e77055e8d82ab9a0ee} 
+float Player\+Health.\+last\+Damage\+Time = 0f\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_player_health_ac4c864aab937a02f5edd9c1cdab24418}\index{PlayerHealth@{PlayerHealth}!MaxHealth@{MaxHealth}}
+\index{MaxHealth@{MaxHealth}!PlayerHealth@{PlayerHealth}}
+\doxysubsubsection{\texorpdfstring{MaxHealth}{MaxHealth}}
+{\footnotesize\ttfamily \label{class_player_health_ac4c864aab937a02f5edd9c1cdab24418} 
+int Player\+Health.\+Max\+Health = 10}
+
+
+
+A játékos maximális életereje. 
+
+\Hypertarget{class_player_health_ac948ddb038096fa3df732c630076eb61}\index{PlayerHealth@{PlayerHealth}!savedHealth@{savedHealth}}
+\index{savedHealth@{savedHealth}!PlayerHealth@{PlayerHealth}}
+\doxysubsubsection{\texorpdfstring{savedHealth}{savedHealth}}
+{\footnotesize\ttfamily \label{class_player_health_ac948ddb038096fa3df732c630076eb61} 
+int Player\+Health.\+saved\+Health\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+\label{class_player_health_doc-event-members}
+\Hypertarget{class_player_health_doc-event-members}
+\doxysubsection{Event Documentation}
+\Hypertarget{class_player_health_aad0b65091403d1523ad5a3536bc19950}\index{PlayerHealth@{PlayerHealth}!OnDied@{OnDied}}
+\index{OnDied@{OnDied}!PlayerHealth@{PlayerHealth}}
+\doxysubsubsection{\texorpdfstring{OnDied}{OnDied}}
+{\footnotesize\ttfamily \label{class_player_health_aad0b65091403d1523ad5a3536bc19950} 
+Action Player\+Health.\+On\+Died}
+
+
+
+Esemény, amely a játékos halálakor hívódik meg. 
+
+\Hypertarget{class_player_health_ab9bedd7b30adbc3099bd98c6ee58c654}\index{PlayerHealth@{PlayerHealth}!OnHealthChanged@{OnHealthChanged}}
+\index{OnHealthChanged@{OnHealthChanged}!PlayerHealth@{PlayerHealth}}
+\doxysubsubsection{\texorpdfstring{OnHealthChanged}{OnHealthChanged}}
+{\footnotesize\ttfamily \label{class_player_health_ab9bedd7b30adbc3099bd98c6ee58c654} 
+Action Player\+Health.\+On\+Health\+Changed}
+
+
+
+Esemény, amely életerő változáskor (gyógyulás, sebződés) hívódik meg. 
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_player_health_8cs}{Player\+Health.\+cs}}\end{DoxyCompactItemize}

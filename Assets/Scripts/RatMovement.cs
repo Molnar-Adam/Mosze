@@ -1,21 +1,34 @@
 using UnityEngine;
 
+/// A patkány ellenség mozgását, járőrözését és a játékos követését kezelő osztály.
 public class RatMovement : MonoBehaviour
 {
+    /// A járőrözési végpontokat tartalmazó tömb.
     public Transform[] patrolPoints;
+    
+    /// A patkány mozgási sebessége.
     public float moveSpeed;
+    
+    /// A jelenlegi járőrözési célpont indexe.
     public int patrolDestination;
 
     private Vector3 patrolPointAWorld;
     private Vector3 patrolPointBWorld;
     private float previousX;
 
+    /// A játékos pozíciója a követéshez.
     public Transform playerTransform;
+    
+    /// Jelzi, hogy a patkány éppen követi-e a játékost.
     public bool isChasing;
+    
+    /// Az a távolság, amin belül a patkány elkezdi követni a játékost.
     public float chaseDistance;
 
+    /// Az a távolság, ameddig a patkány hajlandó eltávolodni a járőrözés során.
     public float PartolDistance;
 
+    /// Kezdéskor beállítja a járőrözési pontok világkoordinátáit.
     void Start()
     {
         if (patrolPoints == null || patrolPoints.Length < 2)
@@ -28,6 +41,7 @@ public class RatMovement : MonoBehaviour
         previousX = transform.position.x;
     }
 
+    /// Képkockánként kezeli a játékos követését vagy a megadott pontok közötti járőrözést.
     void Update()
     {
         if (isChasing)
@@ -89,6 +103,7 @@ public class RatMovement : MonoBehaviour
                     patrolDestination = 0;
                 }
             }
+    /// Frissíti a patkány nézési irányát (forgatását) a mozgás iránya alapján.
         }
     }
 

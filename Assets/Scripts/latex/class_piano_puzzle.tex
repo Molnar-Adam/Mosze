@@ -1,0 +1,213 @@
+\doxysection{Piano\+Puzzle Class Reference}
+\hypertarget{class_piano_puzzle}{}\label{class_piano_puzzle}\index{PianoPuzzle@{PianoPuzzle}}
+
+
+A zongora játékelem logikáját vezérlő osztály (kottasorozat ellenőrzése és teljesítés).  
+
+
+
+
+Inherits Mono\+Behaviour.
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_piano_puzzle_ac3926c6499a6e250ca5ec80395b9f5a3}{Press\+Key}} (Button pressed\+Button)
+\begin{DoxyCompactList}\small\item\em Kezeli egy gomb lenyomását a zongorán, és ellenőrzi a minta helyességét. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \doxymbox{\hyperlink{class_piano_puzzle_a6b51a0691137380c955b60f84a8b83f6}{Reset\+Puzzle\+State}} ()
+\begin{DoxyCompactList}\small\item\em Globálisan minden \doxylink{class_piano_puzzle}{Piano\+Puzzle} objektumon meghívja az alaphelyzetbe állítás metódusát. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+bool \doxymbox{\hyperlink{class_piano_puzzle_aff7b3ee64f5b46004e88dfabdc94f38c}{Is\+Solved}}\hspace{0.3cm}{\ttfamily  \+[get]\+}
+\begin{DoxyCompactList}\small\item\em Számon tartja, hogy a rejtvény meg lett-\/e oldva. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_piano_puzzle_a6dc494985321c5128b88ee74f8c717e3}{Start}} ()
+\begin{DoxyCompactList}\small\item\em Játék indulásakor lekéri az Event\+Managertől a megoldási mintát és feltölti a tömböt. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_piano_puzzle_a33d82711bc95155c756a491c78b59285}{Awake}} ()
+\begin{DoxyCompactList}\small\item\em Ha nincs beállítva a piano\+Interact, megpróbálja megkeresni a komponensek között, majd feliratkozik a gombokra. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_piano_puzzle_a404e56b076dec7d8236dd4bf056041fe}{Reset\+Puzzle\+Instance}} ()
+\item 
+void \doxymbox{\hyperlink{class_piano_puzzle_ab47f8bc38448690fdce2146f6d718fa2}{Solve}} ()
+\item 
+void \doxymbox{\hyperlink{class_piano_puzzle_a3d7809b9623a06aa7d9fff477099e9b6}{Register\+Button\+Listeners}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \doxymbox{\hyperlink{class_piano_puzzle_af9e2901bafc5ea7df5ac8a7b48547b7a}{puzzle\+ID}}
+\begin{DoxyCompactList}\small\item\em Egyedi azonosító a zongora rejtvényhez, amely alapján a mintát lekérdezi. \end{DoxyCompactList}\item 
+Button\+[$\,$]\+ \doxymbox{\hyperlink{class_piano_puzzle_abc32bdc318161d276aff8fdf7147265f}{piano\+Buttons}}
+\begin{DoxyCompactList}\small\item\em A zongora gombjait tároló tömb. \end{DoxyCompactList}\item 
+Button\+[$\,$]\+ \doxymbox{\hyperlink{class_piano_puzzle_a259e8a3f2282d7b2e472f06850201202}{required\+Pattern}}
+\item 
+Game\+Object \doxymbox{\hyperlink{class_piano_puzzle_a61637e3d6cd5a339ee5a7eea89cffc83}{object\+To\+Destroy}}
+\begin{DoxyCompactList}\small\item\em A játékobjektum, ami eltűnik a rejtvény megoldásakor. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_piano_interact}{Piano\+Interact}} \doxymbox{\hyperlink{class_piano_puzzle_a9789997b5737321d8c16f7a3d5765789}{piano\+Interact}}
+\begin{DoxyCompactList}\small\item\em Hivatkozás a \doxylink{class_piano_interact}{Piano\+Interact} szkriptre az interakciók zárolása miatt. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_piano_puzzle_a4349fcf3cec14cd233e3323339df756c}{current\+Index}}
+\item 
+bool \doxymbox{\hyperlink{class_piano_puzzle_a5f85f963c7054e38df5b3e3c966744af}{solved}}
+\item 
+bool \doxymbox{\hyperlink{class_piano_puzzle_a5796b435e647e4736f098b5e117f7eea}{target\+Hidden\+By\+Puzzle}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A zongora játékelem logikáját vezérlő osztály (kottasorozat ellenőrzése és teljesítés). 
+
+\label{class_piano_puzzle_doc-func-members}
+\Hypertarget{class_piano_puzzle_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_piano_puzzle_a33d82711bc95155c756a491c78b59285}\index{PianoPuzzle@{PianoPuzzle}!Awake@{Awake}}
+\index{Awake@{Awake}!PianoPuzzle@{PianoPuzzle}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily \label{class_piano_puzzle_a33d82711bc95155c756a491c78b59285} 
+void Piano\+Puzzle.\+Awake (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Ha nincs beállítva a piano\+Interact, megpróbálja megkeresni a komponensek között, majd feliratkozik a gombokra. 
+
+\Hypertarget{class_piano_puzzle_ac3926c6499a6e250ca5ec80395b9f5a3}\index{PianoPuzzle@{PianoPuzzle}!PressKey@{PressKey}}
+\index{PressKey@{PressKey}!PianoPuzzle@{PianoPuzzle}}
+\doxysubsubsection{\texorpdfstring{PressKey()}{PressKey()}}
+{\footnotesize\ttfamily \label{class_piano_puzzle_ac3926c6499a6e250ca5ec80395b9f5a3} 
+void Piano\+Puzzle.\+Press\+Key (\begin{DoxyParamCaption}\item[{Button}]{pressed\+Button}{}\end{DoxyParamCaption})}
+
+
+
+Kezeli egy gomb lenyomását a zongorán, és ellenőrzi a minta helyességét. 
+
+\Hypertarget{class_piano_puzzle_a3d7809b9623a06aa7d9fff477099e9b6}\index{PianoPuzzle@{PianoPuzzle}!RegisterButtonListeners@{RegisterButtonListeners}}
+\index{RegisterButtonListeners@{RegisterButtonListeners}!PianoPuzzle@{PianoPuzzle}}
+\doxysubsubsection{\texorpdfstring{RegisterButtonListeners()}{RegisterButtonListeners()}}
+{\footnotesize\ttfamily \label{class_piano_puzzle_a3d7809b9623a06aa7d9fff477099e9b6} 
+void Piano\+Puzzle.\+Register\+Button\+Listeners (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_piano_puzzle_a404e56b076dec7d8236dd4bf056041fe}\index{PianoPuzzle@{PianoPuzzle}!ResetPuzzleInstance@{ResetPuzzleInstance}}
+\index{ResetPuzzleInstance@{ResetPuzzleInstance}!PianoPuzzle@{PianoPuzzle}}
+\doxysubsubsection{\texorpdfstring{ResetPuzzleInstance()}{ResetPuzzleInstance()}}
+{\footnotesize\ttfamily \label{class_piano_puzzle_a404e56b076dec7d8236dd4bf056041fe} 
+void Piano\+Puzzle.\+Reset\+Puzzle\+Instance (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Sikeres megoldás esetén zárolja a zongorát és eltünteti az akadályt.\Hypertarget{class_piano_puzzle_a6b51a0691137380c955b60f84a8b83f6}\index{PianoPuzzle@{PianoPuzzle}!ResetPuzzleState@{ResetPuzzleState}}
+\index{ResetPuzzleState@{ResetPuzzleState}!PianoPuzzle@{PianoPuzzle}}
+\doxysubsubsection{\texorpdfstring{ResetPuzzleState()}{ResetPuzzleState()}}
+{\footnotesize\ttfamily \label{class_piano_puzzle_a6b51a0691137380c955b60f84a8b83f6} 
+void Piano\+Puzzle.\+Reset\+Puzzle\+State (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Globálisan minden \doxylink{class_piano_puzzle}{Piano\+Puzzle} objektumon meghívja az alaphelyzetbe állítás metódusát. 
+
+Alaphelyzetbe állítja az adott zongora puzzle állapotát.\Hypertarget{class_piano_puzzle_ab47f8bc38448690fdce2146f6d718fa2}\index{PianoPuzzle@{PianoPuzzle}!Solve@{Solve}}
+\index{Solve@{Solve}!PianoPuzzle@{PianoPuzzle}}
+\doxysubsubsection{\texorpdfstring{Solve()}{Solve()}}
+{\footnotesize\ttfamily \label{class_piano_puzzle_ab47f8bc38448690fdce2146f6d718fa2} 
+void Piano\+Puzzle.\+Solve (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Beállítja a gombokhoz tartozó eseményfigyelőket a kattintásokhoz.\Hypertarget{class_piano_puzzle_a6dc494985321c5128b88ee74f8c717e3}\index{PianoPuzzle@{PianoPuzzle}!Start@{Start}}
+\index{Start@{Start}!PianoPuzzle@{PianoPuzzle}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_piano_puzzle_a6dc494985321c5128b88ee74f8c717e3} 
+void Piano\+Puzzle.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Játék indulásakor lekéri az Event\+Managertől a megoldási mintát és feltölti a tömböt. 
+
+
+
+\label{class_piano_puzzle_doc-variable-members}
+\Hypertarget{class_piano_puzzle_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_piano_puzzle_a4349fcf3cec14cd233e3323339df756c}\index{PianoPuzzle@{PianoPuzzle}!currentIndex@{currentIndex}}
+\index{currentIndex@{currentIndex}!PianoPuzzle@{PianoPuzzle}}
+\doxysubsubsection{\texorpdfstring{currentIndex}{currentIndex}}
+{\footnotesize\ttfamily \label{class_piano_puzzle_a4349fcf3cec14cd233e3323339df756c} 
+int Piano\+Puzzle.\+current\+Index\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_piano_puzzle_a61637e3d6cd5a339ee5a7eea89cffc83}\index{PianoPuzzle@{PianoPuzzle}!objectToDestroy@{objectToDestroy}}
+\index{objectToDestroy@{objectToDestroy}!PianoPuzzle@{PianoPuzzle}}
+\doxysubsubsection{\texorpdfstring{objectToDestroy}{objectToDestroy}}
+{\footnotesize\ttfamily \label{class_piano_puzzle_a61637e3d6cd5a339ee5a7eea89cffc83} 
+Game\+Object Piano\+Puzzle.\+object\+To\+Destroy\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A játékobjektum, ami eltűnik a rejtvény megoldásakor. 
+
+\Hypertarget{class_piano_puzzle_abc32bdc318161d276aff8fdf7147265f}\index{PianoPuzzle@{PianoPuzzle}!pianoButtons@{pianoButtons}}
+\index{pianoButtons@{pianoButtons}!PianoPuzzle@{PianoPuzzle}}
+\doxysubsubsection{\texorpdfstring{pianoButtons}{pianoButtons}}
+{\footnotesize\ttfamily \label{class_piano_puzzle_abc32bdc318161d276aff8fdf7147265f} 
+Button \+[$\,$]\+ Piano\+Puzzle.\+piano\+Buttons\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A zongora gombjait tároló tömb. 
+
+\Hypertarget{class_piano_puzzle_a9789997b5737321d8c16f7a3d5765789}\index{PianoPuzzle@{PianoPuzzle}!pianoInteract@{pianoInteract}}
+\index{pianoInteract@{pianoInteract}!PianoPuzzle@{PianoPuzzle}}
+\doxysubsubsection{\texorpdfstring{pianoInteract}{pianoInteract}}
+{\footnotesize\ttfamily \label{class_piano_puzzle_a9789997b5737321d8c16f7a3d5765789} 
+\doxymbox{\hyperlink{class_piano_interact}{Piano\+Interact}} Piano\+Puzzle.\+piano\+Interact\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Hivatkozás a \doxylink{class_piano_interact}{Piano\+Interact} szkriptre az interakciók zárolása miatt. 
+
+\Hypertarget{class_piano_puzzle_af9e2901bafc5ea7df5ac8a7b48547b7a}\index{PianoPuzzle@{PianoPuzzle}!puzzleID@{puzzleID}}
+\index{puzzleID@{puzzleID}!PianoPuzzle@{PianoPuzzle}}
+\doxysubsubsection{\texorpdfstring{puzzleID}{puzzleID}}
+{\footnotesize\ttfamily \label{class_piano_puzzle_af9e2901bafc5ea7df5ac8a7b48547b7a} 
+string Piano\+Puzzle.\+puzzle\+ID\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Egyedi azonosító a zongora rejtvényhez, amely alapján a mintát lekérdezi. 
+
+\Hypertarget{class_piano_puzzle_a259e8a3f2282d7b2e472f06850201202}\index{PianoPuzzle@{PianoPuzzle}!requiredPattern@{requiredPattern}}
+\index{requiredPattern@{requiredPattern}!PianoPuzzle@{PianoPuzzle}}
+\doxysubsubsection{\texorpdfstring{requiredPattern}{requiredPattern}}
+{\footnotesize\ttfamily \label{class_piano_puzzle_a259e8a3f2282d7b2e472f06850201202} 
+Button \+[$\,$]\+ Piano\+Puzzle.\+required\+Pattern\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_piano_puzzle_a5f85f963c7054e38df5b3e3c966744af}\index{PianoPuzzle@{PianoPuzzle}!solved@{solved}}
+\index{solved@{solved}!PianoPuzzle@{PianoPuzzle}}
+\doxysubsubsection{\texorpdfstring{solved}{solved}}
+{\footnotesize\ttfamily \label{class_piano_puzzle_a5f85f963c7054e38df5b3e3c966744af} 
+bool Piano\+Puzzle.\+solved\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_piano_puzzle_a5796b435e647e4736f098b5e117f7eea}\index{PianoPuzzle@{PianoPuzzle}!targetHiddenByPuzzle@{targetHiddenByPuzzle}}
+\index{targetHiddenByPuzzle@{targetHiddenByPuzzle}!PianoPuzzle@{PianoPuzzle}}
+\doxysubsubsection{\texorpdfstring{targetHiddenByPuzzle}{targetHiddenByPuzzle}}
+{\footnotesize\ttfamily \label{class_piano_puzzle_a5796b435e647e4736f098b5e117f7eea} 
+bool Piano\+Puzzle.\+target\+Hidden\+By\+Puzzle\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\label{class_piano_puzzle_doc-property-members}
+\Hypertarget{class_piano_puzzle_doc-property-members}
+\doxysubsection{Property Documentation}
+\Hypertarget{class_piano_puzzle_aff7b3ee64f5b46004e88dfabdc94f38c}\index{PianoPuzzle@{PianoPuzzle}!IsSolved@{IsSolved}}
+\index{IsSolved@{IsSolved}!PianoPuzzle@{PianoPuzzle}}
+\doxysubsubsection{\texorpdfstring{IsSolved}{IsSolved}}
+{\footnotesize\ttfamily \label{class_piano_puzzle_aff7b3ee64f5b46004e88dfabdc94f38c} 
+bool Piano\+Puzzle.\+Is\+Solved\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Számon tartja, hogy a rejtvény meg lett-\/e oldva. 
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_piano_puzzle_8cs}{Piano\+Puzzle.\+cs}}\end{DoxyCompactItemize}

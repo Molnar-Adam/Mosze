@@ -1,0 +1,107 @@
+\doxysection{Swap\+Scene Class Reference}
+\hypertarget{class_swap_scene}{}\label{class_swap_scene}\index{SwapScene@{SwapScene}}
+
+
+Egy kijelölt zónába (Trigger) lépéskor betölti a megadott jelenetet és átadja a következő spawn pontot.  
+
+
+
+
+Inherits Mono\+Behaviour.
+
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_swap_scene_a9fe438de4e78fb1478cbc780440c054e}{On\+Trigger\+Enter2D}} (Collider2D collision)
+\begin{DoxyCompactList}\small\item\em Játékos érzékelésekor regisztrálja az új spawn pontot és elindítja a jelenet betöltését. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \doxymbox{\hyperlink{class_swap_scene_a62fd6cd695edefe64b86f771e91b9fee}{target\+Scene\+Name}}
+\begin{DoxyCompactList}\small\item\em A betöltendő új jelenet neve. \end{DoxyCompactList}\item 
+string \doxymbox{\hyperlink{class_swap_scene_a445ffa0fb3c1617aecfffe2e27813641}{target\+Spawn\+Id}}
+\begin{DoxyCompactList}\small\item\em A céljelenetben lévő spawn pont azonosítója. \end{DoxyCompactList}\item 
+string \doxymbox{\hyperlink{class_swap_scene_aea1d88fec2dc0081f58934a53ac22e7e}{player\+Tag}} = "{}Player"{}
+\begin{DoxyCompactList}\small\item\em A játékos objektum címkéje, amely aktiválhatja az átmenetet. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_swap_scene_ad876604a3df71d148a144814ee32dc54}{trigger\+Only\+Once}} = true
+\begin{DoxyCompactList}\small\item\em Megabja, hogy a trigger csak egyetlen egyszer aktiválódhat-\/e. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_swap_scene_a14395664eb0f1d015ee39a74822f95e8}{was\+Triggered}}
+\begin{DoxyCompactList}\small\item\em Nyilvántartja, hogy a jelenetváltás már elindult-\/e. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Egy kijelölt zónába (Trigger) lépéskor betölti a megadott jelenetet és átadja a következő spawn pontot. 
+
+\label{class_swap_scene_doc-func-members}
+\Hypertarget{class_swap_scene_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_swap_scene_a9fe438de4e78fb1478cbc780440c054e}\index{SwapScene@{SwapScene}!OnTriggerEnter2D@{OnTriggerEnter2D}}
+\index{OnTriggerEnter2D@{OnTriggerEnter2D}!SwapScene@{SwapScene}}
+\doxysubsubsection{\texorpdfstring{OnTriggerEnter2D()}{OnTriggerEnter2D()}}
+{\footnotesize\ttfamily \label{class_swap_scene_a9fe438de4e78fb1478cbc780440c054e} 
+void Swap\+Scene.\+On\+Trigger\+Enter2D (\begin{DoxyParamCaption}\item[{Collider2D}]{collision}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Játékos érzékelésekor regisztrálja az új spawn pontot és elindítja a jelenet betöltését. 
+
+
+
+\label{class_swap_scene_doc-variable-members}
+\Hypertarget{class_swap_scene_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_swap_scene_aea1d88fec2dc0081f58934a53ac22e7e}\index{SwapScene@{SwapScene}!playerTag@{playerTag}}
+\index{playerTag@{playerTag}!SwapScene@{SwapScene}}
+\doxysubsubsection{\texorpdfstring{playerTag}{playerTag}}
+{\footnotesize\ttfamily \label{class_swap_scene_aea1d88fec2dc0081f58934a53ac22e7e} 
+string Swap\+Scene.\+player\+Tag = "{}Player"{}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A játékos objektum címkéje, amely aktiválhatja az átmenetet. 
+
+\Hypertarget{class_swap_scene_a62fd6cd695edefe64b86f771e91b9fee}\index{SwapScene@{SwapScene}!targetSceneName@{targetSceneName}}
+\index{targetSceneName@{targetSceneName}!SwapScene@{SwapScene}}
+\doxysubsubsection{\texorpdfstring{targetSceneName}{targetSceneName}}
+{\footnotesize\ttfamily \label{class_swap_scene_a62fd6cd695edefe64b86f771e91b9fee} 
+string Swap\+Scene.\+target\+Scene\+Name\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A betöltendő új jelenet neve. 
+
+\Hypertarget{class_swap_scene_a445ffa0fb3c1617aecfffe2e27813641}\index{SwapScene@{SwapScene}!targetSpawnId@{targetSpawnId}}
+\index{targetSpawnId@{targetSpawnId}!SwapScene@{SwapScene}}
+\doxysubsubsection{\texorpdfstring{targetSpawnId}{targetSpawnId}}
+{\footnotesize\ttfamily \label{class_swap_scene_a445ffa0fb3c1617aecfffe2e27813641} 
+string Swap\+Scene.\+target\+Spawn\+Id\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A céljelenetben lévő spawn pont azonosítója. 
+
+\Hypertarget{class_swap_scene_ad876604a3df71d148a144814ee32dc54}\index{SwapScene@{SwapScene}!triggerOnlyOnce@{triggerOnlyOnce}}
+\index{triggerOnlyOnce@{triggerOnlyOnce}!SwapScene@{SwapScene}}
+\doxysubsubsection{\texorpdfstring{triggerOnlyOnce}{triggerOnlyOnce}}
+{\footnotesize\ttfamily \label{class_swap_scene_ad876604a3df71d148a144814ee32dc54} 
+bool Swap\+Scene.\+trigger\+Only\+Once = true\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Megabja, hogy a trigger csak egyetlen egyszer aktiválódhat-\/e. 
+
+\Hypertarget{class_swap_scene_a14395664eb0f1d015ee39a74822f95e8}\index{SwapScene@{SwapScene}!wasTriggered@{wasTriggered}}
+\index{wasTriggered@{wasTriggered}!SwapScene@{SwapScene}}
+\doxysubsubsection{\texorpdfstring{wasTriggered}{wasTriggered}}
+{\footnotesize\ttfamily \label{class_swap_scene_a14395664eb0f1d015ee39a74822f95e8} 
+bool Swap\+Scene.\+was\+Triggered\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Nyilvántartja, hogy a jelenetváltás már elindult-\/e. 
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_swap_scene_8cs}{Swap\+Scene.\+cs}}\end{DoxyCompactItemize}

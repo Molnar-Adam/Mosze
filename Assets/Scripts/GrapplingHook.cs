@@ -1,66 +1,70 @@
 using UnityEngine;
 
+/// A grappling hook működését kezelő osztály.
 public class GrapplingHook : MonoBehaviour
 {
-    [SerializeField] float grappleLength;
-    [SerializeField] LayerMask grappleLayer;
+    /// A távolság, amire a csáklya behúzza a játékost.
+    [SerializeField] float grappleLength = 1f;
+    
+    /// A kötelet vizuálisan megjelenítő LineRenderer.
     [SerializeField] LineRenderer rope;
+    
+    /// A maximális távolság a horog rögzítéséhez.
     [SerializeField] float maxGrappleDistance = 10f;
-    [SerializeField] float downwardGrappleSpeedMultiplier = 0.3f;
+    
+    /// A behúzás sebessége.
     [SerializeField] float grappleReelSpeed = 8f;
 
+    /// A rögzítési pont pozíciója.
     private Vector3 grapplePoint;
+    
+    /// A csatlakozást biztosító 2D joint.
     private DistanceJoint2D joint;
-    private Rigidbody2D rb;
-    private float targetGrappleDistance;
 
+    /// Inicializálja a komponenst és elrejti a kötelet.
     void Start()
     {
         joint = gameObject.GetComponent<DistanceJoint2D>();
-        rb = gameObject.GetComponent<Rigidbody2D>();
         joint.enabled = false;
         rope.enabled = false;
     }
 
+    /// Gombnyomásra megkeresi a legközelebbi Hook-ot és kilövi a csáklyát.
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetKeyDown(KeyCode.L))
         {
-            Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 directionToMouse = (mouseWorldPos - transform.position).normalized;
-            float distanceToMouse = Vector2.Distance(transform.position, mouseWorldPos);
+            GameObject[] hooks = GameObject.FindGameObjectsWithTag("Hook");
+            GameObject closestHook = null;
+            float closestDistance = maxGrappleDistance;
 
-            RaycastHit2D hit = Physics2D.Raycast(
-                origin: (Vector2)transform.position,
-                direction: directionToMouse,
-                distance: distanceToMouse,
-                layerMask: grappleLayer
-            );
-
-            if(hit.collider == null)
+            foreach (var hook in hooks)
             {
-                return;
+                float distance = Vector2.Distance(transform.position, hook.transform.position);
+                if (distance <= closestDistance)
+                {
+                    closestDistance = distance;
+                    closestHook = hook;
+                }
             }
 
-            grapplePoint = hit.point;
-            grapplePoint.z = 0;
-
-            float currentDistanceToPoint = Vector2.Distance(transform.position, grapplePoint);
-            if (currentDistanceToPoint > maxGrappleDistance)
+            if(closestHook != null)
             {
-                return;
-            }
+                grapplePoint = closestHook.transform.position;
+                grapplePoint.z = 0;
 
-            joint.connectedAnchor = grapplePoint;
-            joint.enabled = true;
-            targetGrappleDistance = grappleLength;
-            joint.distance = currentDistanceToPoint;
-            rope.SetPosition(0, grapplePoint);
-            rope.SetPosition(1, transform.position);
-            rope.enabled = true;
+                joint.connectedAnchor = grapplePoint;
+                joint.enabled = true;
+                joint.distance = closestDistance;
+                
+                rope.SetPosition(0, grapplePoint);
+    /// Fizikai frissítés, amely fokozatosan húzza a játékost a rögzítési pont felé.
+                rope.SetPosition(1, transform.position);
+                rope.enabled = true;
+            }
         }
 
-        if(Input.GetMouseButtonUp(0))
+        if(Input.GetKeyUp(KeyCode.L))
         {
             joint.enabled = false;
             rope.enabled = false;
@@ -68,7 +72,7 @@ public class GrapplingHook : MonoBehaviour
 
         if(rope.enabled == true)
         {
-            rope.SetPosition(1,transform.position);
+            rope.SetPosition(1, transform.position);
         }
     }
 
@@ -79,8 +83,8 @@ public class GrapplingHook : MonoBehaviour
             return;
         }
 
-        float reelStep = grappleReelSpeed * downwardGrappleSpeedMultiplier * Time.fixedDeltaTime;
-        joint.distance = Mathf.MoveTowards(joint.distance, targetGrappleDistance, reelStep);
+        float reelStep = grappleReelSpeed * Time.fixedDeltaTime;
+        joint.distance = Mathf.MoveTowards(joint.distance, grappleLength, reelStep);
     }
 }
 

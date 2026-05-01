@@ -1,0 +1,173 @@
+\doxysection{Event\+Manager Class Reference}
+\hypertarget{class_event_manager}{}\label{class_event_manager}\index{EventManager@{EventManager}}
+
+
+memóriába töltéséért és JSON fájlba történő mentéséért.  
+
+
+
+
+Inherits Mono\+Behaviour.
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_event_manager_a574136091ce6819ea2b9161ecb49b74e}{Save\+Events}} ()
+\begin{DoxyCompactList}\small\item\em Jelenlegi Event\+Config állapot fájlba mentése JSON formátumban. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_event_manager_ab3866db80d3873b8eec9df28463b0211}{Load\+Events}} ()
+\begin{DoxyCompactList}\small\item\em A JSON fájlból történő betöltés, és hiányos feladványok alapértelmezett feltöltése. \end{DoxyCompactList}\item 
+string\+[$\,$]\+ \doxymbox{\hyperlink{class_event_manager_a1117a233baf1060c8cdf5f5508f3491c}{Get\+Dialogue\+Lines}} (string dialogue\+ID)
+\begin{DoxyCompactList}\small\item\em Visszaadja egy konkrét dialógushoz (ID) tartozó szövegsorokat. \end{DoxyCompactList}\item 
+int\+[$\,$]\+ \doxymbox{\hyperlink{class_event_manager_ac5ddc25aa640702a3d17d821f6e40c36}{Get\+Puzzle\+Pattern}} (string puzzle\+ID)
+\begin{DoxyCompactList}\small\item\em Lekéri az azonosítóhoz tartozó feladvány (Piano) helyes kód-\/sorrendjét. \end{DoxyCompactList}\item 
+int\+[$\,$]\+ \doxymbox{\hyperlink{class_event_manager_aa9387da4a21a0709f706c2a6c579fb51}{Get\+Affected\+Levers}} (string puzzle\+ID, int lever\+Index)
+\begin{DoxyCompactList}\small\item\em Megadja, hogy egy adott rejtvény egy konkrét karja melyik másik karokra van hatással. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_event_manager_a653238d70d58f9f26af21783aa42b52b}{Get\+Required\+Lever\+Count}} (string puzzle\+ID)
+\begin{DoxyCompactList}\small\item\em Visszaadja a megadott Puzzle azonosítójához szükséges összes kar számát. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_game_events_config}{Game\+Events\+Config}} \doxymbox{\hyperlink{class_event_manager_a163a9ae108c0df78f44dfcda10abc97f}{Event\+Config}}
+\begin{DoxyCompactList}\small\item\em A JSON-\/ból felolvasott (vagy a betöltendő) adatok példánya a memóriában. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+static \doxymbox{\hyperlink{class_event_manager}{Event\+Manager}} \doxymbox{\hyperlink{class_event_manager_ade1d61c949289cca4cb3ece11e65242e}{Instance}}\hspace{0.3cm}{\ttfamily  \+[get, private set]\+}
+\begin{DoxyCompactList}\small\item\em A globális \doxylink{class_event_manager}{Event\+Manager} példány. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_event_manager_a6943e52113a464061a34276ac83e648c}{Awake}} ()
+\item 
+void \doxymbox{\hyperlink{class_event_manager_af4dd17d996f92c46cf49d511e21657a3}{Ensure\+Lever\+Puzzle\+Exists}} (string id, int count, List$<$ \doxymbox{\hyperlink{class_lever_data}{Lever\+Data}} $>$ default\+Levers)
+\begin{DoxyCompactList}\small\item\em Ellenőrzi, hogy létezik-\/e egy karos puzzle az adott ID-\/vel. Ha nem, beleteszi a default adatokat. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \doxymbox{\hyperlink{class_event_manager_aac6d10b21acc83b91aa8cc4fe2604306}{save\+File\+Path}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+memóriába töltéséért és JSON fájlba történő mentéséért. 
+
+\label{class_event_manager_doc-func-members}
+\Hypertarget{class_event_manager_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_event_manager_a6943e52113a464061a34276ac83e648c}\index{EventManager@{EventManager}!Awake@{Awake}}
+\index{Awake@{Awake}!EventManager@{EventManager}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily \label{class_event_manager_a6943e52113a464061a34276ac83e648c} 
+void Event\+Manager.\+Awake (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+A játék indulásakor inicializálja magát és betölti az adatokat a háttértárból. Gondoskodik róla, hogy csak egyetlen példány éljen belőle (Singleton hitelesítés). \Hypertarget{class_event_manager_af4dd17d996f92c46cf49d511e21657a3}\index{EventManager@{EventManager}!EnsureLeverPuzzleExists@{EnsureLeverPuzzleExists}}
+\index{EnsureLeverPuzzleExists@{EnsureLeverPuzzleExists}!EventManager@{EventManager}}
+\doxysubsubsection{\texorpdfstring{EnsureLeverPuzzleExists()}{EnsureLeverPuzzleExists()}}
+{\footnotesize\ttfamily \label{class_event_manager_af4dd17d996f92c46cf49d511e21657a3} 
+void Event\+Manager.\+Ensure\+Lever\+Puzzle\+Exists (\begin{DoxyParamCaption}\item[{string}]{id}{, }\item[{int}]{count}{, }\item[{List$<$ \doxymbox{\hyperlink{class_lever_data}{Lever\+Data}} $>$}]{default\+Levers}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Ellenőrzi, hogy létezik-\/e egy karos puzzle az adott ID-\/vel. Ha nem, beleteszi a default adatokat. 
+
+\Hypertarget{class_event_manager_aa9387da4a21a0709f706c2a6c579fb51}\index{EventManager@{EventManager}!GetAffectedLevers@{GetAffectedLevers}}
+\index{GetAffectedLevers@{GetAffectedLevers}!EventManager@{EventManager}}
+\doxysubsubsection{\texorpdfstring{GetAffectedLevers()}{GetAffectedLevers()}}
+{\footnotesize\ttfamily \label{class_event_manager_aa9387da4a21a0709f706c2a6c579fb51} 
+int\+[$\,$]\+ Event\+Manager.\+Get\+Affected\+Levers (\begin{DoxyParamCaption}\item[{string}]{puzzle\+ID}{, }\item[{int}]{lever\+Index}{}\end{DoxyParamCaption})}
+
+
+
+Megadja, hogy egy adott rejtvény egy konkrét karja melyik másik karokra van hatással. 
+
+\Hypertarget{class_event_manager_a1117a233baf1060c8cdf5f5508f3491c}\index{EventManager@{EventManager}!GetDialogueLines@{GetDialogueLines}}
+\index{GetDialogueLines@{GetDialogueLines}!EventManager@{EventManager}}
+\doxysubsubsection{\texorpdfstring{GetDialogueLines()}{GetDialogueLines()}}
+{\footnotesize\ttfamily \label{class_event_manager_a1117a233baf1060c8cdf5f5508f3491c} 
+string\+[$\,$]\+ Event\+Manager.\+Get\+Dialogue\+Lines (\begin{DoxyParamCaption}\item[{string}]{dialogue\+ID}{}\end{DoxyParamCaption})}
+
+
+
+Visszaadja egy konkrét dialógushoz (ID) tartozó szövegsorokat. 
+
+\Hypertarget{class_event_manager_ac5ddc25aa640702a3d17d821f6e40c36}\index{EventManager@{EventManager}!GetPuzzlePattern@{GetPuzzlePattern}}
+\index{GetPuzzlePattern@{GetPuzzlePattern}!EventManager@{EventManager}}
+\doxysubsubsection{\texorpdfstring{GetPuzzlePattern()}{GetPuzzlePattern()}}
+{\footnotesize\ttfamily \label{class_event_manager_ac5ddc25aa640702a3d17d821f6e40c36} 
+int\+[$\,$]\+ Event\+Manager.\+Get\+Puzzle\+Pattern (\begin{DoxyParamCaption}\item[{string}]{puzzle\+ID}{}\end{DoxyParamCaption})}
+
+
+
+Lekéri az azonosítóhoz tartozó feladvány (Piano) helyes kód-\/sorrendjét. 
+
+\Hypertarget{class_event_manager_a653238d70d58f9f26af21783aa42b52b}\index{EventManager@{EventManager}!GetRequiredLeverCount@{GetRequiredLeverCount}}
+\index{GetRequiredLeverCount@{GetRequiredLeverCount}!EventManager@{EventManager}}
+\doxysubsubsection{\texorpdfstring{GetRequiredLeverCount()}{GetRequiredLeverCount()}}
+{\footnotesize\ttfamily \label{class_event_manager_a653238d70d58f9f26af21783aa42b52b} 
+int Event\+Manager.\+Get\+Required\+Lever\+Count (\begin{DoxyParamCaption}\item[{string}]{puzzle\+ID}{}\end{DoxyParamCaption})}
+
+
+
+Visszaadja a megadott Puzzle azonosítójához szükséges összes kar számát. 
+
+\Hypertarget{class_event_manager_ab3866db80d3873b8eec9df28463b0211}\index{EventManager@{EventManager}!LoadEvents@{LoadEvents}}
+\index{LoadEvents@{LoadEvents}!EventManager@{EventManager}}
+\doxysubsubsection{\texorpdfstring{LoadEvents()}{LoadEvents()}}
+{\footnotesize\ttfamily \label{class_event_manager_ab3866db80d3873b8eec9df28463b0211} 
+void Event\+Manager.\+Load\+Events (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+A JSON fájlból történő betöltés, és hiányos feladványok alapértelmezett feltöltése. 
+
+\Hypertarget{class_event_manager_a574136091ce6819ea2b9161ecb49b74e}\index{EventManager@{EventManager}!SaveEvents@{SaveEvents}}
+\index{SaveEvents@{SaveEvents}!EventManager@{EventManager}}
+\doxysubsubsection{\texorpdfstring{SaveEvents()}{SaveEvents()}}
+{\footnotesize\ttfamily \label{class_event_manager_a574136091ce6819ea2b9161ecb49b74e} 
+void Event\+Manager.\+Save\+Events (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Jelenlegi Event\+Config állapot fájlba mentése JSON formátumban. 
+
+
+
+\label{class_event_manager_doc-variable-members}
+\Hypertarget{class_event_manager_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_event_manager_a163a9ae108c0df78f44dfcda10abc97f}\index{EventManager@{EventManager}!EventConfig@{EventConfig}}
+\index{EventConfig@{EventConfig}!EventManager@{EventManager}}
+\doxysubsubsection{\texorpdfstring{EventConfig}{EventConfig}}
+{\footnotesize\ttfamily \label{class_event_manager_a163a9ae108c0df78f44dfcda10abc97f} 
+\doxymbox{\hyperlink{class_game_events_config}{Game\+Events\+Config}} Event\+Manager.\+Event\+Config}
+
+
+
+A JSON-\/ból felolvasott (vagy a betöltendő) adatok példánya a memóriában. 
+
+\Hypertarget{class_event_manager_aac6d10b21acc83b91aa8cc4fe2604306}\index{EventManager@{EventManager}!saveFilePath@{saveFilePath}}
+\index{saveFilePath@{saveFilePath}!EventManager@{EventManager}}
+\doxysubsubsection{\texorpdfstring{saveFilePath}{saveFilePath}}
+{\footnotesize\ttfamily \label{class_event_manager_aac6d10b21acc83b91aa8cc4fe2604306} 
+string Event\+Manager.\+save\+File\+Path\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\label{class_event_manager_doc-property-members}
+\Hypertarget{class_event_manager_doc-property-members}
+\doxysubsection{Property Documentation}
+\Hypertarget{class_event_manager_ade1d61c949289cca4cb3ece11e65242e}\index{EventManager@{EventManager}!Instance@{Instance}}
+\index{Instance@{Instance}!EventManager@{EventManager}}
+\doxysubsubsection{\texorpdfstring{Instance}{Instance}}
+{\footnotesize\ttfamily \label{class_event_manager_ade1d61c949289cca4cb3ece11e65242e} 
+\doxymbox{\hyperlink{class_event_manager}{Event\+Manager}} Event\+Manager.\+Instance\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [get]}, {\ttfamily [private set]}}
+
+
+
+A globális \doxylink{class_event_manager}{Event\+Manager} példány. 
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_event_manager_8cs}{Event\+Manager.\+cs}}\end{DoxyCompactItemize}

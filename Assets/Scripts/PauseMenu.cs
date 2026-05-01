@@ -3,15 +3,19 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 
+/// A Pause működését (megjelenítés, eltüntetés, újraindulás) kezelő szkript.
 public class PauseMenu : MonoBehaviour
 {
+    /// A menüt tartalmazó UI Panel gameObject.
     public GameObject PausePanel;
 
+    /// Induláskor biztosítja az EventSystem meglétét, hogy a UI gombok működjenek.
     private void Awake()
     {
         EnsureEventSystem();
     }
 
+    /// Billentyűzetes interakciókat (Escape) figyel, valamint más menük/képernyők zavarását blokkolja.
     void Update()
     {
         if (DeathPanelController.IsDeathScreenActive)
@@ -53,6 +57,7 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+    /// Eltünteti a panelt, és újraindítja a játékidőt (Time.timeScale = 1).
     public void Resume()
     {
             if (DeathPanelController.IsDeathScreenActive)
@@ -69,14 +74,15 @@ public class PauseMenu : MonoBehaviour
             Time.timeScale = 1;
     }
 
+    /// "Menu" scene-re váltás
     public void Menu()
     {
         SceneManager.LoadScene("Menu");
     }
-
+    /// Kilépés a játékból
     public void Quit()
     {
-
+        Application.Quit();
     }
 
     private void EnsureEventSystem()

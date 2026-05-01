@@ -1,0 +1,130 @@
+\doxysection{Moving\+Platform Class Reference}
+\hypertarget{class_moving_platform}{}\label{class_moving_platform}\index{MovingPlatform@{MovingPlatform}}
+
+
+A mozgó platform működéséért felelős osztály, amely két pont között ingázik.  
+
+
+
+
+Inherits Mono\+Behaviour.
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Transform \doxymbox{\hyperlink{class_moving_platform_a6aa5e1b9ed6ab0b4eb02cd711320c3a9}{pointA}}
+\begin{DoxyCompactList}\small\item\em Az első végpont (A pont). \end{DoxyCompactList}\item 
+Transform \doxymbox{\hyperlink{class_moving_platform_a61ad58170c43d95ef8ed0c39735066a0}{pointB}}
+\begin{DoxyCompactList}\small\item\em A második végpont (B pont). \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{class_moving_platform_aa4b77bfe3c72e988a901eda4e5e17a0e}{move\+Speed}} = 2f
+\begin{DoxyCompactList}\small\item\em A platform sebessége. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_moving_platform_a645657413d199e29f2cf0e68659bb666}{Start}} ()
+\begin{DoxyCompactList}\small\item\em Játék indításakor beállítja a célpontot a B pontra. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_moving_platform_ad2d623fcb93b97e1070d48c6fd921265}{Update}} ()
+\begin{DoxyCompactList}\small\item\em Képkockánként simán mozgatja a platformot a célpont felé, elérés esetén megfordítja az irányt. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_moving_platform_a42d4c0a5b63bfadd1c4b86123b7131df}{On\+Collision\+Enter2D}} (Collision2D collision)
+\begin{DoxyCompactList}\small\item\em Ha a játékos rááll a platformra, annak gyermekévé teszi, így együtt mozognak. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_moving_platform_a2c2970eb9e82f7ccf7360d8668388a8d}{On\+Collision\+Exit2D}} (Collision2D collision)
+\begin{DoxyCompactList}\small\item\em Amikor a játékos lelép a platformról, megszünteti a parent kapcsolatot. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Vector3 \doxymbox{\hyperlink{class_moving_platform_ab0a314fa8f7cb5df30253f610e3ba571}{next\+Position}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A mozgó platform működéséért felelős osztály, amely két pont között ingázik. 
+
+\label{class_moving_platform_doc-func-members}
+\Hypertarget{class_moving_platform_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_moving_platform_a42d4c0a5b63bfadd1c4b86123b7131df}\index{MovingPlatform@{MovingPlatform}!OnCollisionEnter2D@{OnCollisionEnter2D}}
+\index{OnCollisionEnter2D@{OnCollisionEnter2D}!MovingPlatform@{MovingPlatform}}
+\doxysubsubsection{\texorpdfstring{OnCollisionEnter2D()}{OnCollisionEnter2D()}}
+{\footnotesize\ttfamily \label{class_moving_platform_a42d4c0a5b63bfadd1c4b86123b7131df} 
+void Moving\+Platform.\+On\+Collision\+Enter2D (\begin{DoxyParamCaption}\item[{Collision2D}]{collision}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Ha a játékos rááll a platformra, annak gyermekévé teszi, így együtt mozognak. 
+
+\Hypertarget{class_moving_platform_a2c2970eb9e82f7ccf7360d8668388a8d}\index{MovingPlatform@{MovingPlatform}!OnCollisionExit2D@{OnCollisionExit2D}}
+\index{OnCollisionExit2D@{OnCollisionExit2D}!MovingPlatform@{MovingPlatform}}
+\doxysubsubsection{\texorpdfstring{OnCollisionExit2D()}{OnCollisionExit2D()}}
+{\footnotesize\ttfamily \label{class_moving_platform_a2c2970eb9e82f7ccf7360d8668388a8d} 
+void Moving\+Platform.\+On\+Collision\+Exit2D (\begin{DoxyParamCaption}\item[{Collision2D}]{collision}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Amikor a játékos lelép a platformról, megszünteti a parent kapcsolatot. 
+
+\Hypertarget{class_moving_platform_a645657413d199e29f2cf0e68659bb666}\index{MovingPlatform@{MovingPlatform}!Start@{Start}}
+\index{Start@{Start}!MovingPlatform@{MovingPlatform}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_moving_platform_a645657413d199e29f2cf0e68659bb666} 
+void Moving\+Platform.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Játék indításakor beállítja a célpontot a B pontra. 
+
+\Hypertarget{class_moving_platform_ad2d623fcb93b97e1070d48c6fd921265}\index{MovingPlatform@{MovingPlatform}!Update@{Update}}
+\index{Update@{Update}!MovingPlatform@{MovingPlatform}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_moving_platform_ad2d623fcb93b97e1070d48c6fd921265} 
+void Moving\+Platform.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Képkockánként simán mozgatja a platformot a célpont felé, elérés esetén megfordítja az irányt. 
+
+
+
+\label{class_moving_platform_doc-variable-members}
+\Hypertarget{class_moving_platform_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_moving_platform_aa4b77bfe3c72e988a901eda4e5e17a0e}\index{MovingPlatform@{MovingPlatform}!moveSpeed@{moveSpeed}}
+\index{moveSpeed@{moveSpeed}!MovingPlatform@{MovingPlatform}}
+\doxysubsubsection{\texorpdfstring{moveSpeed}{moveSpeed}}
+{\footnotesize\ttfamily \label{class_moving_platform_aa4b77bfe3c72e988a901eda4e5e17a0e} 
+float Moving\+Platform.\+move\+Speed = 2f}
+
+
+
+A platform sebessége. 
+
+\Hypertarget{class_moving_platform_ab0a314fa8f7cb5df30253f610e3ba571}\index{MovingPlatform@{MovingPlatform}!nextPosition@{nextPosition}}
+\index{nextPosition@{nextPosition}!MovingPlatform@{MovingPlatform}}
+\doxysubsubsection{\texorpdfstring{nextPosition}{nextPosition}}
+{\footnotesize\ttfamily \label{class_moving_platform_ab0a314fa8f7cb5df30253f610e3ba571} 
+Vector3 Moving\+Platform.\+next\+Position\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_moving_platform_a6aa5e1b9ed6ab0b4eb02cd711320c3a9}\index{MovingPlatform@{MovingPlatform}!pointA@{pointA}}
+\index{pointA@{pointA}!MovingPlatform@{MovingPlatform}}
+\doxysubsubsection{\texorpdfstring{pointA}{pointA}}
+{\footnotesize\ttfamily \label{class_moving_platform_a6aa5e1b9ed6ab0b4eb02cd711320c3a9} 
+Transform Moving\+Platform.\+pointA}
+
+
+
+Az első végpont (A pont). 
+
+\Hypertarget{class_moving_platform_a61ad58170c43d95ef8ed0c39735066a0}\index{MovingPlatform@{MovingPlatform}!pointB@{pointB}}
+\index{pointB@{pointB}!MovingPlatform@{MovingPlatform}}
+\doxysubsubsection{\texorpdfstring{pointB}{pointB}}
+{\footnotesize\ttfamily \label{class_moving_platform_a61ad58170c43d95ef8ed0c39735066a0} 
+Transform Moving\+Platform.\+pointB}
+
+
+
+A második végpont (B pont). 
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_moving_platform_8cs}{Moving\+Platform.\+cs}}\end{DoxyCompactItemize}

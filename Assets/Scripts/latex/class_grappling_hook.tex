@@ -1,0 +1,139 @@
+\doxysection{Grappling\+Hook Class Reference}
+\hypertarget{class_grappling_hook}{}\label{class_grappling_hook}\index{GrapplingHook@{GrapplingHook}}
+
+
+A grappling hook működését kezelő osztály.  
+
+
+
+
+Inherits Mono\+Behaviour.
+
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_grappling_hook_aa8d36a186d48e43cadd65bff35066ac0}{Start}} ()
+\begin{DoxyCompactList}\small\item\em Inicializálja a komponenst és elrejti a kötelet. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_grappling_hook_a73ac3a7d5762e3d63bbd4823a57032df}{Update}} ()
+\begin{DoxyCompactList}\small\item\em Gombnyomásra megkeresi a legközelebbi Hook-\/ot és kilövi a csáklyát. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_grappling_hook_a21109069beb3eeed6d99fa32f4cdcc51}{Fixed\+Update}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \doxymbox{\hyperlink{class_grappling_hook_a877ff243e2d9a1868b5c4e381838080d}{grapple\+Length}} = 1f
+\begin{DoxyCompactList}\small\item\em A távolság, amire a csáklya behúzza a játékost. \end{DoxyCompactList}\item 
+Line\+Renderer \doxymbox{\hyperlink{class_grappling_hook_adea2fa1fb7cbf9f69d54ef8eaaa82bf4}{rope}}
+\begin{DoxyCompactList}\small\item\em A kötelet vizuálisan megjelenítő Line\+Renderer. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{class_grappling_hook_a64b1db76f5eb20ad313ee64c85768367}{max\+Grapple\+Distance}} = 10f
+\begin{DoxyCompactList}\small\item\em A maximális távolság a horog rögzítéséhez. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{class_grappling_hook_ae63d781aeeb1f8e2c4705ed5e89ca4ff}{grapple\+Reel\+Speed}} = 8f
+\begin{DoxyCompactList}\small\item\em A behúzás sebessége. \end{DoxyCompactList}\item 
+Vector3 \doxymbox{\hyperlink{class_grappling_hook_ab4bb2ac6741f6966aaa8b7b49ed30bb5}{grapple\+Point}}
+\begin{DoxyCompactList}\small\item\em A rögzítési pont pozíciója. \end{DoxyCompactList}\item 
+Distance\+Joint2D \doxymbox{\hyperlink{class_grappling_hook_ac01dd081b966fa0468f245de89c4a669}{joint}}
+\begin{DoxyCompactList}\small\item\em A csatlakozást biztosító 2D joint. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A grappling hook működését kezelő osztály. 
+
+\label{class_grappling_hook_doc-func-members}
+\Hypertarget{class_grappling_hook_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_grappling_hook_a21109069beb3eeed6d99fa32f4cdcc51}\index{GrapplingHook@{GrapplingHook}!FixedUpdate@{FixedUpdate}}
+\index{FixedUpdate@{FixedUpdate}!GrapplingHook@{GrapplingHook}}
+\doxysubsubsection{\texorpdfstring{FixedUpdate()}{FixedUpdate()}}
+{\footnotesize\ttfamily \label{class_grappling_hook_a21109069beb3eeed6d99fa32f4cdcc51} 
+void Grappling\+Hook.\+Fixed\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_grappling_hook_aa8d36a186d48e43cadd65bff35066ac0}\index{GrapplingHook@{GrapplingHook}!Start@{Start}}
+\index{Start@{Start}!GrapplingHook@{GrapplingHook}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_grappling_hook_aa8d36a186d48e43cadd65bff35066ac0} 
+void Grappling\+Hook.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Inicializálja a komponenst és elrejti a kötelet. 
+
+\Hypertarget{class_grappling_hook_a73ac3a7d5762e3d63bbd4823a57032df}\index{GrapplingHook@{GrapplingHook}!Update@{Update}}
+\index{Update@{Update}!GrapplingHook@{GrapplingHook}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_grappling_hook_a73ac3a7d5762e3d63bbd4823a57032df} 
+void Grappling\+Hook.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Gombnyomásra megkeresi a legközelebbi Hook-\/ot és kilövi a csáklyát. 
+
+Fizikai frissítés, amely fokozatosan húzza a játékost a rögzítési pont felé.
+
+\label{class_grappling_hook_doc-variable-members}
+\Hypertarget{class_grappling_hook_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_grappling_hook_a877ff243e2d9a1868b5c4e381838080d}\index{GrapplingHook@{GrapplingHook}!grappleLength@{grappleLength}}
+\index{grappleLength@{grappleLength}!GrapplingHook@{GrapplingHook}}
+\doxysubsubsection{\texorpdfstring{grappleLength}{grappleLength}}
+{\footnotesize\ttfamily \label{class_grappling_hook_a877ff243e2d9a1868b5c4e381838080d} 
+float Grappling\+Hook.\+grapple\+Length = 1f\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A távolság, amire a csáklya behúzza a játékost. 
+
+\Hypertarget{class_grappling_hook_ab4bb2ac6741f6966aaa8b7b49ed30bb5}\index{GrapplingHook@{GrapplingHook}!grapplePoint@{grapplePoint}}
+\index{grapplePoint@{grapplePoint}!GrapplingHook@{GrapplingHook}}
+\doxysubsubsection{\texorpdfstring{grapplePoint}{grapplePoint}}
+{\footnotesize\ttfamily \label{class_grappling_hook_ab4bb2ac6741f6966aaa8b7b49ed30bb5} 
+Vector3 Grappling\+Hook.\+grapple\+Point\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A rögzítési pont pozíciója. 
+
+\Hypertarget{class_grappling_hook_ae63d781aeeb1f8e2c4705ed5e89ca4ff}\index{GrapplingHook@{GrapplingHook}!grappleReelSpeed@{grappleReelSpeed}}
+\index{grappleReelSpeed@{grappleReelSpeed}!GrapplingHook@{GrapplingHook}}
+\doxysubsubsection{\texorpdfstring{grappleReelSpeed}{grappleReelSpeed}}
+{\footnotesize\ttfamily \label{class_grappling_hook_ae63d781aeeb1f8e2c4705ed5e89ca4ff} 
+float Grappling\+Hook.\+grapple\+Reel\+Speed = 8f\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A behúzás sebessége. 
+
+\Hypertarget{class_grappling_hook_ac01dd081b966fa0468f245de89c4a669}\index{GrapplingHook@{GrapplingHook}!joint@{joint}}
+\index{joint@{joint}!GrapplingHook@{GrapplingHook}}
+\doxysubsubsection{\texorpdfstring{joint}{joint}}
+{\footnotesize\ttfamily \label{class_grappling_hook_ac01dd081b966fa0468f245de89c4a669} 
+Distance\+Joint2D Grappling\+Hook.\+joint\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A csatlakozást biztosító 2D joint. 
+
+\Hypertarget{class_grappling_hook_a64b1db76f5eb20ad313ee64c85768367}\index{GrapplingHook@{GrapplingHook}!maxGrappleDistance@{maxGrappleDistance}}
+\index{maxGrappleDistance@{maxGrappleDistance}!GrapplingHook@{GrapplingHook}}
+\doxysubsubsection{\texorpdfstring{maxGrappleDistance}{maxGrappleDistance}}
+{\footnotesize\ttfamily \label{class_grappling_hook_a64b1db76f5eb20ad313ee64c85768367} 
+float Grappling\+Hook.\+max\+Grapple\+Distance = 10f\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A maximális távolság a horog rögzítéséhez. 
+
+\Hypertarget{class_grappling_hook_adea2fa1fb7cbf9f69d54ef8eaaa82bf4}\index{GrapplingHook@{GrapplingHook}!rope@{rope}}
+\index{rope@{rope}!GrapplingHook@{GrapplingHook}}
+\doxysubsubsection{\texorpdfstring{rope}{rope}}
+{\footnotesize\ttfamily \label{class_grappling_hook_adea2fa1fb7cbf9f69d54ef8eaaa82bf4} 
+Line\+Renderer Grappling\+Hook.\+rope\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A kötelet vizuálisan megjelenítő Line\+Renderer. 
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_grappling_hook_8cs}{Grappling\+Hook.\+cs}}\end{DoxyCompactItemize}

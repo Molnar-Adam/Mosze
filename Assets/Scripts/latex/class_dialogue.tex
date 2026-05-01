@@ -1,0 +1,276 @@
+\doxysection{Dialogue Class Reference}
+\hypertarget{class_dialogue}{}\label{class_dialogue}\index{Dialogue@{Dialogue}}
+
+
+Inherits Mono\+Behaviour.
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_dialogue_ae06188b3657d30e009d672cdc7c85385}{Trigger\+Dialogue}} (bool destroy\+Trigger\+Collider=false)
+\begin{DoxyCompactList}\small\item\em Nyilvános metódus a dialógus explicit elindítására és a szövegdoboz bekapcsolására. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_dialogue_a57864a984643064c270a0785810cb8fd}{Set\+Manual\+Trigger\+Only}} (bool manual)
+\item 
+void \doxymbox{\hyperlink{class_dialogue_a5cba1d732b6c9c725dd04e6503190254}{Set\+Auto\+Trigger}} (bool enabled)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Text\+Mesh\+Pro\+UGUI \doxymbox{\hyperlink{class_dialogue_a06c6c5e15b42e1356fd0fb21bef71398}{text\+Component}}
+\begin{DoxyCompactList}\small\item\em A Text\+Mesh\+Pro komponens, amelyen a szöveg fizikailag megjelenik az UI-\/on. \end{DoxyCompactList}\item 
+string\+[$\,$]\+ \doxymbox{\hyperlink{class_dialogue_ac98f9343b8bb0d620e1b05c8d9d5ef74}{lines}}
+\begin{DoxyCompactList}\small\item\em A párbeszéd sorai, amelyeket egymás után ír ki. Ha az Event\+Managerben van beállítva, felülírásra kerül. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{class_dialogue_ab47ce61b67186cda3f87ad0feb8687ae}{text\+Speed}}
+\begin{DoxyCompactList}\small\item\em A szöveg kiírásának sebessége (karakter per másodperc). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_dialogue_aa1aaf480aa955886927805aa70df6cad}{Awake}} ()
+\item 
+void \doxymbox{\hyperlink{class_dialogue_a83bc943ea718f1994f81a4f61db8a4c2}{Start}} ()
+\item 
+void \doxymbox{\hyperlink{class_dialogue_a6b7a5144cbfe9e77136944b7f0677a05}{Update}} ()
+\item 
+void \doxymbox{\hyperlink{class_dialogue_a4a3cbf5d1801e58f41ba885a35c52806}{On\+Trigger\+Enter2D}} (Collider2D collision)
+\item 
+void \doxymbox{\hyperlink{class_dialogue_a6cd313ef7869df0445923ac69a8d64cf}{On\+Trigger\+Exit2D}} (Collider2D collision)
+\item 
+void \doxymbox{\hyperlink{class_dialogue_ab950603084b955451f07c9725736be0f}{Start\+Dialogue}} ()
+\item 
+IEnumerator \doxymbox{\hyperlink{class_dialogue_a6431d323e6db7088c29cadb475aebc11}{Type\+Line}} ()
+\item 
+void \doxymbox{\hyperlink{class_dialogue_a1cbd37eb32ebf5aeffeb7b5bd480e88c}{Next\+Line}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \doxymbox{\hyperlink{class_dialogue_acd19b4d04532583df40354631445e236}{dialogue\+ID}}
+\begin{DoxyCompactList}\small\item\em A párbeszéd egyedi azonosítója (amely az \doxylink{class_event_manager}{Event\+Manager} JSON fájljában is szerepel). \end{DoxyCompactList}\item 
+Game\+Object \doxymbox{\hyperlink{class_dialogue_a4a9a874a5ed7d34bd6c18b32d6c62b8d}{dialogue\+Box}}
+\begin{DoxyCompactList}\small\item\em Maga a szövegdoboz és a háttere, amit be-\/ és ki lehet kapcsolni. \end{DoxyCompactList}\item 
+Collider2D \doxymbox{\hyperlink{class_dialogue_a1be5cc41d73d5c6d3b69477dc63fa2cc}{trigger\+Collider}}
+\begin{DoxyCompactList}\small\item\em A Trigger terület, amibe belépve elindítható a szöveg. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_dialogue_a065dfc06920c08400be4bb056d078ebf}{require\+Interact\+Key}} = true
+\item 
+bool \doxymbox{\hyperlink{class_dialogue_ad419391531c19217d5071daa4c81ac19}{manual\+Trigger\+Only}} = false
+\begin{DoxyCompactList}\small\item\em Ha igaz, maga a collider trigger esemény nem is indíthatja el, csak egy külső hívás. \end{DoxyCompactList}\item 
+Key\+Code \doxymbox{\hyperlink{class_dialogue_a96dbcfaf65b02ab357c65b74f3661f36}{interact\+Key}} = Key\+Code.\+E
+\begin{DoxyCompactList}\small\item\em A billentyű, amit meg kell nyomni a beszélgetés kezdéséhez. \end{DoxyCompactList}\item 
+Game\+Object \doxymbox{\hyperlink{class_dialogue_af54ad0a24547e4d75aab78b10d55652c}{interact\+UI}}
+\begin{DoxyCompactList}\small\item\em Az a kis felugró grafika, ami a beszélgetés előtt jelenik meg. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_dialogue_ad344258facc65041babdbda45118d005}{index}}
+\item 
+bool \doxymbox{\hyperlink{class_dialogue_a76406772aa5737a8ca5ea7ab6d6f0989}{dialogue\+Started}}
+\item 
+bool \doxymbox{\hyperlink{class_dialogue_a3428e7947390d5de02eaadd1be1f608b}{has\+Triggered}}
+\item 
+bool \doxymbox{\hyperlink{class_dialogue_a271165531e70f9199777ffeaa20a2ec2}{is\+Player\+In\+Range}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A játékban megjelenő dialógusokat és szövegdobozokat kezelő osztály. Figyeli, hogy a játékos közel van-\/e, és kiírja a sorokat egymás után a képernyőre. 
+
+\label{class_dialogue_doc-func-members}
+\Hypertarget{class_dialogue_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_dialogue_aa1aaf480aa955886927805aa70df6cad}\index{Dialogue@{Dialogue}!Awake@{Awake}}
+\index{Awake@{Awake}!Dialogue@{Dialogue}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily \label{class_dialogue_aa1aaf480aa955886927805aa70df6cad} 
+void Dialogue.\+Awake (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_dialogue_a1cbd37eb32ebf5aeffeb7b5bd480e88c}\index{Dialogue@{Dialogue}!NextLine@{NextLine}}
+\index{NextLine@{NextLine}!Dialogue@{Dialogue}}
+\doxysubsubsection{\texorpdfstring{NextLine()}{NextLine()}}
+{\footnotesize\ttfamily \label{class_dialogue_a1cbd37eb32ebf5aeffeb7b5bd480e88c} 
+void Dialogue.\+Next\+Line (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_dialogue_a4a3cbf5d1801e58f41ba885a35c52806}\index{Dialogue@{Dialogue}!OnTriggerEnter2D@{OnTriggerEnter2D}}
+\index{OnTriggerEnter2D@{OnTriggerEnter2D}!Dialogue@{Dialogue}}
+\doxysubsubsection{\texorpdfstring{OnTriggerEnter2D()}{OnTriggerEnter2D()}}
+{\footnotesize\ttfamily \label{class_dialogue_a4a3cbf5d1801e58f41ba885a35c52806} 
+void Dialogue.\+On\+Trigger\+Enter2D (\begin{DoxyParamCaption}\item[{Collider2D}]{collision}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_dialogue_a6cd313ef7869df0445923ac69a8d64cf}\index{Dialogue@{Dialogue}!OnTriggerExit2D@{OnTriggerExit2D}}
+\index{OnTriggerExit2D@{OnTriggerExit2D}!Dialogue@{Dialogue}}
+\doxysubsubsection{\texorpdfstring{OnTriggerExit2D()}{OnTriggerExit2D()}}
+{\footnotesize\ttfamily \label{class_dialogue_a6cd313ef7869df0445923ac69a8d64cf} 
+void Dialogue.\+On\+Trigger\+Exit2D (\begin{DoxyParamCaption}\item[{Collider2D}]{collision}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_dialogue_a5cba1d732b6c9c725dd04e6503190254}\index{Dialogue@{Dialogue}!SetAutoTrigger@{SetAutoTrigger}}
+\index{SetAutoTrigger@{SetAutoTrigger}!Dialogue@{Dialogue}}
+\doxysubsubsection{\texorpdfstring{SetAutoTrigger()}{SetAutoTrigger()}}
+{\footnotesize\ttfamily \label{class_dialogue_a5cba1d732b6c9c725dd04e6503190254} 
+void Dialogue.\+Set\+Auto\+Trigger (\begin{DoxyParamCaption}\item[{bool}]{enabled}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_dialogue_a57864a984643064c270a0785810cb8fd}\index{Dialogue@{Dialogue}!SetManualTriggerOnly@{SetManualTriggerOnly}}
+\index{SetManualTriggerOnly@{SetManualTriggerOnly}!Dialogue@{Dialogue}}
+\doxysubsubsection{\texorpdfstring{SetManualTriggerOnly()}{SetManualTriggerOnly()}}
+{\footnotesize\ttfamily \label{class_dialogue_a57864a984643064c270a0785810cb8fd} 
+void Dialogue.\+Set\+Manual\+Trigger\+Only (\begin{DoxyParamCaption}\item[{bool}]{manual}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_dialogue_a83bc943ea718f1994f81a4f61db8a4c2}\index{Dialogue@{Dialogue}!Start@{Start}}
+\index{Start@{Start}!Dialogue@{Dialogue}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_dialogue_a83bc943ea718f1994f81a4f61db8a4c2} 
+void Dialogue.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_dialogue_ab950603084b955451f07c9725736be0f}\index{Dialogue@{Dialogue}!StartDialogue@{StartDialogue}}
+\index{StartDialogue@{StartDialogue}!Dialogue@{Dialogue}}
+\doxysubsubsection{\texorpdfstring{StartDialogue()}{StartDialogue()}}
+{\footnotesize\ttfamily \label{class_dialogue_ab950603084b955451f07c9725736be0f} 
+void Dialogue.\+Start\+Dialogue (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_dialogue_ae06188b3657d30e009d672cdc7c85385}\index{Dialogue@{Dialogue}!TriggerDialogue@{TriggerDialogue}}
+\index{TriggerDialogue@{TriggerDialogue}!Dialogue@{Dialogue}}
+\doxysubsubsection{\texorpdfstring{TriggerDialogue()}{TriggerDialogue()}}
+{\footnotesize\ttfamily \label{class_dialogue_ae06188b3657d30e009d672cdc7c85385} 
+void Dialogue.\+Trigger\+Dialogue (\begin{DoxyParamCaption}\item[{bool}]{destroy\+Trigger\+Collider}{ = {\ttfamily false}}\end{DoxyParamCaption})}
+
+
+
+Nyilvános metódus a dialógus explicit elindítására és a szövegdoboz bekapcsolására. 
+
+\Hypertarget{class_dialogue_a6431d323e6db7088c29cadb475aebc11}\index{Dialogue@{Dialogue}!TypeLine@{TypeLine}}
+\index{TypeLine@{TypeLine}!Dialogue@{Dialogue}}
+\doxysubsubsection{\texorpdfstring{TypeLine()}{TypeLine()}}
+{\footnotesize\ttfamily \label{class_dialogue_a6431d323e6db7088c29cadb475aebc11} 
+IEnumerator Dialogue.\+Type\+Line (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_dialogue_a6b7a5144cbfe9e77136944b7f0677a05}\index{Dialogue@{Dialogue}!Update@{Update}}
+\index{Update@{Update}!Dialogue@{Dialogue}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_dialogue_a6b7a5144cbfe9e77136944b7f0677a05} 
+void Dialogue.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\label{class_dialogue_doc-variable-members}
+\Hypertarget{class_dialogue_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_dialogue_a4a9a874a5ed7d34bd6c18b32d6c62b8d}\index{Dialogue@{Dialogue}!dialogueBox@{dialogueBox}}
+\index{dialogueBox@{dialogueBox}!Dialogue@{Dialogue}}
+\doxysubsubsection{\texorpdfstring{dialogueBox}{dialogueBox}}
+{\footnotesize\ttfamily \label{class_dialogue_a4a9a874a5ed7d34bd6c18b32d6c62b8d} 
+Game\+Object Dialogue.\+dialogue\+Box\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Maga a szövegdoboz és a háttere, amit be-\/ és ki lehet kapcsolni. 
+
+\Hypertarget{class_dialogue_acd19b4d04532583df40354631445e236}\index{Dialogue@{Dialogue}!dialogueID@{dialogueID}}
+\index{dialogueID@{dialogueID}!Dialogue@{Dialogue}}
+\doxysubsubsection{\texorpdfstring{dialogueID}{dialogueID}}
+{\footnotesize\ttfamily \label{class_dialogue_acd19b4d04532583df40354631445e236} 
+string Dialogue.\+dialogue\+ID\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A párbeszéd egyedi azonosítója (amely az \doxylink{class_event_manager}{Event\+Manager} JSON fájljában is szerepel). 
+
+\Hypertarget{class_dialogue_a76406772aa5737a8ca5ea7ab6d6f0989}\index{Dialogue@{Dialogue}!dialogueStarted@{dialogueStarted}}
+\index{dialogueStarted@{dialogueStarted}!Dialogue@{Dialogue}}
+\doxysubsubsection{\texorpdfstring{dialogueStarted}{dialogueStarted}}
+{\footnotesize\ttfamily \label{class_dialogue_a76406772aa5737a8ca5ea7ab6d6f0989} 
+bool Dialogue.\+dialogue\+Started\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_dialogue_a3428e7947390d5de02eaadd1be1f608b}\index{Dialogue@{Dialogue}!hasTriggered@{hasTriggered}}
+\index{hasTriggered@{hasTriggered}!Dialogue@{Dialogue}}
+\doxysubsubsection{\texorpdfstring{hasTriggered}{hasTriggered}}
+{\footnotesize\ttfamily \label{class_dialogue_a3428e7947390d5de02eaadd1be1f608b} 
+bool Dialogue.\+has\+Triggered\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_dialogue_ad344258facc65041babdbda45118d005}\index{Dialogue@{Dialogue}!index@{index}}
+\index{index@{index}!Dialogue@{Dialogue}}
+\doxysubsubsection{\texorpdfstring{index}{index}}
+{\footnotesize\ttfamily \label{class_dialogue_ad344258facc65041babdbda45118d005} 
+int Dialogue.\+index\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_dialogue_a96dbcfaf65b02ab357c65b74f3661f36}\index{Dialogue@{Dialogue}!interactKey@{interactKey}}
+\index{interactKey@{interactKey}!Dialogue@{Dialogue}}
+\doxysubsubsection{\texorpdfstring{interactKey}{interactKey}}
+{\footnotesize\ttfamily \label{class_dialogue_a96dbcfaf65b02ab357c65b74f3661f36} 
+Key\+Code Dialogue.\+interact\+Key = Key\+Code.\+E\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A billentyű, amit meg kell nyomni a beszélgetés kezdéséhez. 
+
+\Hypertarget{class_dialogue_af54ad0a24547e4d75aab78b10d55652c}\index{Dialogue@{Dialogue}!interactUI@{interactUI}}
+\index{interactUI@{interactUI}!Dialogue@{Dialogue}}
+\doxysubsubsection{\texorpdfstring{interactUI}{interactUI}}
+{\footnotesize\ttfamily \label{class_dialogue_af54ad0a24547e4d75aab78b10d55652c} 
+Game\+Object Dialogue.\+interact\+UI\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Az a kis felugró grafika, ami a beszélgetés előtt jelenik meg. 
+
+\Hypertarget{class_dialogue_a271165531e70f9199777ffeaa20a2ec2}\index{Dialogue@{Dialogue}!isPlayerInRange@{isPlayerInRange}}
+\index{isPlayerInRange@{isPlayerInRange}!Dialogue@{Dialogue}}
+\doxysubsubsection{\texorpdfstring{isPlayerInRange}{isPlayerInRange}}
+{\footnotesize\ttfamily \label{class_dialogue_a271165531e70f9199777ffeaa20a2ec2} 
+bool Dialogue.\+is\+Player\+In\+Range\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_dialogue_ac98f9343b8bb0d620e1b05c8d9d5ef74}\index{Dialogue@{Dialogue}!lines@{lines}}
+\index{lines@{lines}!Dialogue@{Dialogue}}
+\doxysubsubsection{\texorpdfstring{lines}{lines}}
+{\footnotesize\ttfamily \label{class_dialogue_ac98f9343b8bb0d620e1b05c8d9d5ef74} 
+string \+[$\,$]\+ Dialogue.\+lines}
+
+
+
+A párbeszéd sorai, amelyeket egymás után ír ki. Ha az Event\+Managerben van beállítva, felülírásra kerül. 
+
+\Hypertarget{class_dialogue_ad419391531c19217d5071daa4c81ac19}\index{Dialogue@{Dialogue}!manualTriggerOnly@{manualTriggerOnly}}
+\index{manualTriggerOnly@{manualTriggerOnly}!Dialogue@{Dialogue}}
+\doxysubsubsection{\texorpdfstring{manualTriggerOnly}{manualTriggerOnly}}
+{\footnotesize\ttfamily \label{class_dialogue_ad419391531c19217d5071daa4c81ac19} 
+bool Dialogue.\+manual\+Trigger\+Only = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Ha igaz, maga a collider trigger esemény nem is indíthatja el, csak egy külső hívás. 
+
+\Hypertarget{class_dialogue_a065dfc06920c08400be4bb056d078ebf}\index{Dialogue@{Dialogue}!requireInteractKey@{requireInteractKey}}
+\index{requireInteractKey@{requireInteractKey}!Dialogue@{Dialogue}}
+\doxysubsubsection{\texorpdfstring{requireInteractKey}{requireInteractKey}}
+{\footnotesize\ttfamily \label{class_dialogue_a065dfc06920c08400be4bb056d078ebf} 
+bool Dialogue.\+require\+Interact\+Key = true\hspace{0.3cm}{\ttfamily [private]}}
+
+Ha igaz, a játékosnak le kell nyomnia egy gombot a beszéd elindításához. Ha hamis, amint besétál, automatikusan elkezdődik. \Hypertarget{class_dialogue_a06c6c5e15b42e1356fd0fb21bef71398}\index{Dialogue@{Dialogue}!textComponent@{textComponent}}
+\index{textComponent@{textComponent}!Dialogue@{Dialogue}}
+\doxysubsubsection{\texorpdfstring{textComponent}{textComponent}}
+{\footnotesize\ttfamily \label{class_dialogue_a06c6c5e15b42e1356fd0fb21bef71398} 
+Text\+Mesh\+Pro\+UGUI Dialogue.\+text\+Component}
+
+
+
+A Text\+Mesh\+Pro komponens, amelyen a szöveg fizikailag megjelenik az UI-\/on. 
+
+\Hypertarget{class_dialogue_ab47ce61b67186cda3f87ad0feb8687ae}\index{Dialogue@{Dialogue}!textSpeed@{textSpeed}}
+\index{textSpeed@{textSpeed}!Dialogue@{Dialogue}}
+\doxysubsubsection{\texorpdfstring{textSpeed}{textSpeed}}
+{\footnotesize\ttfamily \label{class_dialogue_ab47ce61b67186cda3f87ad0feb8687ae} 
+float Dialogue.\+text\+Speed}
+
+
+
+A szöveg kiírásának sebessége (karakter per másodperc). 
+
+\Hypertarget{class_dialogue_a1be5cc41d73d5c6d3b69477dc63fa2cc}\index{Dialogue@{Dialogue}!triggerCollider@{triggerCollider}}
+\index{triggerCollider@{triggerCollider}!Dialogue@{Dialogue}}
+\doxysubsubsection{\texorpdfstring{triggerCollider}{triggerCollider}}
+{\footnotesize\ttfamily \label{class_dialogue_a1be5cc41d73d5c6d3b69477dc63fa2cc} 
+Collider2D Dialogue.\+trigger\+Collider\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A Trigger terület, amibe belépve elindítható a szöveg. 
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_dialogue_8cs}{Dialogue.\+cs}}\end{DoxyCompactItemize}

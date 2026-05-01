@@ -1,0 +1,196 @@
+\doxysection{Death\+Panel\+Controller Class Reference}
+\hypertarget{class_death_panel_controller}{}\label{class_death_panel_controller}\index{DeathPanelController@{DeathPanelController}}
+
+
+Inherits Mono\+Behaviour.
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_death_panel_controller_a592d3abe5f22b7be0f2b95808854b6ca}{Retry}} ()
+\begin{DoxyCompactList}\small\item\em Újraindítja az első pályát, és alaphelyzetbe állítja a mentett állásokat. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_death_panel_controller_a67c3b98539699fd42911632e92c4fd89}{Menu}} ()
+\begin{DoxyCompactList}\small\item\em Visszatér a főmenübe. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_death_panel_controller_ab6cd14e482832ee2c6e75186ed430e7c}{Quit}} ()
+\begin{DoxyCompactList}\small\item\em Bezárja az alkalmazást. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+static bool \doxymbox{\hyperlink{class_death_panel_controller_a54d52450f6a3758049dac9fad92c90e6}{Is\+Death\+Screen\+Active}}\hspace{0.3cm}{\ttfamily  \+[get, private set]\+}
+\begin{DoxyCompactList}\small\item\em Globális jelző, ami mutatja, hogy jelenleg aktív-\/e a halálképernyő. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_death_panel_controller_af02f77aa1e8a229ed808b8a3b9239478}{Awake}} ()
+\item 
+void \doxymbox{\hyperlink{class_death_panel_controller_a7fdd220c004c017af11427ce59a667e7}{On\+Enable}} ()
+\item 
+void \doxymbox{\hyperlink{class_death_panel_controller_a644b820bf22f9cce408e6108c21a44f0}{On\+Disable}} ()
+\item 
+void \doxymbox{\hyperlink{class_death_panel_controller_a46d249089e0ed3a671213361617a47fd}{Update}} ()
+\item 
+void \doxymbox{\hyperlink{class_death_panel_controller_a52d0890c0ce2cf1fd9dee2f2c5df9dce}{Try\+Subscribe\+To\+Player}} ()
+\begin{DoxyCompactList}\small\item\em Megpróbálja megkeresni a játékos karaktert, és feliratkozni az On\+Died eseményére. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_death_panel_controller_a9631863c2c5c6149c8ff752e2aa38d8b}{Show\+Death\+Panel}} ()
+\begin{DoxyCompactList}\small\item\em Aktiválja a halálpanelt és megállítja a játékidőt. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \doxymbox{\hyperlink{class_death_panel_controller_abf4bc6277311da8c7faba45cefe990a3}{Reset\+Runtime\+State}} ()
+\begin{DoxyCompactList}\small\item\em Unity betöltésekor automatikusan alaphelyzetbe állítja a halálképernyő státuszát. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Game\+Object \doxymbox{\hyperlink{class_death_panel_controller_a8c4a4aa7703844282ea04307d1627f8f}{death\+Panel}}
+\begin{DoxyCompactList}\small\item\em A halálképernyőt tartalmazó, általában kikapcsolt Game\+Object UI panel. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_player_health}{Player\+Health}} \doxymbox{\hyperlink{class_death_panel_controller_a915612dcbb5e5e28acdbfa3c7acf09a3}{player\+Health}}
+\begin{DoxyCompactList}\small\item\em A játékos életerejét kezelő komponens. Erre iratkozik fel, hogy figyelje a halált. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_death_panel_controller_accb6cb6eccfe1aa379d329a15f756fe7}{death\+Shown}}
+\begin{DoxyCompactList}\small\item\em Belső változó, megakadályozza a halálpanel többszöri meghívását egyszerre. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A játékos halálakor megjelenő UI panel vezérléséért felelős osztály. Megállítja az időt és megjeleníti az úrjakezdési, vagy kilépési opciókat. 
+
+\label{class_death_panel_controller_doc-func-members}
+\Hypertarget{class_death_panel_controller_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_death_panel_controller_af02f77aa1e8a229ed808b8a3b9239478}\index{DeathPanelController@{DeathPanelController}!Awake@{Awake}}
+\index{Awake@{Awake}!DeathPanelController@{DeathPanelController}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily \label{class_death_panel_controller_af02f77aa1e8a229ed808b8a3b9239478} 
+void Death\+Panel\+Controller.\+Awake (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_death_panel_controller_a67c3b98539699fd42911632e92c4fd89}\index{DeathPanelController@{DeathPanelController}!Menu@{Menu}}
+\index{Menu@{Menu}!DeathPanelController@{DeathPanelController}}
+\doxysubsubsection{\texorpdfstring{Menu()}{Menu()}}
+{\footnotesize\ttfamily \label{class_death_panel_controller_a67c3b98539699fd42911632e92c4fd89} 
+void Death\+Panel\+Controller.\+Menu (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Visszatér a főmenübe. 
+
+\Hypertarget{class_death_panel_controller_a644b820bf22f9cce408e6108c21a44f0}\index{DeathPanelController@{DeathPanelController}!OnDisable@{OnDisable}}
+\index{OnDisable@{OnDisable}!DeathPanelController@{DeathPanelController}}
+\doxysubsubsection{\texorpdfstring{OnDisable()}{OnDisable()}}
+{\footnotesize\ttfamily \label{class_death_panel_controller_a644b820bf22f9cce408e6108c21a44f0} 
+void Death\+Panel\+Controller.\+On\+Disable (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_death_panel_controller_a7fdd220c004c017af11427ce59a667e7}\index{DeathPanelController@{DeathPanelController}!OnEnable@{OnEnable}}
+\index{OnEnable@{OnEnable}!DeathPanelController@{DeathPanelController}}
+\doxysubsubsection{\texorpdfstring{OnEnable()}{OnEnable()}}
+{\footnotesize\ttfamily \label{class_death_panel_controller_a7fdd220c004c017af11427ce59a667e7} 
+void Death\+Panel\+Controller.\+On\+Enable (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_death_panel_controller_ab6cd14e482832ee2c6e75186ed430e7c}\index{DeathPanelController@{DeathPanelController}!Quit@{Quit}}
+\index{Quit@{Quit}!DeathPanelController@{DeathPanelController}}
+\doxysubsubsection{\texorpdfstring{Quit()}{Quit()}}
+{\footnotesize\ttfamily \label{class_death_panel_controller_ab6cd14e482832ee2c6e75186ed430e7c} 
+void Death\+Panel\+Controller.\+Quit (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Bezárja az alkalmazást. 
+
+\Hypertarget{class_death_panel_controller_abf4bc6277311da8c7faba45cefe990a3}\index{DeathPanelController@{DeathPanelController}!ResetRuntimeState@{ResetRuntimeState}}
+\index{ResetRuntimeState@{ResetRuntimeState}!DeathPanelController@{DeathPanelController}}
+\doxysubsubsection{\texorpdfstring{ResetRuntimeState()}{ResetRuntimeState()}}
+{\footnotesize\ttfamily \label{class_death_panel_controller_abf4bc6277311da8c7faba45cefe990a3} 
+void Death\+Panel\+Controller.\+Reset\+Runtime\+State (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Unity betöltésekor automatikusan alaphelyzetbe állítja a halálképernyő státuszát. 
+
+\Hypertarget{class_death_panel_controller_a592d3abe5f22b7be0f2b95808854b6ca}\index{DeathPanelController@{DeathPanelController}!Retry@{Retry}}
+\index{Retry@{Retry}!DeathPanelController@{DeathPanelController}}
+\doxysubsubsection{\texorpdfstring{Retry()}{Retry()}}
+{\footnotesize\ttfamily \label{class_death_panel_controller_a592d3abe5f22b7be0f2b95808854b6ca} 
+void Death\+Panel\+Controller.\+Retry (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Újraindítja az első pályát, és alaphelyzetbe állítja a mentett állásokat. 
+
+\Hypertarget{class_death_panel_controller_a9631863c2c5c6149c8ff752e2aa38d8b}\index{DeathPanelController@{DeathPanelController}!ShowDeathPanel@{ShowDeathPanel}}
+\index{ShowDeathPanel@{ShowDeathPanel}!DeathPanelController@{DeathPanelController}}
+\doxysubsubsection{\texorpdfstring{ShowDeathPanel()}{ShowDeathPanel()}}
+{\footnotesize\ttfamily \label{class_death_panel_controller_a9631863c2c5c6149c8ff752e2aa38d8b} 
+void Death\+Panel\+Controller.\+Show\+Death\+Panel (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Aktiválja a halálpanelt és megállítja a játékidőt. 
+
+\Hypertarget{class_death_panel_controller_a52d0890c0ce2cf1fd9dee2f2c5df9dce}\index{DeathPanelController@{DeathPanelController}!TrySubscribeToPlayer@{TrySubscribeToPlayer}}
+\index{TrySubscribeToPlayer@{TrySubscribeToPlayer}!DeathPanelController@{DeathPanelController}}
+\doxysubsubsection{\texorpdfstring{TrySubscribeToPlayer()}{TrySubscribeToPlayer()}}
+{\footnotesize\ttfamily \label{class_death_panel_controller_a52d0890c0ce2cf1fd9dee2f2c5df9dce} 
+void Death\+Panel\+Controller.\+Try\+Subscribe\+To\+Player (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Megpróbálja megkeresni a játékos karaktert, és feliratkozni az On\+Died eseményére. 
+
+\Hypertarget{class_death_panel_controller_a46d249089e0ed3a671213361617a47fd}\index{DeathPanelController@{DeathPanelController}!Update@{Update}}
+\index{Update@{Update}!DeathPanelController@{DeathPanelController}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_death_panel_controller_a46d249089e0ed3a671213361617a47fd} 
+void Death\+Panel\+Controller.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\label{class_death_panel_controller_doc-variable-members}
+\Hypertarget{class_death_panel_controller_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_death_panel_controller_a8c4a4aa7703844282ea04307d1627f8f}\index{DeathPanelController@{DeathPanelController}!deathPanel@{deathPanel}}
+\index{deathPanel@{deathPanel}!DeathPanelController@{DeathPanelController}}
+\doxysubsubsection{\texorpdfstring{deathPanel}{deathPanel}}
+{\footnotesize\ttfamily \label{class_death_panel_controller_a8c4a4aa7703844282ea04307d1627f8f} 
+Game\+Object Death\+Panel\+Controller.\+death\+Panel\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A halálképernyőt tartalmazó, általában kikapcsolt Game\+Object UI panel. 
+
+\Hypertarget{class_death_panel_controller_accb6cb6eccfe1aa379d329a15f756fe7}\index{DeathPanelController@{DeathPanelController}!deathShown@{deathShown}}
+\index{deathShown@{deathShown}!DeathPanelController@{DeathPanelController}}
+\doxysubsubsection{\texorpdfstring{deathShown}{deathShown}}
+{\footnotesize\ttfamily \label{class_death_panel_controller_accb6cb6eccfe1aa379d329a15f756fe7} 
+bool Death\+Panel\+Controller.\+death\+Shown\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Belső változó, megakadályozza a halálpanel többszöri meghívását egyszerre. 
+
+\Hypertarget{class_death_panel_controller_a915612dcbb5e5e28acdbfa3c7acf09a3}\index{DeathPanelController@{DeathPanelController}!playerHealth@{playerHealth}}
+\index{playerHealth@{playerHealth}!DeathPanelController@{DeathPanelController}}
+\doxysubsubsection{\texorpdfstring{playerHealth}{playerHealth}}
+{\footnotesize\ttfamily \label{class_death_panel_controller_a915612dcbb5e5e28acdbfa3c7acf09a3} 
+\doxymbox{\hyperlink{class_player_health}{Player\+Health}} Death\+Panel\+Controller.\+player\+Health\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A játékos életerejét kezelő komponens. Erre iratkozik fel, hogy figyelje a halált. 
+
+
+
+\label{class_death_panel_controller_doc-property-members}
+\Hypertarget{class_death_panel_controller_doc-property-members}
+\doxysubsection{Property Documentation}
+\Hypertarget{class_death_panel_controller_a54d52450f6a3758049dac9fad92c90e6}\index{DeathPanelController@{DeathPanelController}!IsDeathScreenActive@{IsDeathScreenActive}}
+\index{IsDeathScreenActive@{IsDeathScreenActive}!DeathPanelController@{DeathPanelController}}
+\doxysubsubsection{\texorpdfstring{IsDeathScreenActive}{IsDeathScreenActive}}
+{\footnotesize\ttfamily \label{class_death_panel_controller_a54d52450f6a3758049dac9fad92c90e6} 
+bool Death\+Panel\+Controller.\+Is\+Death\+Screen\+Active\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [get]}, {\ttfamily [private set]}}
+
+
+
+Globális jelző, ami mutatja, hogy jelenleg aktív-\/e a halálképernyő. 
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_death_panel_controller_8cs}{Death\+Panel\+Controller.\+cs}}\end{DoxyCompactItemize}

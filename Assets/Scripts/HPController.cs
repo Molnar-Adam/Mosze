@@ -1,12 +1,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// A játékos életerejét megjelenítő UI kontroller.
 public class HPController : MonoBehaviour
 {
+    /// A szív UI elemet reprezentáló prefab.
     public GameObject heartPrefab;
+    
+    /// >A játékos Health komponensére mutató referencia.
     public PlayerHealth playerHealth;
+    
+    /// A jelenleg létrehozott szívek listája.
     List<HPHeart> hearts = new List<HPHeart>();
 
+    /// Feliratkozik a játékos életerő-változás eseményére.
     private void OnEnable()
     {
         if (playerHealth != null)
@@ -15,6 +22,7 @@ public class HPController : MonoBehaviour
         }
     }
 
+    /// Leiratkozik a játékos életerő-változás eseményéről.
     private void OnDisable()
     {
         if (playerHealth != null)
@@ -23,11 +31,13 @@ public class HPController : MonoBehaviour
         }
     }
 
+    /// Induláskor kirajzolja a kezdő szíveket.
     private void Start()
     {
         DrawHearts();
     }
 
+    /// Törli a korábbi szíveket, majd az aktuális max életerő alapján újakat hoz létre és állít be.
     public void DrawHearts()
     {
         ClearHearts();
@@ -45,6 +55,8 @@ public class HPController : MonoBehaviour
         }
 
     }
+
+    /// Létrehoz és elment egy teljesen üres új szívet a listába.
     public void CreateEmptyHeart()
     {
         GameObject newHeart = Instantiate(heartPrefab, transform);
@@ -53,6 +65,7 @@ public class HPController : MonoBehaviour
         hearts.Add(heartComponent);
     }
 
+    /// Eltávolítja az összes szívet a képernyőről és kiüríti a listát.
     public void ClearHearts()
     {
         foreach (Transform t in transform)

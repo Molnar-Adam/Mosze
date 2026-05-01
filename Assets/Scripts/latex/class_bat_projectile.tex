@@ -1,0 +1,146 @@
+\doxysection{Bat\+Projectile Class Reference}
+\hypertarget{class_bat_projectile}{}\label{class_bat_projectile}\index{BatProjectile@{BatProjectile}}
+
+
+Inherits Mono\+Behaviour.
+
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_bat_projectile_a0be513e50499e7ae5ac0a9ef12319bd0}{Awake}} ()
+\begin{DoxyCompactList}\small\item\em A példányosításkor elmenti a Rigidbody2D referenciát. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_bat_projectile_a671229df265d03f01e1a2e9f4bbaf154}{Start}} ()
+\begin{DoxyCompactList}\small\item\em Kezdéskor beütemezi a lövedék megsemmisülését a megadott élettartam után. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_bat_projectile_a725444a631098bd8c81c73c5c8137d1f}{Fixed\+Update}} ()
+\begin{DoxyCompactList}\small\item\em Fizikai frissítési ciklus. Raycast segítségével is detektálja az ütközéseket a gyors mozgás miatt. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_bat_projectile_aeb5700e615505cbd72170b97915f9035}{On\+Trigger\+Enter2D}} (Collider2D other)
+\begin{DoxyCompactList}\small\item\em Akkor hívódik meg, ha egy másik trigger collider ér hozzá a lövedékhez. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_bat_projectile_a91412fc2a9ec85aca71c5807ae4ee25f}{On\+Collision\+Enter2D}} (Collision2D collision)
+\begin{DoxyCompactList}\small\item\em Akkor hívódik meg, ha a lövedék szilárd testtel ütközik. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_bat_projectile_ae273472a423815268d1e44b42ab3d5d5}{Handle\+Hit}} (Game\+Object hit\+Object)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \doxymbox{\hyperlink{class_bat_projectile_afe98e2c886070fac942052f0e490d928}{damage}} = 1
+\begin{DoxyCompactList}\small\item\em A játékosnak okozott sebzés mértéke. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{class_bat_projectile_a33e1b634c72d879a1c7c35b5ca17f53d}{life\+Time}} = 5f
+\begin{DoxyCompactList}\small\item\em A lövedék maximális élettartama rásodpercben. \end{DoxyCompactList}\item 
+Layer\+Mask \doxymbox{\hyperlink{class_bat_projectile_a307143979dcd863bf3f3872960dd1cc7}{hit\+Mask}} = \texorpdfstring{$\sim$}{\string~}0
+\begin{DoxyCompactList}\small\item\em A layermask, amivel a lövedék képes ütközni. \end{DoxyCompactList}\item 
+Rigidbody2D \doxymbox{\hyperlink{class_bat_projectile_a1c116a305ae304c825635d1464a767e2}{rb}}
+\begin{DoxyCompactList}\small\item\em A lövedék fizikai testét irányító Rigidbody2D komponens. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A denevér által kilőtt lövedék viselkedését és fizikáját szabályozó osztály. Ütközéskor (vagy trigger esetén) sebzést okoz a játékosnak. 
+
+\label{class_bat_projectile_doc-func-members}
+\Hypertarget{class_bat_projectile_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_bat_projectile_a0be513e50499e7ae5ac0a9ef12319bd0}\index{BatProjectile@{BatProjectile}!Awake@{Awake}}
+\index{Awake@{Awake}!BatProjectile@{BatProjectile}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily \label{class_bat_projectile_a0be513e50499e7ae5ac0a9ef12319bd0} 
+void Bat\+Projectile.\+Awake (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A példányosításkor elmenti a Rigidbody2D referenciát. 
+
+\Hypertarget{class_bat_projectile_a725444a631098bd8c81c73c5c8137d1f}\index{BatProjectile@{BatProjectile}!FixedUpdate@{FixedUpdate}}
+\index{FixedUpdate@{FixedUpdate}!BatProjectile@{BatProjectile}}
+\doxysubsubsection{\texorpdfstring{FixedUpdate()}{FixedUpdate()}}
+{\footnotesize\ttfamily \label{class_bat_projectile_a725444a631098bd8c81c73c5c8137d1f} 
+void Bat\+Projectile.\+Fixed\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Fizikai frissítési ciklus. Raycast segítségével is detektálja az ütközéseket a gyors mozgás miatt. 
+
+\Hypertarget{class_bat_projectile_ae273472a423815268d1e44b42ab3d5d5}\index{BatProjectile@{BatProjectile}!HandleHit@{HandleHit}}
+\index{HandleHit@{HandleHit}!BatProjectile@{BatProjectile}}
+\doxysubsubsection{\texorpdfstring{HandleHit()}{HandleHit()}}
+{\footnotesize\ttfamily \label{class_bat_projectile_ae273472a423815268d1e44b42ab3d5d5} 
+void Bat\+Projectile.\+Handle\+Hit (\begin{DoxyParamCaption}\item[{Game\+Object}]{hit\+Object}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Lekezeli a találatot:\+ megpróbál \doxylink{class_player_health}{Player\+Health} komponenst találni a célponton, ha sikerül, sebzést oszt ki, majd maga a lövedék megsemmisül. \Hypertarget{class_bat_projectile_a91412fc2a9ec85aca71c5807ae4ee25f}\index{BatProjectile@{BatProjectile}!OnCollisionEnter2D@{OnCollisionEnter2D}}
+\index{OnCollisionEnter2D@{OnCollisionEnter2D}!BatProjectile@{BatProjectile}}
+\doxysubsubsection{\texorpdfstring{OnCollisionEnter2D()}{OnCollisionEnter2D()}}
+{\footnotesize\ttfamily \label{class_bat_projectile_a91412fc2a9ec85aca71c5807ae4ee25f} 
+void Bat\+Projectile.\+On\+Collision\+Enter2D (\begin{DoxyParamCaption}\item[{Collision2D}]{collision}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Akkor hívódik meg, ha a lövedék szilárd testtel ütközik. 
+
+\Hypertarget{class_bat_projectile_aeb5700e615505cbd72170b97915f9035}\index{BatProjectile@{BatProjectile}!OnTriggerEnter2D@{OnTriggerEnter2D}}
+\index{OnTriggerEnter2D@{OnTriggerEnter2D}!BatProjectile@{BatProjectile}}
+\doxysubsubsection{\texorpdfstring{OnTriggerEnter2D()}{OnTriggerEnter2D()}}
+{\footnotesize\ttfamily \label{class_bat_projectile_aeb5700e615505cbd72170b97915f9035} 
+void Bat\+Projectile.\+On\+Trigger\+Enter2D (\begin{DoxyParamCaption}\item[{Collider2D}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Akkor hívódik meg, ha egy másik trigger collider ér hozzá a lövedékhez. 
+
+\Hypertarget{class_bat_projectile_a671229df265d03f01e1a2e9f4bbaf154}\index{BatProjectile@{BatProjectile}!Start@{Start}}
+\index{Start@{Start}!BatProjectile@{BatProjectile}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_bat_projectile_a671229df265d03f01e1a2e9f4bbaf154} 
+void Bat\+Projectile.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Kezdéskor beütemezi a lövedék megsemmisülését a megadott élettartam után. 
+
+
+
+\label{class_bat_projectile_doc-variable-members}
+\Hypertarget{class_bat_projectile_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_bat_projectile_afe98e2c886070fac942052f0e490d928}\index{BatProjectile@{BatProjectile}!damage@{damage}}
+\index{damage@{damage}!BatProjectile@{BatProjectile}}
+\doxysubsubsection{\texorpdfstring{damage}{damage}}
+{\footnotesize\ttfamily \label{class_bat_projectile_afe98e2c886070fac942052f0e490d928} 
+int Bat\+Projectile.\+damage = 1\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A játékosnak okozott sebzés mértéke. 
+
+\Hypertarget{class_bat_projectile_a307143979dcd863bf3f3872960dd1cc7}\index{BatProjectile@{BatProjectile}!hitMask@{hitMask}}
+\index{hitMask@{hitMask}!BatProjectile@{BatProjectile}}
+\doxysubsubsection{\texorpdfstring{hitMask}{hitMask}}
+{\footnotesize\ttfamily \label{class_bat_projectile_a307143979dcd863bf3f3872960dd1cc7} 
+Layer\+Mask Bat\+Projectile.\+hit\+Mask = \texorpdfstring{$\sim$}{\string~}0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A layermask, amivel a lövedék képes ütközni. 
+
+\Hypertarget{class_bat_projectile_a33e1b634c72d879a1c7c35b5ca17f53d}\index{BatProjectile@{BatProjectile}!lifeTime@{lifeTime}}
+\index{lifeTime@{lifeTime}!BatProjectile@{BatProjectile}}
+\doxysubsubsection{\texorpdfstring{lifeTime}{lifeTime}}
+{\footnotesize\ttfamily \label{class_bat_projectile_a33e1b634c72d879a1c7c35b5ca17f53d} 
+float Bat\+Projectile.\+life\+Time = 5f\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A lövedék maximális élettartama rásodpercben. 
+
+\Hypertarget{class_bat_projectile_a1c116a305ae304c825635d1464a767e2}\index{BatProjectile@{BatProjectile}!rb@{rb}}
+\index{rb@{rb}!BatProjectile@{BatProjectile}}
+\doxysubsubsection{\texorpdfstring{rb}{rb}}
+{\footnotesize\ttfamily \label{class_bat_projectile_a1c116a305ae304c825635d1464a767e2} 
+Rigidbody2D Bat\+Projectile.\+rb\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A lövedék fizikai testét irányító Rigidbody2D komponens. 
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_bat_projectile_8cs}{Bat\+Projectile.\+cs}}\end{DoxyCompactItemize}
