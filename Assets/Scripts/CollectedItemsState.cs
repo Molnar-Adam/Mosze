@@ -8,6 +8,11 @@ public static class CollectedItemsState
     private static int requiredItemCount = 3;
 
     /// Az eddig sikeresen felvett tárgyak ID-jának listája.
+    
+    // AI generált kód
+    //prompt: Milyen formában tudok eltárolni összegyüjtendő itemeket scenek között ID alapján?
+    //Megoldás: A HashSet garantálja, hogy egy ID csak egyszer lehet, a static pedig hogy az állapot megmarad scenek között
+    ////////////////////////////////////////////////////////////////////
     private static readonly HashSet<string> CollectedItemIds = new HashSet<string>();
 
     /// A továbbjutáshoz szükséges tárgyak azonosítói.
@@ -17,7 +22,7 @@ public static class CollectedItemsState
         "Map2_Key",
         "Map3_Key"
     };
-
+    ////////////////////////////////////////////////////////////////////
     /// Inicializálja a szükséges tárgyak listáját a megadott konfiguráció (EventConfig) alapján.
     public static void InitializeFromConfig(string[] items)
     {

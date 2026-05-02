@@ -29,6 +29,10 @@ public class RatMovement : MonoBehaviour
     public float PartolDistance;
 
     /// Kezdéskor beállítja a járőrözési pontok világkoordinátáit.
+
+    // AI generált kód
+    // prompt: Az "A" és "B" pontok mozognak a rat sprittal együtt. Oldd meg hogy fixek pozíciójuk legyen
+    // Megoldás: A script futásának az elején egy változóba eltárolja a pontok pozícióját, így már nem számít, hogy elmozdulnak.
     void Start()
     {
         if (patrolPoints == null || patrolPoints.Length < 2)
@@ -42,6 +46,10 @@ public class RatMovement : MonoBehaviour
     }
 
     /// Képkockánként kezeli a játékos követését vagy a megadott pontok közötti járőrözést.
+    
+    // AI Generált javítás
+    // Prompt: Oldd meg, hogy a rat ne tudjon túlmenni az "A" és "B" határpontokon.
+    // Megoldás: A pontok elérésekor false-ra állítja as isChasing-et, így újra patrolozni kezd.
     void Update()
     {
         if (isChasing)

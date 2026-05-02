@@ -114,6 +114,6 @@ public class DeathPanelController : MonoBehaviour
     /// Bezárja az alkalmazást.
     public void Quit()
     {
-
+        Application.Quit();
     }
 }

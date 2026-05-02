@@ -47,9 +47,12 @@ public static class SceneSpawnSystem
     /// Új jelenet betöltésekor megkeresi a beállított spawn pontot és oda transzportálja a játékost.
         isInitialized = true;
     }
-
+    // AI generált kód
+    //Prompt: írj egy olyan kódot, ami scene betöltéskor ID alapján megkeresi és odarakja a playert a keresett pontra.
+    // Megoldás: Megkeresi ID alapján a spawnpointot és Tag alapján a playert, majd odarakja és resetteli, hogy melyik spawnpointot keresi
     private static void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+    
         if (string.IsNullOrWhiteSpace(pendingSpawnId))
         {
             return;

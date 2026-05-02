@@ -127,10 +127,10 @@ public class EventManager : MonoBehaviour
 
         EnsureLeverPuzzleExists("LeverPuzzle_Scene2", 5, new List<LeverData> {
             new LeverData { leverIndex = 1, affectedLevers = new int[] { 1, 3 } },
-            new LeverData { leverIndex = 2, affectedLevers = new int[] { 2, 4, 5 } },
+            new LeverData { leverIndex = 2, affectedLevers = new int[] { 3, 5 } },
             new LeverData { leverIndex = 3, affectedLevers = new int[] { 1, 3, 5 } },
             new LeverData { leverIndex = 4, affectedLevers = new int[] { 1, 2, 4 } },
-            new LeverData { leverIndex = 5, affectedLevers = new int[] { 3, 5 } }
+            new LeverData { leverIndex = 5, affectedLevers = new int[] { 2, 4, 5 } }
         });
 
         EnsureLeverPuzzleExists("LeverPuzzle_Scene3", 5, new List<LeverData> {

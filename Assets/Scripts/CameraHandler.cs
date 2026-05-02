@@ -1,3 +1,8 @@
+//AI generált kód
+//Prompt: Találj ki egy olyan megoldást, ahol a Cinemachine kamerák között tudok váltani egy trigger objecttel.
+//Megoldás: A cinemachine kamerák prioritás szerint aktívak. A legnagyobb prioritású kamera aktív.
+//A kód leviszi az eddigi aktív kamera prioritását(10) és megnöveli a kívánt kamera prioritását(100).
+
 using UnityEngine;
 using Unity.Cinemachine;
 

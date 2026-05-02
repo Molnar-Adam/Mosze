@@ -46,6 +46,10 @@ public class PlayerMovement : MonoBehaviour
     }
 
     /// Fizikai frissítési ciklus. Ellenőrzi a sebesség változását és a visszalökődés (Knockback) állapotát.
+    
+    // AI Generált kód
+    // Prompt: A knockback felülírja a playerinputokat, találj rá valami megoldást
+    // Megoldás: Knockback egyszer triggerel és utána a fizika oldja meg a mozgást. Eddig a lineáris sebesség volt állítva. 
     private void FixedUpdate()
     {
         if(KBCounter <= 0)
