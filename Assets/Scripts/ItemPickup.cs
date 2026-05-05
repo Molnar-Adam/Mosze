@@ -102,6 +102,10 @@ public class ItemPickup : MonoBehaviour
             }
 
             timer.TriggerTimerEnd(playerTransform);
+            if (respawnLocation != null)
+            {
+                playerTransform.position = respawnLocation.position; // Utána kényszerítjük az ÚJ helyre
+            }
         }
 
         if (!CollectedItemsState.TryCollect(itemId))
