@@ -15,6 +15,9 @@ public class GrapplingHook : MonoBehaviour
     /// A behúzás sebessége.
     [SerializeField] float grappleReelSpeed = 8f;
 
+    /// A falak ellenőrzéséhez használt réteg.
+    [SerializeField] LayerMask groundLayer;
+
     /// A rögzítési pont pozíciója.
     private Vector3 grapplePoint;
     
@@ -43,8 +46,14 @@ public class GrapplingHook : MonoBehaviour
                 float distance = Vector2.Distance(transform.position, hook.transform.position);
                 if (distance <= closestDistance)
                 {
-                    closestDistance = distance;
-                    closestHook = hook;
+                    Vector2 direction = (hook.transform.position - transform.position).normalized;
+                    RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, distance, groundLayer);
+
+                    if (hit.collider == null)
+                    {
+                        closestDistance = distance;
+                        closestHook = hook;
+                    }
                 }
             }
 
@@ -80,6 +89,18 @@ public class GrapplingHook : MonoBehaviour
     {
         if (!joint.enabled)
         {
+            return;
+        }
+
+        // Ellenőrizzük megszakadt-e a rálátás a rögzítési pontra (van-e fal közöttük)
+        Vector2 direction = (grapplePoint - transform.position).normalized;
+        float distance = Vector2.Distance(transform.position, grapplePoint);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, distance, groundLayer);
+
+        if (hit.collider != null)
+        {
+            joint.enabled = false;
+            rope.enabled = false;
             return;
         }
 
