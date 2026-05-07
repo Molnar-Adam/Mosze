@@ -106,15 +106,15 @@ public class EventManager : MonoBehaviour
             EventConfig = new GameEventsConfig();
         }
 
-        if (EventConfig.dialogues.Count == 0)
+        // Megnézzük, létezik-e már a MAP3_1. Ha nem, hozzáadjuk.
+        if (!EventConfig.dialogues.Any(d => d.dialogueID == "MAP3_1"))
         {
-            EventConfig.dialogues.Add(new DialogueData { dialogueID = "PianoDialogue", lines = new string[] { "Szia!" } });
-            EventConfig.dialogues.Add(new DialogueData { dialogueID = "Papir1", lines = new string[] { "Szia!", "dasdas" } });
+            EventConfig.dialogues.Add(new DialogueData { dialogueID = "MAP3_1", lines = new string[] { "Mi ez a forróság?", "Ez már nem pince ...", "Mint egy elfeledett ősi hely a ház alatt", "♪ ♪♪ ♪♪", "Egy zongora ... Biztos vagyok benne", "De a hangja beteg ...", "Már közel járok a végéhez ... Érzem" } });
         }
-        
-        if (EventConfig.puzzles.Count == 0)
+
+        if (!EventConfig.dialogues.Any(d => d.dialogueID == "GRAPPLER"))
         {
-            EventConfig.puzzles.Add(new PuzzleData { puzzleID = "Piano", requiredPatternIndices = new int[] { 0, 1, 2 } });
+            EventConfig.dialogues.Add(new DialogueData { dialogueID = "GRAPPLER", lines = new string[] { "Egy kötél . . .", "Talán ezzel át tudok lendülni a tátongó mélységeken, melyek utamat állják", "De vigyáznom kell ... Könnyen alázuhanhatok a mélység veszedelmeibe", "[Használathoz nyomja le az L betűt a hook közelében]" } });
         }
 
         EnsureLeverPuzzleExists("LeverPuzzle_Scene1", 5, new List<LeverData> {

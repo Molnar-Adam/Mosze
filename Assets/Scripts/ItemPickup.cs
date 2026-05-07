@@ -13,6 +13,7 @@ public class ItemPickup : MonoBehaviour
     /// Az életerőt vagy a felvételt követő opcionális respawn/időzítő pozíciót tárolja.
     [SerializeField] private Transform respawnLocation;
 
+    
     private bool pickupAllowed;
     private Timer timer;
     private Transform playerTransform;
@@ -87,8 +88,12 @@ public class ItemPickup : MonoBehaviour
     private void Pickup()
     {
         ResolveTimerReference();
-    /// Időzített szoba esete
-        if (timer != null && timer.IsTimerRunning && playerTransform != null)
+        /// Időzített szoba esete
+        // ELLENŐRIZZÜK, HOGY EZ EGY GYÓGYÍTÓ TÁRGY-E
+        bool isHealItem = itemId.StartsWith("Heal");
+
+        // CSAK AKKOR NYÚLUNK A TIMERHEZ ÉS A TELEPORTHOZ, HA NEM HEAL TÁRGYRÓL VAN SZÓ
+        if (!isHealItem && timer != null && timer.IsTimerRunning && playerTransform != null)
         {
             if (respawnLocation != null)
             {
@@ -113,7 +118,7 @@ public class ItemPickup : MonoBehaviour
             return;
         }
 
-    /// "Heal" kezdetű id esetén gyógyítja a játékost
+        /// "Heal" kezdetű id esetén gyógyítja a játékost
         if (itemId.StartsWith("Heal") && playerTransform != null)
         {
             PlayerHealth playerHealth = playerTransform.GetComponent<PlayerHealth>();
