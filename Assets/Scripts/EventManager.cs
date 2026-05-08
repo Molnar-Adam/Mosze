@@ -106,6 +106,16 @@ public class EventManager : MonoBehaviour
             EventConfig = new GameEventsConfig();
         }
 
+        if (!EventConfig.dialogues.Any(d => d.dialogueID == "MAP1_1"))
+        {
+            EventConfig.dialogues.Add(new DialogueData { dialogueID = "MAP1_1", lines = new string[] { "Mi történt? . . . Hova kerültem?", "Csak egy billentyű után nyúltam . . . aztán hirtelen a mélység magával rántott", "Hol a kivezető út? Egyszerűen köddé vált . . .", "Valami nincs rendben ezzel a hellyel . . . Bajlós előérzetem van", "Minél előbb ki kell jussak innen . . . De csak mélyebbre tudok menni" } });
+        }
+
+        if (!EventConfig.dialogues.Any(d => d.dialogueID == "MAP2_1"))
+        {
+            EventConfig.dialogues.Add(new DialogueData { dialogueID = "MAP2_1", lines = new string[] { "Egy új szintre érkeztem . . . A falak hidegek és nyirkosak", "Olyan érzésem van minél tovább jutok annál több veszély fenyeget", "Nem árt ha felkészülök a legrosszabbra . . ." } });
+        }
+
         // Megnézzük, létezik-e már a MAP3_1. Ha nem, hozzáadjuk.
         if (!EventConfig.dialogues.Any(d => d.dialogueID == "MAP3_1"))
         {
@@ -120,6 +130,16 @@ public class EventManager : MonoBehaviour
         if (!EventConfig.dialogues.Any(d => d.dialogueID == "GRAPPLER_INST"))
         {
             EventConfig.dialogues.Add(new DialogueData { dialogueID = "GRAPPLER_INST", lines = new string[] { "[Használathoz nyomja le az L betűt a hook közelében]" } });
+        }
+
+        if (!EventConfig.dialogues.Any(d => d.dialogueID == "KEY_1"))
+        {
+            EventConfig.dialogues.Add(new DialogueData { dialogueID = "KEY_1", lines = new string[] { "Ez . . . egy zongorabillentyű? Ilyen mélyen a ház alatt?", "Mégis mihez kezdhetnék egyetlen billentyűvel ebben a káoszban?", "Lehet meg több is lesz . . . Tovább kell haladnom" } });
+        }
+
+        if (!EventConfig.dialogues.Any(d => d.dialogueID == "KEY_2"))
+        {
+            EventConfig.dialogues.Add(new DialogueData { dialogueID = "KEY_2", lines = new string[] { "Már a második . . . Ez nem lehet véletlen. Mintha szándékosan lennének itt elszórva", "♫ ♫ ♪♪ ♪♪ ♫", "Valaki zenél itt lent? . . . Talán csak a huzat fütyül a folyosókon", "Jobb ha folytatom az utam" } });
         }
 
         if (!EventConfig.dialogues.Any(d => d.dialogueID == "KEY_3"))
