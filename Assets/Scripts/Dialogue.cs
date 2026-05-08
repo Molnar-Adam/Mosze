@@ -84,22 +84,21 @@ public class Dialogue : MonoBehaviour
 
     private void Update()
     {
+        // Ha nem megy a dialógus, csak az indítást figyeljük
         if (!dialogueStarted)
         {
             if (!manualTriggerOnly && isPlayerInRange && requireInteractKey && !hasTriggered)
             {
                 if (Input.GetKeyDown(interactKey))
                 {
-                    if (interactUI != null)
-                    {
-                        interactUI.SetActive(false);
-                    }
+                    if (interactUI != null) interactUI.SetActive(false);
                     TriggerDialogue(false);
                 }
             }
-            return;
+            return; // Ha nincs dialógus, itt megáll a kód
         }
 
+        // HA PEDIG MEGY A DIALÓGUS (dialogueStarted == true), akkor jön a léptetés:
         if (Input.GetMouseButtonDown(0))
         {
             if (textComponent.text == lines[index])
@@ -189,12 +188,24 @@ public class Dialogue : MonoBehaviour
         requireInteractKey = !enabled;
     }
 
-    void StartDialogue()
+    public void StartDialogue()
     {
-        dialogueStarted = true;
-        index = 0;
+        // Megállítunk minden futó gépelést, hogy ne legyen duplázódás
+        StopAllCoroutines();
         textComponent.text = string.Empty;
-        StartCoroutine(TypeLine());
+
+        lines = EventManager.Instance.GetDialogueLines(dialogueID);
+
+        if (lines != null && lines.Length > 0)
+        {
+            dialogueBox.SetActive(true);
+            index = 0;
+
+            // EZT A SORT ADDD HOZZÁ (vagy ellenőrizd):
+            dialogueStarted = true;
+
+            StartCoroutine(TypeLine());
+        }
     }
 
     IEnumerator TypeLine()
@@ -222,6 +233,12 @@ public class Dialogue : MonoBehaviour
             if (dialogueBox != null)
             {
                 dialogueBox.SetActive(false);
+            }
+
+            ItemPickup item = GetComponent<ItemPickup>();
+            if (item != null)
+            {
+                item.RealPickupLogic();
             }
         }
     }

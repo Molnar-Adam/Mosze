@@ -13,15 +13,20 @@ public class ItemPickup : MonoBehaviour
     /// Az életerőt vagy a felvételt követő opcionális respawn/időzítő pozíciót tárolja.
     [SerializeField] private Transform respawnLocation;
 
-    
+    [SerializeField] private GameObject doorToOpen;
+
+
     private bool pickupAllowed;
     private Timer timer;
     private Transform playerTransform;
+    private Dialogue dialogueScript;
 
     /// Végrehajtódik közvetlenül az inicializáció kezdetén. Lekéri a Timer referenciát.
     private void Awake()
     {
         ResolveTimerReference();
+        // Megkeressük a Dialogue szkriptet ugyanazon az objektumon
+        dialogueScript = GetComponent<Dialogue>();
     }
 
     /// Elrejti a prompt szöveget, és eltávolítja a tárgyat, ha már korábban felvették.
@@ -87,12 +92,42 @@ public class ItemPickup : MonoBehaviour
 
     private void Pickup()
     {
+        // Megnézzük, van-e Dialogue szkript ezen a tárgyon
+        Dialogue dialogueScript = GetComponent<Dialogue>();
+
+        if (dialogueScript != null)
+        {
+            // 1. Elindítjuk a szöveget
+            dialogueScript.StartDialogue();
+
+            // 2. ELTÜNTETJÜK a kötelet a szemünk elől (kép és ütközés kikapcsolása)
+            if (GetComponent<SpriteRenderer>() != null)
+                GetComponent<SpriteRenderer>().enabled = false;
+
+            if (GetComponent<Collider2D>() != null)
+                GetComponent<Collider2D>().enabled = false;
+
+            // 3. A "Nyomd meg az E-t" szöveget is levesszük
+            if (PickupText != null)
+                PickupText.gameObject.SetActive(false);
+
+            // Itt megállunk! Nem hívunk Destroy-t, mert a Dialogue.cs fogja 
+            // meghívni a RealPickupLogic-ot, ha vége a szövegnek.
+            return;
+        }
+
+        // Ha nincs rajta dialógus, akkor azonnal lefut a rendes logika
+        RealPickupLogic();
+    }
+
+    /// Ez a függvény végzi el a tényleges felvételt, miután a szöveg lement (vagy ha nincs szöveg).
+    public void RealPickupLogic()
+    {
         ResolveTimerReference();
-        /// Időzített szoba esete
-        // ELLENŐRIZZÜK, HOGY EZ EGY GYÓGYÍTÓ TÁRGY-E
+
         bool isHealItem = itemId.StartsWith("Heal");
 
-        // CSAK AKKOR NYÚLUNK A TIMERHEZ ÉS A TELEPORTHOZ, HA NEM HEAL TÁRGYRÓL VAN SZÓ
+        // Időzített szoba és teleport kezelése
         if (!isHealItem && timer != null && timer.IsTimerRunning && playerTransform != null)
         {
             if (respawnLocation != null)
@@ -107,19 +142,22 @@ public class ItemPickup : MonoBehaviour
             }
 
             timer.TriggerTimerEnd(playerTransform);
-            if (respawnLocation != null)
-            {
-                playerTransform.position = respawnLocation.position; // Utána kényszerítjük az ÚJ helyre
-            }
         }
 
+        // Tárgy mentése a rendszerbe
         if (!CollectedItemsState.TryCollect(itemId))
         {
             return;
         }
 
-        /// "Heal" kezdetű id esetén gyógyítja a játékost
-        if (itemId.StartsWith("Heal") && playerTransform != null)
+        // Ajtónyitás, ha van hozzárendelve fal
+        if (doorToOpen != null)
+        {
+            doorToOpen.SetActive(false);
+        }
+
+        // Gyógyítás
+        if (isHealItem && playerTransform != null)
         {
             PlayerHealth playerHealth = playerTransform.GetComponent<PlayerHealth>();
             if (playerHealth != null)
@@ -130,10 +168,10 @@ public class ItemPickup : MonoBehaviour
 
         if (PickupText != null)
         {
-    /// Megkeresi és beállítja a Timer objektum referenciáját, ha még nincs megadva.
             PickupText.gameObject.SetActive(false);
         }
 
+        // Végleg töröljük az objektumot
         Destroy(gameObject);
     }
 

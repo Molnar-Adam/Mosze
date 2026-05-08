@@ -117,6 +117,16 @@ public class EventManager : MonoBehaviour
             EventConfig.dialogues.Add(new DialogueData { dialogueID = "GRAPPLER", lines = new string[] { "Egy kötél . . .", "Talán ezzel át tudok lendülni a tátongó mélységeken, melyek utamat állják", "De vigyáznom kell ... Könnyen alázuhanhatok a mélység veszedelmeibe", "[Használathoz nyomja le az L betűt a hook közelében]" } });
         }
 
+        if (!EventConfig.dialogues.Any(d => d.dialogueID == "GRAPPLER_INST"))
+        {
+            EventConfig.dialogues.Add(new DialogueData { dialogueID = "GRAPPLER_INST", lines = new string[] { "[Használathoz nyomja le az L betűt a hook közelében]" } });
+        }
+
+        if (!EventConfig.dialogues.Any(d => d.dialogueID == "KEY_3"))
+        {
+            EventConfig.dialogues.Add(new DialogueData { dialogueID = "KEY_3", lines = new string[] { "Az utolsó darab . . . Már közel járok a kiúthoz", "Ideje pontot tenni ennek a rémálomnak a végére . . .", "Meg kell találnom a zongorát . . ." } });
+        }
+
         EnsureLeverPuzzleExists("LeverPuzzle_Scene1", 5, new List<LeverData> {
             new LeverData { leverIndex = 1, affectedLevers = new int[] { 1, 2 } },
             new LeverData { leverIndex = 2, affectedLevers = new int[] { 1, 2, 3 } },
