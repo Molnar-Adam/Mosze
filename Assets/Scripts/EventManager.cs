@@ -113,7 +113,7 @@ public class EventManager : MonoBehaviour
 
         if (!EventConfig.dialogues.Any(d => d.dialogueID == "MAP2_1"))
         {
-            EventConfig.dialogues.Add(new DialogueData { dialogueID = "MAP2_1", lines = new string[] { "Egy új szintre érkeztem . . . A falak hidegek és nyirkosak", "Olyan érzésem van minél tovább jutok annál több veszély fenyeget", "Nem árt ha felkészülök a legrosszabbra . . ." } });
+            EventConfig.dialogues.Add(new DialogueData { dialogueID = "MAP2_1", lines = new string[] { "Egy új szintre érkeztem . . . A falak hidegek és nyirkosak", "Olyan érzésem van minél tovább jutok annál több veszély fenyeget", "Nem árt ha felkészülök a legrosszabbra . . .", "A repedezett részek nem tűnnek túl stabilnak, jobb ha állok azokon túl sokáig" } });
         }
 
         // Megnézzük, létezik-e már a MAP3_1. Ha nem, hozzáadjuk.
