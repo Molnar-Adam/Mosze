@@ -2,6 +2,21 @@
 
 Ez a projekt egy 2D platformer, amely tartalmazza a modern platformer játékok elengedhetetlen funkcióit: precíz irányítást, csáklya-mechanikát, ellenséges AI-t, valamint egy robusztus szintváltó rendszert.
 
+Szkeleton:
+A futtatható verzió (.exe) elérhető a GitHub repository Release szekciójában a "Szkeleton" tag alatt.
+
+## Pályák és Assetek elérése
+
+A specifikációban tárgyalt pályák manuálisan kerültek felépítésre a Unity Editorban. A játékban ezek a pályák elérhetőek és játszhatóak, a projekt fájlrendszerében pedig a következő útvonalakon találhatóak meg (Unity Scene fájlok formájában):
+
+- **Főmenü:** `Assets/Scenes/Menu.unity`
+- **1. Pálya:** `Assets/Scenes/Map 1.unity`
+- **2. Pálya:** `Assets/Scenes/Map 2.unity`
+- **3. Pálya:** `Assets/Scenes/Map 3.unity`
+- **Szövegeket és puzzle megoldásokat tároló fájl** `C:\Felhasználók\Saját felhasználó\AppData\LocalLow\Unityben beállított cégnév (alapból: DefaultCompany)\Projektmappa neve (alapból: Mosze)`
+
+A pályákat felépítő vizuális és interaktív elemek (prefabok, sprite-ok, stb.) az `Assets/Prefabs/` és `Assets/Sprites/` mappákban találhatóak.
+Jelenleg még néhány asset unity asset storeból letöltött és placeholderként működik.
 
 
 ## Funkciók
@@ -128,16 +143,5 @@ Packages: \* Unity Input System
 * Unity Cinemachine
 * TextMeshPro
 
-## Pályák és Assetek elérése (Labirintus Dokumentáció)
-
-A specifikációban tárgyalt pályák (labirintusok) manuálisan kerültek felépítésre a Unity Editorban. A játékban ezek a pályák elérhetőek és játszhatóak, a projekt fájlrendszerében pedig a következő útvonalakon találhatóak meg (Unity Scene fájlok formájában):
-
-- **Főmenü:** `Assets/Scenes/Menu.unity`
-- **1. Pálya:** `Assets/Scenes/Map 1.unity`
-- **2. Pálya:** `Assets/Scenes/Map 2.unity`
-- **3. Pálya:** `Assets/Scenes/Map 3.unity`
-
-A pályákat felépítő vizuális és interaktív elemek (prefabok, sprite-ok, stb.) az `Assets/Prefabs/` és `Assets/Sprites/` mappákban találhatóak.
-Jelenleg még néhány asset unity asset storeból letöltött és placeholderként működik.
 
 

@@ -2654,6 +2654,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2349361775052849992, guid: 329eacee9cbe0fc48a61eafcf8190d1a, type: 3}
   m_PrefabInstance: {fileID: 438968041}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &440572241 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8250138312122893404, guid: c51653e9c93d88f43a0b50fffe96522c, type: 3}
+  m_PrefabInstance: {fileID: 686127417}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!114 &447626995 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 917510982742801684, guid: 210ff84f99276c841b2f5be6216ba50c, type: 3}
@@ -5759,7 +5770,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7da3c5b13a72704185e0cc2dc28a814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: NewAssembly::Timer
-  TimerText: {fileID: 0}
+  TimerText: {fileID: 440572241}
   countdownSeconds: 15
   respawnLocation: {fileID: 326940490}
   playerTag: Player
@@ -8351,11 +8362,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3578670954128448149, guid: aecd3fda6041adb469b2edfe96e66cd8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.5
+      value: -5.39
       objectReference: {fileID: 0}
     - target: {fileID: 3578670954128448149, guid: aecd3fda6041adb469b2edfe96e66cd8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.15
+      value: -3.14
       objectReference: {fileID: 0}
     - target: {fileID: 3578670954128448149, guid: aecd3fda6041adb469b2edfe96e66cd8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8544,7 +8555,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: NewAssembly::CameraHandler
   roomCamera: {fileID: 1010299905}
-  disablecamera: {fileID: 0}
+  disablecamera: {fileID: 1010299905}
   activePriority: 100
   inactivePriority: 10
 --- !u!61 &1577541599
