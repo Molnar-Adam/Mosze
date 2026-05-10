@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour
         public void PlayGame()
         {
                 GameStateResetter.ResetGameState();
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                SceneManager.LoadScene("Map 1");
         }
 
         /// Kilép a játékból.
