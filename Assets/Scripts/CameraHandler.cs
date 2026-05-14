@@ -28,8 +28,16 @@ public class CameraHandler : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            roomCamera.Priority = activePriority;   
-            disablecamera.Priority = inactivePriority;
+            // Ellenőrizzük, hogy a kamerák léteznek-e, mielőtt állítjuk a prioritást
+            if (roomCamera != null)
+            {
+                roomCamera.Priority = activePriority;
+            }
+
+            if (disablecamera != null)
+            {
+                disablecamera.Priority = inactivePriority;
+            }
         }
     }
 }

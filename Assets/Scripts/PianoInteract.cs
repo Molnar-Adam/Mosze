@@ -48,6 +48,7 @@ public class PianoInteract : MonoBehaviour
         if (requirementDialogue != null)
         {
             requirementDialogue.SetManualTriggerOnly(true);
+            requirementDialogue.OnDialogueFinished += OnPianoDialogueFinished;
         }
 
         if (interactText != null)
@@ -58,6 +59,25 @@ public class PianoInteract : MonoBehaviour
         if (pianoUI != null)
         {
             pianoUI.SetActive(false);
+        }
+    }
+
+    private void OnPianoDialogueFinished()
+    {
+        if (CollectedItemsState.CollectedCount >= CollectedItemsState.RequiredItemCount)
+        {
+            if (pianoUI != null)
+            {
+                pianoUI.SetActive(true);
+                isOpen = true;
+                IsAnyPianoUIOpen = true;
+                Time.timeScale = 0f;
+
+                if (interactText != null)
+                {
+                    interactText.gameObject.SetActive(false);
+                }
+            }
         }
     }
 
@@ -128,30 +148,33 @@ public class PianoInteract : MonoBehaviour
             return;
         }
 
-        if (CollectedItemsState.CollectedCount < CollectedItemsState.RequiredItemCount)
+        if (requirementDialogue != null)
         {
-            if (requirementDialogue != null)
+            if (CollectedItemsState.CollectedCount < CollectedItemsState.RequiredItemCount)
             {
-                requirementDialogue.TriggerDialogue();
+                requirementDialogue.SetDialogueID("PIANO_MISSING_KEYS");
             }
-
-            return;
+            else
+            {
+                requirementDialogue.SetDialogueID("PIANO_HAS_KEYS");
+            }
+            requirementDialogue.TriggerDialogue();
         }
-
-        if (pianoUI == null)
+        else if (CollectedItemsState.CollectedCount >= CollectedItemsState.RequiredItemCount)
         {
-            return;
-        }
+            // Fallback for missing dialogue component
+            if (pianoUI != null)
+            {
+                pianoUI.SetActive(true);
+                isOpen = true;
+                IsAnyPianoUIOpen = true;
+                Time.timeScale = 0f;
 
-        pianoUI.SetActive(true);
-    /// Bezárja a zongora UI képernyőjét és elindítja újra az időt.
-        isOpen = true;
-        IsAnyPianoUIOpen = true;
-        Time.timeScale = 0f;
-
-        if (interactText != null)
-        {
-            interactText.gameObject.SetActive(false);
+                if (interactText != null)
+                {
+                    interactText.gameObject.SetActive(false);
+                }
+            }
         }
     }
 
@@ -210,6 +233,14 @@ public class PianoInteract : MonoBehaviour
         IsAnyPianoUIOpen = false;
         LastPianoClosedWithEscapeFrame = -1;
         Time.timeScale = 1f;
+    }
+
+    private void OnDestroy()
+    {
+        if (requirementDialogue != null)
+        {
+            requirementDialogue.OnDialogueFinished -= OnPianoDialogueFinished;
+        }
     }
 
     private void OnDisable()

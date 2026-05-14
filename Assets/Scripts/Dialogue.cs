@@ -2,6 +2,8 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 
+    using System;
+
 /// A játékban megjelenő dialógusokat és szövegdobozokat kezelő osztály.
 /// Figyeli, hogy a játékos közel van-e, és kiírja a sorokat egymás után a képernyőre.
 public class Dialogue : MonoBehaviour
@@ -14,6 +16,11 @@ public class Dialogue : MonoBehaviour
 
     /// Maga a szövegdoboz és a háttere, amit be- és ki lehet kapcsolni.
     [SerializeField] private GameObject dialogueBox;
+
+    public void SetDialogueID(string id)
+    {
+        dialogueID = id;
+    }
 
     /// A Trigger terület, amibe belépve elindítható a szöveg.
     [SerializeField] private Collider2D triggerCollider;
@@ -30,6 +37,9 @@ public class Dialogue : MonoBehaviour
 
     /// Az a kis felugró grafika, ami a beszélgetés előtt jelenik meg.
     [SerializeField] private GameObject interactUI;
+
+    /// Esemény, ami kiváltódik a dialógus végén.
+    public Action OnDialogueFinished;
 
     /// A párbeszéd sorai, amelyeket egymás után ír ki. Ha az EventManagerben van beállítva, felülírásra kerül.
     public string[] lines;
@@ -240,6 +250,8 @@ public class Dialogue : MonoBehaviour
             {
                 item.RealPickupLogic();
             }
+
+            OnDialogueFinished?.Invoke();
         }
     }
 }

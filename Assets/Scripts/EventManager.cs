@@ -147,6 +147,16 @@ public class EventManager : MonoBehaviour
             EventConfig.dialogues.Add(new DialogueData { dialogueID = "KEY_3", lines = new string[] { "Az utolsó darab . . . Már közel járok a kiúthoz", "Ideje pontot tenni ennek a rémálomnak a végére . . .", "Meg kell találnom a zongorát . . ." } });
         }
 
+        if (!EventConfig.dialogues.Any(d => d.dialogueID == "PIANO_MISSING_KEYS"))
+        {
+            EventConfig.dialogues.Add(new DialogueData { dialogueID = "PIANO_MISSING_KEYS", lines = new string[] { "Valamelyik billentyű hiányzik . . . ", "Mintha még keresnem kéne párat . . ." } });
+        }
+
+        if (!EventConfig.dialogues.Any(d => d.dialogueID == "PIANO_HAS_KEYS"))
+        {
+            EventConfig.dialogues.Add(new DialogueData { dialogueID = "PIANO_HAS_KEYS", lines = new string[] { "Megvannak a billentyűk . . .", "Ideje eljátszani a dallamot . . ." } });
+        }
+
         EnsureLeverPuzzleExists("LeverPuzzle_Scene1", 5, new List<LeverData> {
             new LeverData { leverIndex = 1, affectedLevers = new int[] { 1, 2 } },
             new LeverData { leverIndex = 2, affectedLevers = new int[] { 1, 2, 3 } },

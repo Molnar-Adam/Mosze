@@ -102,7 +102,7 @@ public class DeathPanelController : MonoBehaviour
     public void Retry()
     {
         GameStateResetter.ResetGameState();
-        SceneManager.LoadScene(1); 
+        SceneManager.LoadScene("Map1"); 
     }
 
     /// Visszatér a főmenübe.
