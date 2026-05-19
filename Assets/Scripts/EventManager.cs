@@ -113,13 +113,13 @@ public class EventManager : MonoBehaviour
 
         if (!EventConfig.dialogues.Any(d => d.dialogueID == "MAP2_1"))
         {
-            EventConfig.dialogues.Add(new DialogueData { dialogueID = "MAP2_1", lines = new string[] { "Egy új szintre érkeztem . . . A falak hidegek és nyirkosak", "Olyan érzésem van minél tovább jutok annál több veszély fenyeget", "Nem árt ha felkészülök a legrosszabbra . . .", "A repedezett részek nem tűnnek túl stabilnak, jobb ha állok azokon túl sokáig" } });
+            EventConfig.dialogues.Add(new DialogueData { dialogueID = "MAP2_1", lines = new string[] { "Egy új szintre érkeztem . . . A falak hidegek és nyirkosak", "Olyan érzésem van minél tovább jutok annál több veszély fenyeget", "Nem árt ha felkészülök a legrosszabbra . . .", "A repedezett részek nem tűnnek túl stabilnak, jobb ha nem állok azokon túl sokáig" } });
         }
 
         // Megnézzük, létezik-e már a MAP3_1. Ha nem, hozzáadjuk.
         if (!EventConfig.dialogues.Any(d => d.dialogueID == "MAP3_1"))
         {
-            EventConfig.dialogues.Add(new DialogueData { dialogueID = "MAP3_1", lines = new string[] { "Mi ez a forróság?", "Ez már nem pince ...", "Mint egy elfeledett ősi hely a ház alatt", "♪ ♪♪ ♪♪", "Egy zongora ... Biztos vagyok benne", "De a hangja beteg ...", "Már közel járok a végéhez ... Érzem" } });
+            EventConfig.dialogues.Add(new DialogueData { dialogueID = "MAP3_1", lines = new string[] { "Mi ez a forróság?", "Ez már nem pince ...", "Mint egy rég elfeledett hely a ház alatt", "♪ ♪♪ ♪♪ ♪♪ ♪ ♪♪ ♪♪ ♪♪ ♪ ♪ ♪♪", "Egy zongora ... Biztos vagyok benne", "De a hangja beteg ...", "Már közel járok a végéhez ... Érzem" } });
         }
 
         if (!EventConfig.dialogues.Any(d => d.dialogueID == "GRAPPLER"))

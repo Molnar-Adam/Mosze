@@ -1283,6 +1283,8 @@ MonoBehaviour:
   textComponent: {fileID: 1220695297}
   dialogueID: MAP1_1
   dialogueBox: {fileID: 1220695298}
+  dialogueBackgroundImage: {fileID: 0}
+  mapSpecificBackground: {fileID: 0}
   triggerCollider: {fileID: 216127246}
   requireInteractKey: 1
   manualTriggerOnly: 0
@@ -6560,6 +6562,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 324605382}
     m_Modifications:
+    - target: {fileID: 2593936666830999593, guid: 64a168e8af7f3704c9e37a075df27dcd, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2593936666830999593, guid: 64a168e8af7f3704c9e37a075df27dcd, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 8265754031889383455, guid: f3f2be1beb8d2bb4e8e76c08ab872ecf, type: 3}
     - target: {fileID: 3796409943578521980, guid: 64a168e8af7f3704c9e37a075df27dcd, type: 3}
       propertyPath: m_Name
       value: DialogueBox
@@ -6659,6 +6669,46 @@ PrefabInstance:
     - target: {fileID: 7066113171518952772, guid: 64a168e8af7f3704c9e37a075df27dcd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7118298325498135322, guid: 64a168e8af7f3704c9e37a075df27dcd, type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7118298325498135322, guid: 64a168e8af7f3704c9e37a075df27dcd, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 2530050b368cb2648bbd8af2dc13cd52, type: 2}
+    - target: {fileID: 7118298325498135322, guid: 64a168e8af7f3704c9e37a075df27dcd, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7118298325498135322, guid: 64a168e8af7f3704c9e37a075df27dcd, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7697794487580297702, guid: 64a168e8af7f3704c9e37a075df27dcd, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7697794487580297702, guid: 64a168e8af7f3704c9e37a075df27dcd, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7697794487580297702, guid: 64a168e8af7f3704c9e37a075df27dcd, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -440
+      objectReference: {fileID: 0}
+    - target: {fileID: 7697794487580297702, guid: 64a168e8af7f3704c9e37a075df27dcd, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 340
+      objectReference: {fileID: 0}
+    - target: {fileID: 7697794487580297702, guid: 64a168e8af7f3704c9e37a075df27dcd, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7697794487580297702, guid: 64a168e8af7f3704c9e37a075df27dcd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -35
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21403,6 +21453,8 @@ MonoBehaviour:
   textComponent: {fileID: 1220695297}
   dialogueID: KEY_1
   dialogueBox: {fileID: 1220695298}
+  dialogueBackgroundImage: {fileID: 0}
+  mapSpecificBackground: {fileID: 0}
   triggerCollider: {fileID: 1799033532}
   requireInteractKey: 1
   manualTriggerOnly: 0

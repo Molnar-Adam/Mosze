@@ -17,6 +17,13 @@ public class Dialogue : MonoBehaviour
     /// Maga a szövegdoboz és a háttere, amit be- és ki lehet kapcsolni.
     [SerializeField] private GameObject dialogueBox;
 
+    [Header("Map Specific Background")]
+    /// A dialógusdoboz hátterét megjelenítő Image komponens.
+    [SerializeField] private UnityEngine.UI.Image dialogueBackgroundImage;
+
+    /// A pálya-specifikus háttérkép.
+    [SerializeField] private Sprite mapSpecificBackground;
+
     public void SetDialogueID(string id)
     {
         dialogueID = id;
@@ -208,6 +215,11 @@ public class Dialogue : MonoBehaviour
 
         if (lines != null && lines.Length > 0)
         {
+            if (dialogueBackgroundImage != null && mapSpecificBackground != null)
+            {
+                dialogueBackgroundImage.sprite = mapSpecificBackground;
+            }
+
             dialogueBox.SetActive(true);
             index = 0;
 
