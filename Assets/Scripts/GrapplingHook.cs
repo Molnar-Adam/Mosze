@@ -35,6 +35,12 @@ public class GrapplingHook : MonoBehaviour
     /// Gombnyomásra megkeresi a legközelebbi Hook-ot és kilövi a csáklyát.
     void Update()
     {
+        // Csak akkor használhatja a kötelet, ha már felvette a tárgyat
+        if (!CollectedItemsState.IsCollected("Rope"))
+        {
+            return;
+        }
+
         if(Input.GetKeyDown(KeyCode.L))
         {
             GameObject[] hooks = GameObject.FindGameObjectsWithTag("Hook");
