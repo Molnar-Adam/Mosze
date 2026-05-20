@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb;
     private Collider2D playerCollider;
+    private Animator animator;
     private readonly RaycastHit2D[] groundHits = new RaycastHit2D[8];
     private float horizontalInput;
 
@@ -43,6 +44,41 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         playerCollider = GetComponent<Collider2D>();
+        animator = GetComponent<Animator>();
+    }
+
+    private void Update()
+    {
+        FlipSprite();
+
+        if (animator == null) return;
+
+        // Ha a játékos a levegőben van, akkor idle animáció fut
+        if (!IsGrounded())
+        {
+            animator.SetFloat("Speed", 0f);
+        }
+        else if (Mathf.Abs(HorizontalInput) > 0.01f && KBCounter <= 0)
+        {
+            animator.SetFloat("Speed", Mathf.Abs(HorizontalInput));
+        }
+        else
+        {
+            animator.SetFloat("Speed", 0f);
+        }
+    }
+
+    /// A karakter spriteot jobbra-balra forgatja
+    private void FlipSprite()
+    {
+        if (HorizontalInput > 0f)
+        {
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
+        else if (HorizontalInput < 0f)
+        {
+            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
     }
 
     /// Fizikai frissítési ciklus. Ellenőrzi a sebesség változását és a visszalökődés (Knockback) állapotát.
