@@ -124,7 +124,7 @@ public class EventManager : MonoBehaviour
 
         if (!EventConfig.dialogues.Any(d => d.dialogueID == "GRAPPLER"))
         {
-            EventConfig.dialogues.Add(new DialogueData { dialogueID = "GRAPPLER", lines = new string[] { "Egy kötél . . .", "Talán ezzel át tudok lendülni a tátongó mélységeken, melyek utamat állják", "De vigyáznom kell ... Könnyen alázuhanhatok a mélység veszedelmeibe", "Használathoz nyomja le az L betűt a hook közelében" } });
+            EventConfig.dialogues.Add(new DialogueData { dialogueID = "GRAPPLER", lines = new string[] { "Egy kötél . . .", "Talán ezzel át tudok lendülni a tátongó mélységeken, melyek utamat állják", "De vigyáznom kell ... Könnyen alázuhanhatok a mélység veszedelmeibe" } });
         }
 
         if (!EventConfig.dialogues.Any(d => d.dialogueID == "GRAPPLER_INST"))
