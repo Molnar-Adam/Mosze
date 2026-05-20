@@ -53,8 +53,13 @@ public class PlayerMovement : MonoBehaviour
 
         if (animator == null) return;
 
+        bool isGrounded = IsGrounded();
+        
+        // Pass the jumping state to the animator
+        animator.SetBool("isJumping", !isGrounded);
+
         // Ha a játékos a levegőben van, akkor idle animáció fut
-        if (!IsGrounded())
+        if (!isGrounded)
         {
             animator.SetFloat("Speed", 0f);
         }
