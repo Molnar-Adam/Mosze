@@ -13,9 +13,31 @@ public class LightSwitch : MonoBehaviour
     /// A játékos pozíciója.
     private Transform playerTransform;
 
+    /// Annak az objektumnak a globális azonosítója (pl. egy másik pályán), amit el akarunk pusztítani a kapcsoló meghúzásakor.
+    [SerializeField] private string targetObjectToDestroy;
+
+    /// A teleportálás célállomása (hova kerüljön a játékos a kar meghúzása után).
+    [SerializeField] private Transform teleportDestination;
+
+    /// A kapcsoló grafikus megjelenítője.
+    [SerializeField] private SpriteRenderer spriteRenderer;
+
+    /// Kikapcsolt állapot (alap) képe.
+    [SerializeField] private Sprite offSprite;
+
+    /// Bekapcsolt állapot képe.
+    [SerializeField] private Sprite onSprite;
+
     /// Kezdetben elrejti az interakciós feliratot.
     private void Start()
     {
+        if (spriteRenderer == null)
+        {
+            spriteRenderer = GetComponent<SpriteRenderer>();
+        }
+
+        UpdateSprite();
+
         if (InteractText != null)
         {
             InteractText.gameObject.SetActive(false);
@@ -68,11 +90,33 @@ public class LightSwitch : MonoBehaviour
 
     public void PullLever()
     {
+        // Igény szerint kapcsolóként (ki-be) is működhetne: GameState.powerOn = !GameState.powerOn;
         GameState.powerOn = true;
         Debug.Log("Power ON");
+
+        UpdateSprite();
+
+        // Ha meg van adva egy célállomás, oda teleportáljuk a játékost.
+        if (teleportDestination != null && playerTransform != null)
+        {
+            playerTransform.position = teleportDestination.position;
+        }
+
+        // Regisztráljuk, hogy ezt az objektumot "megsemmisítettük", így ha átmegyünk a másik pályára, eltűnhet.
+        if (!string.IsNullOrEmpty(targetObjectToDestroy))
+        {
+            GameState.destroyedObjects.Add(targetObjectToDestroy);
+        }
     }
 
-    
+    /// Frissíti a sprite-ot a GameState.powerOn globális állapot alapján.
+    private void UpdateSprite()
+    {
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.sprite = GameState.powerOn ? onSprite : offSprite;
+        }
+    }
 
 }
 

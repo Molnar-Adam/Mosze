@@ -16,7 +16,6 @@ A specifikációban tárgyalt pályák manuálisan kerültek felépítésre a Un
 - **Szövegeket és puzzle megoldásokat tároló fájl** `C:\Felhasználók\Saját felhasználó\AppData\LocalLow\Unityben beállított cégnév (alapból: DefaultCompany)\Projektmappa neve (alapból: Mosze)`
 
 A pályákat felépítő vizuális és interaktív elemek (prefabok, sprite-ok, stb.) az `Assets/Prefabs/` és `Assets/Sprites/` mappákban találhatóak.
-Jelenleg még néhány asset unity asset storeból letöltött és placeholderként működik.
 
 
 ## Funkciók

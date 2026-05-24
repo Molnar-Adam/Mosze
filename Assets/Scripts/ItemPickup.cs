@@ -10,7 +10,7 @@ public class ItemPickup : MonoBehaviour
     /// A felvehető tárgy egyedi azonosítója a mentési rendszer felé.
     [SerializeField] private string itemId;
     
-    /// Az életerőt vagy a felvételt követő opcionális respawn/időzítő pozíciót tárolja.
+    /// Az idő lejártát vagy a felvételt követő opcionális respawn/időzítő pozíciót tárolja.
     [SerializeField] private Transform respawnLocation;
 
     [SerializeField] private GameObject doorToOpen;

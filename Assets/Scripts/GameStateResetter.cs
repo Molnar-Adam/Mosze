@@ -13,6 +13,9 @@ public static class GameStateResetter
         CollectedItemsState.ResetProgress();
         LeverPuzzleSwitch.ResetPuzzleState();
         PianoPuzzle.ResetPuzzleState();
+        
+        GameState.powerOn = false;
+        GameState.destroyedObjects.Clear();
 
         Time.timeScale = 1f;
     }

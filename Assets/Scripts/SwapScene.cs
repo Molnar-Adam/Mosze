@@ -10,6 +10,9 @@ public class SwapScene : MonoBehaviour
     /// A céljelenetben lévő spawn pont azonosítója.
     [SerializeField] private string targetSpawnId;
 
+    /// A céljelenetben alapértelmezettként aktiválni kívánt kamera (GameObject) neve.
+    [SerializeField] private string targetCameraName;
+
     /// A játékos objektum címkéje, amely aktiválhatja az átmenetet.
     [SerializeField] private string playerTag = "Player";
     
@@ -39,7 +42,7 @@ public class SwapScene : MonoBehaviour
 		}
 
 		wasTriggered = true;
-		SceneSpawnSystem.SetNextSpawn(targetSpawnId, playerTag);
+		SceneSpawnSystem.SetNextSpawn(targetSpawnId, playerTag, targetCameraName);
 		SceneManager.LoadScene(targetSceneName);
 	}
 }

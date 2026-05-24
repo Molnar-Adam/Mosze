@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Unity.Cinemachine;
 
 /// A jelenetváltások utáni pontos spawnolást statikusan kezelő rendszer.
 public static class SceneSpawnSystem
@@ -10,13 +11,17 @@ public static class SceneSpawnSystem
     /// A teleportálandó játékos címkéje.
     private static string pendingPlayerTag = "Player";
     
+    /// A következő jelenetben aktiválandó kamera (vagy GameObject) neve.
+    private static string pendingCameraName;
+    
     /// Jelzi, hogy az eseményfigyelés be lett-e már állítva.
     private static bool isInitialized;
 
     /// Eltárolja a következő jelenetbetöltéshez szükséges spawn adatokat.
-    public static void SetNextSpawn(string spawnId, string playerTag)
+    public static void SetNextSpawn(string spawnId, string playerTag, string cameraName = null)
     {
         pendingSpawnId = spawnId;
+        pendingCameraName = cameraName;
 
         if (!string.IsNullOrWhiteSpace(playerTag))
         {
@@ -31,6 +36,7 @@ public static class SceneSpawnSystem
         SceneManager.sceneLoaded -= OnSceneLoaded;
         pendingSpawnId = null;
         pendingPlayerTag = "Player";
+        pendingCameraName = null;
     /// Feliratkozik a jelenet betöltése eseményre közvetlenül a játék kezdete előtt.
         isInitialized = false;
     }
@@ -52,7 +58,22 @@ public static class SceneSpawnSystem
     // Megoldás: Megkeresi ID alapján a spawnpointot és Tag alapján a playert, majd odarakja és resetteli, hogy melyik spawnpointot keresi
     private static void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-    
+        if (!string.IsNullOrWhiteSpace(pendingCameraName))
+        {
+            Transform[] transforms = Object.FindObjectsByType<Transform>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+            foreach (Transform t in transforms)
+            {
+                if (t.name == pendingCameraName)
+                {
+                    t.gameObject.SetActive(true);
+                    
+                    var cineCam = t.GetComponent<Unity.Cinemachine.CinemachineCamera>();
+                        cineCam.Priority = 100;
+                }
+            }
+            pendingCameraName = null;
+        }
+
         if (string.IsNullOrWhiteSpace(pendingSpawnId))
         {
             return;

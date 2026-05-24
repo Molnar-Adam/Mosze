@@ -106,64 +106,26 @@ public class EventManager : MonoBehaviour
             EventConfig = new GameEventsConfig();
         }
 
-        if (!EventConfig.dialogues.Any(d => d.dialogueID == "MAP1_1"))
-        {
-            EventConfig.dialogues.Add(new DialogueData { dialogueID = "MAP1_1", lines = new string[] { "Mi történt? . . . Hova kerültem?", "Csak egy billentyű után nyúltam . . . aztán hirtelen a mélység magával rántott.", "Hol a kivezető út? Egyszerűen köddé vált . . .", "Valami nincs rendben ezzel a hellyel. Bajlós előérzetem van.", "Minél előbb ki kell jussak innen. De csak mélyebbre tudok menni." } });
-        }
+        EnsureDialogue("MAP1_1", new string[] { "Mi történt? . . . Hova kerültem?", "Csak egy billentyű után nyúltam . . . aztán hirtelen a mélység magával rántott.", "Hol a kivezető út? Egyszerűen köddé vált . . .", "Valami nincs rendben ezzel a hellyel. Bajlós előérzetem van.", "Minél előbb ki kell jussak innen. De csak mélyebbre tudok menni." });
 
-        if (!EventConfig.dialogues.Any(d => d.dialogueID == "MAP2_1"))
-        {
-            EventConfig.dialogues.Add(new DialogueData { dialogueID = "MAP2_1", lines = new string[] { "Egy új szintre érkeztem. A falak hidegek és nyirkosak.", "Olyan érzésem van minél tovább jutok annál több veszély fenyeget.", "Nem árt ha felkészülök a legrosszabbra.", "A repedezett részek nem tűnnek túl stabilnak, jobb ha nem állok azokon túl sokáig." } });
-        }
+        EnsureDialogue("MAP2_1", new string[] { "Egy új szintre érkeztem. A falak hidegek és nyirkosak.", "Olyan érzésem van minél tovább jutok annál több veszély fenyeget.", "Nem árt ha felkészülök a legrosszabbra.", "A repedezett részek nem tűnnek túl stabilnak, jobb ha nem állok azokon túl sokáig." });
 
-        // Megnézzük, létezik-e már a MAP3_1. Ha nem, hozzáadjuk.
-        if (!EventConfig.dialogues.Any(d => d.dialogueID == "MAP3_1"))
-        {
-            EventConfig.dialogues.Add(new DialogueData { dialogueID = "MAP3_1", lines = new string[] { "Mi ez a forróság?", "Ez már nem pince.", "Mint egy rég elfeledett hely a ház alatt.", "♪ ♪♪ ♪♪ ♪♪ ♪ ♪♪ ♪♪ ♪♪ ♪", "Egy zongora ... Biztos vagyok benne.", "De a hangja beteg.", "Már közel járok a végéhez ... Érzem." } });
-        }
+        EnsureDialogue("MAP3_1", new string[] { "Mi ez a forróság?", "Ez már nem pince.", "Mint egy rég elfeledett hely a ház alatt.", "♪ ♪♪ ♪♪ ♪♪ ♪ ♪♪ ♪♪ ♪♪ ♪", "Egy zongora ... Biztos vagyok benne.", "De a hangja beteg.", "Már közel járok a végéhez ... Érzem." });
 
-        if (!EventConfig.dialogues.Any(d => d.dialogueID == "GRAPPLER"))
-        {
-            EventConfig.dialogues.Add(new DialogueData { dialogueID = "GRAPPLER", lines = new string[] { "Egy kötél . . .", "Talán ezzel át tudok lendülni a tátongó mélységeken, melyek utamat állják.", "De vigyáznom kell! Könnyen alázuhanhatok a mélység veszedelmeibe." } });
-        }
+        EnsureDialogue("GRAPPLER", new string[] { "Egy kötél . . .", "Talán ezzel át tudok lendülni a tátongó mélységeken, melyek utamat állják.", "De vigyáznom kell! Könnyen alázuhanhatok a mélység veszedelmeibe." });
 
-        if (!EventConfig.dialogues.Any(d => d.dialogueID == "GRAPPLER_INST"))
-        {
-            EventConfig.dialogues.Add(new DialogueData { dialogueID = "GRAPPLER_INST", lines = new string[] { "Használathoz nyomja le az L betűt a hook közelében." } });
-        }
+        EnsureDialogue("GRAPPLER_INST", new string[] { "Használathoz nyomja le az L betűt a hook közelében." });
 
-        if (!EventConfig.dialogues.Any(d => d.dialogueID == "KEY_1"))
-        {
-            EventConfig.dialogues.Add(new DialogueData { dialogueID = "KEY_1", lines = new string[] { "Ez . . . egy zongorabillentyű? Ilyen mélyen a ház alatt?", "Mégis mihez kezdhetnék egyetlen billentyűvel ebben a káoszban?", "Lehet meg több is lesz. Tovább kell haladnom." } });
-        }
+        EnsureDialogue("KEY_1", new string[] { "Ez . . . egy zongorabillentyű? Ilyen mélyen a ház alatt?", "Mégis mihez kezdhetnék egyetlen billentyűvel ebben a káoszban?", "Lehet meg több is lesz. Tovább kell haladnom." });
 
-        if (!EventConfig.dialogues.Any(d => d.dialogueID == "KEY_2"))
-        {
-            EventConfig.dialogues.Add(new DialogueData { dialogueID = "KEY_2", lines = new string[] { "Már a második. Ez nem lehet véletlen. Mintha szándékosan lennének itt elszórva.", "♫ ♫ ♪♪ ♪♪ ♫", "Valaki zenél itt lent? . . . Talán csak a huzat fütyül a folyosókon.", "Jobb ha folytatom az utam." } });
-        }
+        EnsureDialogue("KEY_2", new string[] { "Már a második. Ez nem lehet véletlen. Mintha szándékosan lennének itt elszórva.", "♫ ♫ ♪♪ ♪♪ ♫", "Valaki zenél itt lent? . . . Talán csak a huzat fütyül a folyosókon.", "Jobb ha folytatom az utam." });
 
-        if (!EventConfig.dialogues.Any(d => d.dialogueID == "KEY_3"))
-        {
-            EventConfig.dialogues.Add(new DialogueData { dialogueID = "KEY_3", lines = new string[] { "Az utolsó darab. Már közel járok a kiúthoz.", "Ideje pontot tenni ennek a rémálomnak a végére.", "Meg kell találnom a zongorát." } });
-        }
+        EnsureDialogue("KEY_3", new string[] { "Az utolsó darab. Már közel járok a kiúthoz.", "Ideje pontot tenni ennek a rémálomnak a végére.", "Meg kell találnom a zongorát." });
 
-        if (!EventConfig.dialogues.Any(d => d.dialogueID == "PIANO_MISSING_KEYS"))
-        {
-            EventConfig.dialogues.Add(new DialogueData { dialogueID = "PIANO_MISSING_KEYS", lines = new string[] { "Valamelyik billentyű hiányzik.", "Muszáj mindet megtaláljam különben itt ragadok." } });
-        }
+        EnsureDialogue("PIANO_MISSING_KEYS", new string[] { "Valamelyik billentyű hiányzik.", "Muszáj mindet megtaláljam különben itt ragadok." });
 
-        if (!EventConfig.dialogues.Any(d => d.dialogueID == "PIANO_HAS_KEYS"))
-        {
-            EventConfig.dialogues.Add(new DialogueData { dialogueID = "PIANO_HAS_KEYS", lines = new string[] { "Megvannak a billentyűk.", "Ideje eljátszani a dallamot." } });
-        }
+        EnsureDialogue("PIANO_HAS_KEYS", new string[] { "Megvannak a billentyűk.", "Ideje eljátszani a dallamot." });
 
-        EnsureLeverPuzzleExists("LeverPuzzle_Scene1", 5, new List<LeverData> {
-            new LeverData { leverIndex = 1, affectedLevers = new int[] { 1, 2 } },
-            new LeverData { leverIndex = 2, affectedLevers = new int[] { 1, 2, 3 } },
-            new LeverData { leverIndex = 3, affectedLevers = new int[] { 2, 3, 4 } },
-            new LeverData { leverIndex = 4, affectedLevers = new int[] { 3, 4, 5 } },
-            new LeverData { leverIndex = 5, affectedLevers = new int[] { 4, 5 } }
-        });
 
         EnsureLeverPuzzleExists("LeverPuzzle_Scene2", 5, new List<LeverData> {
             new LeverData { leverIndex = 1, affectedLevers = new int[] { 1, 3 } },
@@ -181,21 +143,46 @@ public class EventManager : MonoBehaviour
             new LeverData { leverIndex = 5, affectedLevers = new int[] { 2, 4, 5 } }
         });
 
+        EnsurePuzzleExists("PianoPuzzle", new int[] { 0, 10, 4, 2, 9});
+
         SaveEvents();
 
         CollectedItemsState.InitializeFromConfig(EventConfig.requiredItemIds);
     }
 
-    /// Ellenőrzi, hogy létezik-e egy karos puzzle az adott ID-vel. Ha nem, beleteszi a default adatokat.
+    /// Ellenőrzi, hogy létezik-e egy puzzle  az adott ID-vel. Ha nem, beleteszi a default adatokat. Ha igen, felülírja.
+    private void EnsurePuzzleExists(string id, int[] pattern)
+    {
+        var puzzle = EventConfig.puzzles.FirstOrDefault(p => p.puzzleID == id);
+        if (puzzle == null)
+        {
+            EventConfig.puzzles.Add(new PuzzleData {
+                puzzleID = id,
+                requiredPatternIndices = pattern
+            });
+        }
+        else
+        {
+            puzzle.requiredPatternIndices = pattern;
+        }
+    }
+
+    /// Ellenőrzi, hogy létezik-e egy karos puzzle az adott ID-vel. Ha nem, beleteszi a default adatokat. Ha igen, felülírja.
     private void EnsureLeverPuzzleExists(string id, int count, List<LeverData> defaultLevers)
     {
-        if (EventConfig.leverPuzzles.FirstOrDefault(p => p.puzzleID == id) == null)
+        var puzzle = EventConfig.leverPuzzles.FirstOrDefault(p => p.puzzleID == id);
+        if (puzzle == null)
         {
             EventConfig.leverPuzzles.Add(new LeverPuzzleGroupData {
                 puzzleID = id,
                 requiredLeverCount = count,
                 levers = defaultLevers
             });
+        }
+        else
+        {
+            puzzle.requiredLeverCount = count;
+            puzzle.levers = defaultLevers;
         }
     }
 
@@ -233,5 +220,19 @@ public class EventManager : MonoBehaviour
     {
         var puzzleGroup = EventConfig.leverPuzzles.FirstOrDefault(l => l.puzzleID == puzzleID);
         return puzzleGroup != null ? puzzleGroup.requiredLeverCount : 5;
+    }
+
+    /// Létrehozza, vagy frissíti a dialógust, hogy a szkriptben lévő legyen az érvényes.
+    private void EnsureDialogue(string id, string[] lines)
+    {
+        var diag = EventConfig.dialogues.FirstOrDefault(d => d.dialogueID == id);
+        if (diag == null)
+        {
+            EventConfig.dialogues.Add(new DialogueData { dialogueID = id, lines = lines });
+        }
+        else
+        {
+            diag.lines = lines;
+        }
     }
 }

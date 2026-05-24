@@ -11,10 +11,11 @@ public class LightManager : MonoBehaviour
     public Light2D playerLight;
 
     /// Induláskor beállítja a fényeket a GameState.powerOn értékétől függően.
-    void Start()
+    private void Start()
     {
         if (GameState.powerOn)
         {
+
             globalLight.enabled = true;
             playerLight.enabled = false;
         }
