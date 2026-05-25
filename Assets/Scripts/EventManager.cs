@@ -108,7 +108,11 @@ public class EventManager : MonoBehaviour
 
         EnsureDialogue("MAP1_1", new string[] { "Mi történt? . . . Hova kerültem?", "Csak egy billentyű után nyúltam . . . aztán hirtelen a mélység magával rántott.", "Hol a kivezető út? Egyszerűen köddé vált . . .", "Valami nincs rendben ezzel a hellyel. Bajlós előérzetem van.", "Minél előbb ki kell jussak innen. De csak mélyebbre tudok menni." });
 
+        EnsureDialogue("MAP1_2", new string[] { "Ez nem egy sima fal. Ez egy ajtó.", "Zárva van.", "Lehet később tudom majd csak kinyitni. Vissza kell jöjjek még ide." });
+
         EnsureDialogue("MAP2_1", new string[] { "Egy új szintre érkeztem. A falak hidegek és nyirkosak.", "Olyan érzésem van minél tovább jutok annál több veszély fenyeget.", "Nem árt ha felkészülök a legrosszabbra.", "A repedezett részek nem tűnnek túl stabilnak, jobb ha nem állok azokon túl sokáig." });
+
+        EnsureDialogue("MAP2_2", new string[] { "Vajon mit csinálhatott ez a kar?", "Vissza kéne menjek, hátha kinyílt a zárt ajtó, amit korábban láttam." });
 
         EnsureDialogue("MAP3_1", new string[] { "Mi ez a forróság?", "Ez már nem pince.", "Mint egy rég elfeledett hely a ház alatt.", "♪ ♪♪ ♪♪ ♪♪ ♪ ♪♪ ♪♪ ♪♪ ♪", "Egy zongora ... Biztos vagyok benne.", "De a hangja beteg.", "Már közel járok a végéhez ... Érzem." });
 
