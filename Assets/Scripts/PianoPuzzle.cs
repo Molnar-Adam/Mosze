@@ -18,6 +18,10 @@ public class PianoPuzzle : MonoBehaviour
     /// Hivatkozás a PianoInteract szkriptre az interakciók zárolása miatt.
     [SerializeField] private PianoInteract pianoInteract;
 
+    [Header("Audio")]
+    [SerializeField] private AudioClip[] keySounds;
+    private AudioSource audioSource;
+
     private int currentIndex;
     private bool solved;
     private bool targetHiddenByPuzzle;
@@ -57,12 +61,36 @@ public class PianoPuzzle : MonoBehaviour
             pianoInteract = GetComponent<PianoInteract>();
         }
 
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+
         RegisterButtonListeners();
+    }
+
+    private void OnEnable()
+    {
+        // Újra engedélyezi a rejtvényt minden alkalommal, amikor megnyitják,
+        // így a játékosnak mindig be kell írnia a helyes kombinációt.
     }
 
     /// Kezeli egy gomb lenyomását a zongorán, és ellenőrzi a minta helyességét.
     public void PressKey(Button pressedButton)
     {
+        if (pressedButton != null && pianoButtons != null)
+        {
+            int buttonIndex = System.Array.IndexOf(pianoButtons, pressedButton);
+            if (buttonIndex >= 0 && keySounds != null && buttonIndex < keySounds.Length && keySounds[buttonIndex] != null)
+            {
+                if (audioSource != null)
+                {
+                    audioSource.PlayOneShot(keySounds[buttonIndex]);
+                }
+            }
+        }
+
         if (solved)
         {
             return;
@@ -121,6 +149,8 @@ public class PianoPuzzle : MonoBehaviour
     private void Solve()
     {
         solved = true;
+        PlayerPrefs.SetInt(puzzleID + "_Solved", 1);
+        PlayerPrefs.Save();
 
         if (pianoInteract != null)
         {

@@ -106,7 +106,9 @@ public class EventManager : MonoBehaviour
             EventConfig = new GameEventsConfig();
         }
 
-        EnsureDialogue("Intro", new string[] { "Mi történt? . . . Hova kerültem?", "Csak egy billentyű után nyúltam . . . aztán hirtelen a mélység magával rántott.", "Hol a kivezető út? Egyszerűen köddé vált . . .", "Valami nincs rendben ezzel a hellyel. Bajlós előérzetem van.", "Minél előbb ki kell jussak innen. De csak mélyebbre tudok menni." });
+        EnsureDialogue("Intro", new string[] { "Végre itt vagyok. Nem hittem volna, hogy valaki ilyen helyen akar zongorát javíttatni.", "Meglepő, hogy ilyen értékes dolgot csak úgy itt hagytak.", "Ideje munkához lássak. Nem akarnék sötétedésig itt maradni egyedül.", "Mik azok ott a földön?", "Valószínűleg a zongora tartozékai lehetnek."});
+
+        EnsureDialogue("END_GAME", new string[] { "Végre kijutottam...", "Ez a rémálom véget ért.", "Soha többé nem megyek a közelébe sem annak a zongorának." });
 
         EnsureDialogue("MAP1_1", new string[] { "Mi történt? . . . Hova kerültem?", "Csak egy billentyű után nyúltam . . . aztán hirtelen a mélység magával rántott.", "Hol a kivezető út? Egyszerűen köddé vált . . .", "Valami nincs rendben ezzel a hellyel. Bajlós előérzetem van.", "Minél előbb ki kell jussak innen. De csak mélyebbre tudok menni." });
 
@@ -149,7 +151,7 @@ public class EventManager : MonoBehaviour
             new LeverData { leverIndex = 5, affectedLevers = new int[] { 2, 4, 5 } }
         });
 
-        EnsurePuzzleExists("PianoPuzzle", new int[] { 0, 10, 4, 2, 9});
+        EnsurePuzzleExists("PianoPuzzle", new int[] { 0, 1, 2, 3, 4});
 
         SaveEvents();
 

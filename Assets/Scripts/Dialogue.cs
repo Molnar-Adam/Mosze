@@ -74,6 +74,12 @@ public class Dialogue : MonoBehaviour
 
     private void Start()
     {
+        if (dialogueID == "Intro" && PlayerPrefs.GetInt("PianoPuzzle_Solved", 0) == 1)
+        {
+            gameObject.SetActive(false);
+            return;
+        }
+
         if (EventManager.Instance != null && !string.IsNullOrEmpty(dialogueID))
         {
             string[] loadedLines = EventManager.Instance.GetDialogueLines(dialogueID);
