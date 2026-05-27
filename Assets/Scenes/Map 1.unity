@@ -1138,7 +1138,7 @@ MonoBehaviour:
   requireInteractKey: 1
   manualTriggerOnly: 0
   interactKey: 101
-  interactUI: {fileID: 572482626}
+  interactUI: {fileID: 0}
   lines: []
   textSpeed: 0.05
 --- !u!4 &218898486 stripped
@@ -2907,7 +2907,7 @@ MonoBehaviour:
   requireInteractKey: 1
   manualTriggerOnly: 0
   interactKey: 101
-  interactUI: {fileID: 572482626}
+  interactUI: {fileID: 0}
   lines: []
   textSpeed: 0.05
 --- !u!4 &517745331 stripped
@@ -3183,11 +3183,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2349361775052849992, guid: 329eacee9cbe0fc48a61eafcf8190d1a, type: 3}
   m_PrefabInstance: {fileID: 561870484}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &572482626 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7694106805843211397, guid: c51653e9c93d88f43a0b50fffe96522c, type: 3}
-  m_PrefabInstance: {fileID: 686127417}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &573910428
 PrefabInstance:
@@ -3923,7 +3918,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7694106805843211397, guid: c51653e9c93d88f43a0b50fffe96522c, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 6756054308701079033, guid: c51653e9c93d88f43a0b50fffe96522c, type: 3}
       insertIndex: -1
@@ -9303,57 +9299,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
---- !u!1 &1718810666
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1718810668}
-  - component: {fileID: 1718810667}
-  m_Layer: 0
-  m_Name: InteractTextPlaceholder
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1718810667
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1718810666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: def8b4f663b0a4443a336f5ba1dc59b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: NewAssembly::LeverPuzzleSwitch
-  puzzleID: asd
-  leverIndex: 1
-  spriteRenderer: {fileID: 0}
-  upSprite: {fileID: 0}
-  downSprite: {fileID: 0}
-  interactText: {fileID: 1997071340}
-  doorToOpen: {fileID: 0}
---- !u!4 &1718810668
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1718810666}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 79.11512, y: -13.27276, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1730496983
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21071,7 +21016,7 @@ MonoBehaviour:
   requireInteractKey: 1
   manualTriggerOnly: 0
   interactKey: 101
-  interactUI: {fileID: 572482626}
+  interactUI: {fileID: 0}
   lines: []
   textSpeed: 0.05
 --- !u!4 &1799403261 stripped
@@ -77673,17 +77618,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2349361775052849992, guid: 329eacee9cbe0fc48a61eafcf8190d1a, type: 3}
   m_PrefabInstance: {fileID: 1978065541}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1997071340 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9124392528842277682, guid: c51653e9c93d88f43a0b50fffe96522c, type: 3}
-  m_PrefabInstance: {fileID: 686127417}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 572482626}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1001 &2001434759
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -78229,7 +78163,7 @@ PrefabInstance:
     - target: {fileID: 8550154735632258037, guid: 9cef0b05bfb5e0b429b07002b590e5f5, type: 3}
       propertyPath: playerHealth
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1414235969}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -78318,7 +78252,6 @@ SceneRoots:
   - {fileID: 1007093490}
   - {fileID: 1000434872}
   - {fileID: 310500310}
-  - {fileID: 1718810668}
   - {fileID: 1909240499}
   - {fileID: 2107844579}
   - {fileID: 1596415760}

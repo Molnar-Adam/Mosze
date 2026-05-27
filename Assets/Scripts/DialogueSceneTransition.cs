@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -18,6 +19,9 @@ public class DialogueSceneTransition : MonoBehaviour
 
     // id hogy a destroyolandó object a scene újboli betöltése után is destroyed maradjon
     [SerializeField] private string destroyStateIdentifier;
+
+    [SerializeField] private GameObject objectToEnable;
+
 
 
     // Scene betöltésekor megnézi, hogy destroyednak kell-e lennie az objectnek és ha igen destroyolja
@@ -62,6 +66,9 @@ public class DialogueSceneTransition : MonoBehaviour
         {
             GameState.destroyedObjects.Add(destroyStateIdentifier);
         }
+
+
+        objectToEnable.SetActive(true);
 
         Destroy(gameObject);
 

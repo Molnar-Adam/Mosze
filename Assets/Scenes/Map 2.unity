@@ -3850,7 +3850,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8062033446156114183, guid: 8cdd640c2f740334cb4245500ade3554, type: 3}
       propertyPath: itemId
-      value: Heal4
+      value: Heal204
       objectReference: {fileID: 0}
     - target: {fileID: 8062033446156114183, guid: 8cdd640c2f740334cb4245500ade3554, type: 3}
       propertyPath: PickupText
@@ -6118,7 +6118,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8062033446156114183, guid: 8cdd640c2f740334cb4245500ade3554, type: 3}
       propertyPath: itemId
-      value: Heal2
+      value: Heal206
       objectReference: {fileID: 0}
     - target: {fileID: 8062033446156114183, guid: 8cdd640c2f740334cb4245500ade3554, type: 3}
       propertyPath: PickupText
@@ -83611,6 +83611,72 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 4.3215847}
   m_EdgeRadius: 0
+--- !u!1001 &687938866
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1549109107}
+    m_Modifications:
+    - target: {fileID: 659570986614977028, guid: 8cdd640c2f740334cb4245500ade3554, type: 3}
+      propertyPath: m_Name
+      value: Heal
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361904831770534103, guid: 8cdd640c2f740334cb4245500ade3554, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -11.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361904831770534103, guid: 8cdd640c2f740334cb4245500ade3554, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361904831770534103, guid: 8cdd640c2f740334cb4245500ade3554, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361904831770534103, guid: 8cdd640c2f740334cb4245500ade3554, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361904831770534103, guid: 8cdd640c2f740334cb4245500ade3554, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361904831770534103, guid: 8cdd640c2f740334cb4245500ade3554, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361904831770534103, guid: 8cdd640c2f740334cb4245500ade3554, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361904831770534103, guid: 8cdd640c2f740334cb4245500ade3554, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361904831770534103, guid: 8cdd640c2f740334cb4245500ade3554, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361904831770534103, guid: 8cdd640c2f740334cb4245500ade3554, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8062033446156114183, guid: 8cdd640c2f740334cb4245500ade3554, type: 3}
+      propertyPath: itemId
+      value: Heal202
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8cdd640c2f740334cb4245500ade3554, type: 3}
+--- !u!4 &687938867 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1361904831770534103, guid: 8cdd640c2f740334cb4245500ade3554, type: 3}
+  m_PrefabInstance: {fileID: 687938866}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &697049252
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -84962,6 +85028,10 @@ PrefabInstance:
     - target: {fileID: 1361904831770534103, guid: 8cdd640c2f740334cb4245500ade3554, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8062033446156114183, guid: 8cdd640c2f740334cb4245500ade3554, type: 3}
+      propertyPath: itemId
+      value: Heal205
       objectReference: {fileID: 0}
     - target: {fileID: 8062033446156114183, guid: 8cdd640c2f740334cb4245500ade3554, type: 3}
       propertyPath: PickupText
@@ -87343,7 +87413,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8062033446156114183, guid: 8cdd640c2f740334cb4245500ade3554, type: 3}
       propertyPath: itemId
-      value: Heal1
+      value: Heal201
       objectReference: {fileID: 0}
     - target: {fileID: 8062033446156114183, guid: 8cdd640c2f740334cb4245500ade3554, type: 3}
       propertyPath: PickupText
@@ -91615,7 +91685,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8062033446156114183, guid: 8cdd640c2f740334cb4245500ade3554, type: 3}
       propertyPath: itemId
-      value: Heal7
+      value: Heal209
       objectReference: {fileID: 0}
     - target: {fileID: 8062033446156114183, guid: 8cdd640c2f740334cb4245500ade3554, type: 3}
       propertyPath: PickupText
@@ -91856,7 +91926,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8062033446156114183, guid: 8cdd640c2f740334cb4245500ade3554, type: 3}
       propertyPath: itemId
-      value: Heal3
+      value: Heal203
       objectReference: {fileID: 0}
     - target: {fileID: 8062033446156114183, guid: 8cdd640c2f740334cb4245500ade3554, type: 3}
       propertyPath: PickupText
@@ -93817,7 +93887,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8062033446156114183, guid: 8cdd640c2f740334cb4245500ade3554, type: 3}
       propertyPath: itemId
-      value: Heal5
+      value: Heal208
       objectReference: {fileID: 0}
     - target: {fileID: 8062033446156114183, guid: 8cdd640c2f740334cb4245500ade3554, type: 3}
       propertyPath: PickupText
@@ -95685,6 +95755,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 93722489633659420, guid: 210ff84f99276c841b2f5be6216ba50c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2079378279}
+    - targetCorrespondingSourceObject: {fileID: 93722489633659420, guid: 210ff84f99276c841b2f5be6216ba50c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 687938867}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 210ff84f99276c841b2f5be6216ba50c, type: 3}
 --- !u!4 &1549109107 stripped
@@ -118574,7 +118647,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8062033446156114183, guid: 8cdd640c2f740334cb4245500ade3554, type: 3}
       propertyPath: itemId
-      value: Heal6
+      value: Heal207
       objectReference: {fileID: 0}
     - target: {fileID: 8062033446156114183, guid: 8cdd640c2f740334cb4245500ade3554, type: 3}
       propertyPath: PickupText
