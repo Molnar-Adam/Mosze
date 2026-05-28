@@ -70,11 +70,6 @@ public class PianoPuzzle : MonoBehaviour
         RegisterButtonListeners();
     }
 
-    private void OnEnable()
-    {
-        // Újra engedélyezi a rejtvényt minden alkalommal, amikor megnyitják,
-        // így a játékosnak mindig be kell írnia a helyes kombinációt.
-    }
 
     /// Kezeli egy gomb lenyomását a zongorán, és ellenőrzi a minta helyességét.
     public void PressKey(Button pressedButton)
