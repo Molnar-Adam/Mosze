@@ -125,6 +125,15 @@ public class ItemPickup : MonoBehaviour
     {
         ResolveTimerReference();
 
+        if (playerTransform == null)
+        {
+            GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+            if (playerObj != null)
+            {
+                playerTransform = playerObj.transform;
+            }
+        }
+
         bool isHealItem = itemId.StartsWith("Heal");
 
         // Időzített szoba és teleport kezelése
