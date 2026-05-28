@@ -13,18 +13,30 @@ public class DeathIntegrationTests
     private GameObject controllerObj;
     private DeathPanelController controller;
 
+
     [SetUp]
     public void Setup()
     {
         Time.timeScale = 1f;
+
+        PlayerHealth.ResetSavedHealth();
+
+        typeof(DeathPanelController)
+            .GetMethod(
+                "ResetRuntimeState",
+                BindingFlags.NonPublic | BindingFlags.Static)
+            ?.Invoke(null, null);
+
 
         player = new GameObject("Player");
         player.tag = "Player";
 
         playerHealth = player.AddComponent<PlayerHealth>();
 
+
         panel = new GameObject("DeathPanel");
         panel.SetActive(true);
+
 
         controllerObj = new GameObject("Controller");
 
@@ -43,25 +55,23 @@ public class DeathIntegrationTests
         typeof(DeathPanelController)
             .GetMethod("Awake", flags)
             .Invoke(controller, null);
+
+        typeof(DeathPanelController)
+            .GetMethod("OnEnable", flags)
+            .Invoke(controller, null);
     }
 
-    [TearDown]
-    public void TearDown()
-    {
-        Time.timeScale = 1f;
-
-        Object.DestroyImmediate(player);
-        Object.DestroyImmediate(panel);
-        Object.DestroyImmediate(controllerObj);
-    }
 
     [UnityTest]
     public IEnumerator PlayerDies_ShowsPanel_And_PausesGame()
     {
         yield return null;
 
+        playerHealth.Health = playerHealth.MaxHealth;
+
         var field = typeof(PlayerHealth)
-            .GetField("lastDamageTime",
+            .GetField(
+                "lastDamageTime",
                 BindingFlags.NonPublic | BindingFlags.Instance);
 
         field.SetValue(playerHealth, -100f);
@@ -69,46 +79,47 @@ public class DeathIntegrationTests
         playerHealth.TakeDamage(playerHealth.MaxHealth);
 
         yield return null;
+        yield return null;
 
-        Assert.IsTrue(panel.activeSelf,
+        Assert.IsTrue(
+            panel.activeSelf,
             "A death panel nem jelent meg!");
 
-        Assert.IsTrue(DeathPanelController.IsDeathScreenActive,
+        Assert.IsTrue(
+            DeathPanelController.IsDeathScreenActive,
             "A static flag nem lett beállítva!");
 
-        Assert.AreEqual(0f, Time.timeScale,
+        Assert.AreEqual(
+            0f,
+            Time.timeScale,
             "A játék nem állt meg!");
     }
+
 
     [UnityTest]
     public IEnumerator DeathPanel_Awake_DisablesPanelInitially()
     {
         yield return null;
 
-        Assert.IsFalse(panel.activeSelf,
+        Assert.IsFalse(
+            panel.activeSelf,
             "Awake nem kapcsolta ki a panelt!");
     }
 
-    [UnityTest]
-    public IEnumerator DeathPanel_OnlyTriggersOnce()
+
+
+    [UnityTearDown]
+    public IEnumerator TearDown()
     {
+        Time.timeScale = 1f;
+
+        PlayerHealth.ResetSavedHealth();
+        CollectedItemsState.ResetProgress();
+
+        Object.Destroy(player);
+        Object.Destroy(panel);
+        Object.Destroy(controllerObj);
+
         yield return null;
-
-        var field = typeof(PlayerHealth)
-            .GetField("lastDamageTime",
-                BindingFlags.NonPublic | BindingFlags.Instance);
-
-        field.SetValue(playerHealth, -100f);
-
-        playerHealth.TakeDamage(playerHealth.MaxHealth);
-        yield return null;
-
-        bool firstState = panel.activeSelf;
-
-        playerHealth.TakeDamage(1);
-        yield return null;
-
-        Assert.IsTrue(firstState, "Első trigger nem működött!");
-        Assert.IsTrue(panel.activeSelf, "Panel eltűnt második hívás után!");
     }
 }

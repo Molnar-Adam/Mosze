@@ -38,6 +38,10 @@ public class DeathPanelControllerTests
         typeof(DeathPanelController)
             .GetField("playerHealth", flags)
             .SetValue(controller, playerHealth);
+
+        typeof(DeathPanelController)
+            .GetMethod("OnEnable", flags)
+            .Invoke(controller, null);
     }
 
     [TearDown]
