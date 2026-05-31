@@ -420,7 +420,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &318512797
 RectTransform:
   m_ObjectHideFlags: 0
@@ -666,10 +666,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Ide k\xE9ne valami lez\xE1r\xF3 sz\xF6veg"
+  m_text: "A zongora eln\xE9mult, az ajt\xF3 kit\xE1rult. A k\xFAria csapd\xE1i \xE9s
+    s\xF6t\xE9t folyos\xF3i pr\xF3b\xE1ra tettek, de v\xE9g\xFCl helyre tudtam \xE1ll\xEDtani
+    a rendet. Siker\xFClt kijutni, de ez a r\xE9m\xE1lom m\xE9g sok\xE1ig velem fog
+    maradni."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2530050b368cb2648bbd8af2dc13cd52, type: 2}
+  m_sharedMaterial: {fileID: 5986062374125840391, guid: 2530050b368cb2648bbd8af2dc13cd52, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -706,7 +709,7 @@ MonoBehaviour:
   m_characterSpacing: 0
   m_characterHorizontalScale: 1
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 20
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0

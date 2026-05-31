@@ -122334,6 +122334,26 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 395
       objectReference: {fileID: 0}
+    - target: {fileID: 8250138312122893404, guid: c51653e9c93d88f43a0b50fffe96522c, type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8250138312122893404, guid: c51653e9c93d88f43a0b50fffe96522c, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 2530050b368cb2648bbd8af2dc13cd52, type: 2}
+    - target: {fileID: 8250138312122893404, guid: c51653e9c93d88f43a0b50fffe96522c, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8250138312122893404, guid: c51653e9c93d88f43a0b50fffe96522c, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 5986062374125840391, guid: 2530050b368cb2648bbd8af2dc13cd52, type: 2}
+    - target: {fileID: 8250138312122893404, guid: c51653e9c93d88f43a0b50fffe96522c, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -122571,11 +122591,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3578670954128448149, guid: aecd3fda6041adb469b2edfe96e66cd8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.49
+      value: -30.1
       objectReference: {fileID: 0}
     - target: {fileID: 3578670954128448149, guid: aecd3fda6041adb469b2edfe96e66cd8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.33
+      value: 9.3
       objectReference: {fileID: 0}
     - target: {fileID: 3578670954128448149, guid: aecd3fda6041adb469b2edfe96e66cd8, type: 3}
       propertyPath: m_LocalPosition.z
