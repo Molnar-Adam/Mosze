@@ -61,12 +61,15 @@ public class PlayerHealth : MonoBehaviour
      
     public void TakeDamage(int damage)
     {
-        if (Time.time - lastDamageTime < DAMAGE_COOLDOWN)
+        if (damage > 0)
         {
-            return;
+            if (Time.time - lastDamageTime < DAMAGE_COOLDOWN)
+            {
+                return;
+            }
+            
+            lastDamageTime = Time.time;
         }
-
-        lastDamageTime = Time.time;
        
        if(Health - damage > MaxHealth)
        {

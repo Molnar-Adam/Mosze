@@ -29,6 +29,8 @@ public class DialogueSceneTransition : MonoBehaviour
     {
         if (!string.IsNullOrEmpty(destroyStateIdentifier) && GameState.destroyedObjects.Contains(destroyStateIdentifier))
         {
+
+            objectToEnable.SetActive(true);
             Destroy(gameObject);
         }
     }
