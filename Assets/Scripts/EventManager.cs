@@ -132,7 +132,14 @@ public class EventManager : MonoBehaviour
 
         EnsureDialogue("PIANO_MISSING_KEYS", new string[] { "Valamelyik billentyű hiányzik.", "Muszáj mindet megtaláljam különben itt ragadok." });
 
-        EnsureDialogue("PIANO_HAS_KEYS", new string[] { "Megvannak a billentyűk.", "Ideje eljátszani a dallamot." });
+        EnsureDialogue("PIANO_HAS_KEYS", new string[] { "Megvannak a billentyűk.", "Ideje eljátszani a dallamot.", "(A billentyűk sorrendje: Először a fehérek balról jobbra, aztán a feketék ugyanezen a módon. (Összesen 12 db))" });
+
+        EnsureDialogue("MAP1_Riddle", new string[] { "Jegyezd meg mennyi denevért láttál ebben a szobában! Még fontos lesz később!", "Továbbá jobban teszed ha leírod mennyi szív van a következő szinten! Az lesz a második szám."});
+
+        EnsureDialogue("MAP2_Riddle", new string[] { "A következő hangod az a szám lesz, ahány fáklyát láttál ezen a pályán.", "A negyedik hangot, hogy megtaláld, számold meg a leeső platformokat a következő szobában!"});
+
+        EnsureDialogue("MAP3_Riddle", new string[] { "Az ötödik hanghoz a segítséget már láttad, a Jupiter az.", "A végső hang pedig az a szám, ahány zárt ajtót eddig kinyitottál." });
+
 
 
         EnsureLeverPuzzleExists("LeverPuzzle_Scene2", 5, new List<LeverData> {
@@ -151,7 +158,7 @@ public class EventManager : MonoBehaviour
             new LeverData { leverIndex = 5, affectedLevers = new int[] { 2, 4, 5 } }
         });
 
-        EnsurePuzzleExists("PianoPuzzle", new int[] { 0, 1, 2, 3, 4});
+        EnsurePuzzleExists("PianoPuzzle", new int[] { 2, 9, 0, 4, 4, 1});
 
         SaveEvents();
 
