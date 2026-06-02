@@ -1201,6 +1201,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 93722489633659420, guid: 210ff84f99276c841b2f5be6216ba50c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 264650658}
+    - targetCorrespondingSourceObject: {fileID: 93722489633659420, guid: 210ff84f99276c841b2f5be6216ba50c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2001237192}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 210ff84f99276c841b2f5be6216ba50c, type: 3}
 --- !u!114 &64803522 stripped
@@ -3273,7 +3276,6 @@ Transform:
   - {fileID: 1775298841}
   - {fileID: 268903945}
   - {fileID: 294958690}
-  - {fileID: 2001237192}
   - {fileID: 285396057}
   - {fileID: 480898609}
   - {fileID: 104374995}
@@ -24081,7 +24083,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4413157683127896010, guid: 604cc4455ba311b4ca28c88a34203ad0, type: 3}
       propertyPath: m_Name
-      value: Papir
+      value: Szoveg
+      objectReference: {fileID: 0}
+    - target: {fileID: 4668667723709023494, guid: 604cc4455ba311b4ca28c88a34203ad0, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.84375
+      objectReference: {fileID: 0}
+    - target: {fileID: 4668667723709023494, guid: 604cc4455ba311b4ca28c88a34203ad0, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.609375
       objectReference: {fileID: 0}
     - target: {fileID: 7541347365879100283, guid: 604cc4455ba311b4ca28c88a34203ad0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -24123,6 +24133,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9153531652737128759, guid: 604cc4455ba311b4ca28c88a34203ad0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -754226959, guid: fa3063659785b0e4eae9b94f052f75b5, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -26331,7 +26345,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 245157518}
+    m_TransformParent: {fileID: 64803523}
     m_Modifications:
     - target: {fileID: 4413157683127896010, guid: 604cc4455ba311b4ca28c88a34203ad0, type: 3}
       propertyPath: m_Name
@@ -26339,19 +26353,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7541347365879100283, guid: 604cc4455ba311b4ca28c88a34203ad0, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.3399994
+      value: 2.3399992
       objectReference: {fileID: 0}
     - target: {fileID: 7541347365879100283, guid: 604cc4455ba311b4ca28c88a34203ad0, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.4142852
+      value: 2.414285
       objectReference: {fileID: 0}
     - target: {fileID: 7541347365879100283, guid: 604cc4455ba311b4ca28c88a34203ad0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 113.02
+      value: -9
       objectReference: {fileID: 0}
     - target: {fileID: 7541347365879100283, guid: 604cc4455ba311b4ca28c88a34203ad0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 40.87
+      value: -9.3
       objectReference: {fileID: 0}
     - target: {fileID: 7541347365879100283, guid: 604cc4455ba311b4ca28c88a34203ad0, type: 3}
       propertyPath: m_LocalPosition.z

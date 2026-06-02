@@ -1532,7 +1532,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1206069328}
+    m_TransformParent: {fileID: 1454921500}
     m_Modifications:
     - target: {fileID: 4413157683127896010, guid: 604cc4455ba311b4ca28c88a34203ad0, type: 3}
       propertyPath: m_Name
@@ -1552,11 +1552,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7541347365879100283, guid: 604cc4455ba311b4ca28c88a34203ad0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.32
+      value: 4.669998
       objectReference: {fileID: 0}
     - target: {fileID: 7541347365879100283, guid: 604cc4455ba311b4ca28c88a34203ad0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.26
+      value: 2.0100005
       objectReference: {fileID: 0}
     - target: {fileID: 7541347365879100283, guid: 604cc4455ba311b4ca28c88a34203ad0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -90838,9 +90838,6 @@ PrefabInstance:
       addedObject: {fileID: 2131224052}
     - targetCorrespondingSourceObject: {fileID: 93722489633659420, guid: 210ff84f99276c841b2f5be6216ba50c, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 112233083}
-    - targetCorrespondingSourceObject: {fileID: 93722489633659420, guid: 210ff84f99276c841b2f5be6216ba50c, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 601175754}
     - targetCorrespondingSourceObject: {fileID: 93722489633659420, guid: 210ff84f99276c841b2f5be6216ba50c, type: 3}
       insertIndex: -1
@@ -116834,11 +116831,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4413157683127896010, guid: 604cc4455ba311b4ca28c88a34203ad0, type: 3}
       propertyPath: m_Name
-      value: Papir
+      value: Szoveg
       objectReference: {fileID: 0}
     - target: {fileID: 4668667723709023494, guid: 604cc4455ba311b4ca28c88a34203ad0, type: 3}
       propertyPath: m_Size.y
       value: 0.7356
+      objectReference: {fileID: 0}
+    - target: {fileID: 4668667723709023494, guid: 604cc4455ba311b4ca28c88a34203ad0, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 0.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 4668667723709023494, guid: 604cc4455ba311b4ca28c88a34203ad0, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 4668667723709023494, guid: 604cc4455ba311b4ca28c88a34203ad0, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.84375
+      objectReference: {fileID: 0}
+    - target: {fileID: 4668667723709023494, guid: 604cc4455ba311b4ca28c88a34203ad0, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.609375
       objectReference: {fileID: 0}
     - target: {fileID: 7541347365879100283, guid: 604cc4455ba311b4ca28c88a34203ad0, type: 3}
       propertyPath: m_LocalScale.x
@@ -116887,6 +116900,22 @@ PrefabInstance:
     - target: {fileID: 7541347365879100283, guid: 604cc4455ba311b4ca28c88a34203ad0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9153531652737128759, guid: 604cc4455ba311b4ca28c88a34203ad0, type: 3}
+      propertyPath: m_Size.x
+      value: 0.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 9153531652737128759, guid: 604cc4455ba311b4ca28c88a34203ad0, type: 3}
+      propertyPath: m_Size.y
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 9153531652737128759, guid: 604cc4455ba311b4ca28c88a34203ad0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -754226959, guid: fa3063659785b0e4eae9b94f052f75b5, type: 3}
+    - target: {fileID: 9153531652737128759, guid: 604cc4455ba311b4ca28c88a34203ad0, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -117708,6 +117737,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 93722489633659420, guid: 210ff84f99276c841b2f5be6216ba50c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 832334073}
+    - targetCorrespondingSourceObject: {fileID: 93722489633659420, guid: 210ff84f99276c841b2f5be6216ba50c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 112233083}
     - targetCorrespondingSourceObject: {fileID: 93722489633659420, guid: 210ff84f99276c841b2f5be6216ba50c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1875781279}
