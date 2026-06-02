@@ -134,7 +134,7 @@ public class EventManager : MonoBehaviour
 
         EnsureDialogue("PIANO_HAS_KEYS", new string[] { "Megvannak a billentyűk.", "Ideje eljátszani a dallamot.", "(A billentyűk sorrendje: Először a fehérek balról jobbra, aztán a feketék ugyanezen a módon. (Összesen 12 db))" });
 
-        EnsureDialogue("MAP1_Riddle", new string[] { "Jegyezd meg mennyi denevért láttál ebben a szobában! Még fontos lesz később!", "Továbbá jobban teszed ha leírod mennyi szív van a következő szinten! Az lesz a második szám."});
+        EnsureDialogue("MAP1_Riddle", new string[] { "Jegyezd meg mennyi denevért láttál ebben a szobában! Még fontos lesz később!", "A második pedig a szívek száma lesz a következő szinten!"});
 
         EnsureDialogue("MAP2_Riddle", new string[] { "A következő hangod az a szám lesz, ahány fáklyát láttál ezen a pályán.", "A negyedik hangot, hogy megtaláld, számold meg a leeső platformokat a következő szobában!"});
 
