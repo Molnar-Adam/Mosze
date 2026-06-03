@@ -138,7 +138,7 @@ public class EventManager : MonoBehaviour
 
         EnsureDialogue("MAP2_Riddle", new string[] { "A következő hangod az a szám lesz, ahány fáklyát láttál ezen a pályán.", "A negyedik hangot, hogy megtaláld, számold meg a leeső platformokat az utolsó szobában!"});
 
-        EnsureDialogue("MAP3_Riddle", new string[] { "Az ötödik hanghoz a segítséget már láttad, a Jupiter az.", "A végső hang pedig az a szám, ahány zárt ajtót eddig kinyitottál." });
+        EnsureDialogue("MAP3_Riddle", new string[] { "Az ötödik hanghoz a segítség egy égitest, amivel még találkozni fogsz. Hányadik is ő a sorban?", "A végső hang pedig az a szám, ahány zárt ajtót eddig kinyitottál." });
 
 
 
