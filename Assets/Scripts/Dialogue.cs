@@ -122,7 +122,7 @@ public class Dialogue : MonoBehaviour
         }
 
         // HA PEDIG MEGY A DIALÓGUS (dialogueStarted == true), akkor jön a léptetés:
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(interactKey))
         {
             if (textComponent.text == lines[index])
             {
@@ -229,7 +229,6 @@ public class Dialogue : MonoBehaviour
             dialogueBox.SetActive(true);
             index = 0;
 
-            // EZT A SORT ADDD HOZZÁ (vagy ellenőrizd):
             dialogueStarted = true;
 
             StartCoroutine(TypeLine());
