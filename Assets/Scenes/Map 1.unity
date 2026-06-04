@@ -4195,7 +4195,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6756054308701079033, guid: c51653e9c93d88f43a0b50fffe96522c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1220695296}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6468906948067063304, guid: c51653e9c93d88f43a0b50fffe96522c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 686127420}
   m_SourcePrefab: {fileID: 100100000, guid: c51653e9c93d88f43a0b50fffe96522c, type: 3}
 --- !u!114 &686127418 stripped
 MonoBehaviour:
@@ -4208,6 +4211,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!1 &686127419 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6468906948067063304, guid: c51653e9c93d88f43a0b50fffe96522c, type: 3}
+  m_PrefabInstance: {fileID: 686127417}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &686127420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 686127419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b548fb1e4632cee42b4b4ad322550be5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: NewAssembly::VolumeSettings
+  myMixer: {fileID: 24100000, guid: 3c26b75a6f83f6440883190c5cb5a18e, type: 2}
+  mySlider: {fileID: 5986252928962347776}
 --- !u!1001 &698973232
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9677,7 +9699,7 @@ AudioSource:
   m_GameObject: {fileID: 1734070661}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 3c26b75a6f83f6440883190c5cb5a18e, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: a1dc93a5ec06ea146a485fe4a71ef2bf, type: 3}
   m_PlayOnAwake: 1
@@ -79422,9 +79444,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 324605382}
     m_Modifications:
+    - target: {fileID: 891531710042923143, guid: 0e2685cd2320fae4b9eb0ce46dc389c4, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 891531710042923143, guid: 0e2685cd2320fae4b9eb0ce46dc389c4, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 891531710042923143, guid: 0e2685cd2320fae4b9eb0ce46dc389c4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 906566733000023616, guid: 0e2685cd2320fae4b9eb0ce46dc389c4, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1078137141281115117, guid: 0e2685cd2320fae4b9eb0ce46dc389c4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 1849006572239758621, guid: 0e2685cd2320fae4b9eb0ce46dc389c4, type: 3}
       propertyPath: m_Name
@@ -79432,11 +79470,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2118898648066361585, guid: 0e2685cd2320fae4b9eb0ce46dc389c4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -120.271484
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2118898648066361585, guid: 0e2685cd2320fae4b9eb0ce46dc389c4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 87.55188
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2118898648066361585, guid: 0e2685cd2320fae4b9eb0ce46dc389c4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -79470,11 +79508,62 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2319000795110212823, guid: 0e2685cd2320fae4b9eb0ce46dc389c4, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 686127420}
+    - target: {fileID: 2319000795110212823, guid: 0e2685cd2320fae4b9eb0ce46dc389c4, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: setVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 2713377596600353018, guid: 0e2685cd2320fae4b9eb0ce46dc389c4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3911242687811137235, guid: 0e2685cd2320fae4b9eb0ce46dc389c4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -175
+      objectReference: {fileID: 0}
+    - target: {fileID: 5099686166894261916, guid: 0e2685cd2320fae4b9eb0ce46dc389c4, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.09990999
+      objectReference: {fileID: 0}
+    - target: {fileID: 5099686166894261916, guid: 0e2685cd2320fae4b9eb0ce46dc389c4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5099686166894261916, guid: 0e2685cd2320fae4b9eb0ce46dc389c4, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.09990999
+      objectReference: {fileID: 0}
+    - target: {fileID: 5719128037443296655, guid: 0e2685cd2320fae4b9eb0ce46dc389c4, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.09990999
+      objectReference: {fileID: 0}
+    - target: {fileID: 5719128037443296655, guid: 0e2685cd2320fae4b9eb0ce46dc389c4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8420697510285218886, guid: 0e2685cd2320fae4b9eb0ce46dc389c4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -300
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e2685cd2320fae4b9eb0ce46dc389c4, type: 3}
+--- !u!114 &5986252928962347776 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2319000795110212823, guid: 0e2685cd2320fae4b9eb0ce46dc389c4, type: 3}
+  m_PrefabInstance: {fileID: 5986252928962347775}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
