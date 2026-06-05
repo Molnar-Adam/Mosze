@@ -24,14 +24,17 @@ public class DialogueSceneTransition : MonoBehaviour
 
 
 
-    // Scene betöltésekor megnézi, hogy destroyednak kell-e lennie az objectnek és ha igen destroyolja
-    private void Start()
+private void Start()
     {
-        if (!string.IsNullOrEmpty(destroyStateIdentifier) && GameState.destroyedObjects.Contains(destroyStateIdentifier))
+        
+        if (!string.IsNullOrEmpty(destroyStateIdentifier))
         {
+            bool AfterInteract = GameState.destroyedObjects.Contains(destroyStateIdentifier);
 
-            objectToEnable.SetActive(true);
-            Destroy(gameObject);
+            if (AfterInteract)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
@@ -59,7 +62,6 @@ public class DialogueSceneTransition : MonoBehaviour
         // Ellenőrzi, hogy be van-e állítva, melyik jelenetet kell betölteni
         if (string.IsNullOrEmpty(targetSceneName))
         {
-            Debug.LogWarning("A cél jelenet neve (targetSceneName) nincs beállítva a DialogueSceneTransition scriptben!");
             return;
         }
 
@@ -68,11 +70,6 @@ public class DialogueSceneTransition : MonoBehaviour
         {
             GameState.destroyedObjects.Add(destroyStateIdentifier);
         }
-
-
-        objectToEnable.SetActive(true);
-
-        Destroy(gameObject);
 
         SceneSpawnSystem.SetNextSpawn(targetSpawnId, playerTag, targetCameraName);
 
