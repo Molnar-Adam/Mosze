@@ -58,6 +58,7 @@ public class Dialogue : MonoBehaviour
     private bool dialogueStarted;
     private bool hasTriggered;
     private bool isPlayerInRange;
+    private int startFrame;
 
     private void Awake()
     {
@@ -122,7 +123,7 @@ public class Dialogue : MonoBehaviour
         }
 
         // HA PEDIG MEGY A DIALÓGUS (dialogueStarted == true), akkor jön a léptetés:
-        if (Input.GetKeyDown(interactKey))
+        if (Input.GetKeyDown(interactKey) && Time.frameCount > startFrame)
         {
             if (textComponent.text == lines[index])
             {
@@ -230,6 +231,7 @@ public class Dialogue : MonoBehaviour
             index = 0;
 
             dialogueStarted = true;
+            startFrame = Time.frameCount;
 
             StartCoroutine(TypeLine());
         }

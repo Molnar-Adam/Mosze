@@ -1219,7 +1219,7 @@ MonoBehaviour:
   requireInteractKey: 1
   manualTriggerOnly: 0
   interactKey: 101
-  interactUI: {fileID: 2181703011894766510}
+  interactUI: {fileID: 0}
   lines: []
   textSpeed: 0.05
 --- !u!1001 &105894450
@@ -118662,7 +118662,7 @@ PrefabInstance:
       objectReference: {fileID: 817100643}
     - target: {fileID: 4729574692008218979, guid: 8a660beabf6a26242bc40ef921f43104, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.84
+      value: 10.08
       objectReference: {fileID: 0}
     - target: {fileID: 4729574692008218979, guid: 8a660beabf6a26242bc40ef921f43104, type: 3}
       propertyPath: m_LocalPosition.y
@@ -122789,11 +122789,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3578670954128448149, guid: aecd3fda6041adb469b2edfe96e66cd8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -39.03
+      value: -30.4
       objectReference: {fileID: 0}
     - target: {fileID: 3578670954128448149, guid: aecd3fda6041adb469b2edfe96e66cd8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.6
+      value: 9.4
       objectReference: {fileID: 0}
     - target: {fileID: 3578670954128448149, guid: aecd3fda6041adb469b2edfe96e66cd8, type: 3}
       propertyPath: m_LocalPosition.z
