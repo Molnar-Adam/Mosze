@@ -106,6 +106,8 @@ public class EventManager : MonoBehaviour
             EventConfig = new GameEventsConfig();
         }
 
+        ///gameEvents.json fájl tartalma
+
         EnsureDialogue("Intro", new string[] { "Végre itt vagyok. Nem hittem volna, hogy valaki ilyen helyen akar zongorát javíttatni.", "Meglepő, hogy ilyen értékes dolgot csak úgy itt hagytak.", "Ideje munkához lássak. Nem akarnék sötétedésig itt maradni egyedül.", "Mik azok ott a földön?", "Valószínűleg a zongora tartozékai lehetnek."});
 
         EnsureDialogue("END_GAME", new string[] { "Végre kijutottam...", "Ez a rémálom véget ért.", "Soha többé nem megyek a közelébe sem annak a zongorának." });

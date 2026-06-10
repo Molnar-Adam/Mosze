@@ -29,7 +29,7 @@ public class PlayerHealth : MonoBehaviour
         hasSavedHealth = false;
         savedHealth = 0;
     }
-
+    /// Inicializálja a játékos életerejét.
     private void Awake()
     {
         if (hasSavedHealth)
@@ -44,7 +44,7 @@ public class PlayerHealth : MonoBehaviour
 
         OnHealthChanged?.Invoke();
     }
-
+    /// Törli a korábban elmentett életerő állapotot.
     public static void ResetSavedHealth()
     {
         hasSavedHealth = false;
@@ -58,7 +58,8 @@ public class PlayerHealth : MonoBehaviour
             SaveRuntimeHealth();
         }
     }
-     
+    /// Sebzést vagy gyógyítást alkalmaz a játékosra.
+    /// Pozitív érték esetén sebzést, negatív érték esetén gyógyítást jelent.
     public void TakeDamage(int damage)
     {
         if (damage > 0)

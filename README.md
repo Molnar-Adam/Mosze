@@ -17,7 +17,7 @@ A specifikációban tárgyalt pályák manuálisan kerültek felépítésre a Un
 - **1. Pálya:** `Assets/Scenes/Map 1.unity`
 - **2. Pálya:** `Assets/Scenes/Map 2.unity`
 - **3. Pálya:** `Assets/Scenes/Map 3.unity`
-- **Szövegeket és puzzle megoldásokat tároló fájl** `C:\Felhasználók\Saját felhasználó\AppData\LocalLow\Unityben beállított cégnév (alapból: DefaultCompany)\Projektmappa neve (alapból: Mosze)`
+- **Szövegeket és puzzle megoldásokat tároló fájl** `C:\Felhasználók\Saját felhasználó\AppData\LocalLow\Unityben beállított cégnév (alapból: DefaultCompany)\Projektmappa neve (alapból: Mosze)\gameEvents.json`
 
 A pályákat felépítő vizuális és interaktív elemek (prefabok, sprite-ok, stb.) az `Assets/Prefabs/` és `Assets/Sprites/` mappákban találhatóak.
 
