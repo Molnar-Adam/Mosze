@@ -2,14 +2,18 @@
 
 Ez a projekt egy 2D platformer, amely tartalmazza a modern platformer játékok elengedhetetlen funkcióit: precíz irányítást, csáklya-mechanikát, ellenséges AI-t, valamint egy robusztus szintváltó rendszert.
 
-Szkeleton:
-A futtatható verzió (.exe) elérhető a GitHub repository Release szekciójában a "Szkeleton" tag alatt.
+
+# Futtatás
+
+A játék buildelt változata a version 1.0 elnevezésű releasen keresztül indítható a Cellar break.exe fájl segítségével
+
 
 ## Pályák és Assetek elérése
 
 A specifikációban tárgyalt pályák manuálisan kerültek felépítésre a Unity Editorban. A játékban ezek a pályák elérhetőek és játszhatóak, a projekt fájlrendszerében pedig a következő útvonalakon találhatóak meg (Unity Scene fájlok formájában):
 
 - **Főmenü:** `Assets/Scenes/Menu.unity`
+- **Intro/Outro:** `Assets/Scenes/Intro.unity`
 - **1. Pálya:** `Assets/Scenes/Map 1.unity`
 - **2. Pálya:** `Assets/Scenes/Map 2.unity`
 - **3. Pálya:** `Assets/Scenes/Map 3.unity`
@@ -111,7 +115,7 @@ PianoInteract.cs & PianoPuzzle.cs: Sorrendiségre épülő feladványmechanika.
 
 7. Felhasználói Felület és Történetmesélés (UI)
 
-MainMenu.cs & PauseMenu.cs: A játék alapvető C# menüvezérlői (Játék indítása, Szüneteltetés, Kilépés).
+MainMenu.cs & PauseMenu.cs: A játék alapvető C# menüvezérlői (Játék indítása, Szüneteltetés, Kilépés, hangerő állítása).
 DeathPanelController.cs: Halál képernyő kezelése, menübe lépés vagy újraéledés funkcióival.
 Dialogue.cs: Történetmesélést és a specifikáció szöveges részeit biztosító UI szövegíró modul.
 
